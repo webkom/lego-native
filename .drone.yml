@@ -1,0 +1,29 @@
+---
+kind: pipeline
+name: default
+
+steps:
+  - name: setup
+    image: node:16-alpine
+    when:
+      event: pull_request
+    commands:
+      - yarn install
+
+  - name: prettier
+    image: node:16-alpine
+    when:
+      event: pull_request
+    depends_on:
+      - setup
+    commands:
+      - yarn lint:prettier
+
+  - name: lint
+    image: node:16-alpine
+    when:
+      event: pull_request
+    depends_on:
+      - setup
+    commands:
+      - yarn lint
