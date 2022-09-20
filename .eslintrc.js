@@ -1,4 +1,8 @@
 module.exports = {
+  globals: {
+    React: true,
+    JSX: true,
+  },
   env: {
     browser: true,
     node: true,
@@ -21,6 +25,8 @@ module.exports = {
   },
   plugins: ["react", "react-native", "@typescript-eslint", "prettier"],
   rules: {
+    "react/jsx-no-useless-fragment": [2, { allowExpressions: true }],
+    "no-alert": 0,
     "import/extensions": 0,
     "import/no-unresolved": 0,
     "react/jsx-filename-extension": [
