@@ -1,8 +1,16 @@
 import React from "react";
-import { Text } from "react-native";
+import { Center, NativeBaseProvider } from "native-base";
+
+import LoginForm from "../components/LoginForm";
 
 function Login() {
-  return <Text>Login screen</Text>;
+  return (
+    <NativeBaseProvider>
+      <Center flex={1} px="3">
+        <LoginForm />
+      </Center>
+    </NativeBaseProvider>
+  );
 }
 
 export default Login;

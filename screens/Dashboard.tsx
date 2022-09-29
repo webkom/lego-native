@@ -1,8 +1,15 @@
+import { NativeBaseProvider, Center } from "native-base";
 import React from "react";
-import { Text } from "react-native";
+import LoginForm from "../components/LoginForm";
 
 function Dashboard() {
-  return <Text>Dashboard screen</Text>;
+  return (
+    <NativeBaseProvider>
+      <Center flex={1} px="3">
+        <LoginForm />
+      </Center>
+    </NativeBaseProvider>
+  );
 }
 
 export default Dashboard;
