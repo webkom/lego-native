@@ -15,6 +15,10 @@ $ yarn start
 
 ```
 
+### Running locally
+
+To run the project locally on your phone, the **Expo Go** app is required. When the app is installed, simply scan the QR-code in the terminal and begin developing
+
 ### Code Style And Linting
 
 ```bash

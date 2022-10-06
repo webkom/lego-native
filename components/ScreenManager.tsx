@@ -6,6 +6,7 @@ import { SafeAreaView } from "react-native";
 import Login from "../screens/Login";
 import Dashboard from "../screens/Dashboard";
 import Settings from "../screens/Settings";
+import Events from "../screens/Events";
 
 const SCREENS = [
   {
@@ -25,6 +26,17 @@ const SCREENS = [
     getIcon: (focused: boolean, color: string, size: number) => (
       <Ionicons
         name={focused ? "settings" : "settings-outline"}
+        size={size}
+        color={color}
+      />
+    ),
+  },
+  {
+    name: "Events",
+    component: Events,
+    getIcon: (focused: boolean, color: string, size: number) => (
+      <Ionicons
+        name={focused ? "menu" : "menu-outline"}
         size={size}
         color={color}
       />
