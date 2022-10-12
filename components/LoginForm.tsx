@@ -69,7 +69,7 @@ function LoginForm() {
     <ScrollView w="100%" h="80">
       <Center w="100%">
         <Box safeArea p="2" py="8" w="90%" maxW="290">
-          <Image source={image} alt="Alternate Text" width={80} height={55} />
+          <Image source={image} alt="abakus-logo" width={80} height={55} />
           {WrongInformationGivenError}
           <Heading
             size="lg"
@@ -96,7 +96,9 @@ function LoginForm() {
               <Input type="password" />
             </FormControl>
             <Button mt="1" colorScheme="red" onPress={() => setShow(true)}>
-              <Text>Logg inn</Text>
+              <Text color="white" fontSize="xl">
+                Logg inn
+              </Text>
             </Button>
           </VStack>
         </Box>
