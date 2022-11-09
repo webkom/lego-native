@@ -1,6 +1,5 @@
 import React from "react";
 import { Center, NativeBaseProvider } from "native-base";
-
 import LoginForm from "../components/LoginForm";
 
 function Login() {

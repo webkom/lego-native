@@ -21,22 +21,23 @@ const SCREENS = [
     ),
   },
   {
-    name: "Settings",
-    component: Settings,
-    getIcon: (focused: boolean, color: string, size: number) => (
-      <Ionicons
-        name={focused ? "settings" : "settings-outline"}
-        size={size}
-        color={color}
-      />
-    ),
-  },
-  {
     name: "Events",
     component: Events,
     getIcon: (focused: boolean, color: string, size: number) => (
       <Ionicons
         name={focused ? "menu" : "menu-outline"}
+        size={size}
+        color={color}
+      />
+    ),
+  },
+
+  {
+    name: "Settings",
+    component: Settings,
+    getIcon: (focused: boolean, color: string, size: number) => (
+      <Ionicons
+        name={focused ? "settings" : "settings-outline"}
         size={size}
         color={color}
       />

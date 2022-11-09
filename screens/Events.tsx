@@ -1,8 +1,13 @@
 import React from "react";
-import { Text } from "react-native";
+import { NativeBaseProvider } from "native-base";
+import EventList from "../components/Admissions/EventList";
 
 function Events() {
-  return <Text>This page is for events</Text>;
+  return (
+    <NativeBaseProvider>
+      <EventList />
+    </NativeBaseProvider>
+  );
 }
 
 export default Events;
