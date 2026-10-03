@@ -7,10 +7,10 @@ import { penaltyHours } from '@/lib/penalties';
 import { format, isAfter } from 'date-fns';
 import { nb } from 'date-fns/locale';
 import { Link } from 'expo-router';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { CircleAlert, ClockAlert } from 'lucide-react-native';
 import { UnansweredSurveysCard } from '@/components/events/UnansweredSurveysCard';
 import { DetailedEvent } from '../types';
+import { Alert } from 'heroui-native';
 
 interface EventNoticesProps {
   event?: DetailedEvent;
@@ -112,19 +112,20 @@ export function EventNotices({
 
       {/* 3. Unregistration Deadline Notice */}
       {unregistrationDeadline && (
-        <Alert
-          icon={isPastUnregisterDeadline ? CircleAlert : ClockAlert}
-          variant={isPastUnregisterDeadline ? 'destructive' : 'default'}>
-          <AlertTitle>
-            {isPastUnregisterDeadline ? 'Avmeldingsfrist utløpt' : 'Avmeldingsfrist'}
-          </AlertTitle>
-          <AlertDescription>
-            {isPastUnregisterDeadline
-              ? `Fristen var ${format(unregistrationDeadline, "d. MMM 'kl.' HH:mm", {
-                  locale: nb,
-                })}. Avmelding gir prikk.`
-              : `${format(unregistrationDeadline, "EEEE d. MMMM 'kl.' HH:mm", { locale: nb })}`}
-          </AlertDescription>
+        <Alert status="danger" className="bg-danger-soft">
+          <Alert.Indicator />
+          <Alert.Content>
+            <Alert.Title>
+              {isPastUnregisterDeadline ? 'Avmeldingsfrist utløpt' : 'Avmeldingsfrist'}
+            </Alert.Title>
+            <Alert.Description className="text-danger">
+              {isPastUnregisterDeadline
+                ? `Fristen var ${format(unregistrationDeadline, "d. MMM 'kl.' HH:mm", {
+                    locale: nb,
+                  })}. Avmelding gir prikk.`
+                : `${format(unregistrationDeadline, "EEEE d. MMMM 'kl.' HH:mm", { locale: nb })}`}
+            </Alert.Description>
+          </Alert.Content>
         </Alert>
       )}
     </View>

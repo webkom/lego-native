@@ -31,7 +31,7 @@ const ProfilePage = () => {
     <View className="pt-safe-offset-5 relative h-screen w-screen">
       {/* <Header className="absolute z-50" /> */}
       <Image source={RedGradient} className="absolute left-0 top-0 z-20 h-96 w-full" />
-      <StatusBar style="dark" />
+      <StatusBar style="auto" />
       <SafeAreaView className="z-20 h-full w-full px-10 pt-20">
         <View className="mx-auto flex flex-col items-center gap-2.5">
           <Avatar alt="Profile Picture">

@@ -41,12 +41,12 @@ export function EventQuickFacts({
   return (
     <View className={className}>
       <SectionTitle title="Fire kjappe" icon="BadgeInfo" className="mb-3" />
-      <View className="flex-shrink-0 flex-row gap-2.5">
+      <View className="shrink-0 flex-row gap-2.5">
         {/* 1. Tidspunkt */}
         <EventDatetime startTime={startTime} endTime={endTime} />
         {/* 2. Sted */}
         <TouchableOpacity
-          className="flex-1"
+          className="flex-1 shrink-0"
           onPress={() => {
             if (event?.mazemapPoi) {
               openMazeMapLink(

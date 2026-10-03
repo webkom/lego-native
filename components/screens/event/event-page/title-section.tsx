@@ -4,6 +4,7 @@ import { Text } from '@/components/ui/text';
 import Icon from '@/components/icon';
 import { EventCategoryBadge } from './event-category-badge';
 import { DetailedEvent } from '../types';
+import { Typography } from 'heroui-native';
 
 type TitleSectionProps = {
   event?: DetailedEvent;
@@ -32,10 +33,13 @@ export function TitleSection({ event, className }: TitleSectionProps) {
       {/* Organizer Committee Subline */}
       {responsibleGroupName && (
         <View className="flex-row items-center gap-1.5">
-          <Icon name="Shield" size={14} className="text-muted-foreground" />
-          <Text className="text-muted-foreground text-xs font-medium">
-            I regi av <Text className="text-foreground font-semibold">{responsibleGroupName}</Text>
-          </Text>
+          <Icon name="Shield" size={14} className="text-primary-foreground" />
+          <Typography type="body-xs">
+            I regi av{' '}
+            <Typography type="body" className="font-semibold">
+              {responsibleGroupName}
+            </Typography>
+          </Typography>
         </View>
       )}
     </View>

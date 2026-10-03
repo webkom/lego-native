@@ -1,7 +1,7 @@
 import Icon from '@/components/icon';
-import { Button } from '@/components/ui/button';
 import { Text } from '@/components/ui/text';
 import { cn } from '@/lib/cn';
+import { Button } from 'heroui-native';
 import { MotiView } from 'moti';
 import { useState } from 'react';
 import { ActivityIndicator, LayoutChangeEvent, View } from 'react-native';
@@ -58,8 +58,8 @@ export function AttendanceButton({
           <Button
             size="lg"
             className={cn('h-16 w-full text-nowrap rounded-full shadow-md', '')}
-            variant={isUserSignedUp ? 'destructive' : 'default'}
-            disabled={isLoading}
+            variant={isUserSignedUp ? 'danger' : 'primary'}
+            isDisabled={isLoading}
             onPress={handlePress}>
             {isLoading ? (
               <ActivityIndicator size="small" className="text-primary-foreground" />

@@ -1,10 +1,11 @@
 import { useEvent } from '@/lib/hooks/useEvent';
 import { useRouter } from 'expo-router';
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Alert } from 'react-native';
 import { useEventAttendance } from './useEventAttendance';
 import { useUnansweredEventSurveys } from './useEventSurveys';
 import { useRegistrationEligibility } from './useRegistrationEligibility';
+import { getWaitingListPosition } from '@/lib/getWaitingListPosition';
 
 /**
  * A wrapper hook that combines event details, attendance, and registration eligibility into a single hook
@@ -37,7 +38,13 @@ export const useEventDetails = (eventId: string) => {
     totalCapacity,
     attendees,
     totalCurrentPenalties,
+    userRegistration,
   } = useEventAttendance({ id: eventId });
+
+  const waitingListPositions = useMemo(
+    () => getWaitingListPosition(userRegistration, event),
+    [userRegistration, event]
+  );
 
   // Computed states
   const canSignUp = Boolean(
@@ -106,5 +113,6 @@ export const useEventDetails = (eventId: string) => {
     handleBack,
     handleSignUp,
     handleSignOff,
+    waitingListPositions,
   };
 };

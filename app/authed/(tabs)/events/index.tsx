@@ -15,7 +15,7 @@ const EventsPage = () => {
   if (events.isLoading) {
     return (
       <View className="h-full flex-row items-center justify-center space-x-3">
-        <StatusBar style="dark" />
+        <StatusBar style="auto" />
         <ActivityIndicator size="large" color="#dc2626" />
         <Text className="text-xl font-semibold text-red-600">Laster inn...</Text>
       </View>
@@ -25,7 +25,7 @@ const EventsPage = () => {
   if (events.isError || !events.data) {
     return (
       <View className="flex-1 items-center justify-center">
-        <StatusBar style="dark" />
+        <StatusBar style="auto" />
         <Text className="text-base text-red-600">Klarer ikke å laste inn arrangementer.</Text>
       </View>
     );

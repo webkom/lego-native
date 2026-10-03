@@ -37,7 +37,7 @@ const SignInPage = () => {
 
   return (
     <View className="relative flex h-full flex-col">
-      <StatusBar style="dark" />
+      <StatusBar style="auto" />
       <Image
         source={BlurBackground}
         className="absolute inset-0 h-full w-full"

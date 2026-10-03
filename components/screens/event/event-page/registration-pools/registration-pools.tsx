@@ -4,7 +4,7 @@ import { components } from '@/lib/types/schema';
 import { cn } from '@/lib/utils';
 import { format, isAfter } from 'date-fns';
 import { nb } from 'date-fns/locale';
-import { Card, Surface } from 'heroui-native';
+import { Card, Surface, Typography } from 'heroui-native';
 import { View } from 'react-native';
 import SectionTitle from '../section-title';
 import PoolCard from './pool-card';
@@ -60,12 +60,12 @@ export function RegistrationPools({
     <Surface>
       <View className={cn('flex flex-col gap-3', className)}>
         {/* Header Section */}
-        <View className="flex-row items-center justify-between px-1">
+        <View className="flex-row items-baseline justify-between px-1">
           <SectionTitle icon="Users" title="Påmeldingsgrupper" />
 
-          <Text className="text-muted-foreground text-xs font-medium">
+          <Typography type="body-xs" className="text-accent-foreground font-medium">
             {totalRegistered} / {totalCapacity > 0 ? `${totalCapacity}` : '∞'} plasser
-          </Text>
+          </Typography>
         </View>
 
         {/* Pool Cards */}

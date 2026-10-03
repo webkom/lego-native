@@ -52,6 +52,7 @@ export default function EventsPage() {
     totalCapacity,
     totalCurrentPenalties,
     unansweredSurveys,
+    waitingListPositions,
   } = useEventDetails(id?.toString() ?? '');
 
   // Derived states
@@ -148,7 +149,7 @@ export default function EventsPage() {
                     {waitingCount === 1
                       ? '1 person står i kø for ledig plass'
                       : `${waitingCount} personer står i kø for ledig plass`}
-                    {'. '} Du havner på venteliste hvis du melder deg på.
+                    {'. '} {!isUserSignedUp && 'Du havner på venteliste hvis du melder deg på.'}
                   </Card.Description>
                 </Card.Body>
               </Card>
@@ -191,7 +192,7 @@ export default function EventsPage() {
       <EventActionBar
         canSignUp={canSignUp ?? false}
         turnstileToken={turnstileToken}
-        isUserSignedUp={isUserSignedUp}
+        isUserSignedUp={isUserSignedUp ?? waitingListPositions !== undefined}
         eventId={event?.id.toString() ?? ''}
         scroll={scroll}
         isLoading={isAttendanceButtonLoading}

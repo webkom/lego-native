@@ -1,13 +1,12 @@
 import Icon from '@/components/icon';
-import { Card, CardContent } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
 import { cn } from '@/lib/utils';
-import React, { useMemo, useState } from 'react';
-import { TouchableOpacity, View } from 'react-native';
-import { RegistrationPool } from './registration-pools';
 import { format, isAfter } from 'date-fns';
 import { nb } from 'date-fns/locale';
-import { Surface } from 'heroui-native';
+import { Alert, Chip, Surface, Typography } from 'heroui-native';
+import { useMemo, useState } from 'react';
+import { TouchableOpacity, View } from 'react-native';
+import { RegistrationPool } from './registration-pools';
 
 type PoolCardProps = {
   pool: RegistrationPool;
@@ -32,7 +31,7 @@ const PoolCard = ({ pool }: PoolCardProps) => {
 
   return (
     <TouchableOpacity activeOpacity={0.7} onPress={() => setExpanded((prev) => !prev)}>
-      <Surface variant="transparent">
+      <Surface variant="transparent" className="px-0">
         {/* Always Visible Collapsed Header */}
         <View className="gap-2.5">
           <View className="flex-row items-center justify-between">
@@ -47,24 +46,24 @@ const PoolCard = ({ pool }: PoolCardProps) => {
             </View>
 
             <View className="flex-row items-center gap-2">
-              <Text className="text-foreground text-sm font-bold">
+              <Typography type="body-sm" className=" font-bold">
                 {registered} / {capacity > 0 ? capacity : '∞'}
-              </Text>
+              </Typography>
               <Icon
                 name={expanded ? 'ChevronUp' : 'ChevronDown'}
                 size={18}
-                className="text-muted-foreground"
+                className="text-default-soft-foreground"
               />
             </View>
           </View>
 
           {/* Progress Bar */}
           {capacity > 0 && (
-            <View className="bg-secondary h-2 w-full overflow-hidden rounded-full">
+            <View className="bg-surface-tertiary h-2 w-full overflow-hidden rounded-full">
               <View
                 className={cn(
                   'h-full rounded-full',
-                  isFull ? 'bg-destructive' : percentage >= 80 ? 'bg-amber-500' : 'bg-primary'
+                  isFull ? 'bg-destructive' : percentage >= 80 ? 'bg-warning' : 'bg-primary'
                 )}
                 style={{ width: `${percentage}%` }}
               />
@@ -74,45 +73,56 @@ const PoolCard = ({ pool }: PoolCardProps) => {
 
         {/* Expanded Details Section */}
         {expanded && (
-          <View className="border-border mt-1 gap-3 border-t pt-3">
+          <View className="mt-1 gap-3 pt-3">
+            {/* Future Activation Info */}
+            {!isFutureActivation && (
+              <Alert status="warning" className="shadow-transparent! shadow-none!">
+                <Alert.Indicator />
+                <Alert.Content>
+                  <Alert.Title>Påmelding er ikke åpen</Alert.Title>
+                  <Alert.Description>
+                    {activationDateObj ? (
+                      <>
+                        Påmelding åpner{' '}
+                        {format(activationDateObj, "EEEE d. MMMM 'kl.' HH:mm", { locale: nb })}.
+                      </>
+                    ) : (
+                      'Åpner på et senere tidspunkt.'
+                    )}
+                  </Alert.Description>
+                </Alert.Content>
+              </Alert>
+            )}
+
             {/* Group Access Badges (shown when expanded) */}
             {pool.permissionGroups && pool.permissionGroups.length > 0 && (
               <View className="gap-1.5">
-                <Text className="text-muted-foreground text-xs font-semibold uppercase tracking-wider">
-                  Gruppetilgang
-                </Text>
+                <Typography type="body-xs" className=" font-semibold uppercase">
+                  Grupper
+                </Typography>
                 <View className="flex-row flex-wrap items-center gap-1.5">
                   {pool.permissionGroups.map((group) => (
-                    <View
-                      key={group.id}
-                      className="border-border bg-secondary flex-row items-center gap-1 rounded-full border px-2.5 py-0.5">
-                      <Text className="text-secondary-foreground text-[11px] font-medium">
-                        {group.name}
-                      </Text>
-                    </View>
+                    <Chip key={group.id} size="sm" className="border-border" variant="soft">
+                      <Chip.Label>{group.name}</Chip.Label>
+                    </Chip>
+                    // <View
+                    //   key={group.id}
+                    //   className="border-border bg-secondary flex-row items-center gap-1 rounded-full border px-2.5 py-0.5">
+                    //   <Text className="text-secondary-foreground text-[11px] font-medium">
+                    //     {group.name}
+                    //   </Text>
+                    // </View>
                   ))}
                 </View>
               </View>
             )}
 
-            {/* Future Activation Info */}
-            {isFutureActivation && (
-              <View className="bg-default-soft flex-row items-center gap-2 rounded-lg p-2.5">
-                <Icon name="Clock" size={14} className="text-muted-foreground" />
-                <Text className="text-muted-foreground text-xs">
-                  Påmelding åpner{' '}
-                  <Text className="text-foreground text-xs font-semibold">
-                    {format(activationDateObj, "EEEE d. MMMM 'kl.' HH:mm", { locale: nb })}
-                  </Text>
-                </Text>
-              </View>
-            )}
-
             {/* Signed Up Users List */}
             <View className="gap-1.5">
-              <Text className="text-muted-foreground text-xs font-semibold uppercase tracking-wider">
+              <Typography type="body-xs" className="font-semibold uppercase">
                 Påmeldte deltakere
-              </Text>
+              </Typography>
+
               {hasRegistrations ? (
                 <View className="gap-1">
                   {pool.registrations?.map((reg, idx) => (

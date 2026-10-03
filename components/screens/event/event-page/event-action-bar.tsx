@@ -52,12 +52,22 @@ export function EventActionBar({
           <View className="absolute -top-12 w-full items-center justify-center overflow-hidden">
             <MotiView
               key="verifying-message"
-              className="bg-secondary flex-row items-center gap-2 rounded-full px-5 py-2"
+              className="bg-surface-tertiary rounded-full px-5 py-2"
               from={{ translateY: 100 }}
               animate={{ translateY: 0 }}
               exit={{ translateY: 100 }}>
-              <ActivityIndicator className="text-secondary-foreground" />
-              <Text>Verifiserer at du er et menneske</Text>
+              <MotiView
+                key="verifying-message-content"
+                className=" flex-row items-center gap-2"
+                from={{ translateY: 100 }}
+                animate={{ translateY: 0 }}
+                exit={{ translateY: 100 }}
+                transition={{
+                  delay: 25,
+                }}>
+                <ActivityIndicator colorClassName="accent-primary" />
+                <Text>Sjekker at du er et menneske</Text>
+              </MotiView>
             </MotiView>
           </View>
         )}

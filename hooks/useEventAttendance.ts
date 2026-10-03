@@ -58,9 +58,21 @@ export const useEventAttendance = ({ id }: { id: string }) => {
     );
   }, [pools]);
 
-  const isUserSignedUp = useMemo(() => {
-    return attendees.includes(user?.id?.toString() ?? '');
-  }, [attendees, user?.id]);
+  const userId = user?.id;
+  const userRegistration = useMemo(() => {
+    if (!userId) return undefined;
+    const poolList = (pools ?? []) as (components['schemas']['PoolRead'] & {
+      registrations?: Registration[];
+    })[];
+    const poolRegistrations = poolList.flatMap((pool) => pool.registrations ?? []);
+    const waitingRegistrations = ((event as any)?.waitingRegistrations ?? []) as Registration[];
+    const allRegistrations = [...poolRegistrations, ...waitingRegistrations];
+    return allRegistrations.find(
+      (registration) => registration.user?.id?.toString() === userId.toString()
+    );
+  }, [pools, event, userId]);
+
+  const isUserSignedUp = !!userRegistration;
 
   // Do workaround because penalties is defined as a string in the openapi schema, but is actually an array of numbers
   let totalCurrentPenalties = 0;
@@ -111,13 +123,7 @@ export const useEventAttendance = ({ id }: { id: string }) => {
 
   const signOffAsync = () => {
     // Get the user's registration ID for this event
-    const pools = event?.pools as (components['schemas']['PoolRead'] & {
-      registrations: Registration[];
-    })[];
-
-    const registrationId = pools
-      ?.flatMap((pool) => pool.registrations ?? [])
-      .find((reg) => reg.user.id.toString() === user?.id?.toString())?.id;
+    const registrationId = userRegistration?.id;
     if (!registrationId) {
       return Promise.reject(new Error('User is not registered for this event'));
     }
@@ -136,6 +142,7 @@ export const useEventAttendance = ({ id }: { id: string }) => {
     signOffAsync,
     totalCapacity,
     isUserSignedUp,
+    userRegistration,
     isLoading,
     isError,
     attendees,
