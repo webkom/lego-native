@@ -19,12 +19,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Alert, Spinner, Typography } from 'heroui-native';
 import { AnimatePresence, MotiView } from 'moti';
 import { useCallback, useState } from 'react';
-import {
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-  ScrollView,
-  View,
-} from 'react-native';
+import { NativeScrollEvent, NativeSyntheticEvent, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function EventsPage() {
@@ -142,7 +137,10 @@ export default function EventsPage() {
                     {waitingCount === 1
                       ? '1 person står i kø for ledig plass'
                       : `${waitingCount} personer står i kø for ledig plass`}
-                    {'. '} {!isUserSignedUp && 'Du havner på venteliste hvis du melder deg på.'}
+                    {'. '}{' '}
+                    {!isUserSignedUp &&
+                      canSignUp &&
+                      'Du havner på venteliste hvis du melder deg på.'}
                   </Alert.Description>
                 </Alert.Content>
               </Alert>
