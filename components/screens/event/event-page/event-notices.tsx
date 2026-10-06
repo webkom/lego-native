@@ -1,13 +1,10 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
-import { Card, CardContent } from '@/components/ui/card';
-import { Text } from '@/components/ui/text';
 import Icon from '@/components/icon';
 import { penaltyHours } from '@/lib/penalties';
 import { format, isAfter } from 'date-fns';
 import { nb } from 'date-fns/locale';
 import { Link } from 'expo-router';
-import { CircleAlert, ClockAlert } from 'lucide-react-native';
 import { UnansweredSurveysCard } from '@/components/events/UnansweredSurveysCard';
 import { DetailedEvent } from '../types';
 import { Alert } from 'heroui-native';
@@ -69,45 +66,35 @@ export function EventNotices({
           href="https://abakus.no/pages/arrangementer/26-arrangementsregler"
           asChild>
           <TouchableOpacity activeOpacity={0.8}>
-            <Card className="border-destructive/30 bg-destructive/10 w-full py-3">
-              <CardContent className="flex-row items-center gap-3">
-                <View className="bg-destructive/20 h-8 w-8 items-center justify-center rounded-lg">
-                  <Icon name="TriangleAlert" size={16} className="text-destructive" />
-                </View>
-                <View className="flex-1">
-                  <Text className="text-destructive text-xs font-bold uppercase tracking-wider">
-                    Du har {totalCurrentPenalties} prikk{totalCurrentPenalties !== 1 ? 'er' : ''}
-                  </Text>
-                  <Text className="text-destructive/90 text-xs">
-                    {totalCurrentPenalties > 2
-                      ? `Påmelding forskjøvet med ${penaltyHours(totalCurrentPenalties)} timer.`
-                      : 'Du legges på venteliste ved påmelding.'}
-                  </Text>
-                </View>
-                <Icon name="ChevronRight" size={16} className="text-destructive" />
-              </CardContent>
-            </Card>
+            <Alert status="danger">
+              <Alert.Indicator />
+              <Alert.Content>
+                <Alert.Title>
+                  Du har {totalCurrentPenalties} prikk{totalCurrentPenalties !== 1 ? 'er' : ''}
+                </Alert.Title>
+                <Alert.Description>
+                  {totalCurrentPenalties > 2
+                    ? `Påmelding forskjøvet med ${penaltyHours(totalCurrentPenalties)} timer.`
+                    : 'Du legges på venteliste ved påmelding.'}
+                </Alert.Description>
+              </Alert.Content>
+              <Icon name="ChevronRight" size={16} className="text-danger" />
+            </Alert>
           </TouchableOpacity>
         </Link>
       )}
 
       {/* 2. Registration Opens Countdown / Alert */}
       {isFutureActivation && !isUserSignedUp && (
-        <Card className="border-primary/20 bg-primary/5 py-3">
-          <CardContent className="flex-row items-center gap-3">
-            <View className="bg-primary/10 h-8 w-8 items-center justify-center rounded-lg">
-              <Icon name="Clock" size={16} className="text-primary" />
-            </View>
-            <View className="flex-1">
-              <Text className="text-primary text-xs font-bold uppercase tracking-wider">
-                Påmelding åpner snart
-              </Text>
-              <Text className="text-muted-foreground text-xs">
-                Åpner {format(activationTime, "EEEE d. MMMM 'kl.' HH:mm", { locale: nb })}
-              </Text>
-            </View>
-          </CardContent>
-        </Card>
+        <Alert status="accent">
+          <Alert.Indicator />
+          <Alert.Content>
+            <Alert.Title>Påmelding åpner snart</Alert.Title>
+            <Alert.Description>
+              Åpner {format(activationTime, "EEEE d. MMMM 'kl.' HH:mm", { locale: nb })}
+            </Alert.Description>
+          </Alert.Content>
+        </Alert>
       )}
 
       {/* 3. Unregistration Deadline Notice */}

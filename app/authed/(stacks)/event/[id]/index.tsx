@@ -1,4 +1,3 @@
-import Icon from '@/components/icon';
 import { DescriptionSection } from '@/components/screens/event/description-section';
 import {
   BusinessDetails,
@@ -17,11 +16,10 @@ import { components } from '@/lib/types/schema';
 import { Text } from '@expo/ui';
 import { router, useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Card } from 'heroui-native';
+import { Alert, Spinner, Typography } from 'heroui-native';
 import { AnimatePresence, MotiView } from 'moti';
 import { useCallback, useState } from 'react';
 import {
-  ActivityIndicator,
   NativeScrollEvent,
   NativeSyntheticEvent,
   ScrollView,
@@ -90,12 +88,15 @@ export default function EventsPage() {
           {isRefetchingEvent && (
             <MotiView
               key="refreshing-indicator"
-              from={{ translateY: -100 }}
-              animate={{ translateY: 0 }}
-              exit={{ translateY: -100 }}
-              className="absolute top-5 z-20 w-full items-center shadow-lg">
-              <View className="bg-secondary rounded-full p-2">
-                <ActivityIndicator className="text-secondary-foreground" />
+              from={{ translateY: -100, opacity: 0 }}
+              animate={{ translateY: 0, opacity: 1 }}
+              exit={{ translateY: -100, opacity: 0 }}
+              className="absolute top-5 z-20 w-full items-center">
+              <View className="bg-surface border-border/80 flex-row items-center gap-2 rounded-full border px-4 py-2 shadow-lg">
+                <Spinner size="sm" color="accent" />
+                <Typography type="body-xs" className="text-accent font-semibold">
+                  Oppdaterer...
+                </Typography>
               </View>
             </MotiView>
           )}
@@ -133,26 +134,18 @@ export default function EventsPage() {
 
             {/* Waitlist Card */}
             {waitingCount > 0 && (
-              <Card className="gap-2.5 border-amber-500/30 bg-amber-500/10" variant="transparent">
-                <Card.Header className="flex flex-row items-center gap-2.5">
-                  <View className="h-8 w-8 items-center justify-center rounded-lg bg-amber-500/20">
-                    <Icon
-                      name="Hourglass"
-                      size={16}
-                      className="text-amber-600 dark:text-amber-400"
-                    />
-                  </View>
-                  <Card.Title className="text-amber-600">Venteliste</Card.Title>
-                </Card.Header>
-                <Card.Body className="flex-1">
-                  <Card.Description className="text-amber-600">
+              <Alert status="warning">
+                <Alert.Indicator />
+                <Alert.Content>
+                  <Alert.Title>Venteliste</Alert.Title>
+                  <Alert.Description>
                     {waitingCount === 1
                       ? '1 person står i kø for ledig plass'
                       : `${waitingCount} personer står i kø for ledig plass`}
                     {'. '} {!isUserSignedUp && 'Du havner på venteliste hvis du melder deg på.'}
-                  </Card.Description>
-                </Card.Body>
-              </Card>
+                  </Alert.Description>
+                </Alert.Content>
+              </Alert>
             )}
 
             {/* Event Description Section */}

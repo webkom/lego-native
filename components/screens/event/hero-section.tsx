@@ -2,6 +2,8 @@ import React from 'react';
 import { Share, TouchableOpacity, View } from 'react-native';
 import { Image } from 'expo-image';
 import Icon from '@/components/icon';
+import { EventTypeConfig } from '@/lib/types/eventColors';
+import { cn } from '@/lib/utils';
 import { DetailedEvent } from './types';
 
 type HeroSectionProps = {
@@ -10,6 +12,9 @@ type HeroSectionProps = {
 };
 
 export function HeroSection({ event, onBack }: HeroSectionProps) {
+  const config = event?.eventType ? EventTypeConfig[event.eventType] : undefined;
+  const categoryColor = config?.color;
+
   const handleShare = async () => {
     if (!event) return;
     try {
@@ -33,8 +38,41 @@ export function HeroSection({ event, onBack }: HeroSectionProps) {
           transition={200}
         />
       ) : (
-        <View className="bg-secondary/40 h-52 w-full items-center justify-center">
-          <Icon name="CalendarDays" size={48} className="text-muted-foreground/40" />
+        <View
+          style={{
+            backgroundColor: categoryColor ? `${categoryColor}18` : undefined,
+          }}
+          className={cn(
+            'relative h-52 w-full items-center justify-center overflow-hidden',
+            !categoryColor && 'bg-secondary/40'
+          )}>
+          {categoryColor && (
+            <View
+              style={{
+                backgroundColor: categoryColor,
+                opacity: 0.12,
+                width: 160,
+                height: 160,
+                borderRadius: 80,
+              }}
+              className="absolute"
+            />
+          )}
+          <View
+            style={{
+              backgroundColor: categoryColor ? `${categoryColor}25` : undefined,
+            }}
+            className={cn(
+              'h-20 w-20 items-center justify-center rounded-2xl shadow-sm',
+              !categoryColor && 'bg-background/40'
+            )}>
+            <Icon
+              name="CalendarDays"
+              size={40}
+              color={categoryColor}
+              className={!categoryColor ? 'text-muted-foreground/40' : undefined}
+            />
+          </View>
         </View>
       )}
 

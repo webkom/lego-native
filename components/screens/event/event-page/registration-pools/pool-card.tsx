@@ -39,14 +39,19 @@ const PoolCard = ({ pool }: PoolCardProps) => {
               <Text className="text-foreground text-base font-semibold">{pool.name}</Text>
 
               {isFull && (
-                <View className="bg-destructive/15 rounded px-2 py-0.5">
-                  <Text className="text-destructive text-xs font-medium">Fullt</Text>
-                </View>
+                <Chip size="sm" variant="soft" color="danger">
+                  <Chip.Label>Fullt</Chip.Label>
+                </Chip>
+              )}
+              {!isFull && percentage >= 80 && (
+                <Chip size="sm" variant="soft" color="warning">
+                  <Chip.Label>Få plasser igjen</Chip.Label>
+                </Chip>
               )}
             </View>
 
             <View className="flex-row items-center gap-2">
-              <Typography type="body-sm" className=" font-bold">
+              <Typography type="body-sm" className="font-bold">
                 {registered} / {capacity > 0 ? capacity : '∞'}
               </Typography>
               <Icon
@@ -59,11 +64,11 @@ const PoolCard = ({ pool }: PoolCardProps) => {
 
           {/* Progress Bar */}
           {capacity > 0 && (
-            <View className="bg-surface-tertiary h-2 w-full overflow-hidden rounded-full">
+            <View className="bg-surface-tertiary h-2.5 w-full overflow-hidden rounded-full">
               <View
                 className={cn(
                   'h-full rounded-full',
-                  isFull ? 'bg-destructive' : percentage >= 80 ? 'bg-warning' : 'bg-primary'
+                  isFull ? 'bg-danger' : percentage >= 80 ? 'bg-warning' : 'bg-accent'
                 )}
                 style={{ width: `${percentage}%` }}
               />
@@ -102,16 +107,9 @@ const PoolCard = ({ pool }: PoolCardProps) => {
                 </Typography>
                 <View className="flex-row flex-wrap items-center gap-1.5">
                   {pool.permissionGroups.map((group) => (
-                    <Chip key={group.id} size="sm" className="border-border" variant="soft">
+                    <Chip key={group.id} size="sm" variant="soft" color="default">
                       <Chip.Label>{group.name}</Chip.Label>
                     </Chip>
-                    // <View
-                    //   key={group.id}
-                    //   className="border-border bg-secondary flex-row items-center gap-1 rounded-full border px-2.5 py-0.5">
-                    //   <Text className="text-secondary-foreground text-[11px] font-medium">
-                    //     {group.name}
-                    //   </Text>
-                    // </View>
                   ))}
                 </View>
               </View>

@@ -10,7 +10,11 @@ type EventDatetimeProps = {
 
 const EventDatetime = ({ startTime, endTime }: EventDatetimeProps) => {
   return (
-    <InfoCard title="Tid" icon="Calendar">
+    <InfoCard
+      title="Tid"
+      icon="Calendar"
+      iconContainerClassName="bg-sky-500/15 dark:bg-sky-500/25"
+      iconClassName="text-sky-600 dark:text-sky-400">
       <Typography type="body-sm" className="font-bold capitalize">
         {startTime ? format(startTime, 'EEEE d. MMM', { locale: nb }) : 'TBA'}
       </Typography>

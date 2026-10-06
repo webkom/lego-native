@@ -6,6 +6,8 @@ import { EventTypeConfig } from '@/lib/types/eventColors';
 import { components } from '@/lib/types/schema';
 import { cn } from '@/lib/utils';
 
+import { Chip } from 'heroui-native';
+
 type EventTypeEnum = components['schemas']['EventTypeEnum'];
 
 interface EventCategoryBadgeProps {
@@ -38,17 +40,17 @@ export function EventCategoryBadge({
       )}
 
       {isForeignLanguage && (
-        <View className="border-border bg-secondary flex-row items-center gap-1 rounded-full border px-2.5 py-1">
-          <Icon name="Globe" size={12} className="text-secondary-foreground" />
-          <Text className="text-secondary-foreground text-xs font-medium">English</Text>
-        </View>
+        <Chip variant="soft" color="accent" size="sm">
+          <Icon name="Globe" size={12} className="text-accent" />
+          <Chip.Label>English</Chip.Label>
+        </Chip>
       )}
 
       {isPriced && (
-        <View className="border-border bg-secondary flex-row items-center gap-1 rounded-full border px-2.5 py-1">
-          <Icon name="Receipt" size={12} className="text-secondary-foreground" />
-          <Text className="text-secondary-foreground text-xs font-medium">Betalt</Text>
-        </View>
+        <Chip variant="soft" color="warning" size="sm">
+          <Icon name="Receipt" size={12} className="text-warning" />
+          <Chip.Label>Betalt</Chip.Label>
+        </Chip>
       )}
     </View>
   );

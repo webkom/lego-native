@@ -59,13 +59,13 @@ export function DescriptionSection({
           )}
 
           <View className="flex-row items-center gap-1 self-start pt-1">
-            <Typography className="text-xs font-semibold">
+            <Typography className="text-accent text-xs font-semibold">
               {isExpanded ? 'Vis mindre' : 'Vis mer'}
             </Typography>
             <Icon
               name={isExpanded ? 'ChevronUp' : 'ChevronDown'}
               size={14}
-              className="text-primary"
+              className="text-accent"
             />
           </View>
         </Surface>

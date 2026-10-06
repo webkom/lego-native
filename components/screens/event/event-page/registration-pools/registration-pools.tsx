@@ -63,7 +63,7 @@ export function RegistrationPools({
         <View className="flex-row items-baseline justify-between px-1">
           <SectionTitle icon="Users" title="Påmeldingsgrupper" />
 
-          <Typography type="body-xs" className="text-accent-foreground font-medium">
+          <Typography type="body-xs" className="text-accent font-semibold">
             {totalRegistered} / {totalCapacity > 0 ? `${totalCapacity}` : '∞'} plasser
           </Typography>
         </View>
