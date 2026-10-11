@@ -15,10 +15,15 @@ import { useEventDetails } from '@/hooks/useEventDetails';
 import { components } from '@/lib/types/schema';
 import { router, useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Spinner, Typography } from 'heroui-native';
-import { AnimatePresence, MotiView } from 'moti';
 import { useCallback, useState } from 'react';
-import { Image, NativeScrollEvent, NativeSyntheticEvent, ScrollView, View } from 'react-native';
+import {
+  Image,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  RefreshControl,
+  ScrollView,
+  View,
+} from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 const RedGradient = require('@/assets/images/top-blur-red.png');
 
@@ -77,25 +82,15 @@ export default function EventsPage() {
       <StatusBar style="auto" />
 
       <View className="flex-1 overflow-hidden">
-        <AnimatePresence>
-          {isRefetchingEvent && (
-            <MotiView
-              key="refreshing-indicator"
-              from={{ translateY: -100, opacity: 0 }}
-              animate={{ translateY: 0, opacity: 1 }}
-              exit={{ translateY: -100, opacity: 0 }}
-              className="absolute top-5 z-20 w-full items-center">
-              <View className="bg-surface border-border/80 flex-row items-center gap-2 rounded-full border px-4 py-2 shadow-lg">
-                <Spinner size="sm" color="accent" />
-                <Typography type="body-xs" className="text-accent font-semibold">
-                  Oppdaterer...
-                </Typography>
-              </View>
-            </MotiView>
-          )}
-        </AnimatePresence>
-
         <ScrollView
+          refreshControl={
+            <RefreshControl
+              refreshing={isRefetchingEvent}
+              onRefresh={refetchSurveys}
+              tintColor="#dc2626"
+              colors={['#dc2626']}
+            />
+          }
           onScroll={handleScroll}
           scrollEventThrottle={16}
           className="flex-1"
