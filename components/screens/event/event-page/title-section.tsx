@@ -1,10 +1,9 @@
-import React from 'react';
-import { View } from 'react-native';
-import { Text } from '@/components/ui/text';
 import Icon from '@/components/icon';
-import { EventCategoryBadge } from './event-category-badge';
+import { Text } from '@/components/ui/text';
+import { Chip } from 'heroui-native';
+import { View } from 'react-native';
 import { DetailedEvent } from '../types';
-import { Chip, Typography } from 'heroui-native';
+import { EventCategoryBadge } from './event-category-badge';
 
 type TitleSectionProps = {
   event?: DetailedEvent;
@@ -35,9 +34,7 @@ export function TitleSection({ event, className }: TitleSectionProps) {
         <View className="flex-row items-center gap-1.5 pt-0.5">
           <Chip variant="soft" color="accent" size="sm">
             <Icon name="Shield" size={12} className="text-accent" />
-            <Chip.Label className="font-semibold">
-              I regi av {responsibleGroupName}
-            </Chip.Label>
+            <Chip.Label className="font-semibold">I regi av {responsibleGroupName}</Chip.Label>
           </Chip>
         </View>
       )}
