@@ -1,9 +1,13 @@
 import TabBar from '@/components/tab-bar';
+import { useUser } from '@/lib/hooks/useUser';
 import { Tabs } from 'expo-router';
 
 import React from 'react';
 
 const TabLayout = () => {
+  const user = useUser();
+  const isWebkom = user?.isWebkom;
+
   return (
     <>
       <Tabs
@@ -27,6 +31,13 @@ const TabLayout = () => {
           name="abaid/index"
           options={{
             title: 'AbaID',
+          }}
+        />
+        <Tabs.Screen
+          name="dashboard/index"
+          options={{
+            title: 'Dashboard',
+            href: isWebkom ? undefined : null,
           }}
         />
       </Tabs>
