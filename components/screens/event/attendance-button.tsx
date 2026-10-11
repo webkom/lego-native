@@ -1,6 +1,6 @@
 import Icon from '@/components/icon';
 import { Text } from '@/components/ui/text';
-import useHaptic from '@/hooks/useHaptic';
+import { useHaptic } from '@/hooks/useHaptic';
 import { cn } from '@/lib/cn';
 import { Button, Typography } from 'heroui-native';
 import { MotiView } from 'moti';

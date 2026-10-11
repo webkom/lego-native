@@ -10,9 +10,9 @@ import { isAfter } from 'date-fns';
 import { setAudioModeAsync, useAudioPlayer } from 'expo-audio';
 import { router, useLocalSearchParams } from 'expo-router';
 import { Typography } from 'heroui-native';
-import { AnimatePresence, MotiView } from 'moti';
-import React, { useEffect, useState } from 'react';
-import { Alert as SystemAlert, ScrollView, TouchableOpacity, View } from 'react-native';
+import { MotiView } from 'moti';
+import { useEffect, useState } from 'react';
+import { ScrollView, Alert as SystemAlert, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
 import { withUniwind } from 'uniwind';
 

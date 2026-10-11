@@ -56,7 +56,7 @@ export const useEventDetails = (eventId: string) => {
 
   const registrationOffset = useMemo(() => {
     return eligibilityData?.delayUntil ? new Date(eligibilityData.delayUntil) : null;
-  }, [eligibilityData?.delayUntil]);
+  }, [eligibilityData]);
 
   const isLoading = (isEventLoading || isAttendanceLoading) && !event;
   const isError = !eventId || isEventError || isAttendanceError;

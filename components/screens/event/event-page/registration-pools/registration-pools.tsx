@@ -1,10 +1,7 @@
-import Icon from '@/components/icon';
-import { Text } from '@/components/ui/text';
 import { components } from '@/lib/types/schema';
 import { cn } from '@/lib/utils';
-import { format, isAfter } from 'date-fns';
-import { nb } from 'date-fns/locale';
-import { Card, Surface, Typography } from 'heroui-native';
+import { isAfter } from 'date-fns';
+import { Surface, Typography } from 'heroui-native';
 import { View } from 'react-native';
 import SectionTitle from '../section-title';
 import PoolCard from './pool-card';
@@ -35,11 +32,6 @@ export function RegistrationPools({
   mergeTime,
   className,
 }: RegistrationPoolsProps) {
-  const waitingCount =
-    typeof waitingRegistrationCount === 'number'
-      ? waitingRegistrationCount
-      : parseInt(waitingRegistrationCount ?? '0', 10) || 0;
-
   if (!pools || pools.length === 0) {
     return null;
   }
