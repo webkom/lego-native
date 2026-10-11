@@ -13,14 +13,14 @@ import { HeroSection } from '@/components/screens/event/hero-section';
 import { Turnstile } from '@/components/screens/event/turnstile';
 import { useEventDetails } from '@/hooks/useEventDetails';
 import { components } from '@/lib/types/schema';
-import { Text } from '@expo/ui';
 import { router, useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Alert, Spinner, Typography } from 'heroui-native';
+import { Spinner, Typography } from 'heroui-native';
 import { AnimatePresence, MotiView } from 'moti';
 import { useCallback, useState } from 'react';
-import { NativeScrollEvent, NativeSyntheticEvent, ScrollView, View } from 'react-native';
+import { Image, NativeScrollEvent, NativeSyntheticEvent, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+const RedGradient = require('@/assets/images/top-blur-red.png');
 
 export default function EventsPage() {
   const insets = useSafeAreaInsets();
@@ -46,6 +46,9 @@ export default function EventsPage() {
     totalCurrentPenalties,
     unansweredSurveys,
     waitingListPositions,
+    isPastUnregistrationDeadline,
+    isPastRegistrationDeadline,
+    registrationOffset,
   } = useEventDetails(id?.toString() ?? '');
 
   // Derived states
@@ -68,11 +71,6 @@ export default function EventsPage() {
   if (isError) {
     return <ErrorState onBack={handleBack} />;
   }
-
-  const waitingCount =
-    typeof event?.waitingRegistrationCount === 'number'
-      ? event?.waitingRegistrationCount
-      : parseInt(event?.waitingRegistrationCount ?? '0', 10) || 0;
 
   return (
     <View className="bg-background flex-1">
@@ -103,6 +101,7 @@ export default function EventsPage() {
           className="flex-1"
           contentContainerStyle={{ paddingBottom: 140 }}
           showsVerticalScrollIndicator={false}>
+          <Image source={RedGradient} className="absolute left-0 top-0 z-0 h-96 w-full" />
           <View className="flex-col gap-6 px-4" style={{ paddingTop: Math.max(insets.top, 12) }}>
             {/* Hero Cover with floating back and share buttons */}
             <HeroSection event={event} onBack={handleBack} />
@@ -110,11 +109,13 @@ export default function EventsPage() {
             {/* Event Category Badge, Title & Host Attribution */}
             <TitleSection event={event} />
 
-            {/* Unified Notices (Penalty warning, Registration opening countdown, Unregistration deadline, Unanswered surveys) */}
+            {/* Unified Notices (Penalty warning, Registration opening countdown, Unregistration deadline, Unanswered surveys, Waitlist) */}
             <EventNotices
+              registrationClosed={isPastRegistrationDeadline}
               event={event}
               totalCurrentPenalties={totalCurrentPenalties}
               canSignUp={Boolean(canSignUp)}
+              registrationOffset={registrationOffset}
               isUserSignedUp={isUserSignedUp}
               unansweredSurveys={unansweredSurveys}
               onSurveyClosed={refetchSurveys}
@@ -126,25 +127,6 @@ export default function EventsPage() {
               attendeesCount={attendeesCount}
               totalCapacity={totalCapacity}
             />
-
-            {/* Waitlist Card */}
-            {waitingCount > 0 && (
-              <Alert status="warning">
-                <Alert.Indicator />
-                <Alert.Content>
-                  <Alert.Title>Venteliste</Alert.Title>
-                  <Alert.Description>
-                    {waitingCount === 1
-                      ? '1 person står i kø for ledig plass'
-                      : `${waitingCount} personer står i kø for ledig plass`}
-                    {'. '}{' '}
-                    {!isUserSignedUp &&
-                      canSignUp &&
-                      'Du havner på venteliste hvis du melder deg på.'}
-                  </Alert.Description>
-                </Alert.Content>
-              </Alert>
-            )}
 
             {/* Event Description Section */}
             <DescriptionSection
@@ -182,6 +164,7 @@ export default function EventsPage() {
 
       <EventActionBar
         canSignUp={canSignUp ?? false}
+        canSignOff={isUserSignedUp && !isPastUnregistrationDeadline}
         turnstileToken={turnstileToken}
         isUserSignedUp={isUserSignedUp ?? waitingListPositions !== undefined}
         eventId={event?.id.toString() ?? ''}

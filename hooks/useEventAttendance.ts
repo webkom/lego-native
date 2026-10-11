@@ -77,7 +77,7 @@ export const useEventAttendance = ({ id }: { id: string }) => {
   // Do workaround because penalties is defined as a string in the openapi schema, but is actually an array of numbers
   let totalCurrentPenalties = 0;
   if (user?.penalties && Array.isArray(user.penalties)) {
-    totalCurrentPenalties = user.penalties.reduce((sum, penalty) => sum + penalty, 0);
+    totalCurrentPenalties = user.penalties.reduce((sum, penalty) => sum + penalty.weight, 0);
   }
 
   // Set up and handle websocket client

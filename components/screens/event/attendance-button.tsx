@@ -1,13 +1,15 @@
 import Icon from '@/components/icon';
 import { Text } from '@/components/ui/text';
+import useHaptic from '@/hooks/useHaptic';
 import { cn } from '@/lib/cn';
-import { Button } from 'heroui-native';
+import { Button, Typography } from 'heroui-native';
 import { MotiView } from 'moti';
 import { useState } from 'react';
 import { ActivityIndicator, LayoutChangeEvent, View } from 'react-native';
 
 type AttendanceButtonProps = {
   isUserSignedUp: boolean;
+  canSignOff: boolean;
   eventId: string;
   scroll: number;
   isLoading: boolean;
@@ -21,11 +23,14 @@ export function AttendanceButton({
   scroll,
   isLoading,
   onSignUp,
+  canSignOff,
   onSignOff,
 }: AttendanceButtonProps) {
+  const haptics = useHaptic();
   const [containerWidth, setContainerWidth] = useState(0);
   const [small, setSmall] = useState(false);
   const handlePress = () => {
+    void haptics.trigger('segment-tick'); // segment-tick
     if (isUserSignedUp) {
       onSignOff(eventId);
       return;
@@ -45,6 +50,8 @@ export function AttendanceButton({
     }
   };
 
+  const notAllowedToSignOff = isUserSignedUp && !canSignOff;
+
   return (
     <View className="flex w-full items-center justify-center" onLayout={handleLayout}>
       {containerWidth > 0 && (
@@ -59,7 +66,7 @@ export function AttendanceButton({
             size="lg"
             className={cn('h-16 w-full text-nowrap rounded-full shadow-md', '')}
             variant={isUserSignedUp ? 'danger' : 'primary'}
-            isDisabled={isLoading}
+            isDisabled={isLoading || notAllowedToSignOff}
             onPress={handlePress}>
             {isLoading ? (
               <ActivityIndicator size="small" className="text-primary-foreground" />
@@ -70,12 +77,23 @@ export function AttendanceButton({
                 animate={{ opacity: 1, translateY: 0 }}
                 exit={{ opacity: 0, translateY: 10 }}
                 transition={{ delay: 150, duration: 100 }}>
-                <MotiView animate={{ rotate: `${scroll}deg` }}>
-                  <Icon name="X" className="text-primary-foreground" size={18} />
-                </MotiView>
-                <Text className="text-primary-foreground text-nowrap text-lg font-bold">
-                  Meld deg av
-                </Text>
+                {notAllowedToSignOff ? (
+                  <>
+                    <Icon name="X" className="text-primary-foreground" size={18} />
+                    <Typography type="body" className="text-default-foreground">
+                      Du kan ikke melde deg av
+                    </Typography>
+                  </>
+                ) : (
+                  <>
+                    <MotiView animate={{ rotate: `${scroll}deg` }}>
+                      <Icon name="X" className="text-primary-foreground" size={18} />
+                    </MotiView>
+                    <Text className="text-primary-foreground text-nowrap text-lg font-bold">
+                      Meld deg av
+                    </Text>
+                  </>
+                )}
               </MotiView>
             ) : (
               <MotiView
