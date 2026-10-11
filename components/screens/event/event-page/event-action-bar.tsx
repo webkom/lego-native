@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 
 type EventActionBarProps = {
+  canSignOff: boolean;
   canSignUp: boolean;
   turnstileToken: string | null;
   isUserSignedUp: boolean;
@@ -18,6 +19,7 @@ type EventActionBarProps = {
 
 export function EventActionBar({
   canSignUp,
+  canSignOff,
   turnstileToken,
   isUserSignedUp,
   eventId,
@@ -48,7 +50,7 @@ export function EventActionBar({
   return (
     <View className="pb-safe-offset-0 border-border bg-background absolute bottom-0 w-full border-t">
       <AnimatePresence>
-        {!turnstileToken && (
+        {!turnstileToken && !isUserSignedUp && (
           <View className="absolute -top-12 w-full items-center justify-center overflow-hidden">
             <MotiView
               key="verifying-message"
@@ -75,6 +77,7 @@ export function EventActionBar({
       <View className="px-5 py-4">
         <AttendanceButton
           isUserSignedUp={isUserSignedUp}
+          canSignOff={canSignOff}
           eventId={eventId}
           scroll={scroll}
           isLoading={isLoading}

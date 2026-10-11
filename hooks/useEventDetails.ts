@@ -6,6 +6,7 @@ import { useEventAttendance } from './useEventAttendance';
 import { useUnansweredEventSurveys } from './useEventSurveys';
 import { useRegistrationEligibility } from './useRegistrationEligibility';
 import { getWaitingListPosition } from '@/lib/getWaitingListPosition';
+import { isAfter } from 'date-fns';
 
 /**
  * A wrapper hook that combines event details, attendance, and registration eligibility into a single hook
@@ -53,8 +54,22 @@ export const useEventDetails = (eventId: string) => {
   const isAttendanceActionLoading =
     signUp.status === 'pending' || isAttendanceLoading || (!isUserSignedUp && !turnstileToken);
 
+  const registrationOffset = useMemo(() => {
+    return eligibilityData?.delayUntil ? new Date(eligibilityData.delayUntil) : null;
+  }, [eligibilityData?.delayUntil]);
+
   const isLoading = (isEventLoading || isAttendanceLoading) && !event;
   const isError = !eventId || isEventError || isAttendanceError;
+
+  const isPastUnregistrationDeadline = useMemo(() => {
+    if (!event?.unregistrationDeadline) return null;
+    return isAfter(new Date(), new Date(event?.unregistrationDeadline));
+  }, [event?.unregistrationDeadline]);
+
+  const isPastRegistrationDeadline = useMemo(() => {
+    if (!event?.registrationCloseTime) return null;
+    return isAfter(new Date(), new Date(event?.registrationCloseTime));
+  }, [event?.registrationCloseTime]);
 
   // Actions
   const handleBack = useCallback(() => {
@@ -98,6 +113,7 @@ export const useEventDetails = (eventId: string) => {
     isError,
     // Attendance & Registration
     canSignUp,
+    registrationOffset,
     isEligibilityLoading,
     isUserSignedUp,
     isAttendanceActionLoading,
@@ -114,5 +130,7 @@ export const useEventDetails = (eventId: string) => {
     handleSignUp,
     handleSignOff,
     waitingListPositions,
+    isPastUnregistrationDeadline,
+    isPastRegistrationDeadline,
   };
 };

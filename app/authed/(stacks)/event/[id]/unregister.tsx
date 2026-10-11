@@ -97,7 +97,7 @@ const UnregisterPage = () => {
         <View className="flex-col items-center gap-6 px-6 pt-2">
           {/* Mascot Section */}
           <View className="items-center">
-            <PlayfulCookieMascot />
+            <PlayfulCookieMascot className="scale-120 my-5" />
 
             {/* Playful Headline */}
             <Typography type="h2" className="mt-4 text-center font-bold">

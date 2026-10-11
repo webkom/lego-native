@@ -17,15 +17,19 @@ interface EventNoticesProps {
   unansweredSurveys?: number[];
   onSurveyClosed?: () => void;
   className?: string;
+  registrationClosed?: boolean | null;
+  registrationOffset?: Date | null;
 }
 
 export function EventNotices({
   event,
+  registrationClosed = false,
   totalCurrentPenalties = 0,
   canSignUp = false,
   isUserSignedUp = false,
   unansweredSurveys = [],
   onSurveyClosed,
+  registrationOffset,
   className,
 }: EventNoticesProps) {
   const showSurveyWarning = Boolean(
@@ -46,7 +50,20 @@ export function EventNotices({
   const isFutureActivation =
     activationTime && !isNaN(activationTime.getTime()) && isAfter(activationTime, new Date());
 
-  if (!showSurveyWarning && !showPenaltyWarning && !unregistrationDeadline && !isFutureActivation) {
+  const waitingCount =
+    typeof event?.waitingRegistrationCount === 'number'
+      ? event?.waitingRegistrationCount
+      : parseInt(event?.waitingRegistrationCount ?? '0', 10) || 0;
+  const showWaitlistNotice = waitingCount > 0;
+
+  if (
+    !showSurveyWarning &&
+    !registrationClosed &&
+    !showPenaltyWarning &&
+    !unregistrationDeadline &&
+    !isFutureActivation &&
+    !showWaitlistNotice
+  ) {
     return null;
   }
 
@@ -59,6 +76,32 @@ export function EventNotices({
           onSurveyClosed={onSurveyClosed}
         />
       )}
+
+      {/* 1. Registration closed Warning */}
+      {registrationClosed && (
+        <Alert status="accent">
+          <Alert.Indicator />
+          <Alert.Content>
+            <Alert.Title>Påmelding er stengt.</Alert.Title>
+            <Alert.Description className="text-danger">
+              Du kan ikke melde deg på dette arrangementet.
+            </Alert.Description>
+          </Alert.Content>
+        </Alert>
+      )}
+
+      {!canSignUp && (
+        <Alert status="danger" className="bg-danger-soft">
+          <Alert.Indicator />
+          <Alert.Content>
+            <Alert.Title>Beklager! Du kan ikke melde deg på</Alert.Title>
+            <Alert.Description className="text-danger">
+              Du kan dessverre ikke melde deg på dette arrangementet.
+            </Alert.Description>
+          </Alert.Content>
+        </Alert>
+      )}
+
       {/* 1. Penalty Warning */}
       {showPenaltyWarning && (
         <Link
@@ -66,19 +109,19 @@ export function EventNotices({
           href="https://abakus.no/pages/arrangementer/26-arrangementsregler"
           asChild>
           <TouchableOpacity activeOpacity={0.8}>
-            <Alert status="danger">
+            <Alert status="danger" className="bg-danger-soft">
               <Alert.Indicator />
               <Alert.Content>
                 <Alert.Title>
                   Du har {totalCurrentPenalties} prikk{totalCurrentPenalties !== 1 ? 'er' : ''}
                 </Alert.Title>
-                <Alert.Description>
+                <Alert.Description className="text-danger">
                   {totalCurrentPenalties > 2
                     ? `Påmelding forskjøvet med ${penaltyHours(totalCurrentPenalties)} timer.`
                     : 'Du legges på venteliste ved påmelding.'}
                 </Alert.Description>
               </Alert.Content>
-              <Icon name="ChevronRight" size={16} className="text-danger" />
+              <Icon name="Link" size={16} className="text-danger" />
             </Alert>
           </TouchableOpacity>
         </Link>
@@ -98,7 +141,7 @@ export function EventNotices({
       )}
 
       {/* 3. Unregistration Deadline Notice */}
-      {unregistrationDeadline && (
+      {canSignUp && unregistrationDeadline && (
         <Alert status="danger" className="bg-danger-soft">
           <Alert.Indicator />
           <Alert.Content>
@@ -111,6 +154,23 @@ export function EventNotices({
                     locale: nb,
                   })}. Avmelding gir prikk.`
                 : `${format(unregistrationDeadline, "EEEE d. MMMM 'kl.' HH:mm", { locale: nb })}`}
+            </Alert.Description>
+          </Alert.Content>
+        </Alert>
+      )}
+
+      {/* 4. Waitlist Notice */}
+      {showWaitlistNotice && (
+        <Alert status="warning">
+          <Alert.Indicator />
+          <Alert.Content>
+            <Alert.Title>Venteliste</Alert.Title>
+            <Alert.Description>
+              {waitingCount === 1
+                ? '1 person står i kø for ledig plass'
+                : `${waitingCount} personer står i kø for ledig plass`}
+              {'. '}
+              {!isUserSignedUp && canSignUp && 'Du havner på venteliste hvis du melder deg på.'}
             </Alert.Description>
           </Alert.Content>
         </Alert>
