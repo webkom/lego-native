@@ -32,6 +32,11 @@ export function RegistrationPools({
   mergeTime,
   className,
 }: RegistrationPoolsProps) {
+  // const waitingCount =
+  //   typeof waitingRegistrationCount === 'number'
+  //     ? waitingRegistrationCount
+  //     : parseInt(waitingRegistrationCount ?? '0', 10) || 0;
+
   if (!pools || pools.length === 0) {
     return null;
   }
