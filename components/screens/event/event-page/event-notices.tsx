@@ -1,24 +1,24 @@
-import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { UnansweredSurveysCard } from '@/components/events/UnansweredSurveysCard';
 import Icon from '@/components/icon';
-import { penaltyHours } from '@/lib/penalties';
 import { format, isAfter } from 'date-fns';
 import { nb } from 'date-fns/locale';
 import { Link } from 'expo-router';
-import { UnansweredSurveysCard } from '@/components/events/UnansweredSurveysCard';
-import { DetailedEvent } from '../types';
 import { Alert } from 'heroui-native';
+import { TouchableOpacity, View } from 'react-native';
+import { DetailedEvent } from '../types';
 
 interface EventNoticesProps {
   event?: DetailedEvent;
   totalCurrentPenalties?: number;
   canSignUp?: boolean;
+  canSignUpLater?: boolean;
   isUserSignedUp?: boolean;
   unansweredSurveys?: number[];
   onSurveyClosed?: () => void;
   className?: string;
   registrationClosed?: boolean | null;
-  registrationOffset?: Date | null;
+  penaltyRegistrationDate?: Date | null;
+  willBeWaitlisted?: boolean;
 }
 
 export function EventNotices({
@@ -26,17 +26,21 @@ export function EventNotices({
   registrationClosed = false,
   totalCurrentPenalties = 0,
   canSignUp = false,
+  canSignUpLater,
   isUserSignedUp = false,
   unansweredSurveys = [],
   onSurveyClosed,
-  registrationOffset,
+  penaltyRegistrationDate,
+  willBeWaitlisted,
   className,
 }: EventNoticesProps) {
   const showSurveyWarning = Boolean(
     unansweredSurveys && unansweredSurveys.length > 0 && !isUserSignedUp
   );
 
-  const showPenaltyWarning = Boolean(totalCurrentPenalties > 0 && !isUserSignedUp && canSignUp);
+  const showPenaltyWarning = Boolean(
+    totalCurrentPenalties > 0 && !isUserSignedUp && canSignUpLater
+  );
 
   const unregistrationDeadline = event?.unregistrationDeadline
     ? new Date(event.unregistrationDeadline)
@@ -90,7 +94,7 @@ export function EventNotices({
         </Alert>
       )}
 
-      {!canSignUp && (
+      {!canSignUp && !canSignUpLater && (
         <Alert status="danger" className="bg-danger-soft">
           <Alert.Indicator />
           <Alert.Content>
@@ -116,9 +120,17 @@ export function EventNotices({
                   Du har {totalCurrentPenalties} prikk{totalCurrentPenalties !== 1 ? 'er' : ''}
                 </Alert.Title>
                 <Alert.Description className="text-danger">
-                  {totalCurrentPenalties > 2
-                    ? `Påmelding forskjøvet med ${penaltyHours(totalCurrentPenalties)} timer.`
-                    : 'Du legges på venteliste ved påmelding.'}
+                  {willBeWaitlisted && 'Du legges på venteliste ved påmelding.'}
+                  {penaltyRegistrationDate &&
+                    `Du kan ikke melde deg på før ${format(
+                      new Date(penaltyRegistrationDate),
+                      "EEEE d. MMMM 'kl.' HH:mm",
+                      { locale: nb }
+                    )}`}
+
+                  {!willBeWaitlisted &&
+                    !penaltyRegistrationDate &&
+                    'Du kan likevel melde deg på arrangementet.'}
                 </Alert.Description>
               </Alert.Content>
               <Icon name="Link" size={16} className="text-danger" />

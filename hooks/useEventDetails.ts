@@ -113,6 +113,8 @@ export const useEventDetails = (eventId: string) => {
     isError,
     // Attendance & Registration
     canSignUp,
+    canSignUpLater: eligibilityData?.canRegisterLater,
+    willBeWaitlisted: eligibilityData?.willBeWaitingList ?? false,
     registrationOffset,
     isEligibilityLoading,
     isUserSignedUp,

@@ -49,6 +49,8 @@ export default function EventsPage() {
     isPastUnregistrationDeadline,
     isPastRegistrationDeadline,
     registrationOffset,
+    willBeWaitlisted,
+    canSignUpLater,
   } = useEventDetails(id?.toString() ?? '');
 
   // Derived states
@@ -110,15 +112,18 @@ export default function EventsPage() {
             <TitleSection event={event} />
 
             {/* Unified Notices (Penalty warning, Registration opening countdown, Unregistration deadline, Unanswered surveys, Waitlist) */}
+
             <EventNotices
               registrationClosed={isPastRegistrationDeadline}
               event={event}
               totalCurrentPenalties={totalCurrentPenalties}
               canSignUp={Boolean(canSignUp)}
-              registrationOffset={registrationOffset}
+              penaltyRegistrationDate={registrationOffset}
+              willBeWaitlisted={willBeWaitlisted}
               isUserSignedUp={isUserSignedUp}
               unansweredSurveys={unansweredSurveys}
               onSurveyClosed={refetchSurveys}
+              canSignUpLater={canSignUpLater ?? undefined}
             />
 
             {/* 2x2 Quick Facts Grid (Tid, Sted/MazeMap, Pris, Kapasitet) */}
