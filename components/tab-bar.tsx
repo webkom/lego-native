@@ -1,4 +1,3 @@
-import { useUser } from '@/lib/hooks/useUser';
 import { iconWithClassName } from '@/lib/iconWithClassName';
 import { cn } from '@/lib/utils';
 import { Tabs, usePathname, useRouter } from 'expo-router';
@@ -21,7 +20,6 @@ type TabBarProps = Parameters<NonNullable<ComponentProps<typeof Tabs>['tabBar']>
 const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
   const router = useRouter();
   const pathName = usePathname();
-  const user = useUser();
 
   return (
     <View className="bottom-safe-offset-2 bg-background px-5">
