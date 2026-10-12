@@ -117,6 +117,7 @@ export const useEventDetails = (eventId: string) => {
     willBeWaitlisted: eligibilityData?.willBeWaitingList ?? false,
     registrationOffset,
     isEligibilityLoading,
+    eligibilityReason: eligibilityData?.reason,
     isUserSignedUp,
     isAttendanceActionLoading,
     attendeesCount: attendees.length,

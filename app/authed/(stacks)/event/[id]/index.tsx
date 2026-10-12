@@ -51,6 +51,7 @@ export default function EventsPage() {
     registrationOffset,
     willBeWaitlisted,
     canSignUpLater,
+    eligibilityReason,
   } = useEventDetails(id?.toString() ?? '');
 
   // Derived states
@@ -113,6 +114,7 @@ export default function EventsPage() {
 
             {/* Unified Notices (Penalty warning, Registration opening countdown, Unregistration deadline, Unanswered surveys, Waitlist) */}
 
+            <Typography>{eligibilityReason}</Typography>
             <EventNotices
               registrationClosed={isPastRegistrationDeadline}
               event={event}
