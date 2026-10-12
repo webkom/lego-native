@@ -4,12684 +4,4945 @@
  */
 
 export interface paths {
-  '/api/v1/achievements/azart/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations['achievementsAzartCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/achievements/getting_wood/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations['achievementsGettingWoodCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/achievements/grant/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations['achievementsGrantCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/achievements/grant_bulk/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations['achievementsGrantBulkCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/achievements/keypress_order/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations['achievementsKeypressOrderCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/achievements/leaderboard/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['achievementsLeaderboardList'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/achievements/leaderboard/distribution/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['achievementsLeaderboardDistributionRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/achievements/leaderboard/rank_history/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['achievementsLeaderboardRankHistoryRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/achievements/leaderboard/top_climbers/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Top 5 users by rank improvement over the last 7 days - the same
-     *     rolling window (date__lte=week_ago, most recent snapshot on or
-     *     before that date) as the personal week-ago/month-ago columns on the
-     *     leaderboard, so "top climbers" and "Siste uke" always agree.
-     */
-    get: operations['achievementsLeaderboardTopClimbersRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/achievements/rarity/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description % of users who have earned each achievement, per level. */
-    get: operations['achievementsRarityRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/achievements/recheck_all/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['achievementsRecheckAllRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/achievements/revoke/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations['achievementsRevokeCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/achievements/user_achievements/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description List every achievement a given user currently holds - admin lookup
-     *     for the sudo trophy grant page (mode 1).
-     */
-    get: operations['achievementsUserAchievementsRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/announcements/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['announcementsList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['announcementsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/announcements/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['announcementsRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['announcementsUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['announcementsDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['announcementsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/announcements/{id}/send/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['announcementsSendCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/articles/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['articlesList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['articlesCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/articles/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['articlesRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['articlesUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['articlesDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['articlesPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/articles/{id}/statistics/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['articlesStatisticsRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/banners/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['bannersList'];
-    put?: never;
-    post: operations['bannersCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/banners/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['bannersRetrieve'];
-    put: operations['bannersUpdate'];
-    post?: never;
-    delete: operations['bannersDestroy'];
-    options?: never;
-    head?: never;
-    patch: operations['bannersPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/banners/current-private/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['bannersCurrentPrivateRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/banners/current-public/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['bannersCurrentPublicRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/bdb/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['bdbList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['bdbCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/bdb/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['bdbRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['bdbUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['bdbDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['bdbPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/calendar-ical/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description List all the different icals. */
-    get: operations['calendarIcalRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/calendar-ical/events/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description Event ical route. */
-    get: operations['calendarIcalEventsRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/calendar-ical/personal/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description Personal ical route. */
-    get: operations['calendarIcalPersonalRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/calendar-ical/registrations/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description Registration ical route. */
-    get: operations['calendarIcalRegistrationsRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/calendar-token/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description Get ICalToken. */
-    get: operations['calendarTokenRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/calendar-token/regenerate/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    /** @description Regenerate ICalToken. */
-    patch: operations['calendarTokenRegeneratePartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/comments/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description NB: Don't add the ListMixin, this breaks permissions because the permissions
-     *     handles requires an object.
-     */
-    post: operations['commentsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/comments/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    /**
-     * @description NB: Don't add the ListMixin, this breaks permissions because the permissions
-     *     handles requires an object.
-     */
-    put: operations['commentsUpdate'];
-    post?: never;
-    /**
-     * @description NB: Don't add the ListMixin, this breaks permissions because the permissions
-     *     handles requires an object.
-     */
-    delete: operations['commentsDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description NB: Don't add the ListMixin, this breaks permissions because the permissions
-     *     handles requires an object.
-     */
-    patch: operations['commentsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/companies/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['companiesList'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/companies/{companyPk}/company-contacts/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['companiesCompanyContactsList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['companiesCompanyContactsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/companies/{companyPk}/company-contacts/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['companiesCompanyContactsRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['companiesCompanyContactsUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['companiesCompanyContactsDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['companiesCompanyContactsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/companies/{companyPk}/files/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['companiesFilesList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['companiesFilesCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/companies/{companyPk}/files/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['companiesFilesRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['companiesFilesUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['companiesFilesDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['companiesFilesPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/companies/{companyPk}/semester-statuses/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['companiesSemesterStatusesList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['companiesSemesterStatusesCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/companies/{companyPk}/semester-statuses/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['companiesSemesterStatusesRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['companiesSemesterStatusesUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['companiesSemesterStatusesDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['companiesSemesterStatusesPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/companies/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['companiesRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/company-interests/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description Used by new companies to register interest in Abakus and our services. */
-    get: operations['companyInterestsList'];
-    put?: never;
-    /** @description Used by new companies to register interest in Abakus and our services. */
-    post: operations['companyInterestsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/company-interests/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description Used by new companies to register interest in Abakus and our services. */
-    get: operations['companyInterestsRetrieve'];
-    /** @description Used by new companies to register interest in Abakus and our services. */
-    put: operations['companyInterestsUpdate'];
-    post?: never;
-    /** @description Used by new companies to register interest in Abakus and our services. */
-    delete: operations['companyInterestsDestroy'];
-    options?: never;
-    head?: never;
-    /** @description Used by new companies to register interest in Abakus and our services. */
-    patch: operations['companyInterestsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/company-interests/csv/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description Used by new companies to register interest in Abakus and our services. */
-    get: operations['companyInterestsCsvRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/company-semesters/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['companySemestersList'];
-    put?: never;
-    post: operations['companySemestersCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/company-semesters/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['companySemestersRetrieve'];
-    put: operations['companySemestersUpdate'];
-    post?: never;
-    delete: operations['companySemestersDestroy'];
-    options?: never;
-    head?: never;
-    patch: operations['companySemestersPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/contact-form/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations['contactFormCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/device-apns/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['deviceApnsList'];
-    put?: never;
-    post: operations['deviceApnsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/device-apns/{registrationId}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['deviceApnsRetrieve'];
-    put: operations['deviceApnsUpdate'];
-    post?: never;
-    delete: operations['deviceApnsDestroy'];
-    options?: never;
-    head?: never;
-    patch: operations['deviceApnsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/device-expo/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations['deviceExpoCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/device-expo/unregister/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post?: never;
-    delete: operations['deviceExpoUnregisterDestroy'];
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/device-gcm/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['deviceGcmList'];
-    put?: never;
-    post: operations['deviceGcmCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/device-gcm/{registrationId}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['deviceGcmRetrieve'];
-    put: operations['deviceGcmUpdate'];
-    post?: never;
-    delete: operations['deviceGcmDestroy'];
-    options?: never;
-    head?: never;
-    patch: operations['deviceGcmPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/email-lists/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description Destroy are disabled. The external_sync don't support group destroy either! */
-    get: operations['emailListsList'];
-    put?: never;
-    /** @description Destroy are disabled. The external_sync don't support group destroy either! */
-    post: operations['emailListsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/email-lists/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description Destroy are disabled. The external_sync don't support group destroy either! */
-    get: operations['emailListsRetrieve'];
-    /** @description Destroy are disabled. The external_sync don't support group destroy either! */
-    put: operations['emailListsUpdate'];
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    /** @description Destroy are disabled. The external_sync don't support group destroy either! */
-    patch: operations['emailListsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/email-users/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['emailUsersList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['emailUsersCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/email-users/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['emailUsersRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['emailUsersUpdate'];
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['emailUsersPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/emojis/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['emojisList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['emojisCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/emojis/{shortCode}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['emojisRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['emojisUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['emojisDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['emojisPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/events/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['eventsList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['eventsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/events/{eventPk}/pools/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations['eventsPoolsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/events/{eventPk}/pools/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put: operations['eventsPoolsUpdate'];
-    post?: never;
-    delete: operations['eventsPoolsDestroy'];
-    options?: never;
-    head?: never;
-    patch: operations['eventsPoolsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/events/{eventPk}/registration_search/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['eventsRegistrationSearchCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/events/{eventPk}/registrations/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['eventsRegistrationsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/events/{eventPk}/registrations/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['eventsRegistrationsRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['eventsRegistrationsUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['eventsRegistrationsDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['eventsRegistrationsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/events/{eventPk}/registrations/admin_register/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['eventsRegistrationsAdminRegisterCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/events/{eventPk}/registrations/admin_unregister/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['eventsRegistrationsAdminUnregisterCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/events/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['eventsRetrieve'];
-    /** @description If the capacity of the event increases we have to bump waiting users. */
-    put: operations['eventsUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['eventsDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['eventsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/events/{id}/administrate/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['eventsAdministrateRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/events/{id}/allergies/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['eventsAllergiesRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/events/{id}/payment/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['eventsPaymentCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/events/{id}/statistics/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['eventsStatisticsRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/events/cover_image_gallery/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['eventsCoverImageGalleryRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/events/previous/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['eventsPreviousRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/events/upcoming/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['eventsUpcomingRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/featureflags-admin/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['featureflagsAdminList'];
-    put?: never;
-    post: operations['featureflagsAdminCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/featureflags-admin/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['featureflagsAdminRetrieve'];
-    put: operations['featureflagsAdminUpdate'];
-    post?: never;
-    delete: operations['featureflagsAdminDestroy'];
-    options?: never;
-    head?: never;
-    patch: operations['featureflagsAdminPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/featureflags/{identifier}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['featureflagsRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/feed-notifications/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description Notifications feed based on request.user */
-    get: operations['feedNotificationsList'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/feed-notifications/{id}/mark/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /** @description Mark a single notification as read or seen. */
-    post: operations['feedNotificationsMarkCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/feed-notifications/mark_all/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /** @description This function marks all activities in a NotificationFeed as seen or/and red. */
-    post: operations['feedNotificationsMarkAllCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/feed-notifications/notification_data/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description Notifications feed based on request.user */
-    get: operations['feedNotificationsNotificationDataRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/feed-personal/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description Personal user timeline, based on request.user */
-    get: operations['feedPersonalList'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/feed-user/{userPk}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Public events produced by users. This feed should not contain private information! This feed
-     *     uses a url param to decide which feed to retrieve.
-     */
-    get: operations['feedUserList'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/files/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /** @description Upload new file. This method returns instructions to the client on how to upload the file. */
-    post: operations['filesCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/files/{key}/imagegallery/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch: operations['filesImagegalleryPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/files/{key}/upload_success/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description The client is redirected to this view when a upload succeeds. This view will inform the
-     *     client with necessary data to change a file on a instance.
-     */
-    get: operations['filesUploadSuccessRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/followers-company/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['followersCompanyList'];
-    put?: never;
-    post: operations['followersCompanyCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/followers-company/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post?: never;
-    delete: operations['followersCompanyDestroy'];
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/followers-event/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['followersEventList'];
-    put?: never;
-    post: operations['followersEventCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/followers-event/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post?: never;
-    delete: operations['followersEventDestroy'];
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/followers-user/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['followersUserList'];
-    put?: never;
-    post: operations['followersUserCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/followers-user/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post?: never;
-    delete: operations['followersUserDestroy'];
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/frontpage/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['frontpageRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/galleries/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['galleriesList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['galleriesCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/galleries/{galleryPk}/pictures/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description Nested viewset used to manage pictures in a gallery. */
-    get: operations['galleriesPicturesList'];
-    put?: never;
-    /** @description Nested viewset used to manage pictures in a gallery. */
-    post: operations['galleriesPicturesCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/galleries/{galleryPk}/pictures/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description Nested viewset used to manage pictures in a gallery. */
-    get: operations['galleriesPicturesRetrieve'];
-    /** @description Nested viewset used to manage pictures in a gallery. */
-    put: operations['galleriesPicturesUpdate'];
-    post?: never;
-    /** @description Nested viewset used to manage pictures in a gallery. */
-    delete: operations['galleriesPicturesDestroy'];
-    options?: never;
-    head?: never;
-    /** @description Nested viewset used to manage pictures in a gallery. */
-    patch: operations['galleriesPicturesPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/galleries/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['galleriesRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['galleriesUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['galleriesDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['galleriesPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/galleries/{id}/metadata/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['galleriesMetadataRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/groups/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['groupsList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['groupsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/groups/{groupPk}/memberships/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['groupsMembershipsList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['groupsMembershipsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/groups/{groupPk}/memberships/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['groupsMembershipsRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['groupsMembershipsUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['groupsMembershipsDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['groupsMembershipsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/groups/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['groupsRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['groupsUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['groupsDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['groupsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/joblistings/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['joblistingsList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['joblistingsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/joblistings/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['joblistingsRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['joblistingsUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['joblistingsDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['joblistingsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/lending/objects/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['lendingObjectsList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['lendingObjectsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/lending/objects/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['lendingObjectsRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['lendingObjectsUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['lendingObjectsDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['lendingObjectsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/lending/objects/{id}/availability/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Returns time ranges when the object is unavailable (has approved lending requests)
-     *     for a specified month and year.
-     */
-    get: operations['lendingObjectsAvailabilityRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/lending/objects/available/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Returns a list of LendableObject IDs that have no approved lending request
-     *     overlapping the given [start_date, end_date) interval.
-     *
-     *     Query params:
-     *         start_date: ISO 8601 datetime string (e.g. 2026-03-10T00:00:00Z)
-     *         end_date:   ISO 8601 datetime string (e.g. 2026-03-20T00:00:00Z)
-     */
-    get: operations['lendingObjectsAvailableRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/lending/requests/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['lendingRequestsList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['lendingRequestsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/lending/requests/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['lendingRequestsRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['lendingRequestsUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['lendingRequestsDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['lendingRequestsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/lending/requests/admin/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['lendingRequestsAdminRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/lending/timelineentries/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations['lendingTimelineentriesCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/meeting-token/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Accept or reject invitation
-     *
-     *     Reject or accept invitation to meeting. It is genereated when
-     *     user is invited to a meeting, and sendt in the invitation email.
-     *
-     *     To accept: [accept/?token=yourtoken](accept/)
-     *
-     *     To reject: [reject/?token=yourtoken](reject/)
-     */
-    get: operations['meetingTokenRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/meeting-token/accept/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Accept or reject invitation
-     *
-     *     Reject or accept invitation to meeting. It is genereated when
-     *     user is invited to a meeting, and sendt in the invitation email.
-     *
-     *     To accept: [accept/?token=yourtoken](accept/)
-     *
-     *     To reject: [reject/?token=yourtoken](reject/)
-     */
-    post: operations['meetingTokenAcceptCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/meeting-token/reject/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Accept or reject invitation
-     *
-     *     Reject or accept invitation to meeting. It is genereated when
-     *     user is invited to a meeting, and sendt in the invitation email.
-     *
-     *     To accept: [accept/?token=yourtoken](accept/)
-     *
-     *     To reject: [reject/?token=yourtoken](reject/)
-     */
-    post: operations['meetingTokenRejectCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/meetings/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['meetingsList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['meetingsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/meetings/{meetingPk}/invitations/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['meetingsInvitationsList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['meetingsInvitationsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/meetings/{meetingPk}/invitations/{user_id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['meetingsInvitationsRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['meetingsInvitationsUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['meetingsInvitationsDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['meetingsInvitationsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/meetings/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['meetingsRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['meetingsUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['meetingsDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['meetingsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/meetings/{id}/bulk_invite/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['meetingsBulkInviteCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/meetings/{id}/invite_group/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['meetingsInviteGroupCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/meetings/{id}/invite_user/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['meetingsInviteUserCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/meetings/templates/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['meetingsTemplatesRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/membership-history/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['membershipHistoryList'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/membership-history/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['membershipHistoryRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/notification-settings/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Manage the notification channels to the authenticated users.
-     *     The default is to send all notifications on all channels.
-     *
-     *     list:
-     *     List all existing settings.
-     */
-    get: operations['notificationSettingsList'];
-    put?: never;
-    /** @description Lookup or create a new settings object and save it with the provided parameters. */
-    post: operations['notificationSettingsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/notification-settings/alternatives/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description Return a list of all possible notification_types and channels. */
-    get: operations['notificationSettingsAlternativesRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/oauth2-access-tokens/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description list:
-     *     List grants or access-tokens the current user has created.
-     *
-     *     destroy:
-     *     Delete an access token created by the user.
-     */
-    get: operations['oauth2AccessTokensList'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/oauth2-access-tokens/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post?: never;
-    /**
-     * @description list:
-     *     List grants or access-tokens the current user has created.
-     *
-     *     destroy:
-     *     Delete an access token created by the user.
-     */
-    delete: operations['oauth2AccessTokensDestroy'];
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/oauth2-applications/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description list:
-     *     List all applications the current user us responsible for.
-     */
-    get: operations['oauth2ApplicationsList'];
-    put?: never;
-    /**
-     * @description list:
-     *     List all applications the current user us responsible for.
-     */
-    post: operations['oauth2ApplicationsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/oauth2-applications/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description list:
-     *     List all applications the current user us responsible for.
-     */
-    get: operations['oauth2ApplicationsRetrieve'];
-    /**
-     * @description list:
-     *     List all applications the current user us responsible for.
-     */
-    put: operations['oauth2ApplicationsUpdate'];
-    post?: never;
-    /**
-     * @description list:
-     *     List all applications the current user us responsible for.
-     */
-    delete: operations['oauth2ApplicationsDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description list:
-     *     List all applications the current user us responsible for.
-     */
-    patch: operations['oauth2ApplicationsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/oidc/authorize/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['oidcAuthorizeRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/oidc/validate/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['oidcValidateRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/pages/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['pagesList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['pagesCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/pages/{slug}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['pagesRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['pagesUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['pagesDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['pagesPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/password-change/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations['passwordChangeCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/password-reset-perform/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations['passwordResetPerformCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/password-reset-request/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations['passwordResetRequestCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/penalties/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['penaltiesList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['penaltiesCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/penalties/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['penaltiesDestroy'];
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/podcasts/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['podcastsList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['podcastsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/podcasts/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['podcastsRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['podcastsUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['podcastsDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['podcastsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/polls/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['pollsList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['pollsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/polls/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['pollsRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['pollsUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['pollsDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['pollsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/polls/{id}/vote/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['pollsVoteCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/quotes/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['quotesList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['quotesCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/quotes/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['quotesRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['quotesUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['quotesDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['quotesPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/quotes/{id}/approve/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['quotesApproveUpdate'];
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/quotes/{id}/unapprove/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['quotesUnapproveUpdate'];
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/quotes/random/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['quotesRandomRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/reactions/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations['reactionsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/reactions/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post?: never;
-    delete: operations['reactionsDestroy'];
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/restricted-mail/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['restrictedMailList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['restrictedMailCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/restricted-mail/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['restrictedMailRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/restricted-mail/{id}/token/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Download the token belonging to a restricted mail. This token has to be attached to
-     *     the restricted mail for authentication.
-     */
-    get: operations['restrictedMailTokenRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/search-autocomplete/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Post { 'query': query, 'types': [content_type] } to this endpoint.
-     *
-     *     types is optional.
-     */
-    post: operations['searchAutocompleteCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/search-search/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Post { 'query': query, 'types': [content_type], 'filters': { event_type: ['party', 'course']} }
-     *     to this endpoint.
-     *
-     *     types and filters is optional.
-     */
-    post: operations['searchSearchCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/site-meta/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['siteMetaRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/survey-results/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['surveyResultsRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/survey-templates/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['surveyTemplatesList'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/survey-templates/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['surveyTemplatesRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/surveys/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['surveysList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['surveysCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/surveys/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['surveysRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['surveysUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['surveysDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['surveysPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/surveys/{id}/csv/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['surveysCsvRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/surveys/{id}/hide/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['surveysHideCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/surveys/{id}/pdf/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['surveysPdfRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/surveys/{id}/share/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['surveysShareCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/surveys/{surveyPk}/submissions/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['surveysSubmissionsList'];
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['surveysSubmissionsCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/surveys/{surveyPk}/submissions/{id}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['surveysSubmissionsRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['surveysSubmissionsUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['surveysSubmissionsDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['surveysSubmissionsPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/surveys/{surveyPk}/submissions/{id}/hide/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['surveysSubmissionsHideCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/surveys/{surveyPk}/submissions/{id}/show/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['surveysSubmissionsShowCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/tags/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['tagsList'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/tags/{tag}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['tagsRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/tags/popular/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get: operations['tagsPopularRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/user-commands/use/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations['userCommandsUseCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/user-delete/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations['userDeleteCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/users/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['usersList'];
-    put?: never;
-    /** @description Attempts to register a new user based on the registration token. */
-    post: operations['usersCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/users-registration-request/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Validates a registration token.
-     *
-     *     The request errors out if the token has expired or is invalid.
-     *     Request URL: GET /api/v1/users/registration/?token=<token>
-     */
-    get: operations['usersRegistrationRequestList'];
-    put?: never;
-    /** @description Attempts to create a registration token and email it to the user. */
-    post: operations['usersRegistrationRequestCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/users/{username}/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['usersRetrieve'];
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    put: operations['usersUpdate'];
-    post?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    delete: operations['usersDestroy'];
-    options?: never;
-    head?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    patch: operations['usersPartialUpdate'];
-    trace?: never;
-  };
-  '/api/v1/users/{username}/change_grade/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /** @description Attempts to change the grade of the user based selected input */
-    post: operations['usersChangeGradeCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/users/{username}/update_photo_consent/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    post: operations['usersUpdatePhotoConsentCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/users/me/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description Read-only endpoint used to retrieve information about the authenticated user. */
-    get: operations['usersMeRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/users/me/qr/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
-     *     frontend to decide which actions a user can perform.
-     */
-    get: operations['usersMeQrRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/users/oauth2_userdata/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /** @description Read-only endpoint used to retrieve information about the authenticated user. */
-    get: operations['usersOauth2UserdataRetrieve'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/api/v1/webhooks-stripe/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post: operations['webhooksStripeCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/authorization/token-auth/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description API View that receives a POST with a user's username and password.
-     *
-     *     Returns a JSON Web Token that can be used for authenticated requests.
-     */
-    post: operations['authorizationTokenAuthCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/authorization/token-auth/refresh/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description API View that returns a refreshed token (with new expiration) based on
-     *     existing token
-     *
-     *     If 'orig_iat' field (original issued-at-time) is found it will first check
-     *     if it's within expiration window, then copy it to the new token.
-     */
-    post: operations['authorizationTokenAuthRefreshCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/authorization/token-auth/verify/': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    /**
-     * @description API View that checks the validity of a token, returning the token if it
-     *     is valid.
-     */
-    post: operations['authorizationTokenAuthVerifyCreate'];
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
+    "/api/v1/achievements/azart/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["achievementsAzartCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/achievements/getting_wood/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["achievementsGettingWoodCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/achievements/grant/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["achievementsGrantCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/achievements/grant_bulk/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["achievementsGrantBulkCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/achievements/keypress_order/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["achievementsKeypressOrderCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/achievements/leaderboard/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["achievementsLeaderboardList"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/achievements/leaderboard/distribution/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["achievementsLeaderboardDistributionRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/achievements/leaderboard/rank_history/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["achievementsLeaderboardRankHistoryRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/achievements/leaderboard/top_climbers/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Top 5 users by rank improvement over the last 7 days - the same
+         *     rolling window (date__lte=week_ago, most recent snapshot on or
+         *     before that date) as the personal week-ago/month-ago columns on the
+         *     leaderboard, so "top climbers" and "Siste uke" always agree.
+         */
+        get: operations["achievementsLeaderboardTopClimbersRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/achievements/rarity/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description % of users who have earned each achievement, per level. */
+        get: operations["achievementsRarityRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/achievements/recheck_all/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["achievementsRecheckAllRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/achievements/revoke/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["achievementsRevokeCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/achievements/user_achievements/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description List every achievement a given user currently holds - admin lookup
+         *     for the sudo trophy grant page (mode 1).
+         */
+        get: operations["achievementsUserAchievementsRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/announcements/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["announcementsList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["announcementsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/announcements/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["announcementsRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["announcementsUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["announcementsDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["announcementsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/announcements/{id}/send/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["announcementsSendCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/articles/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["articlesList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["articlesCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/articles/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["articlesRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["articlesUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["articlesDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["articlesPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/articles/{id}/statistics/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["articlesStatisticsRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/banners/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["bannersList"];
+        put?: never;
+        post: operations["bannersCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/banners/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["bannersRetrieve"];
+        put: operations["bannersUpdate"];
+        post?: never;
+        delete: operations["bannersDestroy"];
+        options?: never;
+        head?: never;
+        patch: operations["bannersPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/banners/current-private/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["bannersCurrentPrivateRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/banners/current-public/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["bannersCurrentPublicRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/bdb/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["bdbList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["bdbCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/bdb/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["bdbRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["bdbUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["bdbDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["bdbPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/calendar-ical/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description List all the different icals. */
+        get: operations["calendarIcalRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/calendar-ical/events/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Event ical route. */
+        get: operations["calendarIcalEventsRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/calendar-ical/personal/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Personal ical route. */
+        get: operations["calendarIcalPersonalRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/calendar-ical/registrations/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Registration ical route. */
+        get: operations["calendarIcalRegistrationsRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/calendar-token/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Get ICalToken. */
+        get: operations["calendarTokenRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/calendar-token/regenerate/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** @description Regenerate ICalToken. */
+        patch: operations["calendarTokenRegeneratePartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/comments/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description NB: Don't add the ListMixin, this breaks permissions because the permissions
+         *     handles requires an object.
+         */
+        post: operations["commentsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/comments/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /**
+         * @description NB: Don't add the ListMixin, this breaks permissions because the permissions
+         *     handles requires an object.
+         */
+        put: operations["commentsUpdate"];
+        post?: never;
+        /**
+         * @description NB: Don't add the ListMixin, this breaks permissions because the permissions
+         *     handles requires an object.
+         */
+        delete: operations["commentsDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description NB: Don't add the ListMixin, this breaks permissions because the permissions
+         *     handles requires an object.
+         */
+        patch: operations["commentsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/companies/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["companiesList"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/companies/{companyPk}/company-contacts/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["companiesCompanyContactsList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["companiesCompanyContactsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/companies/{companyPk}/company-contacts/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["companiesCompanyContactsRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["companiesCompanyContactsUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["companiesCompanyContactsDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["companiesCompanyContactsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/companies/{companyPk}/files/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["companiesFilesList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["companiesFilesCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/companies/{companyPk}/files/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["companiesFilesRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["companiesFilesUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["companiesFilesDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["companiesFilesPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/companies/{companyPk}/semester-statuses/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["companiesSemesterStatusesList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["companiesSemesterStatusesCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/companies/{companyPk}/semester-statuses/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["companiesSemesterStatusesRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["companiesSemesterStatusesUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["companiesSemesterStatusesDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["companiesSemesterStatusesPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/companies/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["companiesRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/company-interests/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Used by new companies to register interest in Abakus and our services. */
+        get: operations["companyInterestsList"];
+        put?: never;
+        /** @description Used by new companies to register interest in Abakus and our services. */
+        post: operations["companyInterestsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/company-interests/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Used by new companies to register interest in Abakus and our services. */
+        get: operations["companyInterestsRetrieve"];
+        /** @description Used by new companies to register interest in Abakus and our services. */
+        put: operations["companyInterestsUpdate"];
+        post?: never;
+        /** @description Used by new companies to register interest in Abakus and our services. */
+        delete: operations["companyInterestsDestroy"];
+        options?: never;
+        head?: never;
+        /** @description Used by new companies to register interest in Abakus and our services. */
+        patch: operations["companyInterestsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/company-interests/csv/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Used by new companies to register interest in Abakus and our services. */
+        get: operations["companyInterestsCsvRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/company-semesters/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["companySemestersList"];
+        put?: never;
+        post: operations["companySemestersCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/company-semesters/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["companySemestersRetrieve"];
+        put: operations["companySemestersUpdate"];
+        post?: never;
+        delete: operations["companySemestersDestroy"];
+        options?: never;
+        head?: never;
+        patch: operations["companySemestersPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/contact-form/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["contactFormCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/device-apns/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["deviceApnsList"];
+        put?: never;
+        post: operations["deviceApnsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/device-apns/{registrationId}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["deviceApnsRetrieve"];
+        put: operations["deviceApnsUpdate"];
+        post?: never;
+        delete: operations["deviceApnsDestroy"];
+        options?: never;
+        head?: never;
+        patch: operations["deviceApnsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/device-expo/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["deviceExpoCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/device-expo/unregister/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete: operations["deviceExpoUnregisterDestroy"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/device-gcm/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["deviceGcmList"];
+        put?: never;
+        post: operations["deviceGcmCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/device-gcm/{registrationId}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["deviceGcmRetrieve"];
+        put: operations["deviceGcmUpdate"];
+        post?: never;
+        delete: operations["deviceGcmDestroy"];
+        options?: never;
+        head?: never;
+        patch: operations["deviceGcmPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/email-lists/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Destroy are disabled. The external_sync don't support group destroy either! */
+        get: operations["emailListsList"];
+        put?: never;
+        /** @description Destroy are disabled. The external_sync don't support group destroy either! */
+        post: operations["emailListsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/email-lists/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Destroy are disabled. The external_sync don't support group destroy either! */
+        get: operations["emailListsRetrieve"];
+        /** @description Destroy are disabled. The external_sync don't support group destroy either! */
+        put: operations["emailListsUpdate"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** @description Destroy are disabled. The external_sync don't support group destroy either! */
+        patch: operations["emailListsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/email-users/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["emailUsersList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["emailUsersCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/email-users/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["emailUsersRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["emailUsersUpdate"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["emailUsersPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/emojis/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["emojisList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["emojisCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/emojis/{shortCode}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["emojisRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["emojisUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["emojisDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["emojisPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/events/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["eventsList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["eventsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/events/{eventPk}/pools/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["eventsPoolsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/events/{eventPk}/pools/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put: operations["eventsPoolsUpdate"];
+        post?: never;
+        delete: operations["eventsPoolsDestroy"];
+        options?: never;
+        head?: never;
+        patch: operations["eventsPoolsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/events/{eventPk}/registration_search/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["eventsRegistrationSearchCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/events/{eventPk}/registrations/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["eventsRegistrationsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/events/{eventPk}/registrations/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["eventsRegistrationsRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["eventsRegistrationsUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["eventsRegistrationsDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["eventsRegistrationsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/events/{eventPk}/registrations/admin_register/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["eventsRegistrationsAdminRegisterCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/events/{eventPk}/registrations/admin_unregister/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["eventsRegistrationsAdminUnregisterCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/events/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["eventsRetrieve"];
+        /** @description If the capacity of the event increases we have to bump waiting users. */
+        put: operations["eventsUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["eventsDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["eventsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/events/{id}/administrate/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["eventsAdministrateRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/events/{id}/allergies/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["eventsAllergiesRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/events/{id}/payment/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["eventsPaymentCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/events/{id}/registration-eligibility/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["eventsRegistrationEligibilityRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/events/{id}/statistics/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["eventsStatisticsRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/events/cover_image_gallery/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["eventsCoverImageGalleryRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/events/previous/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["eventsPreviousRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/events/upcoming/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["eventsUpcomingRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/featureflags-admin/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["featureflagsAdminList"];
+        put?: never;
+        post: operations["featureflagsAdminCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/featureflags-admin/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["featureflagsAdminRetrieve"];
+        put: operations["featureflagsAdminUpdate"];
+        post?: never;
+        delete: operations["featureflagsAdminDestroy"];
+        options?: never;
+        head?: never;
+        patch: operations["featureflagsAdminPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/featureflags/{identifier}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["featureflagsRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/feed-notifications/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Notifications feed based on request.user */
+        get: operations["feedNotificationsList"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/feed-notifications/{id}/mark/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** @description Mark a single notification as read or seen. */
+        post: operations["feedNotificationsMarkCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/feed-notifications/mark_all/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** @description This function marks all activities in a NotificationFeed as seen or/and red. */
+        post: operations["feedNotificationsMarkAllCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/feed-notifications/notification_data/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Notifications feed based on request.user */
+        get: operations["feedNotificationsNotificationDataRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/feed-personal/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Personal user timeline, based on request.user */
+        get: operations["feedPersonalList"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/feed-user/{userPk}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Public events produced by users. This feed should not contain private information! This feed
+         *     uses a url param to decide which feed to retrieve.
+         */
+        get: operations["feedUserList"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/files/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** @description Upload new file. This method returns instructions to the client on how to upload the file. */
+        post: operations["filesCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/files/{key}/imagegallery/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["filesImagegalleryPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/files/{key}/upload_success/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description The client is redirected to this view when a upload succeeds. This view will inform the
+         *     client with necessary data to change a file on a instance.
+         */
+        get: operations["filesUploadSuccessRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/followers-company/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["followersCompanyList"];
+        put?: never;
+        post: operations["followersCompanyCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/followers-company/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete: operations["followersCompanyDestroy"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/followers-event/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["followersEventList"];
+        put?: never;
+        post: operations["followersEventCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/followers-event/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete: operations["followersEventDestroy"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/followers-user/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["followersUserList"];
+        put?: never;
+        post: operations["followersUserCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/followers-user/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete: operations["followersUserDestroy"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/frontpage/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["frontpageRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/galleries/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["galleriesList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["galleriesCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/galleries/{galleryPk}/pictures/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Nested viewset used to manage pictures in a gallery. */
+        get: operations["galleriesPicturesList"];
+        put?: never;
+        /** @description Nested viewset used to manage pictures in a gallery. */
+        post: operations["galleriesPicturesCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/galleries/{galleryPk}/pictures/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Nested viewset used to manage pictures in a gallery. */
+        get: operations["galleriesPicturesRetrieve"];
+        /** @description Nested viewset used to manage pictures in a gallery. */
+        put: operations["galleriesPicturesUpdate"];
+        post?: never;
+        /** @description Nested viewset used to manage pictures in a gallery. */
+        delete: operations["galleriesPicturesDestroy"];
+        options?: never;
+        head?: never;
+        /** @description Nested viewset used to manage pictures in a gallery. */
+        patch: operations["galleriesPicturesPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/galleries/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["galleriesRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["galleriesUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["galleriesDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["galleriesPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/galleries/{id}/metadata/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["galleriesMetadataRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/groups/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["groupsList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["groupsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/groups/{groupPk}/memberships/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["groupsMembershipsList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["groupsMembershipsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/groups/{groupPk}/memberships/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["groupsMembershipsRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["groupsMembershipsUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["groupsMembershipsDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["groupsMembershipsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/groups/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["groupsRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["groupsUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["groupsDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["groupsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/joblistings/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["joblistingsList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["joblistingsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/joblistings/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["joblistingsRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["joblistingsUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["joblistingsDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["joblistingsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/lending/objects/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["lendingObjectsList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["lendingObjectsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/lending/objects/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["lendingObjectsRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["lendingObjectsUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["lendingObjectsDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["lendingObjectsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/lending/objects/{id}/availability/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Returns time ranges when the object is unavailable (has approved lending requests)
+         *     for a specified month and year.
+         */
+        get: operations["lendingObjectsAvailabilityRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/lending/objects/available/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Returns a list of LendableObject IDs that have no approved lending request
+         *     overlapping the given [start_date, end_date) interval.
+         *
+         *     Query params:
+         *         start_date: ISO 8601 datetime string (e.g. 2026-03-10T00:00:00Z)
+         *         end_date:   ISO 8601 datetime string (e.g. 2026-03-20T00:00:00Z)
+         */
+        get: operations["lendingObjectsAvailableRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/lending/requests/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["lendingRequestsList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["lendingRequestsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/lending/requests/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["lendingRequestsRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["lendingRequestsUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["lendingRequestsDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["lendingRequestsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/lending/requests/admin/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["lendingRequestsAdminRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/lending/timelineentries/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["lendingTimelineentriesCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/meeting-token/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Accept or reject invitation
+         *
+         *     Reject or accept invitation to meeting. It is genereated when
+         *     user is invited to a meeting, and sendt in the invitation email.
+         *
+         *     To accept: [accept/?token=yourtoken](accept/)
+         *
+         *     To reject: [reject/?token=yourtoken](reject/)
+         */
+        get: operations["meetingTokenRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/meeting-token/accept/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Accept or reject invitation
+         *
+         *     Reject or accept invitation to meeting. It is genereated when
+         *     user is invited to a meeting, and sendt in the invitation email.
+         *
+         *     To accept: [accept/?token=yourtoken](accept/)
+         *
+         *     To reject: [reject/?token=yourtoken](reject/)
+         */
+        post: operations["meetingTokenAcceptCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/meeting-token/reject/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Accept or reject invitation
+         *
+         *     Reject or accept invitation to meeting. It is genereated when
+         *     user is invited to a meeting, and sendt in the invitation email.
+         *
+         *     To accept: [accept/?token=yourtoken](accept/)
+         *
+         *     To reject: [reject/?token=yourtoken](reject/)
+         */
+        post: operations["meetingTokenRejectCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/meetings/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["meetingsList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["meetingsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/meetings/{meetingPk}/invitations/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["meetingsInvitationsList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["meetingsInvitationsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/meetings/{meetingPk}/invitations/{user_id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["meetingsInvitationsRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["meetingsInvitationsUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["meetingsInvitationsDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["meetingsInvitationsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/meetings/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["meetingsRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["meetingsUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["meetingsDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["meetingsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/meetings/{id}/bulk_invite/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["meetingsBulkInviteCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/meetings/{id}/invite_group/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["meetingsInviteGroupCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/meetings/{id}/invite_user/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["meetingsInviteUserCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/meetings/templates/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["meetingsTemplatesRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/membership-history/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["membershipHistoryList"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/membership-history/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["membershipHistoryRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/notification-settings/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Manage the notification channels to the authenticated users.
+         *     The default is to send all notifications on all channels.
+         *
+         *     list:
+         *     List all existing settings.
+         */
+        get: operations["notificationSettingsList"];
+        put?: never;
+        /** @description Lookup or create a new settings object and save it with the provided parameters. */
+        post: operations["notificationSettingsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/notification-settings/alternatives/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Return a list of all possible notification_types and channels. */
+        get: operations["notificationSettingsAlternativesRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/oauth2-access-tokens/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description list:
+         *     List grants or access-tokens the current user has created.
+         *
+         *     destroy:
+         *     Delete an access token created by the user.
+         */
+        get: operations["oauth2AccessTokensList"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/oauth2-access-tokens/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /**
+         * @description list:
+         *     List grants or access-tokens the current user has created.
+         *
+         *     destroy:
+         *     Delete an access token created by the user.
+         */
+        delete: operations["oauth2AccessTokensDestroy"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/oauth2-applications/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description list:
+         *     List all applications the current user us responsible for.
+         */
+        get: operations["oauth2ApplicationsList"];
+        put?: never;
+        /**
+         * @description list:
+         *     List all applications the current user us responsible for.
+         */
+        post: operations["oauth2ApplicationsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/oauth2-applications/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description list:
+         *     List all applications the current user us responsible for.
+         */
+        get: operations["oauth2ApplicationsRetrieve"];
+        /**
+         * @description list:
+         *     List all applications the current user us responsible for.
+         */
+        put: operations["oauth2ApplicationsUpdate"];
+        post?: never;
+        /**
+         * @description list:
+         *     List all applications the current user us responsible for.
+         */
+        delete: operations["oauth2ApplicationsDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description list:
+         *     List all applications the current user us responsible for.
+         */
+        patch: operations["oauth2ApplicationsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/oidc/authorize/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["oidcAuthorizeRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/oidc/validate/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["oidcValidateRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/pages/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["pagesList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["pagesCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/pages/{slug}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["pagesRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["pagesUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["pagesDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["pagesPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/password-change/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["passwordChangeCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/password-reset-perform/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["passwordResetPerformCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/password-reset-request/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["passwordResetRequestCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/penalties/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["penaltiesList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["penaltiesCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/penalties/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["penaltiesDestroy"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/podcasts/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["podcastsList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["podcastsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/podcasts/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["podcastsRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["podcastsUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["podcastsDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["podcastsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/polls/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["pollsList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["pollsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/polls/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["pollsRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["pollsUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["pollsDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["pollsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/polls/{id}/vote/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["pollsVoteCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/quotes/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["quotesList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["quotesCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/quotes/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["quotesRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["quotesUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["quotesDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["quotesPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/quotes/{id}/approve/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["quotesApproveUpdate"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/quotes/{id}/unapprove/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["quotesUnapproveUpdate"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/quotes/random/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["quotesRandomRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/reactions/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["reactionsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/reactions/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete: operations["reactionsDestroy"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/restricted-mail/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["restrictedMailList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["restrictedMailCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/restricted-mail/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["restrictedMailRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/restricted-mail/{id}/token/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Download the token belonging to a restricted mail. This token has to be attached to
+         *     the restricted mail for authentication.
+         */
+        get: operations["restrictedMailTokenRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/search-autocomplete/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Post { 'query': query, 'types': [content_type] } to this endpoint.
+         *
+         *     types is optional.
+         */
+        post: operations["searchAutocompleteCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/search-search/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Post { 'query': query, 'types': [content_type], 'filters': { event_type: ['party', 'course']} }
+         *     to this endpoint.
+         *
+         *     types and filters is optional.
+         */
+        post: operations["searchSearchCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/site-meta/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["siteMetaRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/survey-results/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["surveyResultsRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/survey-templates/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["surveyTemplatesList"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/survey-templates/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["surveyTemplatesRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/surveys/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["surveysList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["surveysCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/surveys/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["surveysRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["surveysUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["surveysDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["surveysPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/surveys/{id}/csv/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["surveysCsvRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/surveys/{id}/hide/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["surveysHideCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/surveys/{id}/pdf/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["surveysPdfRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/surveys/{id}/share/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["surveysShareCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/surveys/{surveyPk}/submissions/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["surveysSubmissionsList"];
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["surveysSubmissionsCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/surveys/{surveyPk}/submissions/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["surveysSubmissionsRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["surveysSubmissionsUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["surveysSubmissionsDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["surveysSubmissionsPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/surveys/{surveyPk}/submissions/{id}/hide/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["surveysSubmissionsHideCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/surveys/{surveyPk}/submissions/{id}/show/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["surveysSubmissionsShowCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/tags/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["tagsList"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/tags/{tag}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["tagsRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/tags/popular/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["tagsPopularRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/user-commands/use/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["userCommandsUseCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/user-delete/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["userDeleteCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/users/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["usersList"];
+        put?: never;
+        /** @description Attempts to register a new user based on the registration token. */
+        post: operations["usersCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/users-registration-request/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Validates a registration token.
+         *
+         *     The request errors out if the token has expired or is invalid.
+         *     Request URL: GET /api/v1/users/registration/?token=<token>
+         */
+        get: operations["usersRegistrationRequestList"];
+        put?: never;
+        /** @description Attempts to create a registration token and email it to the user. */
+        post: operations["usersRegistrationRequestCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/users/{username}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["usersRetrieve"];
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        put: operations["usersUpdate"];
+        post?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        delete: operations["usersDestroy"];
+        options?: never;
+        head?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        patch: operations["usersPartialUpdate"];
+        trace?: never;
+    };
+    "/api/v1/users/{username}/change_grade/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** @description Attempts to change the grade of the user based selected input */
+        post: operations["usersChangeGradeCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/users/{username}/update_photo_consent/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        post: operations["usersUpdatePhotoConsentCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/users/me/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Read-only endpoint used to retrieve information about the authenticated user. */
+        get: operations["usersMeRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/users/me/qr/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * @description Append a `permission` value on list and retrieve methods. This makes it possible for a
+         *     frontend to decide which actions a user can perform.
+         */
+        get: operations["usersMeQrRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/users/oauth2_userdata/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Read-only endpoint used to retrieve information about the authenticated user. */
+        get: operations["usersOauth2UserdataRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/webhooks-stripe/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["webhooksStripeCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/authorization/token-auth/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description API View that receives a POST with a user's username and password.
+         *
+         *     Returns a JSON Web Token that can be used for authenticated requests.
+         */
+        post: operations["authorizationTokenAuthCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/authorization/token-auth/refresh/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description API View that returns a refreshed token (with new expiration) based on
+         *     existing token
+         *
+         *     If 'orig_iat' field (original issued-at-time) is found it will first check
+         *     if it's within expiration window, then copy it to the new token.
+         */
+        post: operations["authorizationTokenAuthRefreshCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/authorization/token-auth/verify/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * @description API View that checks the validity of a token, returning the token if it
+         *     is valid.
+         */
+        post: operations["authorizationTokenAuthVerifyCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
-  schemas: {
-    APNSDevice: {
-      readonly id: number;
-      name?: string | null;
-      /** @description Opaque application identity, should be filled in for multiple key/certificate access */
-      applicationId?: string | null;
-      registrationId: string;
-      /**
-       * Format: uuid
-       * @description UUID / UIDevice.identifierForVendor()
-       */
-      deviceId?: string | null;
-      /**
-       * Is active
-       * @description Inactive devices will not be sent notifications
-       * @default true
-       */
-      active: boolean;
-      /**
-       * Creation date
-       * Format: date-time
-       */
-      readonly dateCreated: string | null;
-    };
-    AccessToken: {
-      readonly id: number;
-      user?: number | null;
-      readonly token: string;
-      readonly application: number;
-      /** Format: date-time */
-      expires: string;
-      readonly scopes: string;
-    };
-    Achievement: {
-      readonly id: number;
-      /** Format: date-time */
-      readonly updatedAt: string;
-      readonly percentage: string;
-      identifier: components['schemas']['IdentifierEnum'];
-      level?: number;
-    };
-    AdminRegistrationCreateAndUpdate: {
-      user: number;
-      pool?: number;
-      feedback?: string;
-      adminRegistrationReason: string;
-    };
-    AdminUnregister: {
-      user: number;
-      adminUnregistrationReason: string;
-    };
-    /** @description Used by the events app when listing user registrations. */
-    AdministrateUser: {
-      readonly id: number;
-      /** @description Required. 50 characters or fewer. Letters, digits and _ only. */
-      readonly username: string;
-      firstName: string;
-      lastName: string;
-      readonly fullName: string;
-      gender: components['schemas']['GenderEnum'];
-      profilePicture?: string;
-      profilePicturePlaceholder?: string;
-      readonly internalEmailAddress: string;
-      /** @description Enter a valid username. */
-      githubUsername?: string | null;
-      /** @description Enter a valid LinkedIn ID. */
-      linkedinId?: string | null;
-      /** @description The groups this user belongs to. A user will get all permissions granted to each of their groups. */
-      readonly abakusGroups: number[];
-    };
-    AggregatedFeed: {
-      id: number;
-      orderingKey: string;
-      verb: string;
-      /** Format: date-time */
-      createdAt: string;
-      /** Format: date-time */
-      updatedAt: string;
-      lastActivity: components['schemas']['FeedActivity'];
-      activities: components['schemas']['FeedActivity'][];
-      activityCount: number;
-      actorIds: string[];
-      readonly context: {
-        [key: string]: unknown;
-      };
-    };
-    AggregatedMarkedFeed: {
-      id: number;
-      orderingKey: string;
-      verb: string;
-      /** Format: date-time */
-      createdAt: string;
-      /** Format: date-time */
-      updatedAt: string;
-      lastActivity: components['schemas']['FeedActivity'];
-      activities: components['schemas']['FeedActivity'][];
-      activityCount: number;
-      actorIds: string[];
-      readonly context: {
-        [key: string]: unknown;
-      };
-      read: boolean;
-      seen: boolean;
-    };
-    AnnouncementDetail: {
-      readonly id: number;
-      message: string;
-      fromGroup?: number | null;
-      /** Format: date-time */
-      readonly sent: string | null;
-      users?: number[];
-      groups?: number[];
-      events?: number[];
-      excludeWaitingList?: boolean;
-      meetings?: number[];
-      meetingInvitationStatus?:
-        | components['schemas']['MeetingInvitationStatusEnum']
-        | components['schemas']['BlankEnum'];
-    };
-    AnnouncementList: {
-      readonly id: number;
-      message: string;
-      readonly fromGroup: components['schemas']['PublicAbakusGroup'];
-      /** Format: date-time */
-      readonly sent: string | null;
-      readonly users: components['schemas']['PublicUser'][];
-      readonly groups: components['schemas']['PublicAbakusGroup'][];
-      readonly events: components['schemas']['EventRead'][];
-      excludeWaitingList?: boolean;
-      readonly meetings: components['schemas']['MeetingList'][];
-      meetingInvitationStatus?:
-        | components['schemas']['MeetingInvitationStatusEnum']
-        | components['schemas']['BlankEnum'];
-    };
-    Answer: {
-      readonly id: number;
-      submission: number;
-      question: components['schemas']['Question'];
-      answerText?: string;
-      selectedOptions?: number[];
-    };
-    AnswerCreateAndUpdate: {
-      readonly id: number;
-      question: number;
-      answerText?: string;
-      selectedOptions?: number[];
-    };
-    Application: {
-      readonly id: number;
-      name?: string;
-      /** Application description */
-      description?: string;
-      /** @description Allowed URIs list, space separated */
-      redirectUris?: string;
-      readonly clientId: string;
-      readonly clientSecret: string;
-      readonly user: number;
-    };
-    Banner: {
-      readonly id: number;
-      header: string;
-      subheader?: string | null;
-      color?: components['schemas']['ColorEnum'];
-      link?: string | null;
-      currentPrivate?: boolean;
-      currentPublic?: boolean;
-      /** Format: date-time */
-      countdownEndDate?: string | null;
-      countdownEndMessage?: string | null;
-    };
-    /** @enum {unknown} */
-    BlankEnum: '';
-    /**
-     * @description * `generelt` - generelt
-     *     * `organisasjon` - organisasjon
-     *     * `styrer` - styrer
-     *     * `bedrifter` - bedrifter
-     *     * `arrangementer` - arrangementer
-     *     * `grupper` - grupper
-     *     * `utnevnelser` - utnevnelser
-     *     * `personvern` - personvern
-     * @enum {string}
-     */
-    Category2a9Enum:
-      | 'generelt'
-      | 'organisasjon'
-      | 'styrer'
-      | 'bedrifter'
-      | 'arrangementer'
-      | 'grupper'
-      | 'utnevnelser'
-      | 'personvern';
-    /**
-     * @description * `outdoors` - outdoors
-     *     * `photography` - photography
-     *     * `music` - music
-     *     * `furniture` - furniture
-     *     * `services` - services
-     *     * `other` - other
-     * @enum {string}
-     */
-    Category7d8Enum: 'outdoors' | 'photography' | 'music' | 'furniture' | 'services' | 'other';
-    ChangeGrade: {
-      group: number | null;
-    };
-    /**
-     * @description * `email` - email
-     *     * `push` - push
-     * @enum {string}
-     */
-    ChannelsEnum: 'email' | 'push';
-    /**
-     * @description * `FCM` - Firebase Cloud Message
-     *     * `GCM` - Google Cloud Message
-     * @enum {string}
-     */
-    CloudMessageTypeEnum: 'FCM' | 'GCM';
-    /**
-     * @description * `collaboration_online` - collaboration_online
-     *     * `collaboration_omega` - collaboration_omega
-     *     * `collaboration_tihlde` - collaboration_tihlde
-     *     * `collaboration_revue` - collaboration_revue
-     *     * `collaboration_anniversary` - collaboration_anniversary
-     *     * `collaboration_revue_anniversary` - collaboration_revue_anniversary
-     * @enum {string}
-     */
-    CollaborationsEnum:
-      | 'collaboration_online'
-      | 'collaboration_omega'
-      | 'collaboration_tihlde'
-      | 'collaboration_revue'
-      | 'collaboration_anniversary'
-      | 'collaboration_revue_anniversary';
-    /**
-     * @description * `buddyweek2024` - buddyweek2024
-     *     * `christmas` - christmas
-     *     * `easter` - easter
-     *     * `gray` - gray
-     *     * `itdageneBlue` - itdageneBlue
-     *     * `lightBlue` - lightBlue
-     *     * `red` - red
-     *     * `white` - white
-     * @enum {string}
-     */
-    ColorEnum:
-      | 'buddyweek2024'
-      | 'christmas'
-      | 'easter'
-      | 'gray'
-      | 'itdageneBlue'
-      | 'lightBlue'
-      | 'red'
-      | 'white';
-    Comment: {
-      readonly id: number;
-      text: string;
-      readonly author: components['schemas']['PublicUser'];
-      contentTarget: string;
-      readonly contentTargetSelf: string;
-      /** Format: date-time */
-      readonly createdAt: string;
-      /** Format: date-time */
-      readonly updatedAt: string;
-      parent?: number | null;
-      readonly reactionsGrouped: string;
-    };
-    CompanyAdminDetail: {
-      readonly id: number;
-      name: string;
-      studentContacts?: components['schemas']['StudentCompanyContact'][];
-      description?: string;
-      phone?: string;
-      companyType?: string;
-      website?: string;
-      address?: string;
-      paymentMail?: string;
-      readonly comments: components['schemas']['Comment'][];
-      readonly contentTarget: string;
-      readonly semesterStatuses: components['schemas']['SemesterStatusDetail'][];
-      active?: boolean;
-      logo?: string;
-      readonly files: components['schemas']['CompanyFile'][];
-      readonly companyContacts: components['schemas']['CompanyContact'][];
-    };
-    CompanyAdminList: {
-      readonly id: number;
-      name: string;
-      readonly semesterStatuses: string;
-      readonly studentContacts: string;
-      active?: boolean;
-    };
-    CompanyContact: {
-      readonly id: number;
-      name: string;
-      role?: string;
-      mail?: string;
-      phone?: string;
-      mobile?: string;
-      /** Format: date-time */
-      readonly updatedAt: string;
-    };
-    /**
-     * @description * `company_survey_security` - Security
-     *     * `company_survey_ai` - Ai
-     *     * `company_survey_big_data` - Data
-     *     * `company_survey_front_back_end` - End
-     *     * `company_survey_iot` - Iot
-     *     * `company_survey_gamedev` - Gamedev
-     *     * `company_survey_softskills` - Softskills
-     *     * `company_survey_fintech` - Fintech
-     * @enum {string}
-     */
-    CompanyCourseThemesEnum:
-      | 'company_survey_security'
-      | 'company_survey_ai'
-      | 'company_survey_big_data'
-      | 'company_survey_front_back_end'
-      | 'company_survey_iot'
-      | 'company_survey_gamedev'
-      | 'company_survey_softskills'
-      | 'company_survey_fintech';
-    CompanyDetail: {
-      readonly id: number;
-      name: string;
-      description?: string;
-      phone?: string;
-      companyType?: string;
-      website?: string;
-      address?: string;
-      logo?: string;
-      logoPlaceholder?: string;
-    };
-    CompanyFile: {
-      readonly id: number;
-      file: string;
-    };
-    CompanyInterest: {
-      readonly id: number;
-      companyName?: string;
-      company: components['schemas']['CompanySearch'] | null;
-      contactPerson: string;
-      /** Format: email */
-      mail: string;
-      phone?: string;
-      semesters?: number[];
-      events?: components['schemas']['EventsEnum'][] | null;
-      otherOffers?: components['schemas']['OtherOffersEnum'][] | null;
-      collaborations?: components['schemas']['CollaborationsEnum'][] | null;
-      companyType?:
-        | (
-            | components['schemas']['CompanyTypeEnum']
-            | components['schemas']['BlankEnum']
-            | components['schemas']['NullEnum']
-          )
-        | null;
-      targetGrades?: number[] | null;
-      participantRangeStart?: number | null;
-      participantRangeEnd?: number | null;
-      comment?: string;
-      courseComment?: string;
-      breakfastTalkComment?: string;
-      otherEventComment?: string;
-      startupComment?: string;
-      companyToCompanyComment?: string;
-      lunchPresentationComment?: string;
-      companyPresentationComment?: string;
-      bedexComment?: string;
-      companyCourseThemes?: components['schemas']['CompanyCourseThemesEnum'][] | null;
-      officeInTrondheim?: boolean;
-      wantsThursdayEvent?: boolean;
-    };
-    CompanyInterestCreateAndUpdate: {
-      readonly id: number;
-      companyName?: string;
-      company?: number | null;
-      contactPerson: string;
-      /** Format: email */
-      mail: string;
-      phone?: string;
-      semesters?: number[];
-      events?: components['schemas']['EventsEnum'][] | null;
-      otherOffers?: components['schemas']['OtherOffersEnum'][] | null;
-      collaborations?: components['schemas']['CollaborationsEnum'][] | null;
-      companyType?:
-        | (
-            | components['schemas']['CompanyTypeEnum']
-            | components['schemas']['BlankEnum']
-            | components['schemas']['NullEnum']
-          )
-        | null;
-      targetGrades?: number[] | null;
-      participantRangeStart?: number | null;
-      participantRangeEnd?: number | null;
-      comment?: string;
-      courseComment?: string;
-      breakfastTalkComment?: string;
-      otherEventComment?: string;
-      startupComment?: string;
-      companyToCompanyComment?: string;
-      lunchPresentationComment?: string;
-      companyPresentationComment?: string;
-      bedexComment?: string;
-      companyCourseThemes?: components['schemas']['CompanyCourseThemesEnum'][] | null;
-      officeInTrondheim?: boolean;
-      wantsThursdayEvent?: boolean;
-    };
-    CompanyInterestList: {
-      readonly id: number;
-      companyName?: string;
-      company: components['schemas']['CompanySearch'];
-      contactPerson: string;
-      /** Format: email */
-      mail: string;
-      phone?: string;
-      semesters?: number[];
-      events?: components['schemas']['EventsEnum'][] | null;
-      /** Format: date-time */
-      readonly createdAt: string;
-    };
-    CompanyList: {
-      readonly id: number;
-      name: string;
-      description?: string;
-      readonly eventCount: string;
-      readonly joblistingCount: string;
-      website?: string;
-      companyType?: string;
-      address?: string;
-      logo?: string;
-      logoPlaceholder?: string;
-      thumbnail?: string;
-      active?: boolean;
-    };
-    /** @description Public company information available on search. */
-    CompanySearch: {
-      readonly id: number;
-      name: string;
-      description?: string;
-      website?: string;
-      companyType?: string;
-      address?: string;
-    };
-    /**
-     * @description * `company_types_small_consultant` - Small Consultant
-     *     * `company_types_medium_consultant` - Medium Consultant
-     *     * `company_types_large_consultant` - Large Consultant
-     *     * `company_types_inhouse` - Inhouse
-     *     * `company_types_others` - Types Others
-     *     * `company_types_start_up` - Start Up
-     *     * `company_types_governmental` - Governmental
-     * @enum {string}
-     */
-    CompanyTypeEnum:
-      | 'company_types_small_consultant'
-      | 'company_types_medium_consultant'
-      | 'company_types_large_consultant'
-      | 'company_types_inhouse'
-      | 'company_types_others'
-      | 'company_types_start_up'
-      | 'company_types_governmental';
-    ContactForm: {
-      title: string;
-      message: string;
-      captchaResponse: string;
-      recipientGroup: number | null;
-    };
-    /**
-     * @description * `company_presentation` - company_presentation
-     *     * `course` - course
-     *     * `breakfast_talk` - breakfast_talk
-     *     * `lunch_presentation` - lunch_presentation
-     *     * `bedex` - bedex
-     *     * `contact_in_oslo` - contact_in_oslo
-     *     * `interested` - interested
-     *     * `not_interested` - not_interested
-     *     * `contacted` - contacted
-     *     * `not_contacted` - not_contacted
-     * @enum {string}
-     */
-    ContactedStatusEnum:
-      | 'company_presentation'
-      | 'course'
-      | 'breakfast_talk'
-      | 'lunch_presentation'
-      | 'bedex'
-      | 'contact_in_oslo'
-      | 'interested'
-      | 'not_interested'
-      | 'contacted'
-      | 'not_contacted';
-    /**
-     * @description Serializer for the /me, retrieve and update endpoint with EDIT permissions.
-     *     Also used by our JWT handler and returned to the user when a user obtains a JWT token.
-     */
-    CurrentUser: {
-      readonly id: number;
-      /** @description Required. 50 characters or fewer. Letters, digits and _ only. */
-      username: string;
-      firstName: string;
-      lastName: string;
-      readonly fullName: string;
-      /** Format: email */
-      email: string;
-      readonly emailAddress: string;
-      phoneNumber?: string | null;
-      emailListsEnabled?: boolean;
-      profilePicture?: string | null;
-      profilePicturePlaceholder?: string;
-      gender: components['schemas']['GenderEnum'];
-      allergies?: string;
-      /** @description Designates whether this user should be treated as active. Unselect this instead of deleting accounts. */
-      isActive?: boolean;
-      readonly isStudent: string;
-      abakusEmailLists: components['schemas']['PublicEmailList'][];
-      abakusGroups: components['schemas']['PublicAbakusGroup'][];
-      isAbakusMember: boolean;
-      readonly isAbakomMember: string;
-      readonly penalties: string;
-      readonly icalToken: string;
-      memberships: components['schemas']['Membership'][];
-      pastMemberships: components['schemas']['PastMembership'][];
-      readonly internalEmailAddress: string;
-      selectedTheme?: components['schemas']['SelectedThemeEnum'];
-      readonly permissionsPerGroup: string;
-      readonly photoConsents: string;
-      /** @description Enter a valid username. */
-      githubUsername?: string | null;
-      /** @description Enter a valid LinkedIn ID. */
-      linkedinId?: string | null;
-      achievements: components['schemas']['Achievement'][];
-      readonly achievementsScore: string;
-      readonly commandSuggestions: string;
-      christmasSlots: number[];
-    };
-    DetailedAbakusGroup: {
-      readonly id: number;
-      name: string;
-      description?: string;
-      contactEmail?: string;
-      parent?: number | null;
-      permissions?: string[];
-      readonly parentPermissions: string;
-      type?: components['schemas']['TypeEnum'];
-      text?: string;
-      logo?: string | null;
-      readonly numberOfUsers: number;
-      showBadge?: boolean;
-      active?: boolean;
-    };
-    /**
-     * @description Any serializer with write support and tags should implement this serializer to support automatic
-     *     creation of new tags.
-     */
-    DetailedArticle: {
-      readonly id: number;
-      title: string;
-      slug?: string | null;
-      cover?: string;
-      coverPlaceholder?: string;
-      authors: number[];
-      description?: string | null;
-      readonly contentTarget: string;
-      /** @default [] */
-      tags: components['schemas']['Tag'][];
-      content: string;
-      /** Format: date-time */
-      readonly createdAt: string;
-      pinned?: boolean;
-      readonly reactionsGrouped: string;
-      youtubeUrl?: string;
-    };
-    DetailedPodcast: {
-      readonly id: number;
-      source: string;
-      /** Format: date-time */
-      readonly createdAt: string;
-      description: string;
-      authors: components['schemas']['PublicUser'][];
-      thanks: components['schemas']['PublicUser'][];
-    };
-    /**
-     * @description * `pie_chart` - pie_chart
-     *     * `bar_chart` - bar_chart
-     * @enum {string}
-     */
-    DisplayTypeEnum: 'pie_chart' | 'bar_chart';
-    /**
-     * @description * `WEBSITE` - WEBSITE
-     *     * `SOCIAL_MEDIA` - SOCIAL_MEDIA
-     * @enum {string}
-     */
-    DomainEnum: 'WEBSITE' | 'SOCIAL_MEDIA';
-    EmailList: {
-      readonly id: number;
-      name: string;
-      readonly email: string;
-      users?: number[];
-      groups?: number[];
-      groupRoles?: components['schemas']['GroupRolesEnum'][];
-      /** @description Only allow users with emails from our internal domain, @abakus.no */
-      requireInternalAddress?: boolean;
-      additionalEmails?: string[];
-    };
-    /**
-     * @description It isn't possible to change the email after the list is created!
-     *
-     *     TODO: This could be solved with group deletion, but this is'nt supported by the external_sync
-     *     tool. Reuse lists for now! :D
-     */
-    EmailListCreate: {
-      readonly id: number;
-      name: string;
-      email: string;
-      users?: number[];
-      groups?: number[];
-      groupRoles?: components['schemas']['GroupRolesEnum'][];
-      /** @description Only allow users with emails from our internal domain, @abakus.no */
-      requireInternalAddress?: boolean;
-      additionalEmails?: string[];
-    };
-    EmailListDetail: {
-      readonly id: number;
-      name: string;
-      readonly email: string;
-      users: number[];
-      groups: number[];
-      groupRoles?: components['schemas']['GroupRolesEnum'][];
-      /** @description Only allow users with emails from our internal domain, @abakus.no */
-      requireInternalAddress?: boolean;
-      additionalEmails?: string[];
-    };
-    Emoji: {
-      shortCode: string;
-      keywords: string[];
-      unicodeString: string;
-      fitzpatrickScale: boolean;
-      category: string;
-    };
-    /**
-     * @description Any serializer with write support and tags should implement this serializer to support automatic
-     *     creation of new tags.
-     */
-    EventCreateAndUpdate: {
-      readonly id: number;
-      title: string;
-      cover?: string;
-      description?: string | null;
-      text: string;
-      company?: number | null;
-      responsibleGroup?: number | null;
-      feedbackDescription?: string;
-      feedbackRequired?: boolean;
-      eventType: components['schemas']['EventTypeEnum'];
-      eventStatusType?: components['schemas']['EventStatusTypeEnum'];
-      location: string;
-      isPriced?: boolean;
-      priceMember?: number;
-      priceGuest?: number;
-      useStripe?: boolean;
-      /** Format: date-time */
-      paymentDueDate?: string | null;
-      /** Format: date-time */
-      startTime: string;
-      /** Format: date-time */
-      endTime: string;
-      /** Format: date-time */
-      mergeTime?: string | null;
-      useCaptcha?: boolean;
-      /** @default [] */
-      tags: components['schemas']['Tag'][];
-      pools?: components['schemas']['PoolCreateAndUpdate'][];
-      /** Format: date-time */
-      unregistrationDeadline?: string | null;
-      unregistrationDeadlineHours?: number;
-      pinned?: boolean;
-      useConsent?: boolean;
-      heedPenalties?: boolean;
-      registrationDeadlineHours?: number;
-      /** Format: date-time */
-      readonly registrationCloseTime: string;
-      /** Format: date-time */
-      readonly unregistrationCloseTime: string;
-      youtubeUrl?: string;
-      mazemapPoi?: number | null;
-      responsibleUsers?: number[];
-      isForeignLanguage?: boolean;
-      showCompanyDescription?: boolean;
-      canEditUsers?: (number | null)[];
-      canViewGroups?: (number | null)[];
-      canEditGroups?: (number | null)[];
-      requireAuth?: boolean;
-    };
-    /**
-     * @description Any serializer with write support and tags should implement this serializer to support automatic
-     *     creation of new tags.
-     */
-    EventForSurvey: {
-      readonly id: number;
-      title: string;
-      slug?: string | null;
-      description?: string | null;
-      cover?: string;
-      coverPlaceholder?: string;
-      eventType: components['schemas']['EventTypeEnum'];
-      eventStatusType?: components['schemas']['EventStatusTypeEnum'];
-      location: string;
-      /** Format: date-time */
-      startTime: string;
-      /** Format: date-time */
-      endTime: string;
-      thumbnail?: string;
-      totalCapacity: string;
-      company: number;
-      readonly responsibleGroup: components['schemas']['PublicAbakusGroup'];
-      registrationCount: string;
-      /** @default [] */
-      tags: components['schemas']['Tag'][];
-      activationTime: string;
-      isAdmitted: string;
-      survey: number;
-      isPriced?: boolean;
-      isForeignLanguage?: boolean;
-      readonly userReg: string;
-      showCompanyDescription?: boolean;
-      canEditUsers?: (number | null)[];
-      canViewGroups?: (number | null)[];
-      canEditGroups?: (number | null)[];
-      requireAuth?: boolean;
-      readonly attendedCount: string;
-    };
-    /**
-     * @description Any serializer with write support and tags should implement this serializer to support automatic
-     *     creation of new tags.
-     */
-    EventRead: {
-      readonly id: number;
-      title: string;
-      slug?: string | null;
-      description?: string | null;
-      cover?: string;
-      coverPlaceholder?: string;
-      eventType: components['schemas']['EventTypeEnum'];
-      eventStatusType?: components['schemas']['EventStatusTypeEnum'];
-      location: string;
-      /** Format: date-time */
-      startTime: string;
-      /** Format: date-time */
-      endTime: string;
-      thumbnail?: string;
-      totalCapacity: string;
-      company: number;
-      readonly responsibleGroup: components['schemas']['PublicAbakusGroup'];
-      registrationCount: string;
-      /** @default [] */
-      tags: components['schemas']['Tag'][];
-      activationTime: string;
-      isAdmitted: string;
-      survey: number;
-      isPriced?: boolean;
-      isForeignLanguage?: boolean;
-      readonly userReg: string;
-      showCompanyDescription?: boolean;
-      canEditUsers?: (number | null)[];
-      canViewGroups?: (number | null)[];
-      canEditGroups?: (number | null)[];
-      requireAuth?: boolean;
-    };
-    /** @description User specific event serializer that appends data based on request.user */
-    EventReadUserDetailed: {
-      canEditUsers?: (number | null)[];
-      canViewGroups?: (number | null)[];
-      canEditGroups?: (number | null)[];
-      requireAuth?: boolean;
-      readonly id: number;
-      title: string;
-      slug?: string | null;
-      description?: string | null;
-      cover?: string;
-      coverPlaceholder?: string;
-      text: string;
-      eventType: components['schemas']['EventTypeEnum'];
-      eventStatusType?: components['schemas']['EventStatusTypeEnum'];
-      location: string;
-      readonly contentTarget: string;
-      /** Format: date-time */
-      startTime: string;
-      /** Format: date-time */
-      endTime: string;
-      /** Format: date-time */
-      mergeTime?: string | null;
-      pools: components['schemas']['PoolRead'][];
-      registrationCount: string;
-      waitingRegistrationCount: string;
-      /** Format: date-time */
-      readonly registrationCloseTime: string;
-      registrationDeadlineHours?: number;
-      /** Format: date-time */
-      readonly unregistrationCloseTime: string;
-      /** Format: date-time */
-      unregistrationDeadline?: string | null;
-      unregistrationDeadlineHours?: number;
-      company: number;
-      readonly responsibleGroup: components['schemas']['PublicAbakusGroup'];
-      /** @description Calculation capacity of pools that are active. */
-      readonly activeCapacity: number;
-      feedbackDescription?: string;
-      feedbackRequired?: boolean;
-      isPriced?: boolean;
-      priceMember?: number;
-      priceGuest?: number;
-      useStripe?: boolean;
-      /** Format: date-time */
-      paymentDueDate?: string | null;
-      useCaptcha?: boolean;
-      /** @default [] */
-      tags: components['schemas']['Tag'][];
-      readonly isMerged: boolean;
-      heedPenalties?: boolean;
-      legacyRegistrationCount?: number;
-      survey: number;
-      useConsent?: boolean;
-      youtubeUrl?: string;
-      mazemapPoi?: number | null;
-      isForeignLanguage?: boolean;
-      showCompanyDescription?: boolean;
-      readonly price: string;
-      activationTime: string;
-      isAdmitted: string;
-      following: string;
-      spotsLeft: string;
-      readonly pendingRegistration: string;
-      readonly photoConsents: string;
-    };
-    /**
-     * @description * `NORMAL` - NORMAL
-     *     * `INFINITE` - INFINITE
-     *     * `OPEN` - OPEN
-     *     * `TBA` - TBA
-     * @enum {string}
-     */
-    EventStatusTypeEnum: 'NORMAL' | 'INFINITE' | 'OPEN' | 'TBA';
-    /**
-     * @description * `company_presentation` - company_presentation
-     *     * `lunch_presentation` - lunch_presentation
-     *     * `alternative_presentation` - alternative_presentation
-     *     * `course` - course
-     *     * `breakfast_talk` - breakfast_talk
-     *     * `nexus_event` - nexus_event
-     *     * `party` - party
-     *     * `social` - social
-     *     * `gala` - gala
-     *     * `other` - other
-     *     * `event` - event
-     *     * `interest_event` - interest_event
-     * @enum {string}
-     */
-    EventTypeEnum:
-      | 'company_presentation'
-      | 'lunch_presentation'
-      | 'alternative_presentation'
-      | 'course'
-      | 'breakfast_talk'
-      | 'nexus_event'
-      | 'party'
-      | 'social'
-      | 'gala'
-      | 'other'
-      | 'event'
-      | 'interest_event';
-    /**
-     * @description * `company_presentation` - company_presentation
-     *     * `lunch_presentation` - lunch_presentation
-     *     * `course` - course
-     *     * `breakfast_talk` - breakfast_talk
-     *     * `digital_presentation` - digital_presentation
-     *     * `bedex` - bedex
-     *     * `other` - other
-     *     * `sponsor` - sponsor
-     *     * `start_up` - start_up
-     *     * `company_to_company` - company_to_company
-     * @enum {string}
-     */
-    EventsEnum:
-      | 'company_presentation'
-      | 'lunch_presentation'
-      | 'course'
-      | 'breakfast_talk'
-      | 'digital_presentation'
-      | 'bedex'
-      | 'other'
-      | 'sponsor'
-      | 'start_up'
-      | 'company_to_company';
-    ExpoDevice: {
-      pushToken: string;
-    };
-    FeatureFlagAdmin: {
-      readonly id: number;
-      identifier: string;
-      displayGroups?: (number | null)[];
-      isActive?: boolean;
-      percentage?: number | null;
-      allowedIdentifier?: string | null;
-      readonly canSeeFlag: string;
-    };
-    FeatureFlagPublic: {
-      readonly id: number;
-      identifier: string;
-      readonly canSeeFlag: string;
-    };
-    FeedActivity: {
-      readonly activityId: string;
-      verb: number;
-      /** Format: date-time */
-      time: string;
-      /** @default {} */
-      extraContext: {
-        [key: string]: unknown;
-      };
-      actor?: string | null;
-      object: string;
-      target?: string | null;
-    };
-    /**
-     * @description * `image` - image
-     *     * `document` - document
-     * @enum {string}
-     */
-    FileTypeEnum: 'image' | 'document';
-    FileUpload: {
-      key: string;
-      public: boolean;
-    };
-    FollowCompany: {
-      readonly id: number;
-      readonly follower: number;
-      target: number;
-    };
-    FollowEvent: {
-      readonly id: number;
-      readonly follower: number;
-      target: number;
-    };
-    FollowUser: {
-      readonly id: number;
-      readonly follower: number;
-      target: number;
-    };
-    /**
-     * @description * `1` - 1
-     *     * `2` - 2
-     *     * `3` - 3
-     *     * `4` - 4
-     *     * `5` - 5
-     * @enum {integer}
-     */
-    FromYearEnum: 1 | 2 | 3 | 4 | 5;
-    GCMDevice: {
-      id?: number;
-      name?: string | null;
-      registrationId: string;
-      /** @description ANDROID_ID / TelephonyManager.getDeviceId() (e.g: 0x01) */
-      deviceId?: number | null;
-      /**
-       * Is active
-       * @description Inactive devices will not be sent notifications
-       */
-      active?: boolean;
-      /**
-       * Creation date
-       * Format: date-time
-       */
-      readonly dateCreated: string | null;
-      /**
-       * @description You should choose FCM, GCM is deprecated
-       *
-       *     * `FCM` - Firebase Cloud Message
-       *     * `GCM` - Google Cloud Message
-       */
-      cloudMessageType?: components['schemas']['CloudMessageTypeEnum'];
-      /** @description Opaque application identity, should be filled in for multiple key/certificate access */
-      applicationId?: string | null;
-    };
-    Gallery: {
-      readonly id: number;
-      title: string;
-      description?: string;
-      location: string;
-      /** Format: date */
-      takenAt?: string | null;
-      /** Format: date-time */
-      readonly createdAt: string;
-      event?: number;
-      photographers: number[];
-      isPinned?: boolean;
-      cover?: number;
-      publicMetadata?: boolean;
-    };
-    GalleryCover: {
-      file?: string;
-      readonly thumbnail: string;
-      readonly id: number;
-    };
-    GalleryList: {
-      readonly id: number;
-      title: string;
-      cover: components['schemas']['GalleryCover'];
-      location: string;
-      /** Format: date */
-      takenAt?: string | null;
-      /** Format: date-time */
-      readonly createdAt: string;
-      readonly pictureCount: string;
-      isPinned?: boolean;
-    };
-    GalleryMetadata: {
-      readonly id: number;
-      title: string;
-      description?: string;
-      cover?: number;
-    };
-    GalleryPicture: {
-      readonly id: number;
-      readonly gallery: number;
-      description?: string;
-      taggees?: number[];
-      active?: boolean;
-      file: string;
-      readonly thumbnail: string;
-      readonly rawFile: string;
-      readonly contentTarget: string;
-    };
-    /**
-     * @description * `male` - male
-     *     * `female` - female
-     *     * `other` - other
-     * @enum {string}
-     */
-    GenderEnum: 'male' | 'female' | 'other';
-    /**
-     * @description * `member` - member
-     *     * `leader` - leader
-     *     * `co-leader` - co-leader
-     *     * `treasurer` - treasurer
-     *     * `recruiting` - recruiting
-     *     * `development` - development
-     *     * `editor` - editor
-     *     * `retiree` - retiree
-     *     * `media_relations` - media_relations
-     *     * `active_retiree` - active_retiree
-     *     * `alumni` - alumni
-     *     * `webmaster` - webmaster
-     *     * `interest_group_admin` - interest_group_admin
-     *     * `alumni_admin` - alumni_admin
-     *     * `retiree_email` - retiree_email
-     *     * `company_admin` - company_admin
-     *     * `dugnad_admin` - dugnad_admin
-     *     * `trip_admin` - trip_admin
-     *     * `sponsor_admin` - sponsor_admin
-     *     * `social_admin` - social_admin
-     *     * `merch_admin` - merch_admin
-     *     * `hs_representative` - hs_representative
-     *     * `cuddling_manager` - cuddling_manager
-     *     * `photo_admin` - photo_admin
-     *     * `graphic_admin` - graphic_admin
-     *     * `social_media_admin` - social_media_admin
-     *     * `booking_admin` - booking_admin
-     *     * `purchasing_manager` - purchasing_manager
-     *     * `event_manager` - event_manager
-     *     * `snackoverflow_manager` - snackoverflow_manager
-     *     * `operations_manager` - operations_manager
-     * @enum {string}
-     */
-    GroupRolesEnum:
-      | 'member'
-      | 'leader'
-      | 'co-leader'
-      | 'treasurer'
-      | 'recruiting'
-      | 'development'
-      | 'editor'
-      | 'retiree'
-      | 'media_relations'
-      | 'active_retiree'
-      | 'alumni'
-      | 'webmaster'
-      | 'interest_group_admin'
-      | 'alumni_admin'
-      | 'retiree_email'
-      | 'company_admin'
-      | 'dugnad_admin'
-      | 'trip_admin'
-      | 'sponsor_admin'
-      | 'social_admin'
-      | 'merch_admin'
-      | 'hs_representative'
-      | 'cuddling_manager'
-      | 'photo_admin'
-      | 'graphic_admin'
-      | 'social_media_admin'
-      | 'booking_admin'
-      | 'purchasing_manager'
-      | 'event_manager'
-      | 'snackoverflow_manager'
-      | 'operations_manager';
-    /**
-     * @description Any serializer with write support and tags should implement this serializer to support automatic
-     *     creation of new tags.
-     */
-    HiddenResultsDetailedPoll: {
-      readonly id: number;
-      /** Format: date-time */
-      readonly createdAt: string;
-      /** Format: date-time */
-      validUntil?: string;
-      title: string;
-      description?: string;
-      options: components['schemas']['HiddenResultsOption'][];
-      resultsHidden?: boolean;
-      readonly totalVotes: number;
-      /** @default [] */
-      tags: components['schemas']['Tag'][];
-      readonly hasAnswered: string;
-      pinned?: boolean;
-    };
-    HiddenResultsOption: {
-      readonly id: number;
-      name: string;
-    };
-    /**
-     * @description * `charity_event_2026` - charity_event_2026
-     *     * `christmas_calendar` - christmas_calendar
-     *     * `complete_profile` - complete_profile
-     *     * `easter_2024` - easter_2024
-     *     * `easter_2025` - easter_2025
-     *     * `easter_2026` - easter_2026
-     *     * `event_count` - event_count
-     *     * `event_price` - event_price
-     *     * `event_rank` - event_rank
-     *     * `event_rules` - event_rules
-     *     * `gala_count` - gala_count
-     *     * `genfors_count` - genfors_count
-     *     * `keypress_order` - keypress_order
-     *     * `meeting_hidden` - meeting_hidden
-     *     * `penalty_period` - penalty_period
-     *     * `perfect_week` - perfect_week
-     *     * `poll_count` - poll_count
-     *     * `quote_count` - quote_count
-     * @enum {string}
-     */
-    IdentifierEnum:
-      | 'charity_event_2026'
-      | 'christmas_calendar'
-      | 'complete_profile'
-      | 'easter_2024'
-      | 'easter_2025'
-      | 'easter_2026'
-      | 'event_count'
-      | 'event_price'
-      | 'event_rank'
-      | 'event_rules'
-      | 'gala_count'
-      | 'genfors_count'
-      | 'keypress_order'
-      | 'meeting_hidden'
-      | 'penalty_period'
-      | 'perfect_week'
-      | 'poll_count'
-      | 'quote_count';
-    ImageGallery: {
-      key: string;
-      fileType: components['schemas']['FileTypeEnum'];
-      state?: components['schemas']['StateEnum'];
-      public?: boolean;
-      saveForUse?: boolean;
-      cover: string;
-      token: string;
-      coverPlaceholder?: string;
-    };
-    /**
-     * @description Serializer class used to validate a username and password.
-     *
-     *     'username' is identified by the custom UserModel.USERNAME_FIELD.
-     *
-     *     Returns a JSON Web Token that can be used to authenticate later calls.
-     */
-    JSONWebToken: {
-      password: string;
-      readonly token: string;
-      username: string;
-    };
-    /**
-     * @description * `full_time` - full_time
-     *     * `part_time` - part_time
-     *     * `summer_job` - summer_job
-     *     * `master_thesis` - master_thesis
-     *     * `other` - other
-     * @enum {string}
-     */
-    JobTypeEnum: 'full_time' | 'part_time' | 'summer_job' | 'master_thesis' | 'other';
-    Joblisting: {
-      readonly id: number;
-      title: string;
-      slug?: string | null;
-      company: number;
-      /** Format: date-time */
-      deadline?: string | null;
-      jobType: components['schemas']['JobTypeEnum'];
-      workplaces: components['schemas']['Workplace'][];
-      fromYear?: components['schemas']['FromYearEnum'];
-      toYear?: components['schemas']['ToYearEnum'];
-      /** Format: date-time */
-      readonly createdAt: string;
-      rollingRecruitment?: boolean;
-      isPinned?: boolean;
-    };
-    JoblistingCreateAndUpdate: {
-      readonly id: number;
-      title: string;
-      text: string;
-      company: number;
-      responsible?: number | null;
-      contactMail?: string;
-      /** Format: date-time */
-      deadline?: string | null;
-      /** Format: date-time */
-      visibleFrom: string;
-      /** Format: date-time */
-      visibleTo: string;
-      jobType: components['schemas']['JobTypeEnum'];
-      workplaces: components['schemas']['Workplace'][];
-      fromYear?: components['schemas']['FromYearEnum'];
-      toYear?: components['schemas']['ToYearEnum'];
-      applicationUrl?: string | null;
-      youtubeUrl?: string;
-      rollingRecruitment?: boolean;
-      isPinned?: boolean;
-    };
-    JoblistingDetailed: {
-      readonly id: number;
-      title: string;
-      slug?: string | null;
-      text: string;
-      company: number;
-      responsible: number;
-      contactMail?: string;
-      description?: string | null;
-      /** Format: date-time */
-      deadline?: string | null;
-      jobType: components['schemas']['JobTypeEnum'];
-      workplaces: components['schemas']['Workplace'][];
-      /** Format: date-time */
-      visibleFrom: string;
-      /** Format: date-time */
-      visibleTo: string;
-      fromYear?: components['schemas']['FromYearEnum'];
-      toYear?: components['schemas']['ToYearEnum'];
-      applicationUrl?: string | null;
-      youtubeUrl?: string;
-      /** Format: date-time */
-      readonly createdAt: string;
-      rollingRecruitment?: boolean;
-      isPinned?: boolean;
-    };
-    KeypressOrder: {
-      code: number[];
-    };
-    /**
-     * @description * `UNKNOWN` - UNKNOWN
-     *     * `PHOTO_CONSENT` - PHOTO_CONSENT
-     *     * `PHOTO_NOT_CONSENT` - PHOTO_NOT_CONSENT
-     * @enum {string}
-     */
-    LEGACYPhotoConsentEnum: 'UNKNOWN' | 'PHOTO_CONSENT' | 'PHOTO_NOT_CONSENT';
-    LendableObject: {
-      readonly id: number;
-      title: string;
-      description?: string;
-      image?: string;
-      readonly responsibleGroups: number[];
-      location?: string;
-      readonly canLend: string;
-      category?: components['schemas']['Category7d8Enum'];
-    };
-    LendableObjectAdmin: {
-      readonly id: number;
-      title: string;
-      description?: string;
-      image?: string;
-      readonly responsibleGroups: number[];
-      location?: string;
-      readonly canLend: string;
-      category?: components['schemas']['Category7d8Enum'];
-      canEditUsers?: (number | null)[];
-      canViewGroups?: (number | null)[];
-      canEditGroups?: (number | null)[];
-      requireAuth?: boolean;
-    };
-    LendingRequestCreateAndUpdate: {
-      readonly id: number;
-      readonly createdBy: components['schemas']['PublicUser'];
-      readonly updatedBy: components['schemas']['PublicUser'];
-      lendableObject: number;
-      status?: components['schemas']['StatusC65Enum'];
-      archived?: boolean;
-      comment?: string;
-      /** Format: date-time */
-      startDate: string;
-      /** Format: date-time */
-      endDate: string;
-      readonly timelineEntries: components['schemas']['TimelineEntry'][];
-    };
-    LendingRequestDetail: {
-      readonly id: number;
-      readonly createdBy: components['schemas']['PublicUser'];
-      readonly updatedBy: components['schemas']['PublicUser'];
-      readonly lendableObject: components['schemas']['LendableObject'];
-      status?: components['schemas']['StatusC65Enum'];
-      archived?: boolean;
-      /** Format: date-time */
-      startDate: string;
-      /** Format: date-time */
-      endDate: string;
-      readonly timelineEntries: components['schemas']['TimelineEntry'][];
-    };
-    LendingRequestList: {
-      readonly id: number;
-      readonly lendableObject: components['schemas']['LendableObject'];
-      status?: components['schemas']['StatusC65Enum'];
-      archived?: boolean;
-      /** Format: date-time */
-      startDate: string;
-      /** Format: date-time */
-      endDate: string;
-    };
-    Mark: {
-      /** @default false */
-      seen: boolean;
-      /** @default false */
-      read: boolean;
-    };
-    MeetingBulkInvite: {
-      users?: number[];
-      groups?: number[];
-    };
-    MeetingDetail: {
-      readonly id: number;
-      readonly createdBy: number;
-      description?: string;
-      title: string;
-      location: string;
-      /** Format: date-time */
-      startTime: string;
-      /** Format: date-time */
-      endTime?: string | null;
-      report: string;
-      readonly reportChangelogs: components['schemas']['ReportChangelog'][];
-      reportAuthor?: number | null;
-      readonly invitations: components['schemas']['MeetingInvitation'][];
-      readonly comments: components['schemas']['Comment'][];
-      readonly contentTarget: string;
-      mazemapPoi?: number | null;
-      readonly reactionsGrouped: string;
-      readonly reactions: components['schemas']['Reactions'][];
-      isRecurring?: boolean;
-      isTemplate?: boolean;
-    };
-    MeetingGroupInvite: {
-      group: number;
-    };
-    MeetingInvitation: {
-      user: components['schemas']['PublicUser'];
-      status: components['schemas']['MeetingInvitationStatusEnum'];
-      meeting: number;
-    };
-    /**
-     * @description * `NO_ANSWER` - NO_ANSWER
-     *     * `ATTENDING` - ATTENDING
-     *     * `NOT_ATTENDING` - NOT_ATTENDING
-     * @enum {string}
-     */
-    MeetingInvitationStatusEnum: 'NO_ANSWER' | 'ATTENDING' | 'NOT_ATTENDING';
-    MeetingInvitationUpdate: {
-      status?: components['schemas']['Status7baEnum'];
-    };
-    MeetingList: {
-      readonly id: number;
-      readonly createdBy: number;
-      title: string;
-      location: string;
-      /** Format: date-time */
-      startTime: string;
-      /** Format: date-time */
-      endTime?: string | null;
-      reportAuthor?: number | null;
-      mazemapPoi?: number | null;
-      isRecurring?: boolean;
-      isTemplate?: boolean;
-    };
-    MeetingUserInvite: {
-      user: number;
-    };
-    Membership: {
-      readonly id: number;
-      user: number;
-      readonly abakusGroup: number;
-      /** @default member */
-      role: components['schemas']['RoleEnum'] | components['schemas']['BlankEnum'];
-      isActive?: boolean;
-      emailListsEnabled?: boolean;
-      /** Format: date-time */
-      readonly createdAt: string;
-      readonly firstJoinDate: string;
-    };
-    MembershipHistory: {
-      readonly id: number;
-      readonly user: number;
-      readonly abakusGroup: number;
-      role?: components['schemas']['RoleEnum'];
-      /** Format: date */
-      startDate?: string | null;
-      /** Format: date */
-      endDate: string;
-    };
-    NotificationData: {
-      unreadCount: number;
-      unseenCount: number;
-    };
-    NotificationSetting: {
-      readonly notificationType: components['schemas']['NotificationTypeEnum'];
-      enabled?: boolean;
-      channels?: components['schemas']['ChannelsEnum'][] | null;
-    };
-    NotificationSettingCreate: {
-      notificationType: components['schemas']['NotificationTypeEnum'];
-      enabled?: boolean;
-      channels?: components['schemas']['ChannelsEnum'][] | null;
-    };
-    /**
-     * @description * `lending_request` - lending_request
-     *     * `lending_request_status_update` - lending_request_status_update
-     *     * `announcement` - announcement
-     *     * `restricted_mail_sent` - restricted_mail_sent
-     *     * `weekly_mail` - weekly_mail
-     *     * `event_bump` - event_bump
-     *     * `event_admin_registration` - event_admin_registration
-     *     * `event_admin_unregistration` - event_admin_unregistration
-     *     * `event_payment_overdue` - event_payment_overdue
-     *     * `meeting_invite` - meeting_invite
-     *     * `meeting_invitation_reminder` - meeting_invitation_reminder
-     *     * `penalty_creation` - penalty_creation
-     *     * `comment_reply` - comment_reply
-     *     * `registration_reminder` - registration_reminder
-     *     * `survey_created` - survey_created
-     *     * `event_payment_overdue_creator` - event_payment_overdue_creator
-     *     * `company_interest_created` - company_interest_created
-     *     * `inactive_warning` - inactive_warning
-     *     * `deleted_warning` - deleted_warning
-     * @enum {string}
-     */
-    NotificationTypeEnum:
-      | 'lending_request'
-      | 'lending_request_status_update'
-      | 'announcement'
-      | 'restricted_mail_sent'
-      | 'weekly_mail'
-      | 'event_bump'
-      | 'event_admin_registration'
-      | 'event_admin_unregistration'
-      | 'event_payment_overdue'
-      | 'meeting_invite'
-      | 'meeting_invitation_reminder'
-      | 'penalty_creation'
-      | 'comment_reply'
-      | 'registration_reminder'
-      | 'survey_created'
-      | 'event_payment_overdue_creator'
-      | 'company_interest_created'
-      | 'inactive_warning'
-      | 'deleted_warning';
-    /** @enum {unknown} */
-    NullEnum: null;
-    /** @description Basic serailizer */
-    Oauth2UserData: {
-      readonly sub: string;
-      readonly id: number;
-      /** @description Required. 50 characters or fewer. Letters, digits and _ only. */
-      username: string;
-      firstName: string;
-      lastName: string;
-      readonly fullName: string;
-      readonly emailAddress: string;
-      /** Format: email */
-      email: string;
-      profilePicture?: string;
-      gender: components['schemas']['GenderEnum'];
-      /** @description Designates whether this user should be treated as active. Unselect this instead of deleting accounts. */
-      isActive?: boolean;
-      readonly isStudent: string;
-      abakusGroups: components['schemas']['PublicAbakusGroup'][];
-      isAbakusMember: boolean;
-      readonly isAbakomMember: string;
-      memberships: components['schemas']['Membership'][];
-    };
-    Option: {
-      readonly id: number;
-      name: string;
-      votes?: number;
-    };
-    OptionUpdate: {
-      id: number;
-      name: string;
-      votes?: number;
-    };
-    /**
-     * @description * `collaboration` - collaboration
-     *     * `readme` - readme
-     *     * `itdagene` - itdagene
-     *     * `labamba_sponsor` - labamba_sponsor
-     *     * `social_media` - social_media
-     *     * `thursday_event` - thursday_event
-     * @enum {string}
-     */
-    OtherOffersEnum:
-      | 'collaboration'
-      | 'readme'
-      | 'itdagene'
-      | 'labamba_sponsor'
-      | 'social_media'
-      | 'thursday_event';
-    PageDetail: {
-      /** ID */
-      readonly pk: number;
-      title: string;
-      slug?: string | null;
-      content: string;
-      picture?: string;
-      picturePlaceholder?: string;
-      category?: components['schemas']['Category2a9Enum'];
-    };
-    PageList: {
-      /** ID */
-      readonly pk: number;
-      title: string;
-      slug?: string | null;
-      category?: components['schemas']['Category2a9Enum'];
-    };
-    PaginatedAPNSDeviceList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['APNSDevice'][];
-    };
-    PaginatedAccessTokenList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['AccessToken'][];
-    };
-    PaginatedAggregatedFeedList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['AggregatedFeed'][];
-    };
-    PaginatedAggregatedMarkedFeedList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['AggregatedMarkedFeed'][];
-    };
-    PaginatedAnnouncementListList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['AnnouncementList'][];
-    };
-    PaginatedApplicationList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['Application'][];
-    };
-    PaginatedBannerList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['Banner'][];
-    };
-    PaginatedCompanyAdminListList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['CompanyAdminList'][];
-    };
-    PaginatedCompanyContactList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['CompanyContact'][];
-    };
-    PaginatedCompanyFileList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['CompanyFile'][];
-    };
-    PaginatedCompanyInterestListList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['CompanyInterestList'][];
-    };
-    PaginatedCompanyListList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['CompanyList'][];
-    };
-    PaginatedEmailListList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['EmailList'][];
-    };
-    PaginatedEventReadList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['EventRead'][];
-    };
-    PaginatedFeatureFlagAdminList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['FeatureFlagAdmin'][];
-    };
-    PaginatedFollowCompanyList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['FollowCompany'][];
-    };
-    PaginatedFollowEventList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['FollowEvent'][];
-    };
-    PaginatedFollowUserList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['FollowUser'][];
-    };
-    PaginatedGCMDeviceList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['GCMDevice'][];
-    };
-    PaginatedGalleryListList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['GalleryList'][];
-    };
-    PaginatedGalleryPictureList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['GalleryPicture'][];
-    };
-    PaginatedJoblistingList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['Joblisting'][];
-    };
-    PaginatedLendableObjectList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['LendableObject'][];
-    };
-    PaginatedLendingRequestListList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['LendingRequestList'][];
-    };
-    PaginatedMeetingInvitationList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['MeetingInvitation'][];
-    };
-    PaginatedMeetingListList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['MeetingList'][];
-    };
-    PaginatedMembershipHistoryList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['MembershipHistory'][];
-    };
-    PaginatedMembershipList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['Membership'][];
-    };
-    PaginatedPenaltyList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['Penalty'][];
-    };
-    PaginatedPodcastList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['Podcast'][];
-    };
-    PaginatedPollList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['Poll'][];
-    };
-    PaginatedPublicArticleList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['PublicArticle'][];
-    };
-    PaginatedPublicUserList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['PublicUser'][];
-    };
-    PaginatedPublicUserWithGroupsList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['PublicUserWithGroups'][];
-    };
-    PaginatedQuoteList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['Quote'][];
-    };
-    PaginatedRegistrationList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['Registration'][];
-    };
-    PaginatedRestrictedMailListList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['RestrictedMailList'][];
-    };
-    PaginatedSemesterStatusList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['SemesterStatus'][];
-    };
-    PaginatedSurveyReadList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['SurveyRead'][];
-    };
-    PaginatedUserEmailList: {
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
-       */
-      next?: string | null;
-      /**
-       * Format: uri
-       * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
-       */
-      previous?: string | null;
-      results: components['schemas']['UserEmail'][];
-    };
-    PasswordResetPerform: {
-      token: string;
-      password: string;
-    };
-    PasswordResetRequest: {
-      /** Format: email */
-      email: string;
-    };
-    PastMembership: {
-      readonly id: number;
-      abakusGroup: components['schemas']['PublicAbakusGroup'];
-      readonly role: components['schemas']['RoleEnum'];
-      /** Format: date */
-      readonly startDate: string | null;
-      /** Format: date */
-      readonly endDate: string;
-    };
-    PatchedAPNSDevice: {
-      readonly id?: number;
-      name?: string | null;
-      /** @description Opaque application identity, should be filled in for multiple key/certificate access */
-      applicationId?: string | null;
-      registrationId?: string;
-      /**
-       * Format: uuid
-       * @description UUID / UIDevice.identifierForVendor()
-       */
-      deviceId?: string | null;
-      /**
-       * Is active
-       * @description Inactive devices will not be sent notifications
-       * @default true
-       */
-      active: boolean;
-      /**
-       * Creation date
-       * Format: date-time
-       */
-      readonly dateCreated?: string | null;
-    };
-    PatchedAnnouncementDetail: {
-      readonly id?: number;
-      message?: string;
-      fromGroup?: number | null;
-      /** Format: date-time */
-      readonly sent?: string | null;
-      users?: number[];
-      groups?: number[];
-      events?: number[];
-      excludeWaitingList?: boolean;
-      meetings?: number[];
-      meetingInvitationStatus?:
-        | components['schemas']['MeetingInvitationStatusEnum']
-        | components['schemas']['BlankEnum'];
-    };
-    PatchedApplication: {
-      readonly id?: number;
-      name?: string;
-      /** Application description */
-      description?: string;
-      /** @description Allowed URIs list, space separated */
-      redirectUris?: string;
-      readonly clientId?: string;
-      readonly clientSecret?: string;
-      readonly user?: number;
-    };
-    PatchedBanner: {
-      readonly id?: number;
-      header?: string;
-      subheader?: string | null;
-      color?: components['schemas']['ColorEnum'];
-      link?: string | null;
-      currentPrivate?: boolean;
-      currentPublic?: boolean;
-      /** Format: date-time */
-      countdownEndDate?: string | null;
-      countdownEndMessage?: string | null;
-    };
-    PatchedCompanyAdminDetail: {
-      readonly id?: number;
-      name?: string;
-      studentContacts?: components['schemas']['StudentCompanyContact'][];
-      description?: string;
-      phone?: string;
-      companyType?: string;
-      website?: string;
-      address?: string;
-      paymentMail?: string;
-      readonly comments?: components['schemas']['Comment'][];
-      readonly contentTarget?: string;
-      readonly semesterStatuses?: components['schemas']['SemesterStatusDetail'][];
-      active?: boolean;
-      logo?: string;
-      readonly files?: components['schemas']['CompanyFile'][];
-      readonly companyContacts?: components['schemas']['CompanyContact'][];
-    };
-    PatchedCompanyContact: {
-      readonly id?: number;
-      name?: string;
-      role?: string;
-      mail?: string;
-      phone?: string;
-      mobile?: string;
-      /** Format: date-time */
-      readonly updatedAt?: string;
-    };
-    PatchedCompanyFile: {
-      readonly id?: number;
-      file?: string;
-    };
-    PatchedCompanyInterestCreateAndUpdate: {
-      readonly id?: number;
-      companyName?: string;
-      company?: number | null;
-      contactPerson?: string;
-      /** Format: email */
-      mail?: string;
-      phone?: string;
-      semesters?: number[];
-      events?: components['schemas']['EventsEnum'][] | null;
-      otherOffers?: components['schemas']['OtherOffersEnum'][] | null;
-      collaborations?: components['schemas']['CollaborationsEnum'][] | null;
-      companyType?:
-        | (
-            | components['schemas']['CompanyTypeEnum']
-            | components['schemas']['BlankEnum']
-            | components['schemas']['NullEnum']
-          )
-        | null;
-      targetGrades?: number[] | null;
-      participantRangeStart?: number | null;
-      participantRangeEnd?: number | null;
-      comment?: string;
-      courseComment?: string;
-      breakfastTalkComment?: string;
-      otherEventComment?: string;
-      startupComment?: string;
-      companyToCompanyComment?: string;
-      lunchPresentationComment?: string;
-      companyPresentationComment?: string;
-      bedexComment?: string;
-      companyCourseThemes?: components['schemas']['CompanyCourseThemesEnum'][] | null;
-      officeInTrondheim?: boolean;
-      wantsThursdayEvent?: boolean;
-    };
-    PatchedDetailedAbakusGroup: {
-      readonly id?: number;
-      name?: string;
-      description?: string;
-      contactEmail?: string;
-      parent?: number | null;
-      permissions?: string[];
-      readonly parentPermissions?: string;
-      type?: components['schemas']['TypeEnum'];
-      text?: string;
-      logo?: string | null;
-      readonly numberOfUsers?: number;
-      showBadge?: boolean;
-      active?: boolean;
-    };
-    /**
-     * @description Any serializer with write support and tags should implement this serializer to support automatic
-     *     creation of new tags.
-     */
-    PatchedDetailedArticle: {
-      readonly id?: number;
-      title?: string;
-      slug?: string | null;
-      cover?: string;
-      coverPlaceholder?: string;
-      authors?: number[];
-      description?: string | null;
-      readonly contentTarget?: string;
-      /** @default [] */
-      tags: components['schemas']['Tag'][];
-      content?: string;
-      /** Format: date-time */
-      readonly createdAt?: string;
-      pinned?: boolean;
-      readonly reactionsGrouped?: string;
-      youtubeUrl?: string;
-    };
-    PatchedEmailList: {
-      readonly id?: number;
-      name?: string;
-      readonly email?: string;
-      users?: number[];
-      groups?: number[];
-      groupRoles?: components['schemas']['GroupRolesEnum'][];
-      /** @description Only allow users with emails from our internal domain, @abakus.no */
-      requireInternalAddress?: boolean;
-      additionalEmails?: string[];
-    };
-    PatchedEmoji: {
-      shortCode?: string;
-      keywords?: string[];
-      unicodeString?: string;
-      fitzpatrickScale?: boolean;
-      category?: string;
-    };
-    /**
-     * @description Any serializer with write support and tags should implement this serializer to support automatic
-     *     creation of new tags.
-     */
-    PatchedEventCreateAndUpdate: {
-      readonly id?: number;
-      title?: string;
-      cover?: string;
-      description?: string | null;
-      text?: string;
-      company?: number | null;
-      responsibleGroup?: number | null;
-      feedbackDescription?: string;
-      feedbackRequired?: boolean;
-      eventType?: components['schemas']['EventTypeEnum'];
-      eventStatusType?: components['schemas']['EventStatusTypeEnum'];
-      location?: string;
-      isPriced?: boolean;
-      priceMember?: number;
-      priceGuest?: number;
-      useStripe?: boolean;
-      /** Format: date-time */
-      paymentDueDate?: string | null;
-      /** Format: date-time */
-      startTime?: string;
-      /** Format: date-time */
-      endTime?: string;
-      /** Format: date-time */
-      mergeTime?: string | null;
-      useCaptcha?: boolean;
-      /** @default [] */
-      tags: components['schemas']['Tag'][];
-      pools?: components['schemas']['PoolCreateAndUpdate'][];
-      /** Format: date-time */
-      unregistrationDeadline?: string | null;
-      unregistrationDeadlineHours?: number;
-      pinned?: boolean;
-      useConsent?: boolean;
-      heedPenalties?: boolean;
-      registrationDeadlineHours?: number;
-      /** Format: date-time */
-      readonly registrationCloseTime?: string;
-      /** Format: date-time */
-      readonly unregistrationCloseTime?: string;
-      youtubeUrl?: string;
-      mazemapPoi?: number | null;
-      responsibleUsers?: number[];
-      isForeignLanguage?: boolean;
-      showCompanyDescription?: boolean;
-      canEditUsers?: (number | null)[];
-      canViewGroups?: (number | null)[];
-      canEditGroups?: (number | null)[];
-      requireAuth?: boolean;
-    };
-    PatchedFeatureFlagAdmin: {
-      readonly id?: number;
-      identifier?: string;
-      displayGroups?: (number | null)[];
-      isActive?: boolean;
-      percentage?: number | null;
-      allowedIdentifier?: string | null;
-      readonly canSeeFlag?: string;
-    };
-    PatchedFileUpload: {
-      key?: string;
-      public?: boolean;
-    };
-    PatchedGCMDevice: {
-      id?: number;
-      name?: string | null;
-      registrationId?: string;
-      /** @description ANDROID_ID / TelephonyManager.getDeviceId() (e.g: 0x01) */
-      deviceId?: number | null;
-      /**
-       * Is active
-       * @description Inactive devices will not be sent notifications
-       */
-      active?: boolean;
-      /**
-       * Creation date
-       * Format: date-time
-       */
-      readonly dateCreated?: string | null;
-      /**
-       * @description You should choose FCM, GCM is deprecated
-       *
-       *     * `FCM` - Firebase Cloud Message
-       *     * `GCM` - Google Cloud Message
-       */
-      cloudMessageType?: components['schemas']['CloudMessageTypeEnum'];
-      /** @description Opaque application identity, should be filled in for multiple key/certificate access */
-      applicationId?: string | null;
-    };
-    PatchedGallery: {
-      readonly id?: number;
-      title?: string;
-      description?: string;
-      location?: string;
-      /** Format: date */
-      takenAt?: string | null;
-      /** Format: date-time */
-      readonly createdAt?: string;
-      event?: number;
-      photographers?: number[];
-      isPinned?: boolean;
-      cover?: number;
-      publicMetadata?: boolean;
-    };
-    PatchedGalleryPicture: {
-      readonly id?: number;
-      readonly gallery?: number;
-      description?: string;
-      taggees?: number[];
-      active?: boolean;
-      file?: string;
-      readonly thumbnail?: string;
-      readonly rawFile?: string;
-      readonly contentTarget?: string;
-    };
-    PatchedJoblistingCreateAndUpdate: {
-      readonly id?: number;
-      title?: string;
-      text?: string;
-      company?: number;
-      responsible?: number | null;
-      contactMail?: string;
-      /** Format: date-time */
-      deadline?: string | null;
-      /** Format: date-time */
-      visibleFrom?: string;
-      /** Format: date-time */
-      visibleTo?: string;
-      jobType?: components['schemas']['JobTypeEnum'];
-      workplaces?: components['schemas']['Workplace'][];
-      fromYear?: components['schemas']['FromYearEnum'];
-      toYear?: components['schemas']['ToYearEnum'];
-      applicationUrl?: string | null;
-      youtubeUrl?: string;
-      rollingRecruitment?: boolean;
-      isPinned?: boolean;
-    };
-    PatchedLendableObjectAdmin: {
-      readonly id?: number;
-      title?: string;
-      description?: string;
-      image?: string;
-      readonly responsibleGroups?: number[];
-      location?: string;
-      readonly canLend?: string;
-      category?: components['schemas']['Category7d8Enum'];
-      canEditUsers?: (number | null)[];
-      canViewGroups?: (number | null)[];
-      canEditGroups?: (number | null)[];
-      requireAuth?: boolean;
-    };
-    PatchedLendingRequestCreateAndUpdate: {
-      readonly id?: number;
-      readonly createdBy?: components['schemas']['PublicUser'];
-      readonly updatedBy?: components['schemas']['PublicUser'];
-      lendableObject?: number;
-      status?: components['schemas']['StatusC65Enum'];
-      archived?: boolean;
-      comment?: string;
-      /** Format: date-time */
-      startDate?: string;
-      /** Format: date-time */
-      endDate?: string;
-      readonly timelineEntries?: components['schemas']['TimelineEntry'][];
-    };
-    PatchedMeetingDetail: {
-      readonly id?: number;
-      readonly createdBy?: number;
-      description?: string;
-      title?: string;
-      location?: string;
-      /** Format: date-time */
-      startTime?: string;
-      /** Format: date-time */
-      endTime?: string | null;
-      report?: string;
-      readonly reportChangelogs?: components['schemas']['ReportChangelog'][];
-      reportAuthor?: number | null;
-      readonly invitations?: components['schemas']['MeetingInvitation'][];
-      readonly comments?: components['schemas']['Comment'][];
-      readonly contentTarget?: string;
-      mazemapPoi?: number | null;
-      readonly reactionsGrouped?: string;
-      readonly reactions?: components['schemas']['Reactions'][];
-      isRecurring?: boolean;
-      isTemplate?: boolean;
-    };
-    PatchedMeetingInvitationUpdate: {
-      status?: components['schemas']['Status7baEnum'];
-    };
-    PatchedMembership: {
-      readonly id?: number;
-      user?: number;
-      readonly abakusGroup?: number;
-      /** @default member */
-      role: components['schemas']['RoleEnum'] | components['schemas']['BlankEnum'];
-      isActive?: boolean;
-      emailListsEnabled?: boolean;
-      /** Format: date-time */
-      readonly createdAt?: string;
-      readonly firstJoinDate?: string;
-    };
-    PatchedPageDetail: {
-      /** ID */
-      readonly pk?: number;
-      title?: string;
-      slug?: string | null;
-      content?: string;
-      picture?: string;
-      picturePlaceholder?: string;
-      category?: components['schemas']['Category2a9Enum'];
-    };
-    PatchedPodcastCreateAndUpdate: {
-      readonly id?: number;
-      source?: string;
-      description?: string;
-      authors?: number[];
-      thanks?: number[];
-    };
-    /**
-     * @description Any serializer with write support and tags should implement this serializer to support automatic
-     *     creation of new tags.
-     */
-    PatchedPollUpdate: {
-      readonly id?: number;
-      /** Format: date-time */
-      readonly createdAt?: string;
-      title?: string;
-      description?: string;
-      options?: components['schemas']['OptionUpdate'][];
-      resultsHidden?: boolean;
-      readonly totalVotes?: string;
-      /** @default [] */
-      tags: components['schemas']['Tag'][];
-      pinned?: boolean;
-    };
-    PatchedPoolCreateAndUpdate: {
-      id?: number;
-      name?: string;
-      capacity?: number;
-      /** Format: date-time */
-      activationDate?: string;
-      readonly registrations?: number[];
-      permissionGroups?: number[];
-    };
-    PatchedPublicUserWithGroups: {
-      readonly id?: number;
-      /** @description Required. 50 characters or fewer. Letters, digits and _ only. */
-      readonly username?: string;
-      firstName?: string;
-      lastName?: string;
-      readonly fullName?: string;
-      gender?: components['schemas']['GenderEnum'];
-      profilePicture?: string;
-      profilePicturePlaceholder?: string;
-      readonly internalEmailAddress?: string;
-      /** @description Enter a valid username. */
-      githubUsername?: string | null;
-      /** @description Enter a valid LinkedIn ID. */
-      linkedinId?: string | null;
-      abakusGroups?: components['schemas']['PublicAbakusGroup'][];
-      pastMemberships?: components['schemas']['PastMembership'][];
-      memberships?: components['schemas']['Membership'][];
-      achievements?: components['schemas']['Achievement'][];
-      readonly ranking?: string;
-    };
-    PatchedQuoteCreateAndUpdate: {
-      readonly id?: number;
-      text?: string;
-      source?: string;
-      approved?: boolean;
-      tags?: string[];
-    };
-    PatchedRegistrationCreateAndUpdate: {
-      readonly id?: number;
-      feedback?: string;
-      presence?: components['schemas']['PresenceEnum'];
-      captchaResponse?: string;
-      paymentStatus?: components['schemas']['PaymentStatusEnum'];
-    };
-    PatchedSemester: {
-      readonly id?: number;
-      year?: number;
-      semester?: components['schemas']['SemesterEnum'];
-      activeInterestForm?: boolean;
-    };
-    PatchedSemesterStatusDetail: {
-      readonly id?: number;
-      semester?: number;
-      contactedStatus?: components['schemas']['ContactedStatusEnum'][] | null;
-      contract?: string | null;
-      statistics?: string | null;
-      evaluation?: string | null;
-      readonly contractName?: string;
-      readonly statisticsName?: string;
-      readonly evaluationName?: string;
-    };
-    PatchedSubmissionCreateAndUpdate: {
-      readonly id?: number;
-      user?: number;
-      answers?: components['schemas']['AnswerCreateAndUpdate'][];
-    };
-    PatchedSurveyUpdate: {
-      readonly id?: number;
-      title?: string;
-      /** Format: date-time */
-      activeFrom?: string;
-      templateType?:
-        | (
-            | components['schemas']['TemplateTypeEnum']
-            | components['schemas']['BlankEnum']
-            | components['schemas']['NullEnum']
-          )
-        | null;
-      isTemplate?: boolean;
-      event?: number | null;
-      questions?: components['schemas']['QuestionUpdate'][] | null;
-    };
-    PatchedUpdateComment: {
-      text?: string;
-    };
-    PatchedUserEmail: {
-      readonly id?: number;
-      readonly user?: string;
-      internalEmail?: string;
-      internalEmailEnabled?: boolean;
-    };
-    /**
-     * @description * `manual` - manual
-     *     * `succeeded` - succeeded
-     *     * `failed` - failed
-     *     * `pending` - pending
-     * @enum {string}
-     */
-    PaymentStatusEnum: 'manual' | 'succeeded' | 'failed' | 'pending';
-    Penalty: {
-      readonly id: number;
-      /** Format: date-time */
-      readonly createdAt: string;
-      user: number;
-      reason: string;
-      weight?: number;
-      sourceEvent?: number;
-      readonly exactExpiration: string;
-    };
-    PhotoConsent: {
-      user: number;
-      year: number;
-      semester: components['schemas']['SemesterEnum'];
-      domain: components['schemas']['DomainEnum'];
-      isConsenting?: boolean | null;
-      /** Format: date-time */
-      readonly updatedAt: string;
-    };
-    Podcast: {
-      readonly id: number;
-      source: string;
-      /** Format: date-time */
-      readonly createdAt: string;
-      description: string;
-      authors: components['schemas']['PublicUser'][];
-      thanks: components['schemas']['PublicUser'][];
-    };
-    PodcastCreateAndUpdate: {
-      readonly id: number;
-      source: string;
-      description: string;
-      authors: number[];
-      thanks: number[];
-    };
-    Poll: {
-      readonly id: number;
-      /** Format: date-time */
-      readonly createdAt: string;
-      /** Format: date-time */
-      validUntil?: string;
-      title: string;
-      description?: string;
-      options: components['schemas']['HiddenResultsOption'][];
-      resultsHidden?: boolean;
-      readonly totalVotes: number;
-      tags?: string[];
-      readonly hasAnswered: string;
-      pinned?: boolean;
-    };
-    /**
-     * @description Any serializer with write support and tags should implement this serializer to support automatic
-     *     creation of new tags.
-     */
-    PollCreate: {
-      readonly id: number;
-      /** Format: date-time */
-      readonly createdAt: string;
-      title: string;
-      description?: string;
-      options: components['schemas']['Option'][];
-      resultsHidden?: boolean;
-      readonly totalVotes: string;
-      /** @default [] */
-      tags: components['schemas']['Tag'][];
-      pinned?: boolean;
-      /** Format: date-time */
-      validUntil?: string;
-    };
-    /**
-     * @description Any serializer with write support and tags should implement this serializer to support automatic
-     *     creation of new tags.
-     */
-    PollUpdate: {
-      readonly id: number;
-      /** Format: date-time */
-      readonly createdAt: string;
-      title: string;
-      description?: string;
-      options: components['schemas']['OptionUpdate'][];
-      resultsHidden?: boolean;
-      readonly totalVotes: string;
-      /** @default [] */
-      tags: components['schemas']['Tag'][];
-      pinned?: boolean;
-    };
-    PoolCreateAndUpdate: {
-      id?: number;
-      name: string;
-      capacity?: number;
-      /** Format: date-time */
-      activationDate: string;
-      readonly registrations: number[];
-      permissionGroups: number[];
-    };
-    PoolRead: {
-      readonly id: number;
-      name: string;
-      capacity?: number;
-      /** Format: date-time */
-      activationDate: string;
-      permissionGroups: components['schemas']['PublicAbakusGroup'][];
-      registrationCount: string;
-    };
-    /**
-     * @description * `UNKNOWN` - Unknown
-     *     * `PRESENT` - Present
-     *     * `LATE` - Late
-     *     * `NOT_PRESENT` - Not Present
-     * @enum {string}
-     */
-    PresenceEnum: 'UNKNOWN' | 'PRESENT' | 'LATE' | 'NOT_PRESENT';
-    PublicAbakusGroup: {
-      readonly id: number;
-      name: string;
-      description?: string;
-      contactEmail?: string;
-      parent?: number | null;
-      logo?: string;
-      logoPlaceholder?: string;
-      type?: components['schemas']['TypeEnum'];
-      showBadge?: boolean;
-      active?: boolean;
-    };
-    /**
-     * @description Any serializer with write support and tags should implement this serializer to support automatic
-     *     creation of new tags.
-     */
-    PublicArticle: {
-      readonly id: number;
-      title: string;
-      slug?: string | null;
-      cover?: string;
-      coverPlaceholder?: string;
-      authors: components['schemas']['PublicUser'][];
-      description?: string | null;
-      /** @default [] */
-      tags: components['schemas']['Tag'][];
-      /** Format: date-time */
-      readonly createdAt: string;
-      pinned?: boolean;
-    };
-    PublicEmailList: {
-      readonly id: number;
-      users?: number[];
-      name: string;
-      readonly email: string;
-      groups?: number[];
-      groupRoles?: components['schemas']['GroupRolesEnum'][];
-      /** @description Only allow users with emails from our internal domain, @abakus.no */
-      requireInternalAddress?: boolean;
-    };
-    PublicListAbakusGroup: {
-      readonly id: number;
-      name: string;
-      description?: string;
-      contactEmail?: string;
-      parent?: number | null;
-      logo?: string;
-      logoPlaceholder?: string;
-      type?: components['schemas']['TypeEnum'];
-      showBadge?: boolean;
-      active?: boolean;
-      readonly numberOfUsers: number;
-      readonly userMembership: {
-        [key: string]: unknown;
-      } | null;
-    };
-    PublicUser: {
-      readonly id: number;
-      /** @description Required. 50 characters or fewer. Letters, digits and _ only. */
-      readonly username: string;
-      firstName: string;
-      lastName: string;
-      readonly fullName: string;
-      gender: components['schemas']['GenderEnum'];
-      profilePicture?: string;
-      profilePicturePlaceholder?: string;
-      readonly internalEmailAddress: string;
-      /** @description Enter a valid username. */
-      githubUsername?: string | null;
-      /** @description Enter a valid LinkedIn ID. */
-      linkedinId?: string | null;
-    };
-    PublicUserWithAbakusGroups: {
-      readonly id: number;
-      /** @description Required. 50 characters or fewer. Letters, digits and _ only. */
-      readonly username: string;
-      firstName: string;
-      lastName: string;
-      readonly fullName: string;
-      gender: components['schemas']['GenderEnum'];
-      profilePicture?: string;
-      profilePicturePlaceholder?: string;
-      readonly internalEmailAddress: string;
-      /** @description Enter a valid username. */
-      githubUsername?: string | null;
-      /** @description Enter a valid LinkedIn ID. */
-      linkedinId?: string | null;
-      abakusGroups: components['schemas']['PublicAbakusGroup'][];
-    };
-    PublicUserWithGroups: {
-      readonly id: number;
-      /** @description Required. 50 characters or fewer. Letters, digits and _ only. */
-      readonly username: string;
-      firstName: string;
-      lastName: string;
-      readonly fullName: string;
-      gender: components['schemas']['GenderEnum'];
-      profilePicture?: string;
-      profilePicturePlaceholder?: string;
-      readonly internalEmailAddress: string;
-      /** @description Enter a valid username. */
-      githubUsername?: string | null;
-      /** @description Enter a valid LinkedIn ID. */
-      linkedinId?: string | null;
-      abakusGroups: components['schemas']['PublicAbakusGroup'][];
-      pastMemberships: components['schemas']['PastMembership'][];
-      memberships: components['schemas']['Membership'][];
-      achievements: components['schemas']['Achievement'][];
-      readonly ranking: string;
-    };
-    Question: {
-      readonly id: number;
-      displayType?: components['schemas']['DisplayTypeEnum'];
-      questionType: components['schemas']['QuestionTypeEnum'];
-      questionText: string;
-      mandatory?: boolean;
-      options?: components['schemas']['Option'][] | null;
-      relativeIndex?: number;
-    };
-    /**
-     * @description * `single_choice` - single_choice
-     *     * `multiple_choice` - multiple_choice
-     *     * `text_field` - text_field
-     * @enum {string}
-     */
-    QuestionTypeEnum: 'single_choice' | 'multiple_choice' | 'text_field';
-    QuestionUpdate: {
-      id: number;
-      displayType: components['schemas']['DisplayTypeEnum'];
-      questionType: components['schemas']['QuestionTypeEnum'];
-      questionText: string;
-      mandatory?: boolean;
-      options?: components['schemas']['OptionUpdate'][] | null;
-      relativeIndex?: number;
-    };
-    /**
-     * @description Any serializer with write support and tags should implement this serializer to support automatic
-     *     creation of new tags.
-     */
-    Quote: {
-      readonly id: number;
-      /** Format: date-time */
-      readonly createdAt: string;
-      text: string;
-      source: string;
-      approved?: boolean;
-      /** @default [] */
-      tags: components['schemas']['Tag'][];
-      readonly reactionsGrouped: string;
-      readonly contentTarget: string;
-      readonly createdBy: string;
-    };
-    QuoteCreateAndUpdate: {
-      readonly id: number;
-      text: string;
-      source: string;
-      approved?: boolean;
-      tags?: string[];
-    };
-    Reaction: {
-      readonly id: number;
-      emoji: string;
-      contentTarget: string;
-    };
-    Reactions: {
-      readonly id: number;
-      emoji: string;
-      readonly author: components['schemas']['PublicUser'];
-    };
-    /** @description Serializer used for refreshing JWTs. */
-    RefreshAuthToken: {
-      token: string;
-    };
-    Registration: {
-      /** Format: email */
-      email: string;
-      captchaResponse: string;
-    };
-    RegistrationConfirmation: {
-      /** @description Required. 50 characters or fewer. Letters, digits and _ only. */
-      username: string;
-      firstName: string;
-      lastName: string;
-      gender: components['schemas']['GenderEnum'];
-      password: string;
-      allergies?: string;
-      phoneNumber?: string | null;
-    };
-    RegistrationCreateAndUpdate: {
-      readonly id: number;
-      feedback?: string;
-      presence?: components['schemas']['PresenceEnum'];
-      captchaResponse?: string;
-      paymentStatus?: components['schemas']['PaymentStatusEnum'];
-    };
-    RegistrationPaymentRead: {
-      readonly id: number;
-      user: components['schemas']['PublicUserWithAbakusGroups'];
-      pool?: number | null;
-      status?: components['schemas']['Status180Enum'];
-      feedback: string;
-      sharedMemberships?: number;
-      presence: string;
-      LEGACYPhotoConsent: string;
-      event: number;
-      paymentStatus: string;
-    };
-    RegistrationReadDetailed: {
-      readonly id: number;
-      user: components['schemas']['AdministrateUser'];
-      readonly createdBy: number | null;
-      readonly updatedBy: number | null;
-      pool?: number | null;
-      event: number;
-      presence?: components['schemas']['PresenceEnum'];
-      feedback?: string;
-      status?: components['schemas']['Status180Enum'];
-      /** Format: date-time */
-      registrationDate?: string | null;
-      /** Format: date-time */
-      unregistrationDate?: string | null;
-      adminRegistrationReason?: string;
-      paymentIntentId?: string | null;
-      paymentStatus?: string | null;
-      paymentAmount?: number;
-      paymentAmountRefunded?: number | null;
-      LEGACYPhotoConsent?: components['schemas']['LEGACYPhotoConsentEnum'];
-      photoConsents: string;
-    };
-    RegistrationSearch: {
-      qr?: string;
-      username?: string;
-    };
-    ReportChangelog: {
-      report?: string;
-      /** Format: date-time */
-      readonly createdAt: string;
-      readonly createdBy: number;
-    };
-    RestrictedMail: {
-      readonly id: number;
-      /** Format: email */
-      fromAddress: string;
-      hideSender?: boolean;
-      /** Format: date-time */
-      readonly used: string | null;
-      /** Format: date-time */
-      readonly createdAt: string;
-      weekly?: boolean;
-      users?: number[];
-      groups?: number[];
-      events?: number[];
-      meetings?: number[];
-      rawAddresses?: string[] | null;
-    };
-    RestrictedMailDetail: {
-      readonly id: number;
-      /** Format: email */
-      fromAddress: string;
-      hideSender?: boolean;
-      /** Format: date-time */
-      readonly used: string | null;
-      /** Format: date-time */
-      readonly createdAt: string;
-      weekly?: boolean;
-      users: number[];
-      groups: number[];
-      events: number[];
-      meetings: number[];
-      rawAddresses?: string[] | null;
-      readonly tokenQueryParam: string;
-    };
-    RestrictedMailList: {
-      readonly id: number;
-      /** Format: email */
-      fromAddress: string;
-      hideSender?: boolean;
-      /** Format: date-time */
-      readonly used: string | null;
-      /** Format: date-time */
-      readonly createdAt: string;
-      weekly?: boolean;
-    };
-    /**
-     * @description * `member` - member
-     *     * `leader` - leader
-     *     * `co-leader` - co-leader
-     *     * `treasurer` - treasurer
-     *     * `recruiting` - recruiting
-     *     * `development` - development
-     *     * `editor` - editor
-     *     * `retiree` - retiree
-     *     * `media_relations` - media_relations
-     *     * `active_retiree` - active_retiree
-     *     * `alumni` - alumni
-     *     * `webmaster` - webmaster
-     *     * `interest_group_admin` - interest_group_admin
-     *     * `alumni_admin` - alumni_admin
-     *     * `retiree_email` - retiree_email
-     *     * `company_admin` - company_admin
-     *     * `dugnad_admin` - dugnad_admin
-     *     * `trip_admin` - trip_admin
-     *     * `sponsor_admin` - sponsor_admin
-     *     * `social_admin` - social_admin
-     *     * `merch_admin` - merch_admin
-     *     * `hs_representative` - hs_representative
-     *     * `cuddling_manager` - cuddling_manager
-     *     * `photo_admin` - photo_admin
-     *     * `graphic_admin` - graphic_admin
-     *     * `social_media_admin` - social_media_admin
-     *     * `booking_admin` - booking_admin
-     *     * `purchasing_manager` - purchasing_manager
-     *     * `event_manager` - event_manager
-     *     * `snackoverflow_manager` - snackoverflow_manager
-     *     * `operations_manager` - operations_manager
-     * @enum {string}
-     */
-    RoleEnum:
-      | 'member'
-      | 'leader'
-      | 'co-leader'
-      | 'treasurer'
-      | 'recruiting'
-      | 'development'
-      | 'editor'
-      | 'retiree'
-      | 'media_relations'
-      | 'active_retiree'
-      | 'alumni'
-      | 'webmaster'
-      | 'interest_group_admin'
-      | 'alumni_admin'
-      | 'retiree_email'
-      | 'company_admin'
-      | 'dugnad_admin'
-      | 'trip_admin'
-      | 'sponsor_admin'
-      | 'social_admin'
-      | 'merch_admin'
-      | 'hs_representative'
-      | 'cuddling_manager'
-      | 'photo_admin'
-      | 'graphic_admin'
-      | 'social_media_admin'
-      | 'booking_admin'
-      | 'purchasing_manager'
-      | 'event_manager'
-      | 'snackoverflow_manager'
-      | 'operations_manager';
-    /**
-     * @description * `auto` - auto
-     *     * `light` - light
-     *     * `dark` - dark
-     * @enum {string}
-     */
-    SelectedThemeEnum: 'auto' | 'light' | 'dark';
-    Semester: {
-      readonly id: number;
-      year: number;
-      semester: components['schemas']['SemesterEnum'];
-      activeInterestForm?: boolean;
-    };
-    /**
-     * @description * `spring` - spring
-     *     * `autumn` - autumn
-     * @enum {string}
-     */
-    SemesterEnum: 'spring' | 'autumn';
-    SemesterStatus: {
-      readonly id: number;
-      semester: number;
-      contactedStatus?: components['schemas']['ContactedStatusEnum'][] | null;
-    };
-    SemesterStatusDetail: {
-      readonly id: number;
-      semester: number;
-      contactedStatus?: components['schemas']['ContactedStatusEnum'][] | null;
-      contract?: string | null;
-      statistics?: string | null;
-      evaluation?: string | null;
-      readonly contractName: string;
-      readonly statisticsName: string;
-      readonly evaluationName: string;
-    };
-    /**
-     * @description * `pending_upload` - pending_upload
-     *     * `ready` - ready
-     * @enum {string}
-     */
-    StateEnum: 'pending_upload' | 'ready';
-    /**
-     * @description * `PENDING_REGISTER` - PENDING_REGISTER
-     *     * `SUCCESS_REGISTER` - SUCCESS_REGISTER
-     *     * `FAILURE_REGISTER` - FAILURE_REGISTER
-     *     * `PENDING_UNREGISTER` - PENDING_UNREGISTER
-     *     * `SUCCESS_UNREGISTER` - SUCCESS_UNREGISTER
-     *     * `FAILURE_UNREGISTER` - FAILURE_UNREGISTER
-     * @enum {string}
-     */
-    Status180Enum:
-      | 'PENDING_REGISTER'
-      | 'SUCCESS_REGISTER'
-      | 'FAILURE_REGISTER'
-      | 'PENDING_UNREGISTER'
-      | 'SUCCESS_UNREGISTER'
-      | 'FAILURE_UNREGISTER';
-    /**
-     * @description * `NO_ANSWER` - NO_ANSWER
-     *     * `ATTENDING` - ATTENDING
-     *     * `NOT_ATTENDING` - NOT_ATTENDING
-     * @enum {string}
-     */
-    Status7baEnum: 'NO_ANSWER' | 'ATTENDING' | 'NOT_ATTENDING';
-    /**
-     * @description * `approved` - approved
-     *     * `cancelled` - cancelled
-     *     * `changes_requested` - changes_requested
-     *     * `changes_resolved` - changes_resolved
-     *     * `created` - created
-     *     * `denied` - denied
-     *     * `unapproved` - unapproved
-     * @enum {string}
-     */
-    StatusC65Enum:
-      | 'approved'
-      | 'cancelled'
-      | 'changes_requested'
-      | 'changes_resolved'
-      | 'created'
-      | 'denied'
-      | 'unapproved';
-    StripeWebhook: {
-      id: string;
-      type: string;
-    };
-    StudentCompanyContact: {
-      readonly id: number;
-      company: number;
-      user: number;
-      semester: number;
-    };
-    SubmissionCreateAndUpdate: {
-      readonly id: number;
-      user: number;
-      answers: components['schemas']['AnswerCreateAndUpdate'][];
-    };
-    SubmissionRead: {
-      readonly id: number;
-      readonly isOwner: string;
-      survey: number;
-      answers: components['schemas']['Answer'][];
-    };
-    SurveyCreate: {
-      readonly id: number;
-      title: string;
-      /** Format: date-time */
-      activeFrom?: string;
-      templateType?:
-        | (
-            | components['schemas']['TemplateTypeEnum']
-            | components['schemas']['BlankEnum']
-            | components['schemas']['NullEnum']
-          )
-        | null;
-      isTemplate?: boolean;
-      event?: number | null;
-      questions?: components['schemas']['Question'][] | null;
-    };
-    SurveyRead: {
-      readonly id: number;
-      title: string;
-      /** Format: date-time */
-      activeFrom?: string;
-      event: components['schemas']['EventForSurvey'];
-      templateType?:
-        | (
-            | components['schemas']['TemplateTypeEnum']
-            | components['schemas']['BlankEnum']
-            | components['schemas']['NullEnum']
-          )
-        | null;
-      isTemplate?: boolean;
-    };
-    SurveyReadDetailed: {
-      readonly id: number;
-      title: string;
-      /** Format: date-time */
-      activeFrom?: string;
-      questions: components['schemas']['Question'][];
-      event: components['schemas']['EventForSurvey'];
-      templateType?:
-        | (
-            | components['schemas']['TemplateTypeEnum']
-            | components['schemas']['BlankEnum']
-            | components['schemas']['NullEnum']
-          )
-        | null;
-      isTemplate?: boolean;
-    };
-    SurveyUpdate: {
-      readonly id: number;
-      title: string;
-      /** Format: date-time */
-      activeFrom?: string;
-      templateType?:
-        | (
-            | components['schemas']['TemplateTypeEnum']
-            | components['schemas']['BlankEnum']
-            | components['schemas']['NullEnum']
-          )
-        | null;
-      isTemplate?: boolean;
-      event?: number | null;
-      questions?: components['schemas']['QuestionUpdate'][] | null;
-    };
-    Tag: {
-      tag: string;
-    };
-    TagDetail: {
-      tag: string;
-      usages: number;
-      readonly relatedCounts: string;
-    };
-    TagList: {
-      tag: string;
-      usages: number;
-    };
-    /**
-     * @description * `company_presentation` - company_presentation
-     *     * `lunch_presentation` - lunch_presentation
-     *     * `alternative_presentation` - alternative_presentation
-     *     * `course` - course
-     *     * `breakfast_talk` - breakfast_talk
-     *     * `nexus_event` - nexus_event
-     *     * `party` - party
-     *     * `social` - social
-     *     * `gala` - gala
-     *     * `other` - other
-     *     * `event` - event
-     *     * `interest_event` - interest_event
-     * @enum {string}
-     */
-    TemplateTypeEnum:
-      | 'company_presentation'
-      | 'lunch_presentation'
-      | 'alternative_presentation'
-      | 'course'
-      | 'breakfast_talk'
-      | 'nexus_event'
-      | 'party'
-      | 'social'
-      | 'gala'
-      | 'other'
-      | 'event'
-      | 'interest_event';
-    TimelineEntry: {
-      readonly id: number;
-      createdBy: components['schemas']['PublicUser'];
-      /** Format: date-time */
-      readonly createdAt: string;
-      lendingRequest: number;
-      message: string;
-      status?:
-        | (
-            | components['schemas']['StatusC65Enum']
-            | components['schemas']['BlankEnum']
-            | components['schemas']['NullEnum']
-          )
-        | null;
-      isSystem?: boolean;
-    };
-    TimelineEntryCreateAndUpdate: {
-      readonly id: number;
-      lendingRequest: number;
-      message: string;
-    };
-    /**
-     * @description * `1` - 1
-     *     * `2` - 2
-     *     * `3` - 3
-     *     * `4` - 4
-     *     * `5` - 5
-     * @enum {integer}
-     */
-    ToYearEnum: 1 | 2 | 3 | 4 | 5;
-    /**
-     * @description * `komite` - komite
-     *     * `interesse` - interesse
-     *     * `styre` - styre
-     *     * `revy` - revy
-     *     * `klasse` - klasse
-     *     * `annen` - annen
-     *     * `under` - under
-     *     * `ordenen` - ordenen
-     * @enum {string}
-     */
-    TypeEnum: 'komite' | 'interesse' | 'styre' | 'revy' | 'klasse' | 'annen' | 'under' | 'ordenen';
-    UpdateComment: {
-      text: string;
-    };
-    UserEmail: {
-      readonly id: number;
-      readonly user: string;
-      internalEmail: string;
-      internalEmailEnabled?: boolean;
-    };
-    UserEmailCreate: {
-      user: number;
-      internalEmail: string;
-      internalEmailEnabled: boolean;
-    };
-    /** @description Serializer used for verifying JWTs. */
-    VerifyAuthToken: {
-      token: string;
-    };
-    Workplace: {
-      readonly id: number;
-      town: string;
-    };
-  };
-  responses: never;
-  parameters: never;
-  requestBodies: never;
-  headers: never;
-  pathItems: never;
-}
-export type $defs = Record<string, never>;
-export interface operations {
-  achievementsAzartCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['KeypressOrder'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['KeypressOrder'];
-        };
-      };
-    };
-  };
-  achievementsGettingWoodCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['KeypressOrder'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['KeypressOrder'];
-        };
-      };
-    };
-  };
-  achievementsGrantCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['KeypressOrder'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['KeypressOrder'];
-        };
-      };
-    };
-  };
-  achievementsGrantBulkCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['KeypressOrder'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['KeypressOrder'];
-        };
-      };
-    };
-  };
-  achievementsKeypressOrderCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['KeypressOrder'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['KeypressOrder'];
-        };
-      };
-    };
-  };
-  achievementsLeaderboardList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedPublicUserWithGroupsList'];
-        };
-      };
-    };
-  };
-  achievementsLeaderboardDistributionRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PublicUserWithGroups'];
-        };
-      };
-    };
-  };
-  achievementsLeaderboardRankHistoryRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PublicUserWithGroups'];
-        };
-      };
-    };
-  };
-  achievementsLeaderboardTopClimbersRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PublicUserWithGroups'];
-        };
-      };
-    };
-  };
-  achievementsRarityRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['KeypressOrder'];
-        };
-      };
-    };
-  };
-  achievementsRecheckAllRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['KeypressOrder'];
-        };
-      };
-    };
-  };
-  achievementsRevokeCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['KeypressOrder'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['KeypressOrder'];
-        };
-      };
-    };
-  };
-  achievementsUserAchievementsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['KeypressOrder'];
-        };
-      };
-    };
-  };
-  announcementsList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedAnnouncementListList'];
-        };
-      };
-    };
-  };
-  announcementsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['AnnouncementDetail'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['AnnouncementDetail'];
-        };
-      };
-    };
-  };
-  announcementsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this announcement. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['AnnouncementDetail'];
-        };
-      };
-    };
-  };
-  announcementsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this announcement. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['AnnouncementDetail'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['AnnouncementDetail'];
-        };
-      };
-    };
-  };
-  announcementsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this announcement. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  announcementsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this announcement. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedAnnouncementDetail'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['AnnouncementDetail'];
-        };
-      };
-    };
-  };
-  announcementsSendCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this announcement. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['AnnouncementDetail'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['AnnouncementDetail'];
-        };
-      };
-    };
-  };
-  articlesList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        tag?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedPublicArticleList'];
-        };
-      };
-    };
-  };
-  articlesCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['DetailedArticle'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['DetailedArticle'];
-        };
-      };
-    };
-  };
-  articlesRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this article. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['DetailedArticle'];
-        };
-      };
-    };
-  };
-  articlesUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this article. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['DetailedArticle'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['DetailedArticle'];
-        };
-      };
-    };
-  };
-  articlesDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this article. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  articlesPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this article. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedDetailedArticle'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['DetailedArticle'];
-        };
-      };
-    };
-  };
-  articlesStatisticsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this article. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['DetailedArticle'];
-        };
-      };
-    };
-  };
-  bannersList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedBannerList'];
-        };
-      };
-    };
-  };
-  bannersCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['Banner'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Banner'];
-        };
-      };
-    };
-  };
-  bannersRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Banner'];
-        };
-      };
-    };
-  };
-  bannersUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['Banner'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Banner'];
-        };
-      };
-    };
-  };
-  bannersDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  bannersPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedBanner'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Banner'];
-        };
-      };
-    };
-  };
-  bannersCurrentPrivateRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Banner'];
-        };
-      };
-    };
-  };
-  bannersCurrentPublicRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Banner'];
-        };
-      };
-    };
-  };
-  bdbList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        name?: string;
-        status?: string;
-        student_contacts?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedCompanyAdminListList'];
-        };
-      };
-    };
-  };
-  bdbCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['CompanyAdminDetail'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyAdminDetail'];
-        };
-      };
-    };
-  };
-  bdbRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this company. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyAdminDetail'];
-        };
-      };
-    };
-  };
-  bdbUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this company. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['CompanyAdminDetail'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyAdminDetail'];
-        };
-      };
-    };
-  };
-  bdbDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this company. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  bdbPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this company. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedCompanyAdminDetail'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyAdminDetail'];
-        };
-      };
-    };
-  };
-  calendarIcalRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  calendarIcalEventsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  calendarIcalPersonalRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  calendarIcalRegistrationsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  calendarTokenRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  calendarTokenRegeneratePartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  commentsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['Comment'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Comment'];
-        };
-      };
-    };
-  };
-  commentsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this comment. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['UpdateComment'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['UpdateComment'];
-        };
-      };
-    };
-  };
-  commentsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this comment. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  commentsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this comment. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedUpdateComment'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['UpdateComment'];
-        };
-      };
-    };
-  };
-  companiesList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        search?: string;
-        show_inactive?: boolean;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedCompanyListList'];
-        };
-      };
-    };
-  };
-  companiesCompanyContactsList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path: {
-        companyPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedCompanyContactList'];
-        };
-      };
-    };
-  };
-  companiesCompanyContactsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        companyPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['CompanyContact'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyContact'];
-        };
-      };
-    };
-  };
-  companiesCompanyContactsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        companyPk: string;
-        /** @description A unique integer value identifying this company contact. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyContact'];
-        };
-      };
-    };
-  };
-  companiesCompanyContactsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        companyPk: string;
-        /** @description A unique integer value identifying this company contact. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['CompanyContact'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyContact'];
-        };
-      };
-    };
-  };
-  companiesCompanyContactsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        companyPk: string;
-        /** @description A unique integer value identifying this company contact. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  companiesCompanyContactsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        companyPk: string;
-        /** @description A unique integer value identifying this company contact. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedCompanyContact'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyContact'];
-        };
-      };
-    };
-  };
-  companiesFilesList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path: {
-        companyPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedCompanyFileList'];
-        };
-      };
-    };
-  };
-  companiesFilesCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        companyPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['CompanyFile'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyFile'];
-        };
-      };
-    };
-  };
-  companiesFilesRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        companyPk: string;
-        /** @description A unique integer value identifying this company file. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyFile'];
-        };
-      };
-    };
-  };
-  companiesFilesUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        companyPk: string;
-        /** @description A unique integer value identifying this company file. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['CompanyFile'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyFile'];
-        };
-      };
-    };
-  };
-  companiesFilesDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        companyPk: string;
-        /** @description A unique integer value identifying this company file. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  companiesFilesPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        companyPk: string;
-        /** @description A unique integer value identifying this company file. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedCompanyFile'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyFile'];
-        };
-      };
-    };
-  };
-  companiesSemesterStatusesList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path: {
-        companyPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedSemesterStatusList'];
-        };
-      };
-    };
-  };
-  companiesSemesterStatusesCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        companyPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['SemesterStatusDetail'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SemesterStatusDetail'];
-        };
-      };
-    };
-  };
-  companiesSemesterStatusesRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        companyPk: string;
-        /** @description A unique integer value identifying this semester status. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SemesterStatusDetail'];
-        };
-      };
-    };
-  };
-  companiesSemesterStatusesUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        companyPk: string;
-        /** @description A unique integer value identifying this semester status. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['SemesterStatusDetail'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SemesterStatusDetail'];
-        };
-      };
-    };
-  };
-  companiesSemesterStatusesDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        companyPk: string;
-        /** @description A unique integer value identifying this semester status. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  companiesSemesterStatusesPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        companyPk: string;
-        /** @description A unique integer value identifying this semester status. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedSemesterStatusDetail'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SemesterStatusDetail'];
-        };
-      };
-    };
-  };
-  companiesRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this company. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyDetail'];
-        };
-      };
-    };
-  };
-  companyInterestsList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        events?: string;
-        semesters?: number[];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedCompanyInterestListList'];
-        };
-      };
-    };
-  };
-  companyInterestsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['CompanyInterestCreateAndUpdate'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyInterestCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  companyInterestsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this company interest. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyInterest'];
-        };
-      };
-    };
-  };
-  companyInterestsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this company interest. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['CompanyInterestCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyInterestCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  companyInterestsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this company interest. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  companyInterestsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this company interest. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedCompanyInterestCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyInterestCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  companyInterestsCsvRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CompanyInterest'];
-        };
-      };
-    };
-  };
-  companySemestersList: {
-    parameters: {
-      query?: {
-        company_interest?: boolean;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Semester'][];
-        };
-      };
-    };
-  };
-  companySemestersCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['Semester'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Semester'];
-        };
-      };
-    };
-  };
-  companySemestersRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this semester. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Semester'];
-        };
-      };
-    };
-  };
-  companySemestersUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this semester. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['Semester'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Semester'];
-        };
-      };
-    };
-  };
-  companySemestersDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this semester. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  companySemestersPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this semester. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedSemester'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Semester'];
-        };
-      };
-    };
-  };
-  contactFormCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['ContactForm'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['ContactForm'];
-        };
-      };
-    };
-  };
-  deviceApnsList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedAPNSDeviceList'];
-        };
-      };
-    };
-  };
-  deviceApnsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['APNSDevice'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['APNSDevice'];
-        };
-      };
-    };
-  };
-  deviceApnsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        registrationId: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['APNSDevice'];
-        };
-      };
-    };
-  };
-  deviceApnsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        registrationId: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['APNSDevice'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['APNSDevice'];
-        };
-      };
-    };
-  };
-  deviceApnsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        registrationId: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  deviceApnsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        registrationId: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedAPNSDevice'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['APNSDevice'];
-        };
-      };
-    };
-  };
-  deviceExpoCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['ExpoDevice'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['ExpoDevice'];
-        };
-      };
-    };
-  };
-  deviceExpoUnregisterDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  deviceGcmList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedGCMDeviceList'];
-        };
-      };
-    };
-  };
-  deviceGcmCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['GCMDevice'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['GCMDevice'];
-        };
-      };
-    };
-  };
-  deviceGcmRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        registrationId: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['GCMDevice'];
-        };
-      };
-    };
-  };
-  deviceGcmUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        registrationId: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['GCMDevice'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['GCMDevice'];
-        };
-      };
-    };
-  };
-  deviceGcmDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        registrationId: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  deviceGcmPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        registrationId: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedGCMDevice'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['GCMDevice'];
-        };
-      };
-    };
-  };
-  emailListsList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        email?: string;
-        name?: string;
-        requireInternalAddress?: boolean;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedEmailListList'];
-        };
-      };
-    };
-  };
-  emailListsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['EmailListCreate'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['EmailListCreate'];
-        };
-      };
-    };
-  };
-  emailListsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this email list. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['EmailListDetail'];
-        };
-      };
-    };
-  };
-  emailListsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this email list. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['EmailList'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['EmailList'];
-        };
-      };
-    };
-  };
-  emailListsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this email list. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedEmailList'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['EmailList'];
-        };
-      };
-    };
-  };
-  emailUsersList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        email?: string;
-        enabled?: boolean;
-        userFullname?: string;
-        userGrade?: string;
-        /** @description Multiple values may be separated by commas. */
-        userGroups?: string[];
-        userUsername?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedUserEmailList'];
-        };
-      };
-    };
-  };
-  emailUsersCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['UserEmailCreate'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['UserEmailCreate'];
-        };
-      };
-    };
-  };
-  emailUsersRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this user. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['UserEmail'];
-        };
-      };
-    };
-  };
-  emailUsersUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this user. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['UserEmail'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['UserEmail'];
-        };
-      };
-    };
-  };
-  emailUsersPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this user. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedUserEmail'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['UserEmail'];
-        };
-      };
-    };
-  };
-  emojisList: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Emoji'][];
-        };
-      };
-    };
-  };
-  emojisCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['Emoji'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Emoji'];
-        };
-      };
-    };
-  };
-  emojisRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique value identifying this emoji. */
-        shortCode: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Emoji'];
-        };
-      };
-    };
-  };
-  emojisUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique value identifying this emoji. */
-        shortCode: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['Emoji'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Emoji'];
-        };
-      };
-    };
-  };
-  emojisDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique value identifying this emoji. */
-        shortCode: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  emojisPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique value identifying this emoji. */
-        shortCode: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedEmoji'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Emoji'];
-        };
-      };
-    };
-  };
-  eventsList: {
-    parameters: {
-      query?: {
-        company?: string;
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        date_after?: string;
-        date_before?: string;
-        exclude_event_type?: string;
-        /** @description Which field to use when ordering the results. */
-        ordering?: string;
-        responsible_group_type?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedEventReadList'];
-        };
-      };
-    };
-  };
-  eventsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['EventCreateAndUpdate'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['EventCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  eventsPoolsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        eventPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['PoolCreateAndUpdate'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PoolCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  eventsPoolsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        eventPk: string;
-        /** @description A unique integer value identifying this pool. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['PoolCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PoolCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  eventsPoolsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        eventPk: string;
-        /** @description A unique integer value identifying this pool. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  eventsPoolsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        eventPk: string;
-        /** @description A unique integer value identifying this pool. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedPoolCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PoolCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  eventsRegistrationSearchCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        eventPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['RegistrationSearch'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['RegistrationSearch'];
-        };
-      };
-    };
-  };
-  eventsRegistrationsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        eventPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['RegistrationCreateAndUpdate'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['RegistrationCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  eventsRegistrationsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        eventPk: string;
-        /** @description A unique integer value identifying this registration. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['RegistrationReadDetailed'];
-        };
-      };
-    };
-  };
-  eventsRegistrationsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        eventPk: string;
-        /** @description A unique integer value identifying this registration. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['RegistrationCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['RegistrationCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  eventsRegistrationsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        eventPk: string;
-        /** @description A unique integer value identifying this registration. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  eventsRegistrationsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        eventPk: string;
-        /** @description A unique integer value identifying this registration. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedRegistrationCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['RegistrationCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  eventsRegistrationsAdminRegisterCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        eventPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['AdminRegistrationCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['AdminRegistrationCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  eventsRegistrationsAdminUnregisterCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        eventPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['AdminUnregister'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['AdminUnregister'];
-        };
-      };
-    };
-  };
-  eventsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this event. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['EventReadUserDetailed'];
-        };
-      };
-    };
-  };
-  eventsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this event. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['EventCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['EventCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  eventsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this event. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  eventsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this event. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedEventCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['EventCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  eventsAdministrateRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this event. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  eventsAllergiesRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this event. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  eventsPaymentCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this event. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['RegistrationPaymentRead'];
-        };
-      };
-    };
-  };
-  eventsStatisticsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this event. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  eventsCoverImageGalleryRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['ImageGallery'];
-        };
-      };
-    };
-  };
-  eventsPreviousRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['EventRead'];
-        };
-      };
-    };
-  };
-  eventsUpcomingRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['EventRead'];
-        };
-      };
-    };
-  };
-  featureflagsAdminList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedFeatureFlagAdminList'];
-        };
-      };
-    };
-  };
-  featureflagsAdminCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['FeatureFlagAdmin'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['FeatureFlagAdmin'];
-        };
-      };
-    };
-  };
-  featureflagsAdminRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this feature flag. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['FeatureFlagAdmin'];
-        };
-      };
-    };
-  };
-  featureflagsAdminUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this feature flag. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['FeatureFlagAdmin'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['FeatureFlagAdmin'];
-        };
-      };
-    };
-  };
-  featureflagsAdminDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this feature flag. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  featureflagsAdminPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this feature flag. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedFeatureFlagAdmin'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['FeatureFlagAdmin'];
-        };
-      };
-    };
-  };
-  featureflagsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        identifier: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['FeatureFlagPublic'];
-        };
-      };
-    };
-  };
-  feedNotificationsList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedAggregatedMarkedFeedList'];
-        };
-      };
-    };
-  };
-  feedNotificationsMarkCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this notification feed. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['Mark'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Mark'];
-        };
-      };
-    };
-  };
-  feedNotificationsMarkAllCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['Mark'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Mark'];
-        };
-      };
-    };
-  };
-  feedNotificationsNotificationDataRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['NotificationData'];
-        };
-      };
-    };
-  };
-  feedPersonalList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedAggregatedFeedList'];
-        };
-      };
-    };
-  };
-  feedUserList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path: {
-        userPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedAggregatedFeedList'];
-        };
-      };
-    };
-  };
-  filesCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['FileUpload'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['FileUpload'];
-        };
-      };
-    };
-  };
-  filesImagegalleryPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        key: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedFileUpload'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['FileUpload'];
-        };
-      };
-    };
-  };
-  filesUploadSuccessRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        key: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['FileUpload'];
-        };
-      };
-    };
-  };
-  followersCompanyList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        follower?: number;
-        target?: number;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedFollowCompanyList'];
-        };
-      };
-    };
-  };
-  followersCompanyCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['FollowCompany'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['FollowCompany'];
-        };
-      };
-    };
-  };
-  followersCompanyDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this follow company. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  followersEventList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        target?: number;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedFollowEventList'];
-        };
-      };
-    };
-  };
-  followersEventCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['FollowEvent'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['FollowEvent'];
-        };
-      };
-    };
-  };
-  followersEventDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this follow event. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  followersUserList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        follower?: number;
-        target?: number;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedFollowUserList'];
-        };
-      };
-    };
-  };
-  followersUserCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['FollowUser'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['FollowUser'];
-        };
-      };
-    };
-  };
-  followersUserDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this follow user. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  frontpageRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  galleriesList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        date_after?: string;
-        date_before?: string;
-        event?: number;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedGalleryListList'];
-        };
-      };
-    };
-  };
-  galleriesCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['Gallery'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Gallery'];
-        };
-      };
-    };
-  };
-  galleriesPicturesList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path: {
-        galleryPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedGalleryPictureList'];
-        };
-      };
-    };
-  };
-  galleriesPicturesCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        galleryPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['GalleryPicture'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['GalleryPicture'];
-        };
-      };
-    };
-  };
-  galleriesPicturesRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        galleryPk: string;
-        /** @description A unique integer value identifying this gallery picture. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['GalleryPicture'];
-        };
-      };
-    };
-  };
-  galleriesPicturesUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        galleryPk: string;
-        /** @description A unique integer value identifying this gallery picture. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['GalleryPicture'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['GalleryPicture'];
-        };
-      };
-    };
-  };
-  galleriesPicturesDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        galleryPk: string;
-        /** @description A unique integer value identifying this gallery picture. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  galleriesPicturesPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        galleryPk: string;
-        /** @description A unique integer value identifying this gallery picture. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedGalleryPicture'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['GalleryPicture'];
-        };
-      };
-    };
-  };
-  galleriesRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this gallery. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Gallery'];
-        };
-      };
-    };
-  };
-  galleriesUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this gallery. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['Gallery'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Gallery'];
-        };
-      };
-    };
-  };
-  galleriesDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this gallery. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  galleriesPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this gallery. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedGallery'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Gallery'];
-        };
-      };
-    };
-  };
-  galleriesMetadataRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this gallery. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['GalleryMetadata'];
-        };
-      };
-    };
-  };
-  groupsList: {
-    parameters: {
-      query?: {
-        /** @description Multiple values may be separated by commas. */
-        type?: string[];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PublicListAbakusGroup'][];
-        };
-      };
-    };
-  };
-  groupsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['DetailedAbakusGroup'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['DetailedAbakusGroup'];
-        };
-      };
-    };
-  };
-  groupsMembershipsList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        /** @description Which field to use when ordering the results. */
-        ordering?: string;
-      };
-      header?: never;
-      path: {
-        groupPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedMembershipList'];
-        };
-      };
-    };
-  };
-  groupsMembershipsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        groupPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['Membership'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Membership'];
-        };
-      };
-    };
-  };
-  groupsMembershipsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        groupPk: string;
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Membership'];
-        };
-      };
-    };
-  };
-  groupsMembershipsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        groupPk: string;
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['Membership'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Membership'];
-        };
-      };
-    };
-  };
-  groupsMembershipsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        groupPk: string;
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  groupsMembershipsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        groupPk: string;
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedMembership'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Membership'];
-        };
-      };
-    };
-  };
-  groupsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this abakus group. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['DetailedAbakusGroup'];
-        };
-      };
-    };
-  };
-  groupsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this abakus group. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['DetailedAbakusGroup'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['DetailedAbakusGroup'];
-        };
-      };
-    };
-  };
-  groupsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this abakus group. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  groupsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this abakus group. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedDetailedAbakusGroup'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['DetailedAbakusGroup'];
-        };
-      };
-    };
-  };
-  joblistingsList: {
-    parameters: {
-      query?: {
-        company?: number;
-        created_after?: string;
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        timeFilter?: boolean;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedJoblistingList'];
-        };
-      };
-    };
-  };
-  joblistingsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['JoblistingCreateAndUpdate'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['JoblistingCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  joblistingsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this joblisting. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['JoblistingDetailed'];
-        };
-      };
-    };
-  };
-  joblistingsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this joblisting. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['JoblistingCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['JoblistingCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  joblistingsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this joblisting. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  joblistingsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this joblisting. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedJoblistingCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['JoblistingCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  lendingObjectsList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedLendableObjectList'];
-        };
-      };
-    };
-  };
-  lendingObjectsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['LendableObjectAdmin'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['LendableObjectAdmin'];
-        };
-      };
-    };
-  };
-  lendingObjectsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this lendable object. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  lendingObjectsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this lendable object. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['LendableObjectAdmin'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['LendableObjectAdmin'];
-        };
-      };
-    };
-  };
-  lendingObjectsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this lendable object. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  lendingObjectsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this lendable object. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedLendableObjectAdmin'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['LendableObjectAdmin'];
-        };
-      };
-    };
-  };
-  lendingObjectsAvailabilityRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this lendable object. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['LendableObject'];
-        };
-      };
-    };
-  };
-  lendingObjectsAvailableRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['LendableObject'];
-        };
-      };
-    };
-  };
-  lendingRequestsList: {
-    parameters: {
-      query?: {
-        archived?: boolean;
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        status?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedLendingRequestListList'];
-        };
-      };
-    };
-  };
-  lendingRequestsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['LendingRequestCreateAndUpdate'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['LendingRequestCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  lendingRequestsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this lending request. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['LendingRequestDetail'];
-        };
-      };
-    };
-  };
-  lendingRequestsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this lending request. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['LendingRequestCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['LendingRequestCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  lendingRequestsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this lending request. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  lendingRequestsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this lending request. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedLendingRequestCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['LendingRequestCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  lendingRequestsAdminRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['LendingRequestList'];
-        };
-      };
-    };
-  };
-  lendingTimelineentriesCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['TimelineEntryCreateAndUpdate'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['TimelineEntryCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  meetingTokenRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  meetingTokenAcceptCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  meetingTokenRejectCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  meetingsList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        date_after?: string;
-        date_before?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedMeetingListList'];
-        };
-      };
-    };
-  };
-  meetingsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['MeetingDetail'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['MeetingDetail'];
-        };
-      };
-    };
-  };
-  meetingsInvitationsList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path: {
-        meetingPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedMeetingInvitationList'];
-        };
-      };
-    };
-  };
-  meetingsInvitationsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        meetingPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['MeetingInvitation'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['MeetingInvitation'];
-        };
-      };
-    };
-  };
-  meetingsInvitationsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        meetingPk: string;
-        /** @description A unique integer value identifying this meeting invitation. */
-        user_id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['MeetingInvitation'];
-        };
-      };
-    };
-  };
-  meetingsInvitationsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        meetingPk: string;
-        /** @description A unique integer value identifying this meeting invitation. */
-        user_id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['MeetingInvitationUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['MeetingInvitationUpdate'];
-        };
-      };
-    };
-  };
-  meetingsInvitationsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        meetingPk: string;
-        /** @description A unique integer value identifying this meeting invitation. */
-        user_id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  meetingsInvitationsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        meetingPk: string;
-        /** @description A unique integer value identifying this meeting invitation. */
-        user_id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedMeetingInvitationUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['MeetingInvitationUpdate'];
-        };
-      };
-    };
-  };
-  meetingsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this meeting. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['MeetingDetail'];
-        };
-      };
-    };
-  };
-  meetingsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this meeting. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['MeetingDetail'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['MeetingDetail'];
-        };
-      };
-    };
-  };
-  meetingsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this meeting. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  meetingsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this meeting. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedMeetingDetail'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['MeetingDetail'];
-        };
-      };
-    };
-  };
-  meetingsBulkInviteCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this meeting. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['MeetingBulkInvite'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['MeetingBulkInvite'];
-        };
-      };
-    };
-  };
-  meetingsInviteGroupCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this meeting. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['MeetingGroupInvite'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['MeetingGroupInvite'];
-        };
-      };
-    };
-  };
-  meetingsInviteUserCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this meeting. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['MeetingUserInvite'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['MeetingUserInvite'];
-        };
-      };
-    };
-  };
-  meetingsTemplatesRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['MeetingDetail'];
-        };
-      };
-    };
-  };
-  membershipHistoryList: {
-    parameters: {
-      query?: {
-        abakus_group?: number;
-        /** @description The pagination cursor value. */
-        cursor?: string;
+    schemas: {
+        APNSDevice: {
+            readonly id: number;
+            name?: string | null;
+            /** @description Opaque application identity, should be filled in for multiple key/certificate access */
+            applicationId?: string | null;
+            registrationId: string;
+            /**
+             * Format: uuid
+             * @description UUID / UIDevice.identifierForVendor()
+             */
+            deviceId?: string | null;
+            /**
+             * Is active
+             * @description Inactive devices will not be sent notifications
+             * @default true
+             */
+            active: boolean;
+            /**
+             * Creation date
+             * Format: date-time
+             */
+            readonly dateCreated: string | null;
+        };
+        AccessToken: {
+            readonly id: number;
+            user?: number | null;
+            readonly token: string;
+            readonly application: number;
+            /** Format: date-time */
+            expires: string;
+            readonly scopes: string;
+        };
+        Achievement: {
+            readonly id: number;
+            /** Format: date-time */
+            readonly updatedAt: string;
+            readonly percentage: string;
+            identifier: components["schemas"]["IdentifierEnum"];
+            level?: number;
+        };
+        AdminRegistrationCreateAndUpdate: {
+            user: number;
+            pool?: number;
+            feedback?: string;
+            adminRegistrationReason: string;
+        };
+        AdminUnregister: {
+            user: number;
+            adminUnregistrationReason: string;
+        };
+        /** @description Used by the events app when listing user registrations. */
+        AdministrateUser: {
+            readonly id: number;
+            /** @description Required. 50 characters or fewer. Letters, digits and _ only. */
+            readonly username: string;
+            firstName: string;
+            lastName: string;
+            readonly fullName: string;
+            gender: components["schemas"]["GenderEnum"];
+            profilePicture?: string;
+            profilePicturePlaceholder?: string;
+            readonly internalEmailAddress: string;
+            /** @description Enter a valid username. */
+            githubUsername?: (string) | null;
+            /** @description Enter a valid LinkedIn ID. */
+            linkedinId?: string | null;
+            /** @description The groups this user belongs to. A user will get all permissions granted to each of their groups. */
+            readonly abakusGroups: number[];
+        };
+        AggregatedFeed: {
+            id: number;
+            orderingKey: string;
+            verb: string;
+            /** Format: date-time */
+            createdAt: string;
+            /** Format: date-time */
+            updatedAt: string;
+            lastActivity: components["schemas"]["FeedActivity"];
+            activities: components["schemas"]["FeedActivity"][];
+            activityCount: number;
+            actorIds: string[];
+            readonly context: {
+                [key: string]: unknown;
+            };
+        };
+        AggregatedMarkedFeed: {
+            id: number;
+            orderingKey: string;
+            verb: string;
+            /** Format: date-time */
+            createdAt: string;
+            /** Format: date-time */
+            updatedAt: string;
+            lastActivity: components["schemas"]["FeedActivity"];
+            activities: components["schemas"]["FeedActivity"][];
+            activityCount: number;
+            actorIds: string[];
+            readonly context: {
+                [key: string]: unknown;
+            };
+            read: boolean;
+            seen: boolean;
+        };
+        AnnouncementDetail: {
+            readonly id: number;
+            message: string;
+            fromGroup?: number | null;
+            /** Format: date-time */
+            readonly sent: string | null;
+            users?: number[];
+            groups?: number[];
+            events?: number[];
+            excludeWaitingList?: boolean;
+            meetings?: number[];
+            meetingInvitationStatus?: components["schemas"]["MeetingInvitationStatusEnum"] | components["schemas"]["BlankEnum"];
+        };
+        AnnouncementList: {
+            readonly id: number;
+            message: string;
+            readonly fromGroup: components["schemas"]["PublicAbakusGroup"];
+            /** Format: date-time */
+            readonly sent: string | null;
+            readonly users: components["schemas"]["PublicUser"][];
+            readonly groups: components["schemas"]["PublicAbakusGroup"][];
+            readonly events: components["schemas"]["EventRead"][];
+            excludeWaitingList?: boolean;
+            readonly meetings: components["schemas"]["MeetingList"][];
+            meetingInvitationStatus?: components["schemas"]["MeetingInvitationStatusEnum"] | components["schemas"]["BlankEnum"];
+        };
+        Answer: {
+            readonly id: number;
+            submission: number;
+            question: components["schemas"]["Question"];
+            answerText?: string;
+            selectedOptions?: number[];
+        };
+        AnswerCreateAndUpdate: {
+            readonly id: number;
+            question: number;
+            answerText?: string;
+            selectedOptions?: number[];
+        };
+        Application: {
+            readonly id: number;
+            name?: string;
+            /** Application description */
+            description?: string;
+            /** @description Allowed URIs list, space separated */
+            redirectUris?: string;
+            readonly clientId: string;
+            readonly clientSecret: string;
+            readonly user: number;
+        };
+        Banner: {
+            readonly id: number;
+            header: string;
+            subheader?: string | null;
+            color?: components["schemas"]["ColorEnum"];
+            link?: string | null;
+            currentPrivate?: boolean;
+            currentPublic?: boolean;
+            /** Format: date-time */
+            countdownEndDate?: string | null;
+            countdownEndMessage?: string | null;
+        };
+        /** @enum {unknown} */
+        BlankEnum: "";
+        /**
+         * @description * `generelt` - generelt
+         *     * `organisasjon` - organisasjon
+         *     * `styrer` - styrer
+         *     * `bedrifter` - bedrifter
+         *     * `arrangementer` - arrangementer
+         *     * `grupper` - grupper
+         *     * `utnevnelser` - utnevnelser
+         *     * `personvern` - personvern
+         * @enum {string}
+         */
+        Category2a9Enum: "generelt" | "organisasjon" | "styrer" | "bedrifter" | "arrangementer" | "grupper" | "utnevnelser" | "personvern";
+        /**
+         * @description * `outdoors` - outdoors
+         *     * `photography` - photography
+         *     * `music` - music
+         *     * `furniture` - furniture
+         *     * `services` - services
+         *     * `other` - other
+         * @enum {string}
+         */
+        Category7d8Enum: "outdoors" | "photography" | "music" | "furniture" | "services" | "other";
+        ChangeGrade: {
+            group: number | null;
+        };
+        /**
+         * @description * `email` - email
+         *     * `push` - push
+         * @enum {string}
+         */
+        ChannelsEnum: "email" | "push";
+        /**
+         * @description * `FCM` - Firebase Cloud Message
+         *     * `GCM` - Google Cloud Message
+         * @enum {string}
+         */
+        CloudMessageTypeEnum: "FCM" | "GCM";
+        /**
+         * @description * `collaboration_online` - collaboration_online
+         *     * `collaboration_omega` - collaboration_omega
+         *     * `collaboration_tihlde` - collaboration_tihlde
+         *     * `collaboration_revue` - collaboration_revue
+         *     * `collaboration_anniversary` - collaboration_anniversary
+         *     * `collaboration_revue_anniversary` - collaboration_revue_anniversary
+         * @enum {string}
+         */
+        CollaborationsEnum: "collaboration_online" | "collaboration_omega" | "collaboration_tihlde" | "collaboration_revue" | "collaboration_anniversary" | "collaboration_revue_anniversary";
+        /**
+         * @description * `buddyweek2024` - buddyweek2024
+         *     * `christmas` - christmas
+         *     * `easter` - easter
+         *     * `gray` - gray
+         *     * `itdageneBlue` - itdageneBlue
+         *     * `lightBlue` - lightBlue
+         *     * `red` - red
+         *     * `white` - white
+         * @enum {string}
+         */
+        ColorEnum: "buddyweek2024" | "christmas" | "easter" | "gray" | "itdageneBlue" | "lightBlue" | "red" | "white";
+        Comment: {
+            readonly id: number;
+            text: string;
+            readonly author: components["schemas"]["PublicUser"];
+            contentTarget: string;
+            readonly contentTargetSelf: string;
+            /** Format: date-time */
+            readonly createdAt: string;
+            /** Format: date-time */
+            readonly updatedAt: string;
+            parent?: number | null;
+            readonly reactionsGrouped: string;
+        };
+        CompanyAdminDetail: {
+            readonly id: number;
+            name: string;
+            studentContacts?: components["schemas"]["StudentCompanyContact"][];
+            description?: string;
+            phone?: string;
+            companyType?: string;
+            website?: string;
+            address?: string;
+            paymentMail?: string;
+            readonly comments: components["schemas"]["Comment"][];
+            readonly contentTarget: string;
+            readonly semesterStatuses: components["schemas"]["SemesterStatusDetail"][];
+            logo?: string;
+            readonly files: components["schemas"]["CompanyFile"][];
+            readonly companyContacts: components["schemas"]["CompanyContact"][];
+        };
+        CompanyAdminList: {
+            readonly id: number;
+            name: string;
+            readonly semesterStatuses: string;
+            readonly studentContacts: string;
+        };
+        CompanyContact: {
+            readonly id: number;
+            name: string;
+            role?: string;
+            mail?: string;
+            phone?: string;
+            mobile?: string;
+            /** Format: date-time */
+            readonly updatedAt: string;
+        };
+        /**
+         * @description * `company_survey_security` - Security
+         *     * `company_survey_ai` - Ai
+         *     * `company_survey_big_data` - Data
+         *     * `company_survey_front_back_end` - End
+         *     * `company_survey_iot` - Iot
+         *     * `company_survey_gamedev` - Gamedev
+         *     * `company_survey_softskills` - Softskills
+         *     * `company_survey_fintech` - Fintech
+         * @enum {string}
+         */
+        CompanyCourseThemesEnum: "company_survey_security" | "company_survey_ai" | "company_survey_big_data" | "company_survey_front_back_end" | "company_survey_iot" | "company_survey_gamedev" | "company_survey_softskills" | "company_survey_fintech";
+        CompanyDetail: {
+            readonly id: number;
+            name: string;
+            description?: string;
+            phone?: string;
+            companyType?: string;
+            website?: string;
+            address?: string;
+            logo?: string;
+            logoPlaceholder?: string;
+        };
+        CompanyFile: {
+            readonly id: number;
+            file: string;
+        };
+        CompanyInterest: {
+            readonly id: number;
+            companyName?: string;
+            company: components["schemas"]["CompanySearch"] | null;
+            contactPerson: string;
+            /** Format: email */
+            mail: string;
+            phone?: string;
+            semesters?: number[];
+            events?: components["schemas"]["EventsEnum"][] | null;
+            otherOffers?: components["schemas"]["OtherOffersEnum"][] | null;
+            collaborations?: components["schemas"]["CollaborationsEnum"][] | null;
+            companyType?: (components["schemas"]["CompanyTypeEnum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+            targetGrades?: number[] | null;
+            participantRangeStart?: number | null;
+            participantRangeEnd?: number | null;
+            comment?: string;
+            courseComment?: string;
+            breakfastTalkComment?: string;
+            otherEventComment?: string;
+            startupComment?: string;
+            companyToCompanyComment?: string;
+            lunchPresentationComment?: string;
+            companyPresentationComment?: string;
+            bedexComment?: string;
+            companyCourseThemes?: components["schemas"]["CompanyCourseThemesEnum"][] | null;
+            officeInTrondheim?: boolean;
+            wantsThursdayEvent?: boolean;
+        };
+        CompanyInterestCreateAndUpdate: {
+            readonly id: number;
+            companyName?: string;
+            company?: number | null;
+            contactPerson: string;
+            /** Format: email */
+            mail: string;
+            phone?: string;
+            semesters?: number[];
+            events?: components["schemas"]["EventsEnum"][] | null;
+            otherOffers?: components["schemas"]["OtherOffersEnum"][] | null;
+            collaborations?: components["schemas"]["CollaborationsEnum"][] | null;
+            companyType?: (components["schemas"]["CompanyTypeEnum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+            targetGrades?: number[] | null;
+            participantRangeStart?: number | null;
+            participantRangeEnd?: number | null;
+            comment?: string;
+            courseComment?: string;
+            breakfastTalkComment?: string;
+            otherEventComment?: string;
+            startupComment?: string;
+            companyToCompanyComment?: string;
+            lunchPresentationComment?: string;
+            companyPresentationComment?: string;
+            bedexComment?: string;
+            companyCourseThemes?: components["schemas"]["CompanyCourseThemesEnum"][] | null;
+            officeInTrondheim?: boolean;
+            wantsThursdayEvent?: boolean;
+        };
+        CompanyInterestList: {
+            readonly id: number;
+            companyName?: string;
+            company: components["schemas"]["CompanySearch"];
+            contactPerson: string;
+            /** Format: email */
+            mail: string;
+            phone?: string;
+            semesters?: number[];
+            events?: components["schemas"]["EventsEnum"][] | null;
+            /** Format: date-time */
+            readonly createdAt: string;
+        };
+        CompanyList: {
+            readonly id: number;
+            name: string;
+            description?: string;
+            readonly eventCount: string;
+            readonly joblistingCount: string;
+            website?: string;
+            companyType?: string;
+            address?: string;
+            logo?: string;
+            logoPlaceholder?: string;
+            thumbnail?: string;
+        };
+        /** @description Public company information available on search. */
+        CompanySearch: {
+            readonly id: number;
+            name: string;
+            description?: string;
+            website?: string;
+            companyType?: string;
+            address?: string;
+        };
+        /**
+         * @description * `company_types_small_consultant` - Small Consultant
+         *     * `company_types_medium_consultant` - Medium Consultant
+         *     * `company_types_large_consultant` - Large Consultant
+         *     * `company_types_inhouse` - Inhouse
+         *     * `company_types_others` - Types Others
+         *     * `company_types_start_up` - Start Up
+         *     * `company_types_governmental` - Governmental
+         * @enum {string}
+         */
+        CompanyTypeEnum: "company_types_small_consultant" | "company_types_medium_consultant" | "company_types_large_consultant" | "company_types_inhouse" | "company_types_others" | "company_types_start_up" | "company_types_governmental";
+        ContactForm: {
+            title: string;
+            message: string;
+            captchaResponse: string;
+            recipientGroup: number | null;
+        };
+        /**
+         * @description * `company_presentation` - company_presentation
+         *     * `course` - course
+         *     * `breakfast_talk` - breakfast_talk
+         *     * `lunch_presentation` - lunch_presentation
+         *     * `bedex` - bedex
+         *     * `contact_in_oslo` - contact_in_oslo
+         *     * `interested` - interested
+         *     * `not_interested` - not_interested
+         *     * `contacted` - contacted
+         *     * `not_contacted` - not_contacted
+         * @enum {string}
+         */
+        ContactedStatusEnum: "company_presentation" | "course" | "breakfast_talk" | "lunch_presentation" | "bedex" | "contact_in_oslo" | "interested" | "not_interested" | "contacted" | "not_contacted";
+        /**
+         * @description Serializer for the /me, retrieve and update endpoint with EDIT permissions.
+         *     Also used by our JWT handler and returned to the user when a user obtains a JWT token.
+         */
+        CurrentUser: {
+            readonly id: number;
+            /** @description Required. 50 characters or fewer. Letters, digits and _ only. */
+            username: string;
+            firstName: string;
+            lastName: string;
+            readonly fullName: string;
+            /** Format: email */
+            email: string;
+            readonly emailAddress: string;
+            phoneNumber?: string | null;
+            emailListsEnabled?: boolean;
+            profilePicture?: string | null;
+            profilePicturePlaceholder?: string;
+            gender: components["schemas"]["GenderEnum"];
+            allergies?: string;
+            /** @description Designates whether this user should be treated as active. Unselect this instead of deleting accounts. */
+            isActive?: boolean;
+            readonly isStudent: string;
+            abakusEmailLists: components["schemas"]["PublicEmailList"][];
+            abakusGroups: components["schemas"]["PublicAbakusGroup"][];
+            isAbakusMember: boolean;
+            readonly isAbakomMember: string;
+            readonly penalties: string;
+            readonly icalToken: string;
+            memberships: components["schemas"]["Membership"][];
+            pastMemberships: components["schemas"]["PastMembership"][];
+            readonly internalEmailAddress: string;
+            selectedTheme?: components["schemas"]["SelectedThemeEnum"];
+            readonly permissionsPerGroup: string;
+            readonly photoConsents: string;
+            /** @description Enter a valid username. */
+            githubUsername?: (string) | null;
+            /** @description Enter a valid LinkedIn ID. */
+            linkedinId?: string | null;
+            achievements: components["schemas"]["Achievement"][];
+            readonly achievementsScore: string;
+            readonly commandSuggestions: string;
+            christmasSlots: number[];
+        };
+        DetailedAbakusGroup: {
+            readonly id: number;
+            name: string;
+            description?: string;
+            contactEmail?: string;
+            parent?: number | null;
+            permissions?: string[];
+            readonly parentPermissions: string;
+            type?: components["schemas"]["TypeEnum"];
+            text?: string;
+            logo?: string | null;
+            readonly numberOfUsers: number;
+            showBadge?: boolean;
+            active?: boolean;
+        };
+        /**
+         * @description Any serializer with write support and tags should implement this serializer to support automatic
+         *     creation of new tags.
+         */
+        DetailedArticle: {
+            readonly id: number;
+            title: string;
+            slug?: string | null;
+            cover?: string;
+            coverPlaceholder?: string;
+            authors: number[];
+            description?: string | null;
+            readonly contentTarget: string;
+            /** @default [] */
+            tags: components["schemas"]["Tag"][];
+            content: string;
+            /** Format: date-time */
+            readonly createdAt: string;
+            pinned?: boolean;
+            readonly reactionsGrouped: string;
+            youtubeUrl?: string;
+        };
+        DetailedPodcast: {
+            readonly id: number;
+            source: string;
+            /** Format: date-time */
+            readonly createdAt: string;
+            description: string;
+            authors: components["schemas"]["PublicUser"][];
+            thanks: components["schemas"]["PublicUser"][];
+        };
+        /**
+         * @description * `pie_chart` - pie_chart
+         *     * `bar_chart` - bar_chart
+         * @enum {string}
+         */
+        DisplayTypeEnum: "pie_chart" | "bar_chart";
+        /**
+         * @description * `WEBSITE` - WEBSITE
+         *     * `SOCIAL_MEDIA` - SOCIAL_MEDIA
+         * @enum {string}
+         */
+        DomainEnum: "WEBSITE" | "SOCIAL_MEDIA";
+        EmailList: {
+            readonly id: number;
+            name: string;
+            readonly email: string;
+            users?: number[];
+            groups?: number[];
+            groupRoles?: components["schemas"]["GroupRolesEnum"][];
+            /** @description Only allow users with emails from our internal domain, @abakus.no */
+            requireInternalAddress?: boolean;
+            additionalEmails?: string[];
+        };
+        /**
+         * @description It isn't possible to change the email after the list is created!
+         *
+         *     TODO: This could be solved with group deletion, but this is'nt supported by the external_sync
+         *     tool. Reuse lists for now! :D
+         */
+        EmailListCreate: {
+            readonly id: number;
+            name: string;
+            email: string;
+            users?: number[];
+            groups?: number[];
+            groupRoles?: components["schemas"]["GroupRolesEnum"][];
+            /** @description Only allow users with emails from our internal domain, @abakus.no */
+            requireInternalAddress?: boolean;
+            additionalEmails?: string[];
+        };
+        EmailListDetail: {
+            readonly id: number;
+            name: string;
+            readonly email: string;
+            users: number[];
+            groups: number[];
+            groupRoles?: components["schemas"]["GroupRolesEnum"][];
+            /** @description Only allow users with emails from our internal domain, @abakus.no */
+            requireInternalAddress?: boolean;
+            additionalEmails?: string[];
+        };
+        Emoji: {
+            shortCode: string;
+            keywords: string[];
+            unicodeString: string;
+            fitzpatrickScale: boolean;
+            category: string;
+        };
+        /**
+         * @description Any serializer with write support and tags should implement this serializer to support automatic
+         *     creation of new tags.
+         */
+        EventCreateAndUpdate: {
+            readonly id: number;
+            title: string;
+            cover?: string;
+            description?: string | null;
+            text: string;
+            company?: number | null;
+            responsibleGroup?: number | null;
+            feedbackDescription?: string;
+            feedbackRequired?: boolean;
+            eventType: components["schemas"]["EventTypeEnum"];
+            eventStatusType?: components["schemas"]["EventStatusTypeEnum"];
+            location: string;
+            isPriced?: boolean;
+            priceMember?: number;
+            priceGuest?: number;
+            useStripe?: boolean;
+            /** Format: date-time */
+            paymentDueDate?: string | null;
+            /** Format: date-time */
+            startTime: string;
+            /** Format: date-time */
+            endTime: string;
+            /** Format: date-time */
+            mergeTime?: string | null;
+            useCaptcha?: boolean;
+            /** @default [] */
+            tags: components["schemas"]["Tag"][];
+            pools?: components["schemas"]["PoolCreateAndUpdate"][];
+            /** Format: date-time */
+            unregistrationDeadline?: string | null;
+            unregistrationDeadlineHours?: number;
+            pinned?: boolean;
+            useConsent?: boolean;
+            heedPenalties?: boolean;
+            registrationDeadlineHours?: number;
+            /** Format: date-time */
+            readonly registrationCloseTime: string;
+            /** Format: date-time */
+            readonly unregistrationCloseTime: string;
+            youtubeUrl?: string;
+            mazemapPoi?: number | null;
+            responsibleUsers?: number[];
+            isForeignLanguage?: boolean;
+            showCompanyDescription?: boolean;
+            canEditUsers?: (number | null)[];
+            canViewGroups?: (number | null)[];
+            canEditGroups?: (number | null)[];
+            requireAuth?: boolean;
+        };
+        /**
+         * @description Any serializer with write support and tags should implement this serializer to support automatic
+         *     creation of new tags.
+         */
+        EventForSurvey: {
+            readonly id: number;
+            title: string;
+            slug?: string | null;
+            description?: string | null;
+            cover?: string;
+            coverPlaceholder?: string;
+            eventType: components["schemas"]["EventTypeEnum"];
+            eventStatusType?: components["schemas"]["EventStatusTypeEnum"];
+            location: string;
+            /** Format: date-time */
+            startTime: string;
+            /** Format: date-time */
+            endTime: string;
+            thumbnail?: string;
+            totalCapacity: string;
+            company: number;
+            readonly responsibleGroup: components["schemas"]["PublicAbakusGroup"];
+            registrationCount: string;
+            /** @default [] */
+            tags: components["schemas"]["Tag"][];
+            activationTime: string;
+            isAdmitted: string;
+            survey: number;
+            isPriced?: boolean;
+            isForeignLanguage?: boolean;
+            readonly userReg: string;
+            showCompanyDescription?: boolean;
+            canEditUsers?: (number | null)[];
+            canViewGroups?: (number | null)[];
+            canEditGroups?: (number | null)[];
+            requireAuth?: boolean;
+            readonly attendedCount: string;
+        };
+        /**
+         * @description Any serializer with write support and tags should implement this serializer to support automatic
+         *     creation of new tags.
+         */
+        EventRead: {
+            readonly id: number;
+            title: string;
+            slug?: string | null;
+            description?: string | null;
+            cover?: string;
+            coverPlaceholder?: string;
+            eventType: components["schemas"]["EventTypeEnum"];
+            eventStatusType?: components["schemas"]["EventStatusTypeEnum"];
+            location: string;
+            /** Format: date-time */
+            startTime: string;
+            /** Format: date-time */
+            endTime: string;
+            thumbnail?: string;
+            totalCapacity: string;
+            company: number;
+            readonly responsibleGroup: components["schemas"]["PublicAbakusGroup"];
+            registrationCount: string;
+            /** @default [] */
+            tags: components["schemas"]["Tag"][];
+            activationTime: string;
+            isAdmitted: string;
+            survey: number;
+            isPriced?: boolean;
+            isForeignLanguage?: boolean;
+            readonly userReg: string;
+            showCompanyDescription?: boolean;
+            canEditUsers?: (number | null)[];
+            canViewGroups?: (number | null)[];
+            canEditGroups?: (number | null)[];
+            requireAuth?: boolean;
+        };
+        /** @description User specific event serializer that appends data based on request.user */
+        EventReadUserDetailed: {
+            canEditUsers?: (number | null)[];
+            canViewGroups?: (number | null)[];
+            canEditGroups?: (number | null)[];
+            requireAuth?: boolean;
+            readonly id: number;
+            title: string;
+            slug?: string | null;
+            description?: string | null;
+            cover?: string;
+            coverPlaceholder?: string;
+            text: string;
+            eventType: components["schemas"]["EventTypeEnum"];
+            eventStatusType?: components["schemas"]["EventStatusTypeEnum"];
+            location: string;
+            readonly contentTarget: string;
+            /** Format: date-time */
+            startTime: string;
+            /** Format: date-time */
+            endTime: string;
+            /** Format: date-time */
+            mergeTime?: string | null;
+            pools: components["schemas"]["PoolRead"][];
+            registrationCount: string;
+            waitingRegistrationCount: string;
+            /** Format: date-time */
+            readonly registrationCloseTime: string;
+            registrationDeadlineHours?: number;
+            /** Format: date-time */
+            readonly unregistrationCloseTime: string;
+            /** Format: date-time */
+            unregistrationDeadline?: string | null;
+            unregistrationDeadlineHours?: number;
+            company: number;
+            readonly responsibleGroup: components["schemas"]["PublicAbakusGroup"];
+            /** @description Calculation capacity of pools that are active. */
+            readonly activeCapacity: number;
+            feedbackDescription?: string;
+            feedbackRequired?: boolean;
+            isPriced?: boolean;
+            priceMember?: number;
+            priceGuest?: number;
+            useStripe?: boolean;
+            /** Format: date-time */
+            paymentDueDate?: string | null;
+            useCaptcha?: boolean;
+            /** @default [] */
+            tags: components["schemas"]["Tag"][];
+            readonly isMerged: boolean;
+            heedPenalties?: boolean;
+            legacyRegistrationCount?: number;
+            survey: number;
+            useConsent?: boolean;
+            youtubeUrl?: string;
+            mazemapPoi?: number | null;
+            isForeignLanguage?: boolean;
+            showCompanyDescription?: boolean;
+            readonly price: string;
+            activationTime: string;
+            isAdmitted: string;
+            following: string;
+            spotsLeft: string;
+            readonly pendingRegistration: string;
+            readonly photoConsents: string;
+        };
+        /**
+         * @description * `NORMAL` - NORMAL
+         *     * `INFINITE` - INFINITE
+         *     * `OPEN` - OPEN
+         *     * `TBA` - TBA
+         * @enum {string}
+         */
+        EventStatusTypeEnum: "NORMAL" | "INFINITE" | "OPEN" | "TBA";
+        /**
+         * @description * `company_presentation` - company_presentation
+         *     * `lunch_presentation` - lunch_presentation
+         *     * `alternative_presentation` - alternative_presentation
+         *     * `course` - course
+         *     * `breakfast_talk` - breakfast_talk
+         *     * `nexus_event` - nexus_event
+         *     * `party` - party
+         *     * `social` - social
+         *     * `gala` - gala
+         *     * `other` - other
+         *     * `event` - event
+         *     * `interest_event` - interest_event
+         * @enum {string}
+         */
+        EventTypeEnum: "company_presentation" | "lunch_presentation" | "alternative_presentation" | "course" | "breakfast_talk" | "nexus_event" | "party" | "social" | "gala" | "other" | "event" | "interest_event";
+        /**
+         * @description * `company_presentation` - company_presentation
+         *     * `lunch_presentation` - lunch_presentation
+         *     * `course` - course
+         *     * `breakfast_talk` - breakfast_talk
+         *     * `digital_presentation` - digital_presentation
+         *     * `bedex` - bedex
+         *     * `other` - other
+         *     * `sponsor` - sponsor
+         *     * `start_up` - start_up
+         *     * `company_to_company` - company_to_company
+         * @enum {string}
+         */
+        EventsEnum: "company_presentation" | "lunch_presentation" | "course" | "breakfast_talk" | "digital_presentation" | "bedex" | "other" | "sponsor" | "start_up" | "company_to_company";
+        ExpoDevice: {
+            pushToken: string;
+        };
+        FeatureFlagAdmin: {
+            readonly id: number;
+            identifier: string;
+            displayGroups?: (number | null)[];
+            isActive?: boolean;
+            percentage?: number | null;
+            allowedIdentifier?: string | null;
+            readonly canSeeFlag: string;
+        };
+        FeatureFlagPublic: {
+            readonly id: number;
+            identifier: string;
+            readonly canSeeFlag: string;
+        };
+        FeedActivity: {
+            readonly activityId: string;
+            verb: number;
+            /** Format: date-time */
+            time: string;
+            /** @default {} */
+            extraContext: {
+                [key: string]: unknown;
+            };
+            actor?: string | null;
+            object: string;
+            target?: string | null;
+        };
+        /**
+         * @description * `image` - image
+         *     * `document` - document
+         * @enum {string}
+         */
+        FileTypeEnum: "image" | "document";
+        FileUpload: {
+            key: string;
+            public: boolean;
+        };
+        FollowCompany: {
+            readonly id: number;
+            readonly follower: number;
+            target: number;
+        };
+        FollowEvent: {
+            readonly id: number;
+            readonly follower: number;
+            target: number;
+        };
+        FollowUser: {
+            readonly id: number;
+            readonly follower: number;
+            target: number;
+        };
+        /**
+         * @description * `1` - 1
+         *     * `2` - 2
+         *     * `3` - 3
+         *     * `4` - 4
+         *     * `5` - 5
+         * @enum {integer}
+         */
+        FromYearEnum: 1 | 2 | 3 | 4 | 5;
+        GCMDevice: {
+            id?: number;
+            name?: string | null;
+            registrationId: string;
+            /** @description ANDROID_ID / TelephonyManager.getDeviceId() (e.g: 0x01) */
+            deviceId?: number | null;
+            /**
+             * Is active
+             * @description Inactive devices will not be sent notifications
+             */
+            active?: boolean;
+            /**
+             * Creation date
+             * Format: date-time
+             */
+            readonly dateCreated: string | null;
+            /**
+             * @description You should choose FCM, GCM is deprecated
+             *
+             *     * `FCM` - Firebase Cloud Message
+             *     * `GCM` - Google Cloud Message
+             */
+            cloudMessageType?: components["schemas"]["CloudMessageTypeEnum"];
+            /** @description Opaque application identity, should be filled in for multiple key/certificate access */
+            applicationId?: string | null;
+        };
+        Gallery: {
+            readonly id: number;
+            title: string;
+            description?: string;
+            location: string;
+            /** Format: date */
+            takenAt?: string | null;
+            /** Format: date-time */
+            readonly createdAt: string;
+            event?: number;
+            photographers: number[];
+            isPinned?: boolean;
+            cover?: number;
+            publicMetadata?: boolean;
+        };
+        GalleryCover: {
+            file?: string;
+            readonly thumbnail: string;
+            readonly id: number;
+        };
+        GalleryList: {
+            readonly id: number;
+            title: string;
+            cover: components["schemas"]["GalleryCover"];
+            location: string;
+            /** Format: date */
+            takenAt?: string | null;
+            /** Format: date-time */
+            readonly createdAt: string;
+            readonly pictureCount: string;
+            isPinned?: boolean;
+        };
+        GalleryMetadata: {
+            readonly id: number;
+            title: string;
+            description?: string;
+            cover?: number;
+        };
+        GalleryPicture: {
+            readonly id: number;
+            readonly gallery: number;
+            description?: string;
+            taggees?: number[];
+            active?: boolean;
+            file: string;
+            readonly thumbnail: string;
+            readonly rawFile: string;
+            readonly contentTarget: string;
+        };
+        /**
+         * @description * `male` - male
+         *     * `female` - female
+         *     * `other` - other
+         * @enum {string}
+         */
+        GenderEnum: "male" | "female" | "other";
         /**
          * @description * `member` - member
          *     * `leader` - leader
@@ -12714,2312 +4975,9821 @@ export interface operations {
          *     * `event_manager` - event_manager
          *     * `snackoverflow_manager` - snackoverflow_manager
          *     * `operations_manager` - operations_manager
+         * @enum {string}
          */
-        role?:
-          | 'active_retiree'
-          | 'alumni'
-          | 'alumni_admin'
-          | 'booking_admin'
-          | 'co-leader'
-          | 'company_admin'
-          | 'cuddling_manager'
-          | 'development'
-          | 'dugnad_admin'
-          | 'editor'
-          | 'event_manager'
-          | 'graphic_admin'
-          | 'hs_representative'
-          | 'interest_group_admin'
-          | 'leader'
-          | 'media_relations'
-          | 'member'
-          | 'merch_admin'
-          | 'operations_manager'
-          | 'photo_admin'
-          | 'purchasing_manager'
-          | 'recruiting'
-          | 'retiree'
-          | 'retiree_email'
-          | 'snackoverflow_manager'
-          | 'social_admin'
-          | 'social_media_admin'
-          | 'sponsor_admin'
-          | 'treasurer'
-          | 'trip_admin'
-          | 'webmaster';
-        user?: number;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedMembershipHistoryList'];
-        };
-      };
-    };
-  };
-  membershipHistoryRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this membership history. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['MembershipHistory'];
-        };
-      };
-    };
-  };
-  notificationSettingsList: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['NotificationSetting'][];
-        };
-      };
-    };
-  };
-  notificationSettingsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['NotificationSettingCreate'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['NotificationSettingCreate'];
-        };
-      };
-    };
-  };
-  notificationSettingsAlternativesRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['NotificationSetting'];
-        };
-      };
-    };
-  };
-  oauth2AccessTokensList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedAccessTokenList'];
-        };
-      };
-    };
-  };
-  oauth2AccessTokensDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        id: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  oauth2ApplicationsList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedApplicationList'];
-        };
-      };
-    };
-  };
-  oauth2ApplicationsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['Application'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Application'];
-        };
-      };
-    };
-  };
-  oauth2ApplicationsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this api application. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Application'];
-        };
-      };
-    };
-  };
-  oauth2ApplicationsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this api application. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['Application'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Application'];
-        };
-      };
-    };
-  };
-  oauth2ApplicationsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this api application. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  oauth2ApplicationsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this api application. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedApplication'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Application'];
-        };
-      };
-    };
-  };
-  oidcAuthorizeRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  oidcValidateRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  pagesList: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PageList'][];
-        };
-      };
-    };
-  };
-  pagesCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['PageDetail'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PageDetail'];
-        };
-      };
-    };
-  };
-  pagesRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        slug: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PageDetail'];
-        };
-      };
-    };
-  };
-  pagesUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        slug: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['PageDetail'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PageDetail'];
-        };
-      };
-    };
-  };
-  pagesDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        slug: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  pagesPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        slug: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedPageDetail'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PageDetail'];
-        };
-      };
-    };
-  };
-  passwordChangeCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  passwordResetPerformCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['PasswordResetPerform'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PasswordResetPerform'];
-        };
-      };
-    };
-  };
-  passwordResetRequestCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['PasswordResetRequest'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PasswordResetRequest'];
-        };
-      };
-    };
-  };
-  penaltiesList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        source_event?: number;
-        user?: number;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedPenaltyList'];
-        };
-      };
-    };
-  };
-  penaltiesCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['Penalty'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Penalty'];
-        };
-      };
-    };
-  };
-  penaltiesDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this penalty. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  podcastsList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedPodcastList'];
-        };
-      };
-    };
-  };
-  podcastsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['PodcastCreateAndUpdate'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PodcastCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  podcastsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this podcast. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['DetailedPodcast'];
-        };
-      };
-    };
-  };
-  podcastsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this podcast. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['PodcastCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PodcastCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  podcastsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this podcast. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  podcastsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this podcast. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedPodcastCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PodcastCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  pollsList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedPollList'];
-        };
-      };
-    };
-  };
-  pollsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['PollCreate'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PollCreate'];
-        };
-      };
-    };
-  };
-  pollsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this poll. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HiddenResultsDetailedPoll'];
-        };
-      };
-    };
-  };
-  pollsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this poll. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['PollUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PollUpdate'];
-        };
-      };
-    };
-  };
-  pollsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this poll. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  pollsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this poll. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedPollUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PollUpdate'];
-        };
-      };
-    };
-  };
-  pollsVoteCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this poll. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['HiddenResultsDetailedPoll'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['HiddenResultsDetailedPoll'];
-        };
-      };
-    };
-  };
-  quotesList: {
-    parameters: {
-      query?: {
-        approved?: boolean;
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        /** @description Which field to use when ordering the results. */
-        ordering?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedQuoteList'];
-        };
-      };
-    };
-  };
-  quotesCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['QuoteCreateAndUpdate'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['QuoteCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  quotesRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this quote. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Quote'];
-        };
-      };
-    };
-  };
-  quotesUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this quote. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['QuoteCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['QuoteCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  quotesDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this quote. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  quotesPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this quote. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedQuoteCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['QuoteCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  quotesApproveUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this quote. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['Quote'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Quote'];
-        };
-      };
-    };
-  };
-  quotesUnapproveUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this quote. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['Quote'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Quote'];
-        };
-      };
-    };
-  };
-  quotesRandomRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Quote'];
-        };
-      };
-    };
-  };
-  reactionsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['Reaction'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Reaction'];
-        };
-      };
-    };
-  };
-  reactionsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this reaction. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  restrictedMailList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        from_address?: string;
-        hide_sender?: boolean;
-        token?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedRestrictedMailListList'];
-        };
-      };
-    };
-  };
-  restrictedMailCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['RestrictedMail'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['RestrictedMail'];
-        };
-      };
-    };
-  };
-  restrictedMailRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this restricted mail. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['RestrictedMailDetail'];
-        };
-      };
-    };
-  };
-  restrictedMailTokenRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this restricted mail. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['RestrictedMail'];
-        };
-      };
-    };
-  };
-  searchAutocompleteCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  searchSearchCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  siteMetaRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  surveyResultsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this survey. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  surveyTemplatesList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedSurveyReadList'];
-        };
-      };
-    };
-  };
-  surveyTemplatesRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this survey. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SurveyReadDetailed'];
-        };
-      };
-    };
-  };
-  surveysList: {
-    parameters: {
-      query?: {
-        company?: string;
-        /** @description The pagination cursor value. */
-        cursor?: string;
-        event?: number;
-        user?: number;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedSurveyReadList'];
-        };
-      };
-    };
-  };
-  surveysCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['SurveyCreate'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SurveyCreate'];
-        };
-      };
-    };
-  };
-  surveysRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this survey. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SurveyReadDetailed'];
-        };
-      };
-    };
-  };
-  surveysUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this survey. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['SurveyUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SurveyUpdate'];
-        };
-      };
-    };
-  };
-  surveysDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this survey. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  surveysPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this survey. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedSurveyUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SurveyUpdate'];
-        };
-      };
-    };
-  };
-  surveysCsvRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this survey. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SurveyRead'];
-        };
-      };
-    };
-  };
-  surveysHideCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this survey. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['SurveyRead'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SurveyRead'];
-        };
-      };
-    };
-  };
-  surveysPdfRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this survey. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SurveyRead'];
-        };
-      };
-    };
-  };
-  surveysShareCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this survey. */
-        id: number;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['SurveyRead'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SurveyRead'];
-        };
-      };
-    };
-  };
-  surveysSubmissionsList: {
-    parameters: {
-      query?: {
-        user?: string;
-      };
-      header?: never;
-      path: {
-        surveyPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SubmissionRead'][];
-        };
-      };
-    };
-  };
-  surveysSubmissionsCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        surveyPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['SubmissionCreateAndUpdate'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SubmissionCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  surveysSubmissionsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this submission. */
-        id: number;
-        surveyPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SubmissionRead'];
-        };
-      };
-    };
-  };
-  surveysSubmissionsUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this submission. */
-        id: number;
-        surveyPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['SubmissionCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SubmissionCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  surveysSubmissionsDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this submission. */
-        id: number;
-        surveyPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  surveysSubmissionsPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this submission. */
-        id: number;
-        surveyPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedSubmissionCreateAndUpdate'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SubmissionCreateAndUpdate'];
-        };
-      };
-    };
-  };
-  surveysSubmissionsHideCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this submission. */
-        id: number;
-        surveyPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['SubmissionRead'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SubmissionRead'];
-        };
-      };
-    };
-  };
-  surveysSubmissionsShowCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique integer value identifying this submission. */
-        id: number;
-        surveyPk: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['SubmissionRead'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['SubmissionRead'];
-        };
-      };
-    };
-  };
-  tagsList: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['TagList'][];
-        };
-      };
-    };
-  };
-  tagsRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description A unique value identifying this tag. */
-        tag: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['TagDetail'];
-        };
-      };
-    };
-  };
-  tagsPopularRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['TagDetail'];
-        };
-      };
-    };
-  };
-  userCommandsUseCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  userDeleteCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  usersList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedPublicUserList'];
-        };
-      };
-    };
-  };
-  usersCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['RegistrationConfirmation'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['RegistrationConfirmation'];
-        };
-      };
-    };
-  };
-  usersRegistrationRequestList: {
-    parameters: {
-      query?: {
-        /** @description The pagination cursor value. */
-        cursor?: string;
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PaginatedRegistrationList'];
-        };
-      };
-    };
-  };
-  usersRegistrationRequestCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['Registration'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Registration'];
-        };
-      };
-    };
-  };
-  usersRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        username: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PublicUserWithGroups'];
-        };
-      };
-    };
-  };
-  usersUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        username: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['PublicUserWithGroups'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PublicUserWithGroups'];
-        };
-      };
-    };
-  };
-  usersDestroy: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        username: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description No response body */
-      204: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-    };
-  };
-  usersPartialUpdate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        username: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['PatchedPublicUserWithGroups'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PublicUserWithGroups'];
-        };
-      };
-    };
-  };
-  usersChangeGradeCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        username: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['ChangeGrade'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['ChangeGrade'];
-        };
-      };
-    };
-  };
-  usersUpdatePhotoConsentCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        username: string;
-      };
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['PhotoConsent'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PhotoConsent'];
-        };
-      };
-    };
-  };
-  usersMeRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['CurrentUser'];
-        };
-      };
-    };
-  };
-  usersMeQrRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['PublicUser'];
-        };
-      };
-    };
-  };
-  usersOauth2UserdataRetrieve: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['Oauth2UserData'];
-        };
-      };
-    };
-  };
-  webhooksStripeCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['StripeWebhook'];
-      };
-    };
-    responses: {
-      201: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['StripeWebhook'];
-        };
-      };
-    };
-  };
-  authorizationTokenAuthCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['JSONWebToken'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['JSONWebToken'];
-        };
-      };
-    };
-  };
-  authorizationTokenAuthRefreshCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['RefreshAuthToken'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['RefreshAuthToken'];
-        };
-      };
-    };
-  };
-  authorizationTokenAuthVerifyCreate: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody: {
-      content: {
-        'application/json': components['schemas']['VerifyAuthToken'];
-      };
-    };
-    responses: {
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          'application/json': components['schemas']['VerifyAuthToken'];
-        };
-      };
-    };
-  };
+        GroupRolesEnum: "member" | "leader" | "co-leader" | "treasurer" | "recruiting" | "development" | "editor" | "retiree" | "media_relations" | "active_retiree" | "alumni" | "webmaster" | "interest_group_admin" | "alumni_admin" | "retiree_email" | "company_admin" | "dugnad_admin" | "trip_admin" | "sponsor_admin" | "social_admin" | "merch_admin" | "hs_representative" | "cuddling_manager" | "photo_admin" | "graphic_admin" | "social_media_admin" | "booking_admin" | "purchasing_manager" | "event_manager" | "snackoverflow_manager" | "operations_manager";
+        /**
+         * @description Any serializer with write support and tags should implement this serializer to support automatic
+         *     creation of new tags.
+         */
+        HiddenResultsDetailedPoll: {
+            readonly id: number;
+            /** Format: date-time */
+            readonly createdAt: string;
+            /** Format: date-time */
+            validUntil?: string;
+            title: string;
+            description?: string;
+            options: components["schemas"]["HiddenResultsOption"][];
+            resultsHidden?: boolean;
+            readonly totalVotes: number;
+            /** @default [] */
+            tags: components["schemas"]["Tag"][];
+            readonly hasAnswered: string;
+            pinned?: boolean;
+        };
+        HiddenResultsOption: {
+            readonly id: number;
+            name: string;
+        };
+        /**
+         * @description * `charity_event_2026` - charity_event_2026
+         *     * `christmas_calendar` - christmas_calendar
+         *     * `complete_profile` - complete_profile
+         *     * `easter_2024` - easter_2024
+         *     * `easter_2025` - easter_2025
+         *     * `easter_2026` - easter_2026
+         *     * `event_count` - event_count
+         *     * `event_price` - event_price
+         *     * `event_rank` - event_rank
+         *     * `event_rules` - event_rules
+         *     * `gala_count` - gala_count
+         *     * `genfors_count` - genfors_count
+         *     * `keypress_order` - keypress_order
+         *     * `meeting_hidden` - meeting_hidden
+         *     * `penalty_period` - penalty_period
+         *     * `perfect_week` - perfect_week
+         *     * `poll_count` - poll_count
+         *     * `quote_count` - quote_count
+         * @enum {string}
+         */
+        IdentifierEnum: "charity_event_2026" | "christmas_calendar" | "complete_profile" | "easter_2024" | "easter_2025" | "easter_2026" | "event_count" | "event_price" | "event_rank" | "event_rules" | "gala_count" | "genfors_count" | "keypress_order" | "meeting_hidden" | "penalty_period" | "perfect_week" | "poll_count" | "quote_count";
+        ImageGallery: {
+            key: string;
+            fileType: components["schemas"]["FileTypeEnum"];
+            state?: components["schemas"]["StateEnum"];
+            public?: boolean;
+            saveForUse?: boolean;
+            cover: string;
+            token: string;
+            coverPlaceholder?: string;
+        };
+        /**
+         * @description Serializer class used to validate a username and password.
+         *
+         *     'username' is identified by the custom UserModel.USERNAME_FIELD.
+         *
+         *     Returns a JSON Web Token that can be used to authenticate later calls.
+         */
+        JSONWebToken: {
+            password: string;
+            readonly token: string;
+            username: string;
+        };
+        /**
+         * @description * `full_time` - full_time
+         *     * `part_time` - part_time
+         *     * `summer_job` - summer_job
+         *     * `master_thesis` - master_thesis
+         *     * `other` - other
+         * @enum {string}
+         */
+        JobTypeEnum: "full_time" | "part_time" | "summer_job" | "master_thesis" | "other";
+        Joblisting: {
+            readonly id: number;
+            title: string;
+            slug?: string | null;
+            company: number;
+            /** Format: date-time */
+            deadline?: string | null;
+            jobType: components["schemas"]["JobTypeEnum"];
+            workplaces: components["schemas"]["Workplace"][];
+            fromYear?: components["schemas"]["FromYearEnum"];
+            toYear?: components["schemas"]["ToYearEnum"];
+            /** Format: date-time */
+            readonly createdAt: string;
+            rollingRecruitment?: boolean;
+            isPinned?: boolean;
+        };
+        JoblistingCreateAndUpdate: {
+            readonly id: number;
+            title: string;
+            text: string;
+            company: number;
+            responsible?: number | null;
+            contactMail?: string;
+            /** Format: date-time */
+            deadline?: string | null;
+            /** Format: date-time */
+            visibleFrom: string;
+            /** Format: date-time */
+            visibleTo: string;
+            jobType: components["schemas"]["JobTypeEnum"];
+            workplaces: components["schemas"]["Workplace"][];
+            fromYear?: components["schemas"]["FromYearEnum"];
+            toYear?: components["schemas"]["ToYearEnum"];
+            applicationUrl?: (string) | null;
+            youtubeUrl?: string;
+            rollingRecruitment?: boolean;
+            isPinned?: boolean;
+        };
+        JoblistingDetailed: {
+            readonly id: number;
+            title: string;
+            slug?: string | null;
+            text: string;
+            company: number;
+            responsible: number;
+            contactMail?: string;
+            description?: string | null;
+            /** Format: date-time */
+            deadline?: string | null;
+            jobType: components["schemas"]["JobTypeEnum"];
+            workplaces: components["schemas"]["Workplace"][];
+            /** Format: date-time */
+            visibleFrom: string;
+            /** Format: date-time */
+            visibleTo: string;
+            fromYear?: components["schemas"]["FromYearEnum"];
+            toYear?: components["schemas"]["ToYearEnum"];
+            applicationUrl?: (string) | null;
+            youtubeUrl?: string;
+            /** Format: date-time */
+            readonly createdAt: string;
+            rollingRecruitment?: boolean;
+            isPinned?: boolean;
+        };
+        KeypressOrder: {
+            code: number[];
+        };
+        /**
+         * @description * `UNKNOWN` - UNKNOWN
+         *     * `PHOTO_CONSENT` - PHOTO_CONSENT
+         *     * `PHOTO_NOT_CONSENT` - PHOTO_NOT_CONSENT
+         * @enum {string}
+         */
+        LEGACYPhotoConsentEnum: "UNKNOWN" | "PHOTO_CONSENT" | "PHOTO_NOT_CONSENT";
+        LendableObject: {
+            readonly id: number;
+            title: string;
+            description?: string;
+            image?: string;
+            readonly responsibleGroups: number[];
+            location?: string;
+            readonly canLend: string;
+            category?: components["schemas"]["Category7d8Enum"];
+        };
+        LendableObjectAdmin: {
+            readonly id: number;
+            title: string;
+            description?: string;
+            image?: string;
+            readonly responsibleGroups: number[];
+            location?: string;
+            readonly canLend: string;
+            category?: components["schemas"]["Category7d8Enum"];
+            canEditUsers?: (number | null)[];
+            canViewGroups?: (number | null)[];
+            canEditGroups?: (number | null)[];
+            requireAuth?: boolean;
+        };
+        LendingRequestCreateAndUpdate: {
+            readonly id: number;
+            readonly createdBy: components["schemas"]["PublicUser"];
+            readonly updatedBy: components["schemas"]["PublicUser"];
+            lendableObject: number;
+            status?: components["schemas"]["StatusC65Enum"];
+            archived?: boolean;
+            comment?: string;
+            /** Format: date-time */
+            startDate: string;
+            /** Format: date-time */
+            endDate: string;
+            readonly timelineEntries: components["schemas"]["TimelineEntry"][];
+        };
+        LendingRequestDetail: {
+            readonly id: number;
+            readonly createdBy: components["schemas"]["PublicUser"];
+            readonly updatedBy: components["schemas"]["PublicUser"];
+            readonly lendableObject: components["schemas"]["LendableObject"];
+            status?: components["schemas"]["StatusC65Enum"];
+            archived?: boolean;
+            /** Format: date-time */
+            startDate: string;
+            /** Format: date-time */
+            endDate: string;
+            readonly timelineEntries: components["schemas"]["TimelineEntry"][];
+        };
+        LendingRequestList: {
+            readonly id: number;
+            readonly lendableObject: components["schemas"]["LendableObject"];
+            status?: components["schemas"]["StatusC65Enum"];
+            archived?: boolean;
+            /** Format: date-time */
+            startDate: string;
+            /** Format: date-time */
+            endDate: string;
+        };
+        Mark: {
+            /** @default false */
+            seen: boolean;
+            /** @default false */
+            read: boolean;
+        };
+        MeetingBulkInvite: {
+            users?: number[];
+            groups?: number[];
+        };
+        MeetingDetail: {
+            readonly id: number;
+            readonly createdBy: number;
+            description?: string;
+            title: string;
+            location: string;
+            /** Format: date-time */
+            startTime: string;
+            /** Format: date-time */
+            endTime?: string | null;
+            report: string;
+            readonly reportChangelogs: components["schemas"]["ReportChangelog"][];
+            reportAuthor?: number | null;
+            readonly invitations: components["schemas"]["MeetingInvitation"][];
+            readonly comments: components["schemas"]["Comment"][];
+            readonly contentTarget: string;
+            mazemapPoi?: number | null;
+            readonly reactionsGrouped: string;
+            readonly reactions: components["schemas"]["Reactions"][];
+            isRecurring?: boolean;
+            isTemplate?: boolean;
+        };
+        MeetingGroupInvite: {
+            group: number;
+        };
+        MeetingInvitation: {
+            user: components["schemas"]["PublicUser"];
+            status: components["schemas"]["MeetingInvitationStatusEnum"];
+            meeting: number;
+        };
+        /**
+         * @description * `NO_ANSWER` - NO_ANSWER
+         *     * `ATTENDING` - ATTENDING
+         *     * `NOT_ATTENDING` - NOT_ATTENDING
+         * @enum {string}
+         */
+        MeetingInvitationStatusEnum: "NO_ANSWER" | "ATTENDING" | "NOT_ATTENDING";
+        MeetingInvitationUpdate: {
+            status?: components["schemas"]["Status7baEnum"];
+        };
+        MeetingList: {
+            readonly id: number;
+            readonly createdBy: number;
+            title: string;
+            location: string;
+            /** Format: date-time */
+            startTime: string;
+            /** Format: date-time */
+            endTime?: string | null;
+            reportAuthor?: number | null;
+            mazemapPoi?: number | null;
+            isRecurring?: boolean;
+            isTemplate?: boolean;
+        };
+        MeetingUserInvite: {
+            user: number;
+        };
+        Membership: {
+            readonly id: number;
+            user: number;
+            readonly abakusGroup: number;
+            /** @default member */
+            role: components["schemas"]["RoleEnum"] | components["schemas"]["BlankEnum"];
+            isActive?: boolean;
+            emailListsEnabled?: boolean;
+            /** Format: date-time */
+            readonly createdAt: string;
+            readonly firstJoinDate: string;
+        };
+        MembershipHistory: {
+            readonly id: number;
+            readonly user: number;
+            readonly abakusGroup: number;
+            role?: components["schemas"]["RoleEnum"];
+            /** Format: date */
+            startDate?: string | null;
+            /** Format: date */
+            endDate: string;
+        };
+        NotificationData: {
+            unreadCount: number;
+            unseenCount: number;
+        };
+        NotificationSetting: {
+            readonly notificationType: components["schemas"]["NotificationTypeEnum"];
+            enabled?: boolean;
+            channels?: components["schemas"]["ChannelsEnum"][] | null;
+        };
+        NotificationSettingCreate: {
+            notificationType: components["schemas"]["NotificationTypeEnum"];
+            enabled?: boolean;
+            channels?: components["schemas"]["ChannelsEnum"][] | null;
+        };
+        /**
+         * @description * `lending_request` - lending_request
+         *     * `lending_request_status_update` - lending_request_status_update
+         *     * `announcement` - announcement
+         *     * `restricted_mail_sent` - restricted_mail_sent
+         *     * `weekly_mail` - weekly_mail
+         *     * `event_bump` - event_bump
+         *     * `event_admin_registration` - event_admin_registration
+         *     * `event_admin_unregistration` - event_admin_unregistration
+         *     * `event_payment_overdue` - event_payment_overdue
+         *     * `meeting_invite` - meeting_invite
+         *     * `meeting_invitation_reminder` - meeting_invitation_reminder
+         *     * `penalty_creation` - penalty_creation
+         *     * `comment_reply` - comment_reply
+         *     * `registration_reminder` - registration_reminder
+         *     * `survey_created` - survey_created
+         *     * `event_payment_overdue_creator` - event_payment_overdue_creator
+         *     * `company_interest_created` - company_interest_created
+         *     * `inactive_warning` - inactive_warning
+         *     * `deleted_warning` - deleted_warning
+         * @enum {string}
+         */
+        NotificationTypeEnum: "lending_request" | "lending_request_status_update" | "announcement" | "restricted_mail_sent" | "weekly_mail" | "event_bump" | "event_admin_registration" | "event_admin_unregistration" | "event_payment_overdue" | "meeting_invite" | "meeting_invitation_reminder" | "penalty_creation" | "comment_reply" | "registration_reminder" | "survey_created" | "event_payment_overdue_creator" | "company_interest_created" | "inactive_warning" | "deleted_warning";
+        /** @enum {unknown} */
+        NullEnum: null;
+        /** @description Basic serailizer */
+        Oauth2UserData: {
+            readonly sub: string;
+            readonly id: number;
+            /** @description Required. 50 characters or fewer. Letters, digits and _ only. */
+            username: string;
+            firstName: string;
+            lastName: string;
+            readonly fullName: string;
+            readonly emailAddress: string;
+            /** Format: email */
+            email: string;
+            profilePicture?: string;
+            gender: components["schemas"]["GenderEnum"];
+            /** @description Designates whether this user should be treated as active. Unselect this instead of deleting accounts. */
+            isActive?: boolean;
+            readonly isStudent: string;
+            abakusGroups: components["schemas"]["PublicAbakusGroup"][];
+            isAbakusMember: boolean;
+            readonly isAbakomMember: string;
+            memberships: components["schemas"]["Membership"][];
+        };
+        Option: {
+            readonly id: number;
+            name: string;
+            votes?: number;
+        };
+        OptionUpdate: {
+            id: number;
+            name: string;
+            votes?: number;
+        };
+        /**
+         * @description * `collaboration` - collaboration
+         *     * `readme` - readme
+         *     * `itdagene` - itdagene
+         *     * `labamba_sponsor` - labamba_sponsor
+         *     * `social_media` - social_media
+         *     * `thursday_event` - thursday_event
+         * @enum {string}
+         */
+        OtherOffersEnum: "collaboration" | "readme" | "itdagene" | "labamba_sponsor" | "social_media" | "thursday_event";
+        PageDetail: {
+            /** ID */
+            readonly pk: number;
+            title: string;
+            slug?: string | null;
+            content: string;
+            picture?: string;
+            picturePlaceholder?: string;
+            category?: components["schemas"]["Category2a9Enum"];
+        };
+        PageList: {
+            /** ID */
+            readonly pk: number;
+            title: string;
+            slug?: string | null;
+            category?: components["schemas"]["Category2a9Enum"];
+        };
+        PaginatedAPNSDeviceList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["APNSDevice"][];
+        };
+        PaginatedAccessTokenList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["AccessToken"][];
+        };
+        PaginatedAggregatedFeedList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["AggregatedFeed"][];
+        };
+        PaginatedAggregatedMarkedFeedList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["AggregatedMarkedFeed"][];
+        };
+        PaginatedAnnouncementListList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["AnnouncementList"][];
+        };
+        PaginatedApplicationList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["Application"][];
+        };
+        PaginatedBannerList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["Banner"][];
+        };
+        PaginatedCompanyAdminListList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["CompanyAdminList"][];
+        };
+        PaginatedCompanyContactList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["CompanyContact"][];
+        };
+        PaginatedCompanyFileList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["CompanyFile"][];
+        };
+        PaginatedCompanyInterestListList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["CompanyInterestList"][];
+        };
+        PaginatedCompanyListList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["CompanyList"][];
+        };
+        PaginatedEmailListList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["EmailList"][];
+        };
+        PaginatedEventReadList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["EventRead"][];
+        };
+        PaginatedFeatureFlagAdminList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["FeatureFlagAdmin"][];
+        };
+        PaginatedFollowCompanyList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["FollowCompany"][];
+        };
+        PaginatedFollowEventList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["FollowEvent"][];
+        };
+        PaginatedFollowUserList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["FollowUser"][];
+        };
+        PaginatedGCMDeviceList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["GCMDevice"][];
+        };
+        PaginatedGalleryListList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["GalleryList"][];
+        };
+        PaginatedGalleryPictureList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["GalleryPicture"][];
+        };
+        PaginatedJoblistingList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["Joblisting"][];
+        };
+        PaginatedLendableObjectList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["LendableObject"][];
+        };
+        PaginatedLendingRequestListList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["LendingRequestList"][];
+        };
+        PaginatedMeetingInvitationList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["MeetingInvitation"][];
+        };
+        PaginatedMeetingListList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["MeetingList"][];
+        };
+        PaginatedMembershipHistoryList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["MembershipHistory"][];
+        };
+        PaginatedMembershipList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["Membership"][];
+        };
+        PaginatedPenaltyList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["Penalty"][];
+        };
+        PaginatedPodcastList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["Podcast"][];
+        };
+        PaginatedPollList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["Poll"][];
+        };
+        PaginatedPublicArticleList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["PublicArticle"][];
+        };
+        PaginatedPublicUserList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["PublicUser"][];
+        };
+        PaginatedPublicUserWithGroupsList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["PublicUserWithGroups"][];
+        };
+        PaginatedQuoteList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["Quote"][];
+        };
+        PaginatedRegistrationList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["Registration"][];
+        };
+        PaginatedRestrictedMailListList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["RestrictedMailList"][];
+        };
+        PaginatedSemesterStatusList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["SemesterStatus"][];
+        };
+        PaginatedSurveyReadList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["SurveyRead"][];
+        };
+        PaginatedUserEmailList: {
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cD00ODY%3D"
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?cursor=cj0xJnA9NDg3
+             */
+            previous?: string | null;
+            results: components["schemas"]["UserEmail"][];
+        };
+        PasswordResetPerform: {
+            token: string;
+            password: string;
+        };
+        PasswordResetRequest: {
+            /** Format: email */
+            email: string;
+        };
+        PastMembership: {
+            readonly id: number;
+            abakusGroup: components["schemas"]["PublicAbakusGroup"];
+            readonly role: components["schemas"]["RoleEnum"];
+            /** Format: date */
+            readonly startDate: string | null;
+            /** Format: date */
+            readonly endDate: string;
+        };
+        PatchedAPNSDevice: {
+            readonly id?: number;
+            name?: string | null;
+            /** @description Opaque application identity, should be filled in for multiple key/certificate access */
+            applicationId?: string | null;
+            registrationId?: string;
+            /**
+             * Format: uuid
+             * @description UUID / UIDevice.identifierForVendor()
+             */
+            deviceId?: string | null;
+            /**
+             * Is active
+             * @description Inactive devices will not be sent notifications
+             * @default true
+             */
+            active: boolean;
+            /**
+             * Creation date
+             * Format: date-time
+             */
+            readonly dateCreated?: string | null;
+        };
+        PatchedAnnouncementDetail: {
+            readonly id?: number;
+            message?: string;
+            fromGroup?: number | null;
+            /** Format: date-time */
+            readonly sent?: string | null;
+            users?: number[];
+            groups?: number[];
+            events?: number[];
+            excludeWaitingList?: boolean;
+            meetings?: number[];
+            meetingInvitationStatus?: components["schemas"]["MeetingInvitationStatusEnum"] | components["schemas"]["BlankEnum"];
+        };
+        PatchedApplication: {
+            readonly id?: number;
+            name?: string;
+            /** Application description */
+            description?: string;
+            /** @description Allowed URIs list, space separated */
+            redirectUris?: string;
+            readonly clientId?: string;
+            readonly clientSecret?: string;
+            readonly user?: number;
+        };
+        PatchedBanner: {
+            readonly id?: number;
+            header?: string;
+            subheader?: string | null;
+            color?: components["schemas"]["ColorEnum"];
+            link?: string | null;
+            currentPrivate?: boolean;
+            currentPublic?: boolean;
+            /** Format: date-time */
+            countdownEndDate?: string | null;
+            countdownEndMessage?: string | null;
+        };
+        PatchedCompanyAdminDetail: {
+            readonly id?: number;
+            name?: string;
+            studentContacts?: components["schemas"]["StudentCompanyContact"][];
+            description?: string;
+            phone?: string;
+            companyType?: string;
+            website?: string;
+            address?: string;
+            paymentMail?: string;
+            readonly comments?: components["schemas"]["Comment"][];
+            readonly contentTarget?: string;
+            readonly semesterStatuses?: components["schemas"]["SemesterStatusDetail"][];
+            logo?: string;
+            readonly files?: components["schemas"]["CompanyFile"][];
+            readonly companyContacts?: components["schemas"]["CompanyContact"][];
+        };
+        PatchedCompanyContact: {
+            readonly id?: number;
+            name?: string;
+            role?: string;
+            mail?: string;
+            phone?: string;
+            mobile?: string;
+            /** Format: date-time */
+            readonly updatedAt?: string;
+        };
+        PatchedCompanyFile: {
+            readonly id?: number;
+            file?: string;
+        };
+        PatchedCompanyInterestCreateAndUpdate: {
+            readonly id?: number;
+            companyName?: string;
+            company?: number | null;
+            contactPerson?: string;
+            /** Format: email */
+            mail?: string;
+            phone?: string;
+            semesters?: number[];
+            events?: components["schemas"]["EventsEnum"][] | null;
+            otherOffers?: components["schemas"]["OtherOffersEnum"][] | null;
+            collaborations?: components["schemas"]["CollaborationsEnum"][] | null;
+            companyType?: (components["schemas"]["CompanyTypeEnum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+            targetGrades?: number[] | null;
+            participantRangeStart?: number | null;
+            participantRangeEnd?: number | null;
+            comment?: string;
+            courseComment?: string;
+            breakfastTalkComment?: string;
+            otherEventComment?: string;
+            startupComment?: string;
+            companyToCompanyComment?: string;
+            lunchPresentationComment?: string;
+            companyPresentationComment?: string;
+            bedexComment?: string;
+            companyCourseThemes?: components["schemas"]["CompanyCourseThemesEnum"][] | null;
+            officeInTrondheim?: boolean;
+            wantsThursdayEvent?: boolean;
+        };
+        PatchedDetailedAbakusGroup: {
+            readonly id?: number;
+            name?: string;
+            description?: string;
+            contactEmail?: string;
+            parent?: number | null;
+            permissions?: string[];
+            readonly parentPermissions?: string;
+            type?: components["schemas"]["TypeEnum"];
+            text?: string;
+            logo?: string | null;
+            readonly numberOfUsers?: number;
+            showBadge?: boolean;
+            active?: boolean;
+        };
+        /**
+         * @description Any serializer with write support and tags should implement this serializer to support automatic
+         *     creation of new tags.
+         */
+        PatchedDetailedArticle: {
+            readonly id?: number;
+            title?: string;
+            slug?: string | null;
+            cover?: string;
+            coverPlaceholder?: string;
+            authors?: number[];
+            description?: string | null;
+            readonly contentTarget?: string;
+            /** @default [] */
+            tags: components["schemas"]["Tag"][];
+            content?: string;
+            /** Format: date-time */
+            readonly createdAt?: string;
+            pinned?: boolean;
+            readonly reactionsGrouped?: string;
+            youtubeUrl?: string;
+        };
+        PatchedEmailList: {
+            readonly id?: number;
+            name?: string;
+            readonly email?: string;
+            users?: number[];
+            groups?: number[];
+            groupRoles?: components["schemas"]["GroupRolesEnum"][];
+            /** @description Only allow users with emails from our internal domain, @abakus.no */
+            requireInternalAddress?: boolean;
+            additionalEmails?: string[];
+        };
+        PatchedEmoji: {
+            shortCode?: string;
+            keywords?: string[];
+            unicodeString?: string;
+            fitzpatrickScale?: boolean;
+            category?: string;
+        };
+        /**
+         * @description Any serializer with write support and tags should implement this serializer to support automatic
+         *     creation of new tags.
+         */
+        PatchedEventCreateAndUpdate: {
+            readonly id?: number;
+            title?: string;
+            cover?: string;
+            description?: string | null;
+            text?: string;
+            company?: number | null;
+            responsibleGroup?: number | null;
+            feedbackDescription?: string;
+            feedbackRequired?: boolean;
+            eventType?: components["schemas"]["EventTypeEnum"];
+            eventStatusType?: components["schemas"]["EventStatusTypeEnum"];
+            location?: string;
+            isPriced?: boolean;
+            priceMember?: number;
+            priceGuest?: number;
+            useStripe?: boolean;
+            /** Format: date-time */
+            paymentDueDate?: string | null;
+            /** Format: date-time */
+            startTime?: string;
+            /** Format: date-time */
+            endTime?: string;
+            /** Format: date-time */
+            mergeTime?: string | null;
+            useCaptcha?: boolean;
+            /** @default [] */
+            tags: components["schemas"]["Tag"][];
+            pools?: components["schemas"]["PoolCreateAndUpdate"][];
+            /** Format: date-time */
+            unregistrationDeadline?: string | null;
+            unregistrationDeadlineHours?: number;
+            pinned?: boolean;
+            useConsent?: boolean;
+            heedPenalties?: boolean;
+            registrationDeadlineHours?: number;
+            /** Format: date-time */
+            readonly registrationCloseTime?: string;
+            /** Format: date-time */
+            readonly unregistrationCloseTime?: string;
+            youtubeUrl?: string;
+            mazemapPoi?: number | null;
+            responsibleUsers?: number[];
+            isForeignLanguage?: boolean;
+            showCompanyDescription?: boolean;
+            canEditUsers?: (number | null)[];
+            canViewGroups?: (number | null)[];
+            canEditGroups?: (number | null)[];
+            requireAuth?: boolean;
+        };
+        PatchedFeatureFlagAdmin: {
+            readonly id?: number;
+            identifier?: string;
+            displayGroups?: (number | null)[];
+            isActive?: boolean;
+            percentage?: number | null;
+            allowedIdentifier?: string | null;
+            readonly canSeeFlag?: string;
+        };
+        PatchedFileUpload: {
+            key?: string;
+            public?: boolean;
+        };
+        PatchedGCMDevice: {
+            id?: number;
+            name?: string | null;
+            registrationId?: string;
+            /** @description ANDROID_ID / TelephonyManager.getDeviceId() (e.g: 0x01) */
+            deviceId?: number | null;
+            /**
+             * Is active
+             * @description Inactive devices will not be sent notifications
+             */
+            active?: boolean;
+            /**
+             * Creation date
+             * Format: date-time
+             */
+            readonly dateCreated?: string | null;
+            /**
+             * @description You should choose FCM, GCM is deprecated
+             *
+             *     * `FCM` - Firebase Cloud Message
+             *     * `GCM` - Google Cloud Message
+             */
+            cloudMessageType?: components["schemas"]["CloudMessageTypeEnum"];
+            /** @description Opaque application identity, should be filled in for multiple key/certificate access */
+            applicationId?: string | null;
+        };
+        PatchedGallery: {
+            readonly id?: number;
+            title?: string;
+            description?: string;
+            location?: string;
+            /** Format: date */
+            takenAt?: string | null;
+            /** Format: date-time */
+            readonly createdAt?: string;
+            event?: number;
+            photographers?: number[];
+            isPinned?: boolean;
+            cover?: number;
+            publicMetadata?: boolean;
+        };
+        PatchedGalleryPicture: {
+            readonly id?: number;
+            readonly gallery?: number;
+            description?: string;
+            taggees?: number[];
+            active?: boolean;
+            file?: string;
+            readonly thumbnail?: string;
+            readonly rawFile?: string;
+            readonly contentTarget?: string;
+        };
+        PatchedJoblistingCreateAndUpdate: {
+            readonly id?: number;
+            title?: string;
+            text?: string;
+            company?: number;
+            responsible?: number | null;
+            contactMail?: string;
+            /** Format: date-time */
+            deadline?: string | null;
+            /** Format: date-time */
+            visibleFrom?: string;
+            /** Format: date-time */
+            visibleTo?: string;
+            jobType?: components["schemas"]["JobTypeEnum"];
+            workplaces?: components["schemas"]["Workplace"][];
+            fromYear?: components["schemas"]["FromYearEnum"];
+            toYear?: components["schemas"]["ToYearEnum"];
+            applicationUrl?: (string) | null;
+            youtubeUrl?: string;
+            rollingRecruitment?: boolean;
+            isPinned?: boolean;
+        };
+        PatchedLendableObjectAdmin: {
+            readonly id?: number;
+            title?: string;
+            description?: string;
+            image?: string;
+            readonly responsibleGroups?: number[];
+            location?: string;
+            readonly canLend?: string;
+            category?: components["schemas"]["Category7d8Enum"];
+            canEditUsers?: (number | null)[];
+            canViewGroups?: (number | null)[];
+            canEditGroups?: (number | null)[];
+            requireAuth?: boolean;
+        };
+        PatchedLendingRequestCreateAndUpdate: {
+            readonly id?: number;
+            readonly createdBy?: components["schemas"]["PublicUser"];
+            readonly updatedBy?: components["schemas"]["PublicUser"];
+            lendableObject?: number;
+            status?: components["schemas"]["StatusC65Enum"];
+            archived?: boolean;
+            comment?: string;
+            /** Format: date-time */
+            startDate?: string;
+            /** Format: date-time */
+            endDate?: string;
+            readonly timelineEntries?: components["schemas"]["TimelineEntry"][];
+        };
+        PatchedMeetingDetail: {
+            readonly id?: number;
+            readonly createdBy?: number;
+            description?: string;
+            title?: string;
+            location?: string;
+            /** Format: date-time */
+            startTime?: string;
+            /** Format: date-time */
+            endTime?: string | null;
+            report?: string;
+            readonly reportChangelogs?: components["schemas"]["ReportChangelog"][];
+            reportAuthor?: number | null;
+            readonly invitations?: components["schemas"]["MeetingInvitation"][];
+            readonly comments?: components["schemas"]["Comment"][];
+            readonly contentTarget?: string;
+            mazemapPoi?: number | null;
+            readonly reactionsGrouped?: string;
+            readonly reactions?: components["schemas"]["Reactions"][];
+            isRecurring?: boolean;
+            isTemplate?: boolean;
+        };
+        PatchedMeetingInvitationUpdate: {
+            status?: components["schemas"]["Status7baEnum"];
+        };
+        PatchedMembership: {
+            readonly id?: number;
+            user?: number;
+            readonly abakusGroup?: number;
+            /** @default member */
+            role: components["schemas"]["RoleEnum"] | components["schemas"]["BlankEnum"];
+            isActive?: boolean;
+            emailListsEnabled?: boolean;
+            /** Format: date-time */
+            readonly createdAt?: string;
+            readonly firstJoinDate?: string;
+        };
+        PatchedPageDetail: {
+            /** ID */
+            readonly pk?: number;
+            title?: string;
+            slug?: string | null;
+            content?: string;
+            picture?: string;
+            picturePlaceholder?: string;
+            category?: components["schemas"]["Category2a9Enum"];
+        };
+        PatchedPodcastCreateAndUpdate: {
+            readonly id?: number;
+            source?: string;
+            description?: string;
+            authors?: number[];
+            thanks?: number[];
+        };
+        /**
+         * @description Any serializer with write support and tags should implement this serializer to support automatic
+         *     creation of new tags.
+         */
+        PatchedPollUpdate: {
+            readonly id?: number;
+            /** Format: date-time */
+            readonly createdAt?: string;
+            title?: string;
+            description?: string;
+            options?: components["schemas"]["OptionUpdate"][];
+            resultsHidden?: boolean;
+            readonly totalVotes?: string;
+            /** @default [] */
+            tags: components["schemas"]["Tag"][];
+            pinned?: boolean;
+        };
+        PatchedPoolCreateAndUpdate: {
+            id?: number;
+            name?: string;
+            capacity?: number;
+            /** Format: date-time */
+            activationDate?: string;
+            readonly registrations?: number[];
+            permissionGroups?: number[];
+        };
+        PatchedPublicUserWithGroups: {
+            readonly id?: number;
+            /** @description Required. 50 characters or fewer. Letters, digits and _ only. */
+            readonly username?: string;
+            firstName?: string;
+            lastName?: string;
+            readonly fullName?: string;
+            gender?: components["schemas"]["GenderEnum"];
+            profilePicture?: string;
+            profilePicturePlaceholder?: string;
+            readonly internalEmailAddress?: string;
+            /** @description Enter a valid username. */
+            githubUsername?: (string) | null;
+            /** @description Enter a valid LinkedIn ID. */
+            linkedinId?: string | null;
+            abakusGroups?: components["schemas"]["PublicAbakusGroup"][];
+            pastMemberships?: components["schemas"]["PastMembership"][];
+            memberships?: components["schemas"]["Membership"][];
+            achievements?: components["schemas"]["Achievement"][];
+            readonly ranking?: string;
+        };
+        PatchedQuoteCreateAndUpdate: {
+            readonly id?: number;
+            text?: string;
+            source?: string;
+            approved?: boolean;
+            tags?: string[];
+        };
+        PatchedRegistrationCreateAndUpdate: {
+            readonly id?: number;
+            feedback?: string;
+            presence?: components["schemas"]["PresenceEnum"];
+            captchaResponse?: string;
+            paymentStatus?: components["schemas"]["PaymentStatusEnum"];
+        };
+        PatchedSemester: {
+            readonly id?: number;
+            year?: number;
+            semester?: components["schemas"]["SemesterEnum"];
+            activeInterestForm?: boolean;
+        };
+        PatchedSemesterStatusDetail: {
+            readonly id?: number;
+            semester?: number;
+            contactedStatus?: components["schemas"]["ContactedStatusEnum"][] | null;
+            contract?: string | null;
+            statistics?: string | null;
+            evaluation?: string | null;
+            readonly contractName?: string;
+            readonly statisticsName?: string;
+            readonly evaluationName?: string;
+        };
+        PatchedSubmissionCreateAndUpdate: {
+            readonly id?: number;
+            user?: number;
+            answers?: components["schemas"]["AnswerCreateAndUpdate"][];
+        };
+        PatchedSurveyUpdate: {
+            readonly id?: number;
+            title?: string;
+            /** Format: date-time */
+            activeFrom?: string;
+            templateType?: (components["schemas"]["TemplateTypeEnum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+            isTemplate?: boolean;
+            event?: number | null;
+            questions?: components["schemas"]["QuestionUpdate"][] | null;
+        };
+        PatchedUpdateComment: {
+            text?: string;
+        };
+        PatchedUserEmail: {
+            readonly id?: number;
+            readonly user?: string;
+            internalEmail?: string;
+            internalEmailEnabled?: boolean;
+        };
+        /**
+         * @description * `manual` - manual
+         *     * `succeeded` - succeeded
+         *     * `failed` - failed
+         *     * `pending` - pending
+         * @enum {string}
+         */
+        PaymentStatusEnum: "manual" | "succeeded" | "failed" | "pending";
+        Penalty: {
+            readonly id: number;
+            /** Format: date-time */
+            readonly createdAt: string;
+            user: number;
+            reason: string;
+            weight?: number;
+            sourceEvent?: number;
+            readonly exactExpiration: string;
+        };
+        PhotoConsent: {
+            user: number;
+            year: number;
+            semester: components["schemas"]["SemesterEnum"];
+            domain: components["schemas"]["DomainEnum"];
+            isConsenting?: boolean | null;
+            /** Format: date-time */
+            readonly updatedAt: string;
+        };
+        Podcast: {
+            readonly id: number;
+            source: string;
+            /** Format: date-time */
+            readonly createdAt: string;
+            description: string;
+            authors: components["schemas"]["PublicUser"][];
+            thanks: components["schemas"]["PublicUser"][];
+        };
+        PodcastCreateAndUpdate: {
+            readonly id: number;
+            source: string;
+            description: string;
+            authors: number[];
+            thanks: number[];
+        };
+        Poll: {
+            readonly id: number;
+            /** Format: date-time */
+            readonly createdAt: string;
+            /** Format: date-time */
+            validUntil?: string;
+            title: string;
+            description?: string;
+            options: components["schemas"]["HiddenResultsOption"][];
+            resultsHidden?: boolean;
+            readonly totalVotes: number;
+            tags?: string[];
+            readonly hasAnswered: string;
+            pinned?: boolean;
+        };
+        /**
+         * @description Any serializer with write support and tags should implement this serializer to support automatic
+         *     creation of new tags.
+         */
+        PollCreate: {
+            readonly id: number;
+            /** Format: date-time */
+            readonly createdAt: string;
+            title: string;
+            description?: string;
+            options: components["schemas"]["Option"][];
+            resultsHidden?: boolean;
+            readonly totalVotes: string;
+            /** @default [] */
+            tags: components["schemas"]["Tag"][];
+            pinned?: boolean;
+            /** Format: date-time */
+            validUntil?: string;
+        };
+        /**
+         * @description Any serializer with write support and tags should implement this serializer to support automatic
+         *     creation of new tags.
+         */
+        PollUpdate: {
+            readonly id: number;
+            /** Format: date-time */
+            readonly createdAt: string;
+            title: string;
+            description?: string;
+            options: components["schemas"]["OptionUpdate"][];
+            resultsHidden?: boolean;
+            readonly totalVotes: string;
+            /** @default [] */
+            tags: components["schemas"]["Tag"][];
+            pinned?: boolean;
+        };
+        PoolCreateAndUpdate: {
+            id?: number;
+            name: string;
+            capacity?: number;
+            /** Format: date-time */
+            activationDate: string;
+            readonly registrations: number[];
+            permissionGroups: number[];
+        };
+        PoolRead: {
+            readonly id: number;
+            name: string;
+            capacity?: number;
+            /** Format: date-time */
+            activationDate: string;
+            permissionGroups: components["schemas"]["PublicAbakusGroup"][];
+            registrationCount: string;
+        };
+        /**
+         * @description * `UNKNOWN` - Unknown
+         *     * `PRESENT` - Present
+         *     * `LATE` - Late
+         *     * `NOT_PRESENT` - Not Present
+         * @enum {string}
+         */
+        PresenceEnum: "UNKNOWN" | "PRESENT" | "LATE" | "NOT_PRESENT";
+        PublicAbakusGroup: {
+            readonly id: number;
+            name: string;
+            description?: string;
+            contactEmail?: string;
+            parent?: number | null;
+            logo?: string;
+            logoPlaceholder?: string;
+            type?: components["schemas"]["TypeEnum"];
+            showBadge?: boolean;
+            active?: boolean;
+        };
+        /**
+         * @description Any serializer with write support and tags should implement this serializer to support automatic
+         *     creation of new tags.
+         */
+        PublicArticle: {
+            readonly id: number;
+            title: string;
+            slug?: string | null;
+            cover?: string;
+            coverPlaceholder?: string;
+            authors: components["schemas"]["PublicUser"][];
+            description?: string | null;
+            /** @default [] */
+            tags: components["schemas"]["Tag"][];
+            /** Format: date-time */
+            readonly createdAt: string;
+            pinned?: boolean;
+        };
+        PublicEmailList: {
+            readonly id: number;
+            users?: number[];
+            name: string;
+            readonly email: string;
+            groups?: number[];
+            groupRoles?: components["schemas"]["GroupRolesEnum"][];
+            /** @description Only allow users with emails from our internal domain, @abakus.no */
+            requireInternalAddress?: boolean;
+        };
+        PublicListAbakusGroup: {
+            readonly id: number;
+            name: string;
+            description?: string;
+            contactEmail?: string;
+            parent?: number | null;
+            logo?: string;
+            logoPlaceholder?: string;
+            type?: components["schemas"]["TypeEnum"];
+            showBadge?: boolean;
+            active?: boolean;
+            readonly numberOfUsers: number;
+            readonly userMembership: {
+                [key: string]: unknown;
+            } | null;
+        };
+        PublicUser: {
+            readonly id: number;
+            /** @description Required. 50 characters or fewer. Letters, digits and _ only. */
+            readonly username: string;
+            firstName: string;
+            lastName: string;
+            readonly fullName: string;
+            gender: components["schemas"]["GenderEnum"];
+            profilePicture?: string;
+            profilePicturePlaceholder?: string;
+            readonly internalEmailAddress: string;
+            /** @description Enter a valid username. */
+            githubUsername?: (string) | null;
+            /** @description Enter a valid LinkedIn ID. */
+            linkedinId?: string | null;
+        };
+        PublicUserWithAbakusGroups: {
+            readonly id: number;
+            /** @description Required. 50 characters or fewer. Letters, digits and _ only. */
+            readonly username: string;
+            firstName: string;
+            lastName: string;
+            readonly fullName: string;
+            gender: components["schemas"]["GenderEnum"];
+            profilePicture?: string;
+            profilePicturePlaceholder?: string;
+            readonly internalEmailAddress: string;
+            /** @description Enter a valid username. */
+            githubUsername?: (string) | null;
+            /** @description Enter a valid LinkedIn ID. */
+            linkedinId?: string | null;
+            abakusGroups: components["schemas"]["PublicAbakusGroup"][];
+        };
+        PublicUserWithGroups: {
+            readonly id: number;
+            /** @description Required. 50 characters or fewer. Letters, digits and _ only. */
+            readonly username: string;
+            firstName: string;
+            lastName: string;
+            readonly fullName: string;
+            gender: components["schemas"]["GenderEnum"];
+            profilePicture?: string;
+            profilePicturePlaceholder?: string;
+            readonly internalEmailAddress: string;
+            /** @description Enter a valid username. */
+            githubUsername?: (string) | null;
+            /** @description Enter a valid LinkedIn ID. */
+            linkedinId?: string | null;
+            abakusGroups: components["schemas"]["PublicAbakusGroup"][];
+            pastMemberships: components["schemas"]["PastMembership"][];
+            memberships: components["schemas"]["Membership"][];
+            achievements: components["schemas"]["Achievement"][];
+            readonly ranking: string;
+        };
+        Question: {
+            readonly id: number;
+            displayType?: components["schemas"]["DisplayTypeEnum"];
+            questionType: components["schemas"]["QuestionTypeEnum"];
+            questionText: string;
+            mandatory?: boolean;
+            options?: components["schemas"]["Option"][] | null;
+            relativeIndex?: number;
+        };
+        /**
+         * @description * `single_choice` - single_choice
+         *     * `multiple_choice` - multiple_choice
+         *     * `text_field` - text_field
+         * @enum {string}
+         */
+        QuestionTypeEnum: "single_choice" | "multiple_choice" | "text_field";
+        QuestionUpdate: {
+            id: number;
+            displayType: components["schemas"]["DisplayTypeEnum"];
+            questionType: components["schemas"]["QuestionTypeEnum"];
+            questionText: string;
+            mandatory?: boolean;
+            options?: components["schemas"]["OptionUpdate"][] | null;
+            relativeIndex?: number;
+        };
+        /**
+         * @description Any serializer with write support and tags should implement this serializer to support automatic
+         *     creation of new tags.
+         */
+        Quote: {
+            readonly id: number;
+            /** Format: date-time */
+            readonly createdAt: string;
+            text: string;
+            source: string;
+            approved?: boolean;
+            /** @default [] */
+            tags: components["schemas"]["Tag"][];
+            readonly reactionsGrouped: string;
+            readonly contentTarget: string;
+            readonly createdBy: string;
+        };
+        QuoteCreateAndUpdate: {
+            readonly id: number;
+            text: string;
+            source: string;
+            approved?: boolean;
+            tags?: string[];
+        };
+        Reaction: {
+            readonly id: number;
+            emoji: string;
+            contentTarget: string;
+        };
+        Reactions: {
+            readonly id: number;
+            emoji: string;
+            readonly author: components["schemas"]["PublicUser"];
+        };
+        /**
+         * @description * `none` - None
+         *     * `no_active_pool` - No active pool
+         *     * `no_eligible_pool` - No eligible pool
+         *     * `unanswered_surveys` - Unanswered surveys
+         *     * `event_closed` - Event closed
+         *     * `no_photo_consents` - No photo consents
+         *     * `event_not_ready` - Event not ready
+         *     * `no_available_pools` - No available pools
+         *     * `not_open_yet` - Not open yet
+         *     * `too_many_penalties` - Too many penalties
+         *     * `penalty_induced_delayed_registration` - Penalty induced delayed registration
+         * @enum {string}
+         */
+        ReasonEnum: "none" | "no_active_pool" | "no_eligible_pool" | "unanswered_surveys" | "event_closed" | "no_photo_consents" | "event_not_ready" | "no_available_pools" | "not_open_yet" | "too_many_penalties" | "penalty_induced_delayed_registration";
+        /** @description Serializer used for refreshing JWTs. */
+        RefreshAuthToken: {
+            token: string;
+        };
+        Registration: {
+            /** Format: email */
+            email: string;
+            captchaResponse: string;
+        };
+        RegistrationConfirmation: {
+            /** @description Required. 50 characters or fewer. Letters, digits and _ only. */
+            username: string;
+            firstName: string;
+            lastName: string;
+            gender: components["schemas"]["GenderEnum"];
+            password: string;
+            allergies?: string;
+            phoneNumber?: string | null;
+        };
+        RegistrationCreateAndUpdate: {
+            readonly id: number;
+            feedback?: string;
+            presence?: components["schemas"]["PresenceEnum"];
+            captchaResponse?: string;
+            paymentStatus?: components["schemas"]["PaymentStatusEnum"];
+        };
+        RegistrationEligibility: {
+            canRegisterNow: boolean;
+            reason?: (components["schemas"]["ReasonEnum"] | components["schemas"]["NullEnum"]) | null;
+            isRegistrationDelayed?: boolean | null;
+            /** Format: date-time */
+            delayUntil?: string | null;
+            willBeWaitingList?: boolean | null;
+            canRegisterLater?: boolean | null;
+        };
+        RegistrationPaymentRead: {
+            readonly id: number;
+            user: components["schemas"]["PublicUserWithAbakusGroups"];
+            pool?: number | null;
+            status?: components["schemas"]["Status180Enum"];
+            feedback: string;
+            sharedMemberships?: number;
+            presence: string;
+            LEGACYPhotoConsent: string;
+            event: number;
+            paymentStatus: string;
+        };
+        RegistrationReadDetailed: {
+            readonly id: number;
+            user: components["schemas"]["AdministrateUser"];
+            readonly createdBy: number | null;
+            readonly updatedBy: number | null;
+            pool?: number | null;
+            event: number;
+            presence?: components["schemas"]["PresenceEnum"];
+            feedback?: string;
+            status?: components["schemas"]["Status180Enum"];
+            /** Format: date-time */
+            registrationDate?: string | null;
+            /** Format: date-time */
+            unregistrationDate?: string | null;
+            adminRegistrationReason?: string;
+            paymentIntentId?: string | null;
+            paymentStatus?: string | null;
+            paymentAmount?: number;
+            paymentAmountRefunded?: number | null;
+            LEGACYPhotoConsent?: components["schemas"]["LEGACYPhotoConsentEnum"];
+            photoConsents: string;
+        };
+        RegistrationSearch: {
+            qr?: string;
+            username?: string;
+        };
+        ReportChangelog: {
+            report?: string;
+            /** Format: date-time */
+            readonly createdAt: string;
+            readonly createdBy: number;
+        };
+        RestrictedMail: {
+            readonly id: number;
+            /** Format: email */
+            fromAddress: string;
+            hideSender?: boolean;
+            /** Format: date-time */
+            readonly used: string | null;
+            /** Format: date-time */
+            readonly createdAt: string;
+            weekly?: boolean;
+            users?: number[];
+            groups?: number[];
+            events?: number[];
+            meetings?: number[];
+            rawAddresses?: string[] | null;
+        };
+        RestrictedMailDetail: {
+            readonly id: number;
+            /** Format: email */
+            fromAddress: string;
+            hideSender?: boolean;
+            /** Format: date-time */
+            readonly used: string | null;
+            /** Format: date-time */
+            readonly createdAt: string;
+            weekly?: boolean;
+            users: number[];
+            groups: number[];
+            events: number[];
+            meetings: number[];
+            rawAddresses?: string[] | null;
+            readonly tokenQueryParam: string;
+        };
+        RestrictedMailList: {
+            readonly id: number;
+            /** Format: email */
+            fromAddress: string;
+            hideSender?: boolean;
+            /** Format: date-time */
+            readonly used: string | null;
+            /** Format: date-time */
+            readonly createdAt: string;
+            weekly?: boolean;
+        };
+        /**
+         * @description * `member` - member
+         *     * `leader` - leader
+         *     * `co-leader` - co-leader
+         *     * `treasurer` - treasurer
+         *     * `recruiting` - recruiting
+         *     * `development` - development
+         *     * `editor` - editor
+         *     * `retiree` - retiree
+         *     * `media_relations` - media_relations
+         *     * `active_retiree` - active_retiree
+         *     * `alumni` - alumni
+         *     * `webmaster` - webmaster
+         *     * `interest_group_admin` - interest_group_admin
+         *     * `alumni_admin` - alumni_admin
+         *     * `retiree_email` - retiree_email
+         *     * `company_admin` - company_admin
+         *     * `dugnad_admin` - dugnad_admin
+         *     * `trip_admin` - trip_admin
+         *     * `sponsor_admin` - sponsor_admin
+         *     * `social_admin` - social_admin
+         *     * `merch_admin` - merch_admin
+         *     * `hs_representative` - hs_representative
+         *     * `cuddling_manager` - cuddling_manager
+         *     * `photo_admin` - photo_admin
+         *     * `graphic_admin` - graphic_admin
+         *     * `social_media_admin` - social_media_admin
+         *     * `booking_admin` - booking_admin
+         *     * `purchasing_manager` - purchasing_manager
+         *     * `event_manager` - event_manager
+         *     * `snackoverflow_manager` - snackoverflow_manager
+         *     * `operations_manager` - operations_manager
+         * @enum {string}
+         */
+        RoleEnum: "member" | "leader" | "co-leader" | "treasurer" | "recruiting" | "development" | "editor" | "retiree" | "media_relations" | "active_retiree" | "alumni" | "webmaster" | "interest_group_admin" | "alumni_admin" | "retiree_email" | "company_admin" | "dugnad_admin" | "trip_admin" | "sponsor_admin" | "social_admin" | "merch_admin" | "hs_representative" | "cuddling_manager" | "photo_admin" | "graphic_admin" | "social_media_admin" | "booking_admin" | "purchasing_manager" | "event_manager" | "snackoverflow_manager" | "operations_manager";
+        /**
+         * @description * `auto` - auto
+         *     * `light` - light
+         *     * `dark` - dark
+         * @enum {string}
+         */
+        SelectedThemeEnum: "auto" | "light" | "dark";
+        Semester: {
+            readonly id: number;
+            year: number;
+            semester: components["schemas"]["SemesterEnum"];
+            activeInterestForm?: boolean;
+        };
+        /**
+         * @description * `spring` - spring
+         *     * `autumn` - autumn
+         * @enum {string}
+         */
+        SemesterEnum: "spring" | "autumn";
+        SemesterStatus: {
+            readonly id: number;
+            semester: number;
+            contactedStatus?: components["schemas"]["ContactedStatusEnum"][] | null;
+        };
+        SemesterStatusDetail: {
+            readonly id: number;
+            semester: number;
+            contactedStatus?: components["schemas"]["ContactedStatusEnum"][] | null;
+            contract?: string | null;
+            statistics?: string | null;
+            evaluation?: string | null;
+            readonly contractName: string;
+            readonly statisticsName: string;
+            readonly evaluationName: string;
+        };
+        /**
+         * @description * `pending_upload` - pending_upload
+         *     * `ready` - ready
+         * @enum {string}
+         */
+        StateEnum: "pending_upload" | "ready";
+        /**
+         * @description * `PENDING_REGISTER` - PENDING_REGISTER
+         *     * `SUCCESS_REGISTER` - SUCCESS_REGISTER
+         *     * `FAILURE_REGISTER` - FAILURE_REGISTER
+         *     * `PENDING_UNREGISTER` - PENDING_UNREGISTER
+         *     * `SUCCESS_UNREGISTER` - SUCCESS_UNREGISTER
+         *     * `FAILURE_UNREGISTER` - FAILURE_UNREGISTER
+         * @enum {string}
+         */
+        Status180Enum: "PENDING_REGISTER" | "SUCCESS_REGISTER" | "FAILURE_REGISTER" | "PENDING_UNREGISTER" | "SUCCESS_UNREGISTER" | "FAILURE_UNREGISTER";
+        /**
+         * @description * `NO_ANSWER` - NO_ANSWER
+         *     * `ATTENDING` - ATTENDING
+         *     * `NOT_ATTENDING` - NOT_ATTENDING
+         * @enum {string}
+         */
+        Status7baEnum: "NO_ANSWER" | "ATTENDING" | "NOT_ATTENDING";
+        /**
+         * @description * `approved` - approved
+         *     * `cancelled` - cancelled
+         *     * `changes_requested` - changes_requested
+         *     * `changes_resolved` - changes_resolved
+         *     * `created` - created
+         *     * `denied` - denied
+         *     * `unapproved` - unapproved
+         * @enum {string}
+         */
+        StatusC65Enum: "approved" | "cancelled" | "changes_requested" | "changes_resolved" | "created" | "denied" | "unapproved";
+        StripeWebhook: {
+            id: string;
+            type: string;
+        };
+        StudentCompanyContact: {
+            readonly id: number;
+            company: number;
+            user: number;
+            semester: number;
+        };
+        SubmissionCreateAndUpdate: {
+            readonly id: number;
+            user: number;
+            answers: components["schemas"]["AnswerCreateAndUpdate"][];
+        };
+        SubmissionRead: {
+            readonly id: number;
+            readonly isOwner: string;
+            survey: number;
+            answers: components["schemas"]["Answer"][];
+        };
+        SurveyCreate: {
+            readonly id: number;
+            title: string;
+            /** Format: date-time */
+            activeFrom?: string;
+            templateType?: (components["schemas"]["TemplateTypeEnum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+            isTemplate?: boolean;
+            event?: number | null;
+            questions?: components["schemas"]["Question"][] | null;
+        };
+        SurveyRead: {
+            readonly id: number;
+            title: string;
+            /** Format: date-time */
+            activeFrom?: string;
+            event: components["schemas"]["EventForSurvey"];
+            templateType?: (components["schemas"]["TemplateTypeEnum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+            isTemplate?: boolean;
+        };
+        SurveyReadDetailed: {
+            readonly id: number;
+            title: string;
+            /** Format: date-time */
+            activeFrom?: string;
+            questions: components["schemas"]["Question"][];
+            event: components["schemas"]["EventForSurvey"];
+            templateType?: (components["schemas"]["TemplateTypeEnum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+            isTemplate?: boolean;
+        };
+        SurveyUpdate: {
+            readonly id: number;
+            title: string;
+            /** Format: date-time */
+            activeFrom?: string;
+            templateType?: (components["schemas"]["TemplateTypeEnum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+            isTemplate?: boolean;
+            event?: number | null;
+            questions?: components["schemas"]["QuestionUpdate"][] | null;
+        };
+        Tag: {
+            tag: string;
+        };
+        TagDetail: {
+            tag: string;
+            usages: number;
+            readonly relatedCounts: string;
+        };
+        TagList: {
+            tag: string;
+            usages: number;
+        };
+        /**
+         * @description * `company_presentation` - company_presentation
+         *     * `lunch_presentation` - lunch_presentation
+         *     * `alternative_presentation` - alternative_presentation
+         *     * `course` - course
+         *     * `breakfast_talk` - breakfast_talk
+         *     * `nexus_event` - nexus_event
+         *     * `party` - party
+         *     * `social` - social
+         *     * `gala` - gala
+         *     * `other` - other
+         *     * `event` - event
+         *     * `interest_event` - interest_event
+         * @enum {string}
+         */
+        TemplateTypeEnum: "company_presentation" | "lunch_presentation" | "alternative_presentation" | "course" | "breakfast_talk" | "nexus_event" | "party" | "social" | "gala" | "other" | "event" | "interest_event";
+        TimelineEntry: {
+            readonly id: number;
+            createdBy: components["schemas"]["PublicUser"];
+            /** Format: date-time */
+            readonly createdAt: string;
+            lendingRequest: number;
+            message: string;
+            status?: (components["schemas"]["StatusC65Enum"] | components["schemas"]["BlankEnum"] | components["schemas"]["NullEnum"]) | null;
+            isSystem?: boolean;
+        };
+        TimelineEntryCreateAndUpdate: {
+            readonly id: number;
+            lendingRequest: number;
+            message: string;
+        };
+        /**
+         * @description * `1` - 1
+         *     * `2` - 2
+         *     * `3` - 3
+         *     * `4` - 4
+         *     * `5` - 5
+         * @enum {integer}
+         */
+        ToYearEnum: 1 | 2 | 3 | 4 | 5;
+        /**
+         * @description * `komite` - komite
+         *     * `interesse` - interesse
+         *     * `styre` - styre
+         *     * `revy` - revy
+         *     * `klasse` - klasse
+         *     * `annen` - annen
+         *     * `under` - under
+         *     * `ordenen` - ordenen
+         * @enum {string}
+         */
+        TypeEnum: "komite" | "interesse" | "styre" | "revy" | "klasse" | "annen" | "under" | "ordenen";
+        UpdateComment: {
+            text: string;
+        };
+        UserEmail: {
+            readonly id: number;
+            readonly user: string;
+            internalEmail: string;
+            internalEmailEnabled?: boolean;
+        };
+        UserEmailCreate: {
+            user: number;
+            internalEmail: string;
+            internalEmailEnabled: boolean;
+        };
+        /** @description Serializer used for verifying JWTs. */
+        VerifyAuthToken: {
+            token: string;
+        };
+        Workplace: {
+            readonly id: number;
+            town: string;
+        };
+    };
+    responses: never;
+    parameters: never;
+    requestBodies: never;
+    headers: never;
+    pathItems: never;
+}
+export type $defs = Record<string, never>;
+export interface operations {
+    achievementsAzartCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["KeypressOrder"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["KeypressOrder"];
+                };
+            };
+        };
+    };
+    achievementsGettingWoodCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["KeypressOrder"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["KeypressOrder"];
+                };
+            };
+        };
+    };
+    achievementsGrantCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["KeypressOrder"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["KeypressOrder"];
+                };
+            };
+        };
+    };
+    achievementsGrantBulkCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["KeypressOrder"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["KeypressOrder"];
+                };
+            };
+        };
+    };
+    achievementsKeypressOrderCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["KeypressOrder"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["KeypressOrder"];
+                };
+            };
+        };
+    };
+    achievementsLeaderboardList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedPublicUserWithGroupsList"];
+                };
+            };
+        };
+    };
+    achievementsLeaderboardDistributionRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PublicUserWithGroups"];
+                };
+            };
+        };
+    };
+    achievementsLeaderboardRankHistoryRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PublicUserWithGroups"];
+                };
+            };
+        };
+    };
+    achievementsLeaderboardTopClimbersRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PublicUserWithGroups"];
+                };
+            };
+        };
+    };
+    achievementsRarityRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["KeypressOrder"];
+                };
+            };
+        };
+    };
+    achievementsRecheckAllRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["KeypressOrder"];
+                };
+            };
+        };
+    };
+    achievementsRevokeCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["KeypressOrder"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["KeypressOrder"];
+                };
+            };
+        };
+    };
+    achievementsUserAchievementsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["KeypressOrder"];
+                };
+            };
+        };
+    };
+    announcementsList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedAnnouncementListList"];
+                };
+            };
+        };
+    };
+    announcementsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AnnouncementDetail"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AnnouncementDetail"];
+                };
+            };
+        };
+    };
+    announcementsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this announcement. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AnnouncementDetail"];
+                };
+            };
+        };
+    };
+    announcementsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this announcement. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AnnouncementDetail"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AnnouncementDetail"];
+                };
+            };
+        };
+    };
+    announcementsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this announcement. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    announcementsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this announcement. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedAnnouncementDetail"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AnnouncementDetail"];
+                };
+            };
+        };
+    };
+    announcementsSendCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this announcement. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AnnouncementDetail"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AnnouncementDetail"];
+                };
+            };
+        };
+    };
+    articlesList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                tag?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedPublicArticleList"];
+                };
+            };
+        };
+    };
+    articlesCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DetailedArticle"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DetailedArticle"];
+                };
+            };
+        };
+    };
+    articlesRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this article. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DetailedArticle"];
+                };
+            };
+        };
+    };
+    articlesUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this article. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DetailedArticle"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DetailedArticle"];
+                };
+            };
+        };
+    };
+    articlesDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this article. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    articlesPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this article. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedDetailedArticle"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DetailedArticle"];
+                };
+            };
+        };
+    };
+    articlesStatisticsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this article. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DetailedArticle"];
+                };
+            };
+        };
+    };
+    bannersList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedBannerList"];
+                };
+            };
+        };
+    };
+    bannersCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Banner"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Banner"];
+                };
+            };
+        };
+    };
+    bannersRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Banner"];
+                };
+            };
+        };
+    };
+    bannersUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Banner"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Banner"];
+                };
+            };
+        };
+    };
+    bannersDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    bannersPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedBanner"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Banner"];
+                };
+            };
+        };
+    };
+    bannersCurrentPrivateRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Banner"];
+                };
+            };
+        };
+    };
+    bannersCurrentPublicRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Banner"];
+                };
+            };
+        };
+    };
+    bdbList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                name?: string;
+                student_contacts?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedCompanyAdminListList"];
+                };
+            };
+        };
+    };
+    bdbCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CompanyAdminDetail"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyAdminDetail"];
+                };
+            };
+        };
+    };
+    bdbRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this company. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyAdminDetail"];
+                };
+            };
+        };
+    };
+    bdbUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this company. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CompanyAdminDetail"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyAdminDetail"];
+                };
+            };
+        };
+    };
+    bdbDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this company. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    bdbPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this company. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedCompanyAdminDetail"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyAdminDetail"];
+                };
+            };
+        };
+    };
+    calendarIcalRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    calendarIcalEventsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    calendarIcalPersonalRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    calendarIcalRegistrationsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    calendarTokenRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    calendarTokenRegeneratePartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    commentsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Comment"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Comment"];
+                };
+            };
+        };
+    };
+    commentsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this comment. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdateComment"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UpdateComment"];
+                };
+            };
+        };
+    };
+    commentsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this comment. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    commentsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this comment. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedUpdateComment"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UpdateComment"];
+                };
+            };
+        };
+    };
+    companiesList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                search?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedCompanyListList"];
+                };
+            };
+        };
+    };
+    companiesCompanyContactsList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path: {
+                companyPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedCompanyContactList"];
+                };
+            };
+        };
+    };
+    companiesCompanyContactsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                companyPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CompanyContact"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyContact"];
+                };
+            };
+        };
+    };
+    companiesCompanyContactsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                companyPk: string;
+                /** @description A unique integer value identifying this company contact. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyContact"];
+                };
+            };
+        };
+    };
+    companiesCompanyContactsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                companyPk: string;
+                /** @description A unique integer value identifying this company contact. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CompanyContact"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyContact"];
+                };
+            };
+        };
+    };
+    companiesCompanyContactsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                companyPk: string;
+                /** @description A unique integer value identifying this company contact. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    companiesCompanyContactsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                companyPk: string;
+                /** @description A unique integer value identifying this company contact. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedCompanyContact"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyContact"];
+                };
+            };
+        };
+    };
+    companiesFilesList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path: {
+                companyPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedCompanyFileList"];
+                };
+            };
+        };
+    };
+    companiesFilesCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                companyPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CompanyFile"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyFile"];
+                };
+            };
+        };
+    };
+    companiesFilesRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                companyPk: string;
+                /** @description A unique integer value identifying this company file. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyFile"];
+                };
+            };
+        };
+    };
+    companiesFilesUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                companyPk: string;
+                /** @description A unique integer value identifying this company file. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CompanyFile"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyFile"];
+                };
+            };
+        };
+    };
+    companiesFilesDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                companyPk: string;
+                /** @description A unique integer value identifying this company file. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    companiesFilesPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                companyPk: string;
+                /** @description A unique integer value identifying this company file. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedCompanyFile"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyFile"];
+                };
+            };
+        };
+    };
+    companiesSemesterStatusesList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path: {
+                companyPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedSemesterStatusList"];
+                };
+            };
+        };
+    };
+    companiesSemesterStatusesCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                companyPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SemesterStatusDetail"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SemesterStatusDetail"];
+                };
+            };
+        };
+    };
+    companiesSemesterStatusesRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                companyPk: string;
+                /** @description A unique integer value identifying this semester status. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SemesterStatusDetail"];
+                };
+            };
+        };
+    };
+    companiesSemesterStatusesUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                companyPk: string;
+                /** @description A unique integer value identifying this semester status. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SemesterStatusDetail"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SemesterStatusDetail"];
+                };
+            };
+        };
+    };
+    companiesSemesterStatusesDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                companyPk: string;
+                /** @description A unique integer value identifying this semester status. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    companiesSemesterStatusesPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                companyPk: string;
+                /** @description A unique integer value identifying this semester status. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedSemesterStatusDetail"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SemesterStatusDetail"];
+                };
+            };
+        };
+    };
+    companiesRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this company. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyDetail"];
+                };
+            };
+        };
+    };
+    companyInterestsList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                events?: string;
+                semesters?: number[];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedCompanyInterestListList"];
+                };
+            };
+        };
+    };
+    companyInterestsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CompanyInterestCreateAndUpdate"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyInterestCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    companyInterestsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this company interest. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyInterest"];
+                };
+            };
+        };
+    };
+    companyInterestsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this company interest. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CompanyInterestCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyInterestCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    companyInterestsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this company interest. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    companyInterestsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this company interest. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedCompanyInterestCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyInterestCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    companyInterestsCsvRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanyInterest"];
+                };
+            };
+        };
+    };
+    companySemestersList: {
+        parameters: {
+            query?: {
+                company_interest?: boolean;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Semester"][];
+                };
+            };
+        };
+    };
+    companySemestersCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Semester"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Semester"];
+                };
+            };
+        };
+    };
+    companySemestersRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this semester. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Semester"];
+                };
+            };
+        };
+    };
+    companySemestersUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this semester. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Semester"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Semester"];
+                };
+            };
+        };
+    };
+    companySemestersDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this semester. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    companySemestersPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this semester. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedSemester"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Semester"];
+                };
+            };
+        };
+    };
+    contactFormCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ContactForm"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ContactForm"];
+                };
+            };
+        };
+    };
+    deviceApnsList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedAPNSDeviceList"];
+                };
+            };
+        };
+    };
+    deviceApnsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["APNSDevice"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["APNSDevice"];
+                };
+            };
+        };
+    };
+    deviceApnsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                registrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["APNSDevice"];
+                };
+            };
+        };
+    };
+    deviceApnsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                registrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["APNSDevice"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["APNSDevice"];
+                };
+            };
+        };
+    };
+    deviceApnsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                registrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    deviceApnsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                registrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedAPNSDevice"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["APNSDevice"];
+                };
+            };
+        };
+    };
+    deviceExpoCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ExpoDevice"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ExpoDevice"];
+                };
+            };
+        };
+    };
+    deviceExpoUnregisterDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    deviceGcmList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedGCMDeviceList"];
+                };
+            };
+        };
+    };
+    deviceGcmCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["GCMDevice"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GCMDevice"];
+                };
+            };
+        };
+    };
+    deviceGcmRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                registrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GCMDevice"];
+                };
+            };
+        };
+    };
+    deviceGcmUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                registrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["GCMDevice"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GCMDevice"];
+                };
+            };
+        };
+    };
+    deviceGcmDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                registrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    deviceGcmPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                registrationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedGCMDevice"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GCMDevice"];
+                };
+            };
+        };
+    };
+    emailListsList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                email?: string;
+                name?: string;
+                requireInternalAddress?: boolean;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedEmailListList"];
+                };
+            };
+        };
+    };
+    emailListsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["EmailListCreate"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EmailListCreate"];
+                };
+            };
+        };
+    };
+    emailListsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this email list. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EmailListDetail"];
+                };
+            };
+        };
+    };
+    emailListsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this email list. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["EmailList"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EmailList"];
+                };
+            };
+        };
+    };
+    emailListsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this email list. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedEmailList"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EmailList"];
+                };
+            };
+        };
+    };
+    emailUsersList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                email?: string;
+                enabled?: boolean;
+                userFullname?: string;
+                userGrade?: string;
+                /** @description Multiple values may be separated by commas. */
+                userGroups?: string[];
+                userUsername?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedUserEmailList"];
+                };
+            };
+        };
+    };
+    emailUsersCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UserEmailCreate"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserEmailCreate"];
+                };
+            };
+        };
+    };
+    emailUsersRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this user. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserEmail"];
+                };
+            };
+        };
+    };
+    emailUsersUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this user. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UserEmail"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserEmail"];
+                };
+            };
+        };
+    };
+    emailUsersPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this user. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedUserEmail"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UserEmail"];
+                };
+            };
+        };
+    };
+    emojisList: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Emoji"][];
+                };
+            };
+        };
+    };
+    emojisCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Emoji"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Emoji"];
+                };
+            };
+        };
+    };
+    emojisRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique value identifying this emoji. */
+                shortCode: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Emoji"];
+                };
+            };
+        };
+    };
+    emojisUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique value identifying this emoji. */
+                shortCode: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Emoji"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Emoji"];
+                };
+            };
+        };
+    };
+    emojisDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique value identifying this emoji. */
+                shortCode: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    emojisPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique value identifying this emoji. */
+                shortCode: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedEmoji"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Emoji"];
+                };
+            };
+        };
+    };
+    eventsList: {
+        parameters: {
+            query?: {
+                company?: string;
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                date_after?: string;
+                date_before?: string;
+                exclude_event_type?: string;
+                /** @description Which field to use when ordering the results. */
+                ordering?: string;
+                responsible_group_type?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedEventReadList"];
+                };
+            };
+        };
+    };
+    eventsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["EventCreateAndUpdate"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EventCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    eventsPoolsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                eventPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PoolCreateAndUpdate"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PoolCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    eventsPoolsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                eventPk: string;
+                /** @description A unique integer value identifying this pool. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PoolCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PoolCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    eventsPoolsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                eventPk: string;
+                /** @description A unique integer value identifying this pool. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    eventsPoolsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                eventPk: string;
+                /** @description A unique integer value identifying this pool. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedPoolCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PoolCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    eventsRegistrationSearchCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                eventPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["RegistrationSearch"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RegistrationSearch"];
+                };
+            };
+        };
+    };
+    eventsRegistrationsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                eventPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["RegistrationCreateAndUpdate"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RegistrationCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    eventsRegistrationsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                eventPk: string;
+                /** @description A unique integer value identifying this registration. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RegistrationReadDetailed"];
+                };
+            };
+        };
+    };
+    eventsRegistrationsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                eventPk: string;
+                /** @description A unique integer value identifying this registration. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["RegistrationCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RegistrationCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    eventsRegistrationsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                eventPk: string;
+                /** @description A unique integer value identifying this registration. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    eventsRegistrationsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                eventPk: string;
+                /** @description A unique integer value identifying this registration. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedRegistrationCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RegistrationCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    eventsRegistrationsAdminRegisterCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                eventPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AdminRegistrationCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AdminRegistrationCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    eventsRegistrationsAdminUnregisterCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                eventPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AdminUnregister"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AdminUnregister"];
+                };
+            };
+        };
+    };
+    eventsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this event. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EventReadUserDetailed"];
+                };
+            };
+        };
+    };
+    eventsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this event. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["EventCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EventCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    eventsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this event. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    eventsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this event. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedEventCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EventCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    eventsAdministrateRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this event. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    eventsAllergiesRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this event. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    eventsPaymentCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this event. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RegistrationPaymentRead"];
+                };
+            };
+        };
+    };
+    eventsRegistrationEligibilityRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this event. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RegistrationEligibility"];
+                };
+            };
+        };
+    };
+    eventsStatisticsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this event. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    eventsCoverImageGalleryRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ImageGallery"];
+                };
+            };
+        };
+    };
+    eventsPreviousRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EventRead"];
+                };
+            };
+        };
+    };
+    eventsUpcomingRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EventRead"];
+                };
+            };
+        };
+    };
+    featureflagsAdminList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedFeatureFlagAdminList"];
+                };
+            };
+        };
+    };
+    featureflagsAdminCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["FeatureFlagAdmin"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FeatureFlagAdmin"];
+                };
+            };
+        };
+    };
+    featureflagsAdminRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this feature flag. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FeatureFlagAdmin"];
+                };
+            };
+        };
+    };
+    featureflagsAdminUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this feature flag. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["FeatureFlagAdmin"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FeatureFlagAdmin"];
+                };
+            };
+        };
+    };
+    featureflagsAdminDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this feature flag. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    featureflagsAdminPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this feature flag. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedFeatureFlagAdmin"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FeatureFlagAdmin"];
+                };
+            };
+        };
+    };
+    featureflagsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                identifier: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FeatureFlagPublic"];
+                };
+            };
+        };
+    };
+    feedNotificationsList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedAggregatedMarkedFeedList"];
+                };
+            };
+        };
+    };
+    feedNotificationsMarkCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this notification feed. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["Mark"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Mark"];
+                };
+            };
+        };
+    };
+    feedNotificationsMarkAllCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["Mark"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Mark"];
+                };
+            };
+        };
+    };
+    feedNotificationsNotificationDataRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NotificationData"];
+                };
+            };
+        };
+    };
+    feedPersonalList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedAggregatedFeedList"];
+                };
+            };
+        };
+    };
+    feedUserList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path: {
+                userPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedAggregatedFeedList"];
+                };
+            };
+        };
+    };
+    filesCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["FileUpload"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FileUpload"];
+                };
+            };
+        };
+    };
+    filesImagegalleryPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                key: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedFileUpload"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FileUpload"];
+                };
+            };
+        };
+    };
+    filesUploadSuccessRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                key: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FileUpload"];
+                };
+            };
+        };
+    };
+    followersCompanyList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                follower?: number;
+                target?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedFollowCompanyList"];
+                };
+            };
+        };
+    };
+    followersCompanyCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["FollowCompany"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FollowCompany"];
+                };
+            };
+        };
+    };
+    followersCompanyDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this follow company. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    followersEventList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                target?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedFollowEventList"];
+                };
+            };
+        };
+    };
+    followersEventCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["FollowEvent"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FollowEvent"];
+                };
+            };
+        };
+    };
+    followersEventDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this follow event. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    followersUserList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                follower?: number;
+                target?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedFollowUserList"];
+                };
+            };
+        };
+    };
+    followersUserCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["FollowUser"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["FollowUser"];
+                };
+            };
+        };
+    };
+    followersUserDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this follow user. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    frontpageRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    galleriesList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                date_after?: string;
+                date_before?: string;
+                event?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedGalleryListList"];
+                };
+            };
+        };
+    };
+    galleriesCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Gallery"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Gallery"];
+                };
+            };
+        };
+    };
+    galleriesPicturesList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path: {
+                galleryPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedGalleryPictureList"];
+                };
+            };
+        };
+    };
+    galleriesPicturesCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                galleryPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["GalleryPicture"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GalleryPicture"];
+                };
+            };
+        };
+    };
+    galleriesPicturesRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                galleryPk: string;
+                /** @description A unique integer value identifying this gallery picture. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GalleryPicture"];
+                };
+            };
+        };
+    };
+    galleriesPicturesUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                galleryPk: string;
+                /** @description A unique integer value identifying this gallery picture. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["GalleryPicture"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GalleryPicture"];
+                };
+            };
+        };
+    };
+    galleriesPicturesDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                galleryPk: string;
+                /** @description A unique integer value identifying this gallery picture. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    galleriesPicturesPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                galleryPk: string;
+                /** @description A unique integer value identifying this gallery picture. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedGalleryPicture"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GalleryPicture"];
+                };
+            };
+        };
+    };
+    galleriesRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this gallery. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Gallery"];
+                };
+            };
+        };
+    };
+    galleriesUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this gallery. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Gallery"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Gallery"];
+                };
+            };
+        };
+    };
+    galleriesDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this gallery. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    galleriesPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this gallery. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedGallery"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Gallery"];
+                };
+            };
+        };
+    };
+    galleriesMetadataRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this gallery. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GalleryMetadata"];
+                };
+            };
+        };
+    };
+    groupsList: {
+        parameters: {
+            query?: {
+                /** @description Multiple values may be separated by commas. */
+                type?: string[];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PublicListAbakusGroup"][];
+                };
+            };
+        };
+    };
+    groupsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DetailedAbakusGroup"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DetailedAbakusGroup"];
+                };
+            };
+        };
+    };
+    groupsMembershipsList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                /** @description Which field to use when ordering the results. */
+                ordering?: string;
+            };
+            header?: never;
+            path: {
+                groupPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedMembershipList"];
+                };
+            };
+        };
+    };
+    groupsMembershipsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                groupPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Membership"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Membership"];
+                };
+            };
+        };
+    };
+    groupsMembershipsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                groupPk: string;
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Membership"];
+                };
+            };
+        };
+    };
+    groupsMembershipsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                groupPk: string;
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Membership"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Membership"];
+                };
+            };
+        };
+    };
+    groupsMembershipsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                groupPk: string;
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    groupsMembershipsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                groupPk: string;
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedMembership"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Membership"];
+                };
+            };
+        };
+    };
+    groupsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this abakus group. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DetailedAbakusGroup"];
+                };
+            };
+        };
+    };
+    groupsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this abakus group. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DetailedAbakusGroup"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DetailedAbakusGroup"];
+                };
+            };
+        };
+    };
+    groupsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this abakus group. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    groupsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this abakus group. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedDetailedAbakusGroup"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DetailedAbakusGroup"];
+                };
+            };
+        };
+    };
+    joblistingsList: {
+        parameters: {
+            query?: {
+                company?: number;
+                created_after?: string;
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                timeFilter?: boolean;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedJoblistingList"];
+                };
+            };
+        };
+    };
+    joblistingsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["JoblistingCreateAndUpdate"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JoblistingCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    joblistingsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this joblisting. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JoblistingDetailed"];
+                };
+            };
+        };
+    };
+    joblistingsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this joblisting. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["JoblistingCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JoblistingCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    joblistingsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this joblisting. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    joblistingsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this joblisting. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedJoblistingCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JoblistingCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    lendingObjectsList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedLendableObjectList"];
+                };
+            };
+        };
+    };
+    lendingObjectsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["LendableObjectAdmin"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LendableObjectAdmin"];
+                };
+            };
+        };
+    };
+    lendingObjectsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this lendable object. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    lendingObjectsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this lendable object. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["LendableObjectAdmin"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LendableObjectAdmin"];
+                };
+            };
+        };
+    };
+    lendingObjectsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this lendable object. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    lendingObjectsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this lendable object. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedLendableObjectAdmin"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LendableObjectAdmin"];
+                };
+            };
+        };
+    };
+    lendingObjectsAvailabilityRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this lendable object. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LendableObject"];
+                };
+            };
+        };
+    };
+    lendingObjectsAvailableRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LendableObject"];
+                };
+            };
+        };
+    };
+    lendingRequestsList: {
+        parameters: {
+            query?: {
+                archived?: boolean;
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                status?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedLendingRequestListList"];
+                };
+            };
+        };
+    };
+    lendingRequestsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["LendingRequestCreateAndUpdate"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LendingRequestCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    lendingRequestsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this lending request. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LendingRequestDetail"];
+                };
+            };
+        };
+    };
+    lendingRequestsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this lending request. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["LendingRequestCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LendingRequestCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    lendingRequestsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this lending request. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    lendingRequestsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this lending request. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedLendingRequestCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LendingRequestCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    lendingRequestsAdminRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LendingRequestList"];
+                };
+            };
+        };
+    };
+    lendingTimelineentriesCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TimelineEntryCreateAndUpdate"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TimelineEntryCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    meetingTokenRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    meetingTokenAcceptCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    meetingTokenRejectCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    meetingsList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                date_after?: string;
+                date_before?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedMeetingListList"];
+                };
+            };
+        };
+    };
+    meetingsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MeetingDetail"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MeetingDetail"];
+                };
+            };
+        };
+    };
+    meetingsInvitationsList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path: {
+                meetingPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedMeetingInvitationList"];
+                };
+            };
+        };
+    };
+    meetingsInvitationsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                meetingPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MeetingInvitation"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MeetingInvitation"];
+                };
+            };
+        };
+    };
+    meetingsInvitationsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                meetingPk: string;
+                /** @description A unique integer value identifying this meeting invitation. */
+                user_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MeetingInvitation"];
+                };
+            };
+        };
+    };
+    meetingsInvitationsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                meetingPk: string;
+                /** @description A unique integer value identifying this meeting invitation. */
+                user_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["MeetingInvitationUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MeetingInvitationUpdate"];
+                };
+            };
+        };
+    };
+    meetingsInvitationsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                meetingPk: string;
+                /** @description A unique integer value identifying this meeting invitation. */
+                user_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    meetingsInvitationsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                meetingPk: string;
+                /** @description A unique integer value identifying this meeting invitation. */
+                user_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedMeetingInvitationUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MeetingInvitationUpdate"];
+                };
+            };
+        };
+    };
+    meetingsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this meeting. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MeetingDetail"];
+                };
+            };
+        };
+    };
+    meetingsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this meeting. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MeetingDetail"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MeetingDetail"];
+                };
+            };
+        };
+    };
+    meetingsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this meeting. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    meetingsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this meeting. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedMeetingDetail"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MeetingDetail"];
+                };
+            };
+        };
+    };
+    meetingsBulkInviteCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this meeting. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["MeetingBulkInvite"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MeetingBulkInvite"];
+                };
+            };
+        };
+    };
+    meetingsInviteGroupCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this meeting. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MeetingGroupInvite"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MeetingGroupInvite"];
+                };
+            };
+        };
+    };
+    meetingsInviteUserCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this meeting. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MeetingUserInvite"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MeetingUserInvite"];
+                };
+            };
+        };
+    };
+    meetingsTemplatesRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MeetingDetail"];
+                };
+            };
+        };
+    };
+    membershipHistoryList: {
+        parameters: {
+            query?: {
+                abakus_group?: number;
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                /**
+                 * @description * `member` - member
+                 *     * `leader` - leader
+                 *     * `co-leader` - co-leader
+                 *     * `treasurer` - treasurer
+                 *     * `recruiting` - recruiting
+                 *     * `development` - development
+                 *     * `editor` - editor
+                 *     * `retiree` - retiree
+                 *     * `media_relations` - media_relations
+                 *     * `active_retiree` - active_retiree
+                 *     * `alumni` - alumni
+                 *     * `webmaster` - webmaster
+                 *     * `interest_group_admin` - interest_group_admin
+                 *     * `alumni_admin` - alumni_admin
+                 *     * `retiree_email` - retiree_email
+                 *     * `company_admin` - company_admin
+                 *     * `dugnad_admin` - dugnad_admin
+                 *     * `trip_admin` - trip_admin
+                 *     * `sponsor_admin` - sponsor_admin
+                 *     * `social_admin` - social_admin
+                 *     * `merch_admin` - merch_admin
+                 *     * `hs_representative` - hs_representative
+                 *     * `cuddling_manager` - cuddling_manager
+                 *     * `photo_admin` - photo_admin
+                 *     * `graphic_admin` - graphic_admin
+                 *     * `social_media_admin` - social_media_admin
+                 *     * `booking_admin` - booking_admin
+                 *     * `purchasing_manager` - purchasing_manager
+                 *     * `event_manager` - event_manager
+                 *     * `snackoverflow_manager` - snackoverflow_manager
+                 *     * `operations_manager` - operations_manager
+                 */
+                role?: "active_retiree" | "alumni" | "alumni_admin" | "booking_admin" | "co-leader" | "company_admin" | "cuddling_manager" | "development" | "dugnad_admin" | "editor" | "event_manager" | "graphic_admin" | "hs_representative" | "interest_group_admin" | "leader" | "media_relations" | "member" | "merch_admin" | "operations_manager" | "photo_admin" | "purchasing_manager" | "recruiting" | "retiree" | "retiree_email" | "snackoverflow_manager" | "social_admin" | "social_media_admin" | "sponsor_admin" | "treasurer" | "trip_admin" | "webmaster";
+                user?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedMembershipHistoryList"];
+                };
+            };
+        };
+    };
+    membershipHistoryRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this membership history. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MembershipHistory"];
+                };
+            };
+        };
+    };
+    notificationSettingsList: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NotificationSetting"][];
+                };
+            };
+        };
+    };
+    notificationSettingsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["NotificationSettingCreate"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NotificationSettingCreate"];
+                };
+            };
+        };
+    };
+    notificationSettingsAlternativesRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NotificationSetting"];
+                };
+            };
+        };
+    };
+    oauth2AccessTokensList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedAccessTokenList"];
+                };
+            };
+        };
+    };
+    oauth2AccessTokensDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    oauth2ApplicationsList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedApplicationList"];
+                };
+            };
+        };
+    };
+    oauth2ApplicationsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["Application"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Application"];
+                };
+            };
+        };
+    };
+    oauth2ApplicationsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this api application. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Application"];
+                };
+            };
+        };
+    };
+    oauth2ApplicationsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this api application. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["Application"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Application"];
+                };
+            };
+        };
+    };
+    oauth2ApplicationsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this api application. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    oauth2ApplicationsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this api application. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedApplication"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Application"];
+                };
+            };
+        };
+    };
+    oidcAuthorizeRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    oidcValidateRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    pagesList: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PageList"][];
+                };
+            };
+        };
+    };
+    pagesCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PageDetail"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PageDetail"];
+                };
+            };
+        };
+    };
+    pagesRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                slug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PageDetail"];
+                };
+            };
+        };
+    };
+    pagesUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                slug: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PageDetail"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PageDetail"];
+                };
+            };
+        };
+    };
+    pagesDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                slug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    pagesPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                slug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedPageDetail"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PageDetail"];
+                };
+            };
+        };
+    };
+    passwordChangeCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    passwordResetPerformCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PasswordResetPerform"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PasswordResetPerform"];
+                };
+            };
+        };
+    };
+    passwordResetRequestCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PasswordResetRequest"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PasswordResetRequest"];
+                };
+            };
+        };
+    };
+    penaltiesList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                source_event?: number;
+                user?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedPenaltyList"];
+                };
+            };
+        };
+    };
+    penaltiesCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Penalty"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Penalty"];
+                };
+            };
+        };
+    };
+    penaltiesDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this penalty. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    podcastsList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedPodcastList"];
+                };
+            };
+        };
+    };
+    podcastsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PodcastCreateAndUpdate"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PodcastCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    podcastsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this podcast. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DetailedPodcast"];
+                };
+            };
+        };
+    };
+    podcastsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this podcast. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PodcastCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PodcastCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    podcastsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this podcast. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    podcastsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this podcast. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedPodcastCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PodcastCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    pollsList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedPollList"];
+                };
+            };
+        };
+    };
+    pollsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PollCreate"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PollCreate"];
+                };
+            };
+        };
+    };
+    pollsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this poll. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HiddenResultsDetailedPoll"];
+                };
+            };
+        };
+    };
+    pollsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this poll. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PollUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PollUpdate"];
+                };
+            };
+        };
+    };
+    pollsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this poll. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    pollsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this poll. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedPollUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PollUpdate"];
+                };
+            };
+        };
+    };
+    pollsVoteCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this poll. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["HiddenResultsDetailedPoll"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HiddenResultsDetailedPoll"];
+                };
+            };
+        };
+    };
+    quotesList: {
+        parameters: {
+            query?: {
+                approved?: boolean;
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                /** @description Which field to use when ordering the results. */
+                ordering?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedQuoteList"];
+                };
+            };
+        };
+    };
+    quotesCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["QuoteCreateAndUpdate"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["QuoteCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    quotesRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this quote. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Quote"];
+                };
+            };
+        };
+    };
+    quotesUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this quote. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["QuoteCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["QuoteCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    quotesDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this quote. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    quotesPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this quote. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedQuoteCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["QuoteCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    quotesApproveUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this quote. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Quote"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Quote"];
+                };
+            };
+        };
+    };
+    quotesUnapproveUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this quote. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Quote"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Quote"];
+                };
+            };
+        };
+    };
+    quotesRandomRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Quote"];
+                };
+            };
+        };
+    };
+    reactionsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Reaction"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Reaction"];
+                };
+            };
+        };
+    };
+    reactionsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this reaction. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    restrictedMailList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                from_address?: string;
+                hide_sender?: boolean;
+                token?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedRestrictedMailListList"];
+                };
+            };
+        };
+    };
+    restrictedMailCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RestrictedMail"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RestrictedMail"];
+                };
+            };
+        };
+    };
+    restrictedMailRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this restricted mail. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RestrictedMailDetail"];
+                };
+            };
+        };
+    };
+    restrictedMailTokenRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this restricted mail. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RestrictedMail"];
+                };
+            };
+        };
+    };
+    searchAutocompleteCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    searchSearchCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    siteMetaRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    surveyResultsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this survey. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    surveyTemplatesList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedSurveyReadList"];
+                };
+            };
+        };
+    };
+    surveyTemplatesRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this survey. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SurveyReadDetailed"];
+                };
+            };
+        };
+    };
+    surveysList: {
+        parameters: {
+            query?: {
+                company?: string;
+                /** @description The pagination cursor value. */
+                cursor?: string;
+                event?: number;
+                user?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedSurveyReadList"];
+                };
+            };
+        };
+    };
+    surveysCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SurveyCreate"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SurveyCreate"];
+                };
+            };
+        };
+    };
+    surveysRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this survey. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SurveyReadDetailed"];
+                };
+            };
+        };
+    };
+    surveysUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this survey. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SurveyUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SurveyUpdate"];
+                };
+            };
+        };
+    };
+    surveysDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this survey. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    surveysPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this survey. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedSurveyUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SurveyUpdate"];
+                };
+            };
+        };
+    };
+    surveysCsvRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this survey. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SurveyRead"];
+                };
+            };
+        };
+    };
+    surveysHideCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this survey. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SurveyRead"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SurveyRead"];
+                };
+            };
+        };
+    };
+    surveysPdfRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this survey. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SurveyRead"];
+                };
+            };
+        };
+    };
+    surveysShareCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this survey. */
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SurveyRead"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SurveyRead"];
+                };
+            };
+        };
+    };
+    surveysSubmissionsList: {
+        parameters: {
+            query?: {
+                user?: string;
+            };
+            header?: never;
+            path: {
+                surveyPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SubmissionRead"][];
+                };
+            };
+        };
+    };
+    surveysSubmissionsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                surveyPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SubmissionCreateAndUpdate"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SubmissionCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    surveysSubmissionsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this submission. */
+                id: number;
+                surveyPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SubmissionRead"];
+                };
+            };
+        };
+    };
+    surveysSubmissionsUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this submission. */
+                id: number;
+                surveyPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SubmissionCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SubmissionCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    surveysSubmissionsDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this submission. */
+                id: number;
+                surveyPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    surveysSubmissionsPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this submission. */
+                id: number;
+                surveyPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedSubmissionCreateAndUpdate"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SubmissionCreateAndUpdate"];
+                };
+            };
+        };
+    };
+    surveysSubmissionsHideCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this submission. */
+                id: number;
+                surveyPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SubmissionRead"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SubmissionRead"];
+                };
+            };
+        };
+    };
+    surveysSubmissionsShowCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique integer value identifying this submission. */
+                id: number;
+                surveyPk: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SubmissionRead"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SubmissionRead"];
+                };
+            };
+        };
+    };
+    tagsList: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TagList"][];
+                };
+            };
+        };
+    };
+    tagsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description A unique value identifying this tag. */
+                tag: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TagDetail"];
+                };
+            };
+        };
+    };
+    tagsPopularRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TagDetail"];
+                };
+            };
+        };
+    };
+    userCommandsUseCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    userDeleteCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    usersList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedPublicUserList"];
+                };
+            };
+        };
+    };
+    usersCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RegistrationConfirmation"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RegistrationConfirmation"];
+                };
+            };
+        };
+    };
+    usersRegistrationRequestList: {
+        parameters: {
+            query?: {
+                /** @description The pagination cursor value. */
+                cursor?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedRegistrationList"];
+                };
+            };
+        };
+    };
+    usersRegistrationRequestCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["Registration"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Registration"];
+                };
+            };
+        };
+    };
+    usersRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                username: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PublicUserWithGroups"];
+                };
+            };
+        };
+    };
+    usersUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                username: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PublicUserWithGroups"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PublicUserWithGroups"];
+                };
+            };
+        };
+    };
+    usersDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                username: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    usersPartialUpdate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                username: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedPublicUserWithGroups"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PublicUserWithGroups"];
+                };
+            };
+        };
+    };
+    usersChangeGradeCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                username: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ChangeGrade"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ChangeGrade"];
+                };
+            };
+        };
+    };
+    usersUpdatePhotoConsentCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                username: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PhotoConsent"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PhotoConsent"];
+                };
+            };
+        };
+    };
+    usersMeRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CurrentUser"];
+                };
+            };
+        };
+    };
+    usersMeQrRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PublicUser"];
+                };
+            };
+        };
+    };
+    usersOauth2UserdataRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Oauth2UserData"];
+                };
+            };
+        };
+    };
+    webhooksStripeCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StripeWebhook"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StripeWebhook"];
+                };
+            };
+        };
+    };
+    authorizationTokenAuthCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["JSONWebToken"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JSONWebToken"];
+                };
+            };
+        };
+    };
+    authorizationTokenAuthRefreshCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RefreshAuthToken"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RefreshAuthToken"];
+                };
+            };
+        };
+    };
+    authorizationTokenAuthVerifyCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["VerifyAuthToken"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["VerifyAuthToken"];
+                };
+            };
+        };
+    };
 }
