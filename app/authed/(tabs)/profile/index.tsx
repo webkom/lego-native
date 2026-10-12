@@ -1,4 +1,3 @@
-import Button from '@/components/button';
 import Dialog from '@/components/dialog';
 import Icon from '@/components/icon';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
@@ -6,6 +5,7 @@ import { useSignIn } from '@/lib/hooks/useAuth';
 import { useUser } from '@/lib/hooks/useUser';
 import { Link, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { Button, Typography } from 'heroui-native';
 import React, { useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
@@ -61,24 +61,21 @@ const ProfilePage = () => {
           </View>
 
           <View className="mt-10 flex w-full flex-col gap-1">
-            <Button className="w-full" list="top" variant="secondary">
-              <Link
-                href={`https://abakus.no/users/${user?.username}/settings/profile`}
-                className="w-full">
+            <Link href={`https://abakus.no/users/${user?.username}/settings/profile`} className="">
+              <Button variant="secondary">
                 <View className="flex w-full flex-row items-center justify-center gap-2.5">
-                  <Icon name="ExternalLink" className="text-on-primary" size={18} />
-                  <Text className="text-on-primary text-center">Administrer</Text>
+                  <Icon
+                    name="ExternalLink"
+                    className="text-surface-secondary-foreground"
+                    size={18}
+                  />
+                  <Typography className="text-surface-secondary-foreground">Administrer</Typography>
                 </View>
-              </Link>
-            </Button>
-            <Button
-              className="w-full"
-              innerClassName="w-full"
-              variant="secondary"
-              list="bottom"
-              onPress={() => setShow((prev) => !prev)}>
-              <Icon name="LogOut" size={18} className="text-on-error" />
-              <Text className="text-on-error text-center">Logg ut</Text>
+              </Button>
+            </Link>
+            <Button variant="danger" onPress={() => setShow((prev) => !prev)}>
+              <Icon name="LogOut" size={18} className="text-danger-foreground" />
+              <Typography className="text-danger-foreground">Logg ut</Typography>
             </Button>
           </View>
         </View>
@@ -88,9 +85,9 @@ const ProfilePage = () => {
         show={show}
         onDismiss={() => setShow(false)}
         className="flex flex-col items-center justify-evenly">
-        <Text className="text-on-background mx-auto text-center text-3xl font-bold">
+        <Typography className="text-surface-secondary-foreground mx-auto text-center text-3xl font-bold">
           Er du sikker på at du vil logge ut?
-        </Text>
+        </Typography>
         <View className="w-full flex-col gap-2.5">
           {/* <Button
             className="flex-1 rounded-full"
@@ -99,7 +96,7 @@ const ProfilePage = () => {
             onPress={() => setShow(false)}>
             <Text className="text-xl text-on-primary">Avbryt</Text>
           </Button> */}
-          <Button variant="error" className="flex-1 rounded-full" size="lg" onPress={handleSignOut}>
+          <Button className="flex-1 rounded-full" size="lg" onPress={handleSignOut}>
             <Text className="text-on-error text-xl">Logg ut</Text>
           </Button>
         </View>
