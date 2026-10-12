@@ -1,7 +1,8 @@
+import { useUser } from '@/lib/hooks/useUser';
 import { iconWithClassName } from '@/lib/iconWithClassName';
-import { Text } from '@/components/ui/text';
 import { cn } from '@/lib/utils';
 import { Tabs, usePathname, useRouter } from 'expo-router';
+import { Typography } from 'heroui-native';
 import { CalendarIcon, QrCodeIcon, UserIcon } from 'lucide-react-native';
 import { MotiView, useDynamicAnimation } from 'moti';
 import React, { ComponentProps } from 'react';
@@ -20,6 +21,7 @@ type TabBarProps = Parameters<NonNullable<ComponentProps<typeof Tabs>['tabBar']>
 const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
   const router = useRouter();
   const pathName = usePathname();
+  const user = useUser();
 
   return (
     <View className="bottom-safe-offset-2 bg-background px-5">
@@ -36,6 +38,7 @@ const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
           label="Arrangementer"
           onPress={() => router.push('/authed/(tabs)/events')}
         />
+
         <TabBarButton
           Icon={User}
           selected={pathName.includes('profile')}
@@ -47,24 +50,27 @@ const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
   );
 };
 
+type TabBarButtonProps = {
+  Icon: IconType;
+  label: string;
+  selected?: boolean;
+} & ComponentProps<typeof Pressable>;
+
 const TabBarButton = ({
   Icon,
   label,
   selected,
   onPress,
-}: {
-  Icon: IconType;
-  label: string;
-  selected?: boolean;
-  onPress: () => void;
-}) => {
+  className,
+  ...props
+}: TabBarButtonProps) => {
   const animation = useDynamicAnimation(() => ({
     width: 0,
   }));
 
   if (selected) {
     animation.animateTo(() => ({
-      width: 70,
+      width: 64,
       opacity: 1,
     }));
   } else {
@@ -75,8 +81,11 @@ const TabBarButton = ({
   }
 
   return (
-    <Pressable className="flex flex-col items-center gap-0.5" onPress={onPress}>
-      <View className="relative flex h-10 w-20 items-center justify-center">
+    <Pressable
+      className={cn('flex flex-col items-center gap-0.5', className)}
+      onPress={onPress}
+      {...props}>
+      <View className="relative flex h-10 w-16 items-center justify-center">
         <View className="absolute inset-0 flex items-center justify-center">
           <MotiView
             state={animation}
@@ -88,16 +97,14 @@ const TabBarButton = ({
         </View>
         <Icon
           size={22}
-          className={selected ? 'text-primary-foreground' : 'text-muted-foreground'}
+          className={selected ? 'text-primary-foreground' : 'text-primary-foreground'}
         />
       </View>
-      <Text
-        className={cn(
-          'text-xs',
-          selected ? 'text-foreground font-semibold' : 'text-muted-foreground'
-        )}>
+      <Typography
+        type="body-xs"
+        className={cn(selected ? 'text-foreground font-bold' : 'text-muted-foreground')}>
         {label}
-      </Text>
+      </Typography>
     </Pressable>
   );
 };
