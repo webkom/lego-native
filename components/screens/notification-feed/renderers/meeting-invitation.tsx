@@ -1,8 +1,7 @@
 import type { ActivityRenderer, AggregatedFeedItem, ContextValue, FeedActivity } from '../types';
 import { contextRender } from '../context-render';
 import { joinValues } from './utils';
-import { Text } from '@/components/ui/text';
-import { Card } from 'heroui-native';
+import { Card, Typography } from 'heroui-native';
 import Icon from '@/components/icon';
 import env from 'env';
 
@@ -30,7 +29,7 @@ const MeetingInvitationRenderer: ActivityRenderer = {
     const actorTag = actorRender(actor);
 
     return (
-      <Card.Title>
+      <Card.Title className="text-base">
         <TagComponent {...actorTag} /> inviterte deg
       </Card.Title>
     );
@@ -40,7 +39,7 @@ const MeetingInvitationRenderer: ActivityRenderer = {
       .map((invitation) => {
         const render = invitation.contentType ? contextRender[invitation.contentType] : undefined;
         if (!render) return null;
-        return <TagComponent key={invitation.id} {...render(invitation)} />;
+        return <TagComponent key={invitation.id} {...render(invitation)} type="body-sm" />;
       })
       .filter(Boolean);
 
@@ -48,7 +47,7 @@ const MeetingInvitationRenderer: ActivityRenderer = {
 
     return (
       <Card.Body>
-        <Text>{joinValues(meetingTags)}</Text>
+        <Typography>{joinValues(meetingTags)}</Typography>
       </Card.Body>
     );
   },

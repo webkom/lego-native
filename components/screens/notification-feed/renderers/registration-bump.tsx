@@ -1,13 +1,12 @@
 import type { ActivityRenderer } from '../types';
 import { getEvents, joinValues } from './utils';
 import { contextRender } from '../context-render';
-import { Text } from '@/components/ui/text';
-import { Card } from 'heroui-native';
+import { Card, Typography } from 'heroui-native';
 import Icon from '@/components/icon';
 
 const RegistrationBumpRenderer: ActivityRenderer = {
   Header: () => (
-    <Card.Title>
+    <Card.Title className="text-base">
       <Card.Title>Rykket opp fra ventelisten</Card.Title>
     </Card.Title>
   ),
@@ -27,7 +26,7 @@ const RegistrationBumpRenderer: ActivityRenderer = {
 
     return (
       <Card.Body>
-        <Text>{joinValues(eventTags)}</Text>
+        <Typography type="body-sm">{joinValues(eventTags)}</Typography>
       </Card.Body>
     );
   },

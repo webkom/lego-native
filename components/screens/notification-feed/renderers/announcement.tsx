@@ -39,7 +39,7 @@ const AnnouncementRenderer: ActivityRenderer = {
     }
 
     return (
-      <Card.Title>
+      <Card.Title className="text-base">
         <TagComponent {...announcerTag} /> kunngjorde
       </Card.Title>
     );
@@ -54,7 +54,7 @@ const AnnouncementRenderer: ActivityRenderer = {
 
     return (
       <Card.Body>
-        <TagComponent {...objectRender(object)} />
+        <TagComponent {...objectRender(object)} type="body-sm" />
       </Card.Body>
     );
   },

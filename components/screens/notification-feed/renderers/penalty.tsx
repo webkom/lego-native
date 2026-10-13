@@ -1,6 +1,5 @@
-import { Text } from 'react-native';
 import type { ActivityRenderer, AggregatedFeedItem } from '../types';
-import { Card } from 'heroui-native';
+import { Card, Typography } from 'heroui-native';
 import Icon from '@/components/icon';
 
 const getExtraContext = (aggregatedActivity: AggregatedFeedItem) =>
@@ -12,11 +11,11 @@ const PenaltyRenderer: ActivityRenderer = {
     if (weight === undefined) return null;
 
     return (
-      <Card.Title>
+      <Card.Title className="text-base">
         {'Du har fått '}
-        <Text className="text-red-600">
+        <Typography className="text-red-600">
           {weight} prikk{Number(weight) > 1 ? 'er' : ''}
-        </Text>
+        </Typography>
       </Card.Title>
     );
   },
@@ -27,7 +26,7 @@ const PenaltyRenderer: ActivityRenderer = {
 
     return (
       <Card.Body>
-        <Text>{reason}</Text>
+        <Typography type="body-sm">{reason}</Typography>
       </Card.Body>
     );
   },

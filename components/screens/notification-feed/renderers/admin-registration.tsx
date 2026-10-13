@@ -1,16 +1,11 @@
 import type { ActivityRenderer } from '../types';
 import { getEvents, joinValues } from './utils';
 import { contextRender } from '../context-render';
-import { Text } from '@/components/ui/text';
-import { Card } from 'heroui-native';
+import { Card, Typography } from 'heroui-native';
 import Icon from '@/components/icon';
 
 const AdminRegistrationRenderer: ActivityRenderer = {
-  Header: () => (
-    <Card.Header>
-      <Card.Title>Påmeldt av en administrator</Card.Title>
-    </Card.Header>
-  ),
+  Header: () => <Card.Title className="text-base">Påmeldt av en administrator</Card.Title>,
   Content: ({ aggregatedActivity, tag: TagComponent }) => {
     const events = getEvents(aggregatedActivity);
     if (events.length === 0) return null;
@@ -19,7 +14,7 @@ const AdminRegistrationRenderer: ActivityRenderer = {
       .map((event) => {
         const render = event.contentType ? contextRender[event.contentType] : undefined;
         if (!render) return null;
-        return <TagComponent key={event.id} {...render(event)} />;
+        return <TagComponent key={event.id} {...render(event)} type="body-sm" />;
       })
       .filter(Boolean);
 
@@ -27,7 +22,7 @@ const AdminRegistrationRenderer: ActivityRenderer = {
 
     return (
       <Card.Body>
-        <Text>{joinValues(eventTags)}</Text>
+        <Typography type="body-sm">{joinValues(eventTags)}</Typography>
       </Card.Body>
     );
   },

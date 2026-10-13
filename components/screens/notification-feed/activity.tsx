@@ -1,10 +1,9 @@
 import { Pressable, View } from 'react-native';
 import { formatDistanceToNow } from 'date-fns';
 import { nb } from 'date-fns/locale';
-import { Text } from '@/components/ui/text';
 import type { ActivityRenderer, AggregatedFeedItem } from './types';
 import { Tag, navigateToTag } from './tag';
-import { Card } from 'heroui-native';
+import { Card, Typography } from 'heroui-native';
 
 type ActivityProps = {
   aggregatedActivity: AggregatedFeedItem;
@@ -48,7 +47,9 @@ const Activity = ({ aggregatedActivity, activityRenderer, isNew = false }: Activ
           </Card.Header>
           {Content && <Content aggregatedActivity={aggregatedActivity} tag={Tag} />}
           <Card.Footer>
-            <Text className="text-sm text-gray-500">for {timeAgo}</Text>
+            <Typography type="body-xs" className="text-gray-500">
+              for {timeAgo}
+            </Typography>
           </Card.Footer>
         </Card>
       )}
