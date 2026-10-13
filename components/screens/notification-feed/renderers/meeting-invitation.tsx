@@ -4,6 +4,7 @@ import { joinValues } from './utils';
 import { Text } from '@/components/ui/text';
 import { Card } from 'heroui-native';
 import Icon from '@/components/icon';
+import env from 'env';
 
 const getContextValue = (aggregatedActivity: AggregatedFeedItem, key?: string | null) =>
   key ? (aggregatedActivity.context[key] as ContextValue | undefined) : undefined;
@@ -53,14 +54,15 @@ const MeetingInvitationRenderer: ActivityRenderer = {
   },
   Icon: () => <Icon name="CalendarPlus" className="text-red-600" />,
   getNotificationUrl: (aggregatedActivity) => {
+    const baseUrl = env.EXPO_PUBLIC_FRONTEND_URL;
     const [invitation, ...rest] = getMeetingInvitations(aggregatedActivity);
 
     if (!invitation || rest.length > 0) {
-      return { link: 'https://abakus.no/meetings', linkType: 'external' };
+      return { link: `${baseUrl}/meetings`, linkType: 'external' };
     }
 
     return {
-      link: `https://abakus.no/meetings/${invitation.meeting.id}/`,
+      link: `${baseUrl}/meetings/${invitation.meeting.id}/`,
       linkType: 'external',
     };
   },

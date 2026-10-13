@@ -1,8 +1,11 @@
+import env from 'env';
 import { TagProps } from './types';
+
+const baseUrl = env.EXPO_PUBLIC_FRONTEND_URL;
 
 export const contextRender: Record<string, (context: any) => TagProps> = {
   'users.user': (user) => ({
-    link: `https://abakus.no/users/${user.username}/`,
+    link: `${baseUrl}/users/${user.username}/`,
     text: `${user.firstName} ${user.lastName}`,
     linkableContent: true,
     profilePicture: user.profilePicture,
@@ -14,7 +17,7 @@ export const contextRender: Record<string, (context: any) => TagProps> = {
     linkableContent: false,
   }),
   'meetings.meetinginvitation': (context) => ({
-    link: `https://abakus.no/meetings/${context.meeting.id}/`,
+    link: `${baseUrl}/meetings/${context.meeting.id}/`,
     text: context.meeting.title,
     linkableContent: true,
     linkType: 'external',

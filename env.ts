@@ -6,6 +6,7 @@ const envSchema = z.object({
   EXPO_PUBLIC_TURNSTILE_BASE_URL: z.string().url(),
   EXPO_PUBLIC_TURNSTILE_SITE_KEY: z.string(),
   EXPO_PUBLIC_TURNSTILE_SIZE: z.enum(['normal', 'compact']),
+  EXPO_PUBLIC_FRONTEND_URL: z.string().url(),
 });
 
 // Validate the environment variables
@@ -17,6 +18,7 @@ try {
     EXPO_PUBLIC_TURNSTILE_BASE_URL: process.env.EXPO_PUBLIC_TURNSTILE_BASE_URL,
     EXPO_PUBLIC_TURNSTILE_SITE_KEY: process.env.EXPO_PUBLIC_TURNSTILE_SITE_KEY,
     EXPO_PUBLIC_TURNSTILE_SIZE: process.env.EXPO_PUBLIC_TURNSTILE_SIZE,
+    EXPO_PUBLIC_FRONTEND_URL: process.env.EXPO_PUBLIC_FRONTEND_URL,
   });
 } catch (e) {
   throw new Error(`Invalid environment variables: ${e}`);

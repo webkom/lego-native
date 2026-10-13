@@ -2,6 +2,7 @@ import type { ActivityRenderer, AggregatedFeedItem, ContextValue, TagProps } fro
 import { contextRender } from '../context-render';
 import { Card } from 'heroui-native';
 import Icon from '@/components/icon';
+import env from 'env';
 
 const getActorAndObject = (aggregatedActivity: AggregatedFeedItem) => {
   const latestActivity = aggregatedActivity.lastActivity;
@@ -18,6 +19,7 @@ const getActorAndObject = (aggregatedActivity: AggregatedFeedItem) => {
 
 const AnnouncementRenderer: ActivityRenderer = {
   Header: ({ aggregatedActivity, tag: TagComponent }) => {
+    const baseUrl = env.EXPO_PUBLIC_FRONTEND_URL;
     const { actor, object } = getActorAndObject(aggregatedActivity);
     if (!actor || !object) return null;
 
@@ -25,7 +27,7 @@ const AnnouncementRenderer: ActivityRenderer = {
 
     if (object.fromGroup) {
       announcerTag = {
-        link: `https://abakus.no/pages/komiteer/${object.fromGroup.id}/`,
+        link: `${baseUrl}/pages/komiteer/${object.fromGroup.id}/`,
         text: object.fromGroup.name,
         linkableContent: true,
         linkType: 'external',
