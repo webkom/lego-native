@@ -1,8 +1,8 @@
-import { Text } from 'react-native';
-import type { ActivityRenderer } from '../types';
-import { CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import type { ActivityRenderer, AggregatedFeedItem } from '../types';
+import { Card, Typography } from 'heroui-native';
+import Icon from '@/components/icon';
 
-const getExtraContext = (aggregatedActivity: any) =>
+const getExtraContext = (aggregatedActivity: AggregatedFeedItem) =>
   aggregatedActivity.lastActivity.extraContext as { weight?: number; reason?: string };
 
 const PenaltyRenderer: ActivityRenderer = {
@@ -11,24 +11,23 @@ const PenaltyRenderer: ActivityRenderer = {
     if (weight === undefined) return null;
 
     return (
-      <CardHeader>
-        <CardTitle>
-          {'Du har fått '}
-          <Text className="text-red-600">
-            {weight} prikk{Number(weight) > 1 ? 'er' : ''}
-          </Text>
-        </CardTitle>
-      </CardHeader>
+      <Card.Title className="text-base">
+        {'Du har fått '}
+        <Typography className="text-red-600">
+          {weight} prikk{Number(weight) > 1 ? 'er' : ''}
+        </Typography>
+      </Card.Title>
     );
   },
+  Icon: () => <Icon name="CircleAlert" className="text-red-600" />,
   Content: ({ aggregatedActivity }) => {
     const { reason } = getExtraContext(aggregatedActivity);
     if (!reason) return null;
 
     return (
-      <CardContent>
-        <Text>{reason}</Text>
-      </CardContent>
+      <Card.Body>
+        <Typography type="body-sm">{reason}</Typography>
+      </Card.Body>
     );
   },
 };

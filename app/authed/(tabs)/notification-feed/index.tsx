@@ -9,7 +9,7 @@ import Header from '@/components/header';
 import Activity from '@/components/screens/notification-feed/activity';
 import { Text } from '@/components/ui/text';
 import { useMarkAllNotifications, useNotificationsFeed } from '@/lib/hooks/useNotificationsFeed';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { useFocusEffect } from 'expo-router';
 
 const activityRenderers: Record<string, ActivityRenderer> = {
@@ -23,14 +23,24 @@ const activityRenderers: Record<string, ActivityRenderer> = {
 
 const Feed = () => {
   const { data, isLoading, isError, refetch, isRefetching } = useNotificationsFeed();
-  const { mutate: markAllRead } = useMarkAllNotifications();
+  const { mutate: markAll } = useMarkAllNotifications();
 
-  const refetchAll = useCallback(() => {
-    refetch();
-    markAllRead({ body: { read: true, seen: true } });
-  }, [refetch, markAllRead]);
+  const [newIds, setNewIds] = useState<Set<number>>(new Set());
 
-  useFocusEffect(refetchAll);
+  const load = useCallback(async () => {
+    const { data: fresh } = await refetch();
+
+    const unread = (fresh?.results ?? []).filter((item) => !item.read).map((item) => item.id);
+    setNewIds(new Set(unread));
+
+    markAll({ body: { seen: true, read: true } });
+  }, [refetch, markAll]);
+
+  useFocusEffect(
+    useCallback(() => {
+      load();
+    }, [load])
+  );
 
   if (isLoading) {
     return (
@@ -59,7 +69,13 @@ const Feed = () => {
           const activityRenderer = activityRenderers[item.verb];
           if (!activityRenderer) return null;
 
-          return <Activity aggregatedActivity={item} activityRenderer={activityRenderer} />;
+          return (
+            <Activity
+              aggregatedActivity={item}
+              activityRenderer={activityRenderer}
+              isNew={newIds.has(item.id)}
+            />
+          );
         }}
         ListEmptyComponent={
           <Text className="text-xl font-semibold text-red-600">Ingen aktiviteter i feeden</Text>
@@ -67,7 +83,7 @@ const Feed = () => {
         refreshControl={
           <RefreshControl
             refreshing={isRefetching}
-            onRefresh={refetchAll}
+            onRefresh={load}
             colors={['#dc2626']}
             tintColor="#dc2626"
           />

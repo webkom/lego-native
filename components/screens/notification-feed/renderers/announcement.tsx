@@ -1,12 +1,10 @@
-import { Pressable, View } from 'react-native';
-import type { ActivityRenderer, ContextValue } from '../types';
+import type { ActivityRenderer, AggregatedFeedItem, ContextValue, TagProps } from '../types';
 import { contextRender } from '../context-render';
-import { CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Avatar, AvatarImage } from '@/components/ui/avatar';
-import { Text } from '@/components/ui/text';
-import { navigateToTag } from '../tag';
+import { Card } from 'heroui-native';
+import Icon from '@/components/icon';
+import env from 'env';
 
-const getActorAndObject = (aggregatedActivity: any) => {
+const getActorAndObject = (aggregatedActivity: AggregatedFeedItem) => {
   const latestActivity = aggregatedActivity.lastActivity;
   const actorKey = latestActivity.actor;
   const objectKey = latestActivity.object;
@@ -21,35 +19,32 @@ const getActorAndObject = (aggregatedActivity: any) => {
 
 const AnnouncementRenderer: ActivityRenderer = {
   Header: ({ aggregatedActivity, tag: TagComponent }) => {
+    const baseUrl = env.EXPO_PUBLIC_FRONTEND_URL;
     const { actor, object } = getActorAndObject(aggregatedActivity);
     if (!actor || !object) return null;
 
-    const actorRender = actor.contentType ? contextRender[actor.contentType] : undefined;
-    if (!actorRender) return null;
+    let announcerTag: TagProps;
 
-    const actorTag = actorRender(actor);
+    if (object.fromGroup) {
+      announcerTag = {
+        link: `${baseUrl}/pages/komiteer/${object.fromGroup.id}/`,
+        text: object.fromGroup.name,
+        linkableContent: true,
+        linkType: 'external',
+      };
+    } else {
+      const actorRender = actor.contentType ? contextRender[actor.contentType] : undefined;
+      if (!actorRender) return null;
+      announcerTag = actorRender(actor);
+    }
 
     return (
-      <CardHeader>
-        {object.fromGroup ? (
-          <CardTitle>{object.fromGroup.name} kunngjorde</CardTitle>
-        ) : (
-          <View
-            role="heading"
-            aria-level={3}
-            className="flex flex-row items-center gap-1 font-semibold">
-            <Pressable onPress={() => navigateToTag(actorTag)}>
-              <Avatar alt="Profile Picture">
-                <AvatarImage source={{ uri: actorTag.profilePicture }} />
-              </Avatar>
-            </Pressable>
-            <TagComponent {...actorTag} />
-            <Text className="font-semibold">kunngjorde</Text>
-          </View>
-        )}
-      </CardHeader>
+      <Card.Title className="text-base">
+        <TagComponent {...announcerTag} /> kunngjorde
+      </Card.Title>
     );
   },
+  Icon: () => <Icon name="Megaphone" className="text-red-600" />,
   Content: ({ aggregatedActivity, tag: TagComponent }) => {
     const { object } = getActorAndObject(aggregatedActivity);
     if (!object) return null;
@@ -58,9 +53,9 @@ const AnnouncementRenderer: ActivityRenderer = {
     if (!objectRender) return null;
 
     return (
-      <CardContent>
-        <TagComponent {...objectRender(object)} />
-      </CardContent>
+      <Card.Body>
+        <TagComponent {...objectRender(object)} type="body-sm" />
+      </Card.Body>
     );
   },
 };

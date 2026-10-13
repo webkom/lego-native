@@ -1,15 +1,11 @@
 import type { ActivityRenderer } from '../types';
 import { getEvents, joinValues } from './utils';
 import { contextRender } from '../context-render';
-import { CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Text } from '@/components/ui/text';
+import { Card, Typography } from 'heroui-native';
+import Icon from '@/components/icon';
 
 const AdminRegistrationRenderer: ActivityRenderer = {
-  Header: () => (
-    <CardHeader>
-      <CardTitle>Påmeldt av en administrator</CardTitle>
-    </CardHeader>
-  ),
+  Header: () => <Card.Title className="text-base">Påmeldt av en administrator</Card.Title>,
   Content: ({ aggregatedActivity, tag: TagComponent }) => {
     const events = getEvents(aggregatedActivity);
     if (events.length === 0) return null;
@@ -18,18 +14,19 @@ const AdminRegistrationRenderer: ActivityRenderer = {
       .map((event) => {
         const render = event.contentType ? contextRender[event.contentType] : undefined;
         if (!render) return null;
-        return <TagComponent key={event.id} {...render(event)} />;
+        return <TagComponent key={event.id} {...render(event)} type="body-sm" />;
       })
       .filter(Boolean);
 
     if (eventTags.length === 0) return null;
 
     return (
-      <CardContent>
-        <Text>{joinValues(eventTags)}</Text>
-      </CardContent>
+      <Card.Body>
+        <Typography type="body-sm">{joinValues(eventTags)}</Typography>
+      </Card.Body>
     );
   },
+  Icon: () => <Icon name="CalendarCheck" className="text-red-600" />,
   getNotificationUrl: (aggregatedActivity) => {
     const events = getEvents(aggregatedActivity);
 

@@ -1,5 +1,6 @@
 import { components } from '@/lib/types/schema';
-import type { ReactElement } from 'react';
+import { Typography } from 'heroui-native';
+import type { ComponentProps, ComponentType, ReactElement } from 'react';
 
 export type AggregatedFeedItem = components['schemas']['AggregatedMarkedFeed'];
 export type FeedActivity = components['schemas']['FeedActivity'];
@@ -12,6 +13,7 @@ export type TagProps = {
   linkableContent: boolean;
   profilePicture?: string;
   linkType?: 'internal' | 'external';
+  type?: ComponentProps<typeof Typography>['type'];
 };
 
 export type TagComponent = (props: TagProps) => ReactElement;
@@ -30,5 +32,6 @@ export type ActivityRenderer = {
     aggregatedActivity: AggregatedFeedItem;
     tag: TagComponent;
   }) => ReactElement | null;
+  Icon: ComponentType;
   getNotificationUrl?: (aggregatedActivity: AggregatedFeedItem) => NotificationUrl | undefined;
 };

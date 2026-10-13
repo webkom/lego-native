@@ -1,14 +1,14 @@
 import type { ActivityRenderer } from '../types';
 import { getEvents, joinValues } from './utils';
 import { contextRender } from '../context-render';
-import { CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Text } from '@/components/ui/text';
+import { Card, Typography } from 'heroui-native';
+import Icon from '@/components/icon';
 
 const RegistrationBumpRenderer: ActivityRenderer = {
   Header: () => (
-    <CardHeader>
-      <CardTitle>Rykket opp fra ventelisten</CardTitle>
-    </CardHeader>
+    <Card.Title className="text-base">
+      <Card.Title>Rykket opp fra ventelisten</Card.Title>
+    </Card.Title>
   ),
   Content: ({ aggregatedActivity, tag: TagComponent }) => {
     const events = getEvents(aggregatedActivity);
@@ -25,11 +25,12 @@ const RegistrationBumpRenderer: ActivityRenderer = {
     if (eventTags.length === 0) return null;
 
     return (
-      <CardContent>
-        <Text>{joinValues(eventTags)}</Text>
-      </CardContent>
+      <Card.Body>
+        <Typography type="body-sm">{joinValues(eventTags)}</Typography>
+      </Card.Body>
     );
   },
+  Icon: () => <Icon name="CalendarArrowUp" className="text-red-600" />,
   getNotificationUrl: (aggregatedActivity) => {
     const events = getEvents(aggregatedActivity);
 
