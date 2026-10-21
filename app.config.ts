@@ -34,7 +34,6 @@ const config: ExpoConfig = {
   userInterfaceStyle: 'light',
   assetBundlePatterns: ['**/*'],
   ios: {
-    supportsTablet: true,
     bundleIdentifier: 'no.abakus.app',
     infoPlist: {
       ITSAppUsesNonExemptEncryption: false,

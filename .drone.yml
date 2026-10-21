@@ -43,7 +43,7 @@ steps:
         from_secret: expo_token
     commands:
       - npm ci
-      - npx eas-cli build --platform android --non-interactive --no-wait --profile ${DRONE_DEPLOY_TO}
+      - npx eas-cli build --platform all --non-interactive --no-wait --profile ${DRONE_DEPLOY_TO}
     when:
       event:
         - promote
@@ -52,6 +52,6 @@ steps:
         - build
 ---
 kind: signature
-hmac: c6aa9203e1fc9516254cc1b9a78d8e3216263182bdacc1177f6d579eeef5fe46
+hmac: 1d1134bced9a0ba21c381b0f0626914e76759d2202922b8abbcf4d4d85cdbd79
 
 ...
