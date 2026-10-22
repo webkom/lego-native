@@ -92,7 +92,7 @@ We use [Drone](https://drone.io) as our CI/CD system. The server runs at https:/
 Since we use secrets in the pipeline, the pipeline config must be signed. Use the [cli](https://docs.drone.io/cli):
 
 ```sh
-drone sign webkom/abakus-app --save
+drone sign webkom/lego-native --save
 ```
 
 Get your login data from your [user settings](https://ci.webkom.dev/account). Re-run this command any time `.drone.yml` changes.
