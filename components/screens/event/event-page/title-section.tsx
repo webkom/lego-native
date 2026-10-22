@@ -41,7 +41,8 @@ export function TitleSection({ event, className, isRegistered }: TitleSectionPro
               exit={{
                 opacity: 0,
                 top: 10,
-              }}>
+              }}
+              className="overflow-hidden">
               <Chip color="success">
                 <Icon name="Check" size={16} />
                 <Chip.Label>PÅMELDT</Chip.Label>

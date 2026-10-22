@@ -80,7 +80,7 @@ const PoolCard = ({ pool }: PoolCardProps) => {
         {expanded && (
           <View className="mt-1 gap-3 pt-3">
             {/* Future Activation Info */}
-            {!isFutureActivation && (
+            {isFutureActivation && (
               <Alert status="warning" className="shadow-transparent! shadow-none!">
                 <Alert.Indicator />
                 <Alert.Content>
@@ -122,20 +122,13 @@ const PoolCard = ({ pool }: PoolCardProps) => {
               </Typography>
 
               {hasRegistrations ? (
-                <View className="gap-1">
+                <View className="flex flex-row flex-wrap gap-1">
                   {pool.registrations?.map((reg, idx) => (
-                    <View
-                      key={reg.id ?? idx}
-                      className="flex-row items-center justify-between py-1">
-                      <Text className="text-foreground text-sm font-medium">
+                    <Chip key={reg.id} size={'sm'} variant="secondary">
+                      <Chip.Label>
                         {reg.user?.fullName || reg.user?.username || 'Anonym bruker'}
-                      </Text>
-                      {reg.user?.grade || reg.user?.abakusGroup?.name ? (
-                        <Text className="text-muted-foreground text-xs">
-                          {reg.user?.grade || reg.user?.abakusGroup?.name}
-                        </Text>
-                      ) : null}
-                    </View>
+                      </Chip.Label>
+                    </Chip>
                   ))}
                 </View>
               ) : registered === 0 ? (
