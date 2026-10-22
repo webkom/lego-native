@@ -1,12 +1,12 @@
-# Abakus App
+# lego-native
 
-> Mobile app for abakus.no
+> Open source mobile app for Abakus.
 
-[![Build Status](https://ci.webkom.dev/api/badges/webkom/abakus-app/status.svg)](https://ci.webkom.dev/webkom/abakus-app)
+[![Build Status](https://ci.webkom.dev/api/badges/webkom/lego-native/status.svg)](https://ci.webkom.dev/webkom/lego-native)
 
 > **Issues**:
 
-[![open issues](https://badgen.net/github/open-issues/webkom/abakus-app)](https://github.com/webkom/abakus-app/issues)
+[![open issues](https://badgen.net/github/open-issues/webkom/lego-native)](https://github.com/webkom/lego-native/issues)
 
 ## Prerequisites
 
@@ -92,7 +92,7 @@ We use [Drone](https://drone.io) as our CI/CD system. The server runs at https:/
 Since we use secrets in the pipeline, the pipeline config must be signed. Use the [cli](https://docs.drone.io/cli):
 
 ```sh
-drone sign webkom/abakus-app --save
+drone sign webkom/lego-native --save
 ```
 
 Get your login data from your [user settings](https://ci.webkom.dev/account). Re-run this command any time `.drone.yml` changes.
