@@ -109,9 +109,7 @@ export const useEventDetails = (eventId: string) => {
   const canSignUpLater = Boolean(earliestRegistrationTime);
   const canSignOff = Boolean(isUserSignedUp && !isPastUnregistrationDeadline);
   const isSignedUpOrWaitlisted = Boolean(isUserSignedUp ?? waitingListPositions !== undefined);
-  const requiresFeedback = Boolean(
-    event?.feedbackRequired && canSignUpLater && !isUserSignedUp
-  );
+  const requiresFeedback = Boolean(event?.feedbackRequired && canSignUpLater && !isUserSignedUp);
   const isAttendanceButtonLoading = isAttendanceActionLoading || isRefetchingEvent;
 
   // Actions
@@ -131,7 +129,10 @@ export const useEventDetails = (eventId: string) => {
     async (feedback?: string) => {
       const resolvedFeedback = feedback ?? feedbackRef.current ?? undefined;
 
-      if ((resolvedFeedback === undefined || resolvedFeedback.trim() === '') && event?.feedbackRequired) {
+      if (
+        (resolvedFeedback === undefined || resolvedFeedback.trim() === '') &&
+        event?.feedbackRequired
+      ) {
         Alert.alert('Tilbakemelding påkrevd', 'Tilbakemelding er påkrevd for dette arrangementet.');
         throw new Error('Feedback is required for this event.');
       }

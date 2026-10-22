@@ -4,7 +4,7 @@ import { useHaptic } from '@/hooks/useHaptic';
 import { cn } from '@/lib/cn';
 import { Button, Typography } from 'heroui-native';
 import { MotiView } from 'moti';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ActivityIndicator, LayoutChangeEvent, View } from 'react-native';
 
 type AttendanceButtonProps = {

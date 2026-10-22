@@ -1,10 +1,8 @@
-import React from 'react';
-import { View } from 'react-native';
-import { Text } from '@/components/ui/text';
 import Icon from '@/components/icon';
 import { EventTypeConfig } from '@/lib/types/eventColors';
 import { components } from '@/lib/types/schema';
 import { cn } from '@/lib/utils';
+import { View } from 'react-native';
 
 import { Chip } from 'heroui-native';
 
