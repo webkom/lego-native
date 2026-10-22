@@ -9,6 +9,7 @@ import {
   RegistrationPools,
   TitleSection,
 } from '@/components/screens/event/event-page';
+import FeedbackForm from '@/components/screens/event/event-page/feedback-form';
 import { HeroSection } from '@/components/screens/event/hero-section';
 import { Turnstile } from '@/components/screens/event/turnstile';
 import { useEventDetails } from '@/hooks/useEventDetails';
@@ -115,9 +116,9 @@ export default function EventsPage() {
             <TitleSection event={event} />
 
             {/* Unified Notices (Penalty warning, Registration opening countdown, Unregistration deadline, Unanswered surveys, Waitlist) */}
-            <Typography className="text-default-foreground">
+            {/* <Typography className="text-default-foreground">
               {eligibilityReason} {(eligibilityReason ?? '').length}
-            </Typography>
+            </Typography> */}
 
             <EventNotices
               registrationClosed={isPastRegistrationDeadline}
@@ -131,6 +132,10 @@ export default function EventsPage() {
               onSurveyClosed={refetchSurveys}
               canSignUpLater={!!earliestRegistrationTime}
             />
+
+            {event?.feedbackRequired && !!earliestRegistrationTime && (
+              <FeedbackForm feedbackDescription={event.feedbackDescription} />
+            )}
 
             {/* 2x2 Quick Facts Grid (Tid, Sted/MazeMap, Pris, Kapasitet) */}
             <EventQuickFacts

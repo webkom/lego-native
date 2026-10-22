@@ -92,7 +92,7 @@ export function EventNotices({
         </Alert>
       )}
 
-      {!canSignUp && !canSignUpLater && (
+      {!canSignUp && !canSignUpLater && !registrationClosed && (
         <Alert status="danger" className="bg-danger-soft">
           <Alert.Indicator />
           <Alert.Content>
