@@ -1,12 +1,12 @@
-# Abakus App
+# lego-native
 
-> Mobile app for abakus.no
+> Open source mobile app for Abakus.
 
-[![Build Status](https://ci.webkom.dev/api/badges/webkom/abakus-app/status.svg)](https://ci.webkom.dev/webkom/abakus-app)
+[![Build Status](https://ci.webkom.dev/api/badges/webkom/lego-native/status.svg)](https://ci.webkom.dev/webkom/lego-native)
 
 > **Issues**:
 
-[![open issues](https://badgen.net/github/open-issues/webkom/abakus-app)](https://github.com/webkom/abakus-app/issues)
+[![open issues](https://badgen.net/github/open-issues/webkom/lego-native)](https://github.com/webkom/lego-native/issues)
 
 ## Prerequisites
 
