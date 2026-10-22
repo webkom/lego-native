@@ -65,10 +65,13 @@ const UnregisterPage = () => {
         router.back();
       })
       .catch((error) => {
-        SystemAlert.alert(
-          'Feil',
-          error ?? 'En feil oppstod under avregistrering. Vennligst prøv igjen senere.'
-        );
+        const errorMessage =
+          error instanceof Error
+            ? error.message
+            : typeof error === 'string'
+              ? error
+              : 'En feil oppstod under avregistrering. Vennligst prøv igjen senere.';
+        SystemAlert.alert('Feil', errorMessage);
         router.back();
       })
       .finally(() => setIsLoading(false));

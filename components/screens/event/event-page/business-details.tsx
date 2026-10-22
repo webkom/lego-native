@@ -9,7 +9,7 @@ import { Linking, TouchableOpacity, View } from 'react-native';
 import SectionTitle from './section-title';
 
 type BusinessDetailsProps = {
-  company?: components['schemas']['CompanyDetail'] | null;
+  company?: Partial<components['schemas']['CompanyDetail']> | number | null;
   className?: string;
 };
 
@@ -17,7 +17,7 @@ export function BusinessDetails({ company, className }: BusinessDetailsProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [imageLoadError, setImageLoadError] = useState(false);
 
-  if (!company || !company.name) {
+  if (!company || typeof company === 'number' || !company.name) {
     return null;
   }
 

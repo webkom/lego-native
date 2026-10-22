@@ -2,7 +2,7 @@ import { getWaitingListPosition } from '@/lib/getWaitingListPosition';
 import { useEvent } from '@/lib/hooks/useEvent';
 import { isAfter } from 'date-fns';
 import { useRouter } from 'expo-router';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Alert } from 'react-native';
 import { useTimer } from 'react-timer-hook';
 import { useEventAttendance } from './useEventAttendance';
@@ -17,6 +17,7 @@ import { useRegistrationEligibility } from './useRegistrationEligibility';
  */
 export const useEventDetails = (eventId: string) => {
   const router = useRouter();
+  const feedbackRef = useRef<string | null>(null);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [timerExpiredForTime, setTimerExpiredForTime] = useState<string | null>(null);
 
@@ -105,37 +106,64 @@ export const useEventDetails = (eventId: string) => {
     return isAfter(new Date(), new Date(event?.registrationCloseTime));
   }, [event?.registrationCloseTime]);
 
+  const canSignUpLater = Boolean(earliestRegistrationTime);
+  const canSignOff = Boolean(isUserSignedUp && !isPastUnregistrationDeadline);
+  const isSignedUpOrWaitlisted = Boolean(isUserSignedUp ?? waitingListPositions !== undefined);
+  const requiresFeedback = Boolean(
+    event?.feedbackRequired && canSignUpLater && !isUserSignedUp
+  );
+  const isAttendanceButtonLoading = isAttendanceActionLoading || isRefetchingEvent;
+
   // Actions
+  const setFeedback = useCallback((value: string) => {
+    feedbackRef.current = value;
+  }, []);
+
   const handleBack = useCallback(() => {
     router.back();
   }, [router]);
 
-  const handleSignUp = useCallback(async () => {
-    if (!turnstileToken) {
-      Alert.alert('Verifikasjon ikke fullført', 'Vennligst prøv igjen senere.');
-      return;
-    }
+  const handleNavigateToUnregister = useCallback(() => {
+    router.push(`/authed/(stacks)/event/${eventId}/unregister`);
+  }, [router, eventId]);
 
-    try {
-      await signUp.mutateAsync({
-        params: { path: { eventPk: eventId } },
-        body: {
-          feedback: '',
-          captchaResponse: turnstileToken,
-          id: Number(eventId),
-        },
-      });
-    } catch (error) {
-      console.error('Error during sign up:', error);
-      Alert.alert('Påmelding mislyktes', 'Vennligst prøv igjen senere.');
-    }
-  }, [signUp, turnstileToken, eventId]);
+  const handleSignUp = useCallback(
+    async (feedback?: string) => {
+      const resolvedFeedback = feedback ?? feedbackRef.current ?? undefined;
+
+      if ((resolvedFeedback === undefined || resolvedFeedback.trim() === '') && event?.feedbackRequired) {
+        Alert.alert('Tilbakemelding påkrevd', 'Tilbakemelding er påkrevd for dette arrangementet.');
+        throw new Error('Feedback is required for this event.');
+      }
+
+      if (!turnstileToken) {
+        Alert.alert('Verifikasjon ikke fullført', 'Vennligst prøv igjen senere.');
+        return;
+      }
+
+      try {
+        await signUp.mutateAsync({
+          params: { path: { eventPk: eventId } },
+          body: {
+            feedback: resolvedFeedback ?? '',
+            captchaResponse: turnstileToken,
+            id: Number(eventId),
+          },
+        });
+      } catch (error) {
+        console.error('Error during sign up:', error);
+        Alert.alert('Påmelding mislyktes', 'Vennligst prøv igjen senere.');
+      }
+    },
+    [signUp, turnstileToken, eventId, event?.feedbackRequired]
+  );
 
   const handleSignOff = useCallback(async () => {
     try {
       await signOffAsync();
     } catch (error) {
       console.error('Error during sign off:', error);
+      throw error;
     }
   }, [signOffAsync]);
 
@@ -147,6 +175,9 @@ export const useEventDetails = (eventId: string) => {
     isError,
     // Attendance & Registration
     canRegister,
+    canSignUpLater,
+    canSignOff,
+    requiresFeedback,
     registrationTimer,
     regsitrationDisallowed: eligibilityData?.registrationDisallowed,
     willBeWaitlisted: eligibilityData?.willBeWaitingList,
@@ -155,7 +186,9 @@ export const useEventDetails = (eventId: string) => {
     isEligibilityLoading,
     eligibilityReason: eligibilityData?.reason,
     isUserSignedUp,
+    isSignedUpOrWaitlisted,
     isAttendanceActionLoading,
+    isAttendanceButtonLoading,
     attendeesCount: attendees.length,
     totalCapacity,
     totalCurrentPenalties,
@@ -164,8 +197,10 @@ export const useEventDetails = (eventId: string) => {
     // Turnstile
     turnstileToken,
     setTurnstileToken,
-    // Handlers
+    // Feedback & Handlers
+    setFeedback,
     handleBack,
+    handleNavigateToUnregister,
     handleSignUp,
     handleSignOff,
     waitingListPositions,

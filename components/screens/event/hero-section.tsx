@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { Share, TouchableOpacity, View } from 'react-native';
-import { Image } from 'expo-image';
 import Icon from '@/components/icon';
 import { EventTypeConfig } from '@/lib/types/eventColors';
 import { cn } from '@/lib/utils';
+import { Image } from 'expo-image';
+import { useState } from 'react';
+import { Share, TouchableOpacity, View } from 'react-native';
 import { DetailedEvent } from './types';
 
 type HeroSectionProps = {

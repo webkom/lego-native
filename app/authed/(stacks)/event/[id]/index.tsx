@@ -5,19 +5,17 @@ import {
   EventActionBar,
   EventNotices,
   EventQuickFacts,
+  FeedbackForm,
   LoadingState,
+  RefreshingBanner,
   RegistrationPools,
   TitleSection,
 } from '@/components/screens/event/event-page';
-import FeedbackForm from '@/components/screens/event/event-page/feedback-form';
 import { HeroSection } from '@/components/screens/event/hero-section';
 import { Turnstile } from '@/components/screens/event/turnstile';
 import { useEventDetails } from '@/hooks/useEventDetails';
-import { components } from '@/lib/types/schema';
-import { router, useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Spinner, Typography } from 'heroui-native';
-import { AnimatePresence, MotiView } from 'moti';
 import { useCallback, useState } from 'react';
 import { Image, NativeScrollEvent, NativeSyntheticEvent, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -31,34 +29,30 @@ export default function EventsPage() {
   const {
     attendeesCount,
     canRegister,
+    canSignUpLater,
+    canSignOff,
+    requiresFeedback,
     earliestRegistrationTime,
-    handleSignOff,
-    isRegistrationDelayed,
-    regsitrationDisallowed,
     event,
-    eventId,
     handleBack,
+    handleNavigateToUnregister,
     handleSignUp,
     turnstileToken,
     setTurnstileToken,
-    isAttendanceActionLoading,
+    setFeedback,
+    isAttendanceButtonLoading,
     isError,
     isLoading,
     isRefetchingEvent,
     isUserSignedUp,
+    isSignedUpOrWaitlisted,
     refetchSurveys,
     totalCapacity,
     totalCurrentPenalties,
     unansweredSurveys,
-    waitingListPositions,
-    isPastUnregistrationDeadline,
     isPastRegistrationDeadline,
     willBeWaitlisted,
-    eligibilityReason,
   } = useEventDetails(id?.toString() ?? '');
-
-  // Derived states
-  const isAttendanceButtonLoading = isAttendanceActionLoading || isRefetchingEvent;
 
   const [scroll, setScroll] = useState(0);
   const handleScroll = useCallback((e: NativeSyntheticEvent<NativeScrollEvent>) => {
@@ -66,15 +60,11 @@ export default function EventsPage() {
     setScroll(offset);
   }, []);
 
-  if (!eventId) {
-    return <ErrorState onBack={handleBack} />;
-  }
-
   if (isLoading) {
     return <LoadingState />;
   }
 
-  if (isError) {
+  if (isError || !event) {
     return <ErrorState onBack={handleBack} />;
   }
 
@@ -83,23 +73,7 @@ export default function EventsPage() {
       <StatusBar style="auto" />
 
       <View className="flex-1 overflow-hidden">
-        <AnimatePresence>
-          {isRefetchingEvent && (
-            <MotiView
-              key="refreshing-indicator"
-              from={{ translateY: -100, opacity: 0 }}
-              animate={{ translateY: 0, opacity: 1 }}
-              exit={{ translateY: -100, opacity: 0 }}
-              className="absolute top-5 z-20 w-full items-center">
-              <View className="bg-surface border-border/80 flex-row items-center gap-2 rounded-full border px-4 py-2 shadow-lg">
-                <Spinner size="sm" color="accent" />
-                <Typography type="body-xs" className="text-accent font-semibold">
-                  Oppdaterer...
-                </Typography>
-              </View>
-            </MotiView>
-          )}
-        </AnimatePresence>
+        <RefreshingBanner visible={isRefetchingEvent} />
 
         <ScrollView
           onScroll={handleScroll}
@@ -113,13 +87,9 @@ export default function EventsPage() {
             <HeroSection event={event} onBack={handleBack} />
 
             {/* Event Category Badge, Title & Host Attribution */}
-            <TitleSection event={event} />
+            <TitleSection event={event} isRegistered={isUserSignedUp} />
 
             {/* Unified Notices (Penalty warning, Registration opening countdown, Unregistration deadline, Unanswered surveys, Waitlist) */}
-            {/* <Typography className="text-default-foreground">
-              {eligibilityReason} {(eligibilityReason ?? '').length}
-            </Typography> */}
-
             <EventNotices
               registrationClosed={isPastRegistrationDeadline}
               event={event}
@@ -130,12 +100,14 @@ export default function EventsPage() {
               isUserSignedUp={isUserSignedUp}
               unansweredSurveys={unansweredSurveys}
               onSurveyClosed={refetchSurveys}
-              canSignUpLater={!!earliestRegistrationTime}
+              canSignUpLater={canSignUpLater}
             />
 
-            {event?.feedbackRequired && !!earliestRegistrationTime && (
-              <FeedbackForm feedbackDescription={event.feedbackDescription} />
-            )}
+            <FeedbackForm
+              visible={requiresFeedback}
+              feedbackDescription={event.feedbackDescription}
+              onChangeText={setFeedback}
+            />
 
             {/* 2x2 Quick Facts Grid (Tid, Sted/MazeMap, Pris, Kapasitet) */}
             <EventQuickFacts
@@ -146,48 +118,38 @@ export default function EventsPage() {
 
             {/* Event Description Section */}
             <DescriptionSection
-              description={event?.text ?? 'Ingen beskrivelse'}
+              description={event.text || 'Ingen beskrivelse'}
               previewDescription={
-                event?.description ?? event?.text.substring(0, 200) ?? 'Ingen beskrivelse'
+                event.description || event.text.substring(0, 200) || 'Ingen beskrivelse'
               }
             />
 
             {/* Registration Pools & Capacity Progress Bars */}
             <RegistrationPools
-              pools={event?.pools}
-              waitingRegistrationCount={event?.waitingRegistrationCount}
-              mergeTime={event?.mergeTime}
+              pools={event.pools}
+              waitingRegistrationCount={event.waitingRegistrationCount}
+              mergeTime={event.mergeTime}
             />
 
             {/* Company Details if applicable */}
-            {event?.company !== undefined && (
-              <BusinessDetails
-                company={event.company as unknown as components['schemas']['CompanyDetail']}
-              />
-            )}
+            <BusinessDetails company={event.company} />
 
             {/* Captcha verification */}
-            {canRegister && (
-              <Turnstile
-                onTokenReceived={(token: string) => {
-                  setTurnstileToken(token);
-                }}
-              />
-            )}
+            <Turnstile visible={canRegister} onTokenReceived={setTurnstileToken} />
           </View>
         </ScrollView>
       </View>
 
       <EventActionBar
         canSignUp={canRegister}
-        canSignOff={isUserSignedUp && !isPastUnregistrationDeadline}
+        canSignOff={canSignOff}
         turnstileToken={turnstileToken}
-        isUserSignedUp={isUserSignedUp ?? waitingListPositions !== undefined}
-        eventId={event?.id.toString() ?? ''}
+        isUserSignedUp={isSignedUpOrWaitlisted}
+        eventId={event.id.toString()}
         scroll={scroll}
         isLoading={isAttendanceButtonLoading}
         onSignUp={handleSignUp}
-        onSignOff={() => router.push(`/authed/(stacks)/event/${eventId}/unregister`)}
+        onSignOff={handleNavigateToUnregister}
       />
     </View>
   );

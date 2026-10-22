@@ -6,17 +6,20 @@ import WebView, { WebViewMessageEvent } from 'react-native-webview';
 // import Config from 'react-native-config';
 
 type TurnstileProps = {
+  visible?: boolean;
   onTokenReceived: (token: string) => void;
   variant?: 'invisible' | 'visible';
 } & ViewProps;
 
 export const Turnstile = ({
+  visible = true,
   onTokenReceived,
   variant = 'invisible',
   className,
   ...props
 }: TurnstileProps) => {
   const [webViewHeight, setWebViewHeight] = useState(80);
+  if (!visible) return null;
   const handleMessage = (event: WebViewMessageEvent) => {
     const data = JSON.parse(event.nativeEvent.data);
     if (data.type === 'height') {

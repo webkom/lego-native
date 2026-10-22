@@ -10,6 +10,11 @@ import { components } from '@/lib/types/schema';
 
 type Registration = components['schemas']['RegistrationReadDetailed'];
 
+const isActiveRegistration = (registration: Registration) =>
+  registration.status !== 'PENDING_UNREGISTER' &&
+  registration.status !== 'SUCCESS_UNREGISTER' &&
+  registration.status !== 'FAILURE_REGISTER';
+
 /**
  * Handles event registration, unregistration, registration status and websockets
  * @param id Event ID to register/unregister for
@@ -21,19 +26,21 @@ export const useEventAttendance = ({ id }: { id: string }) => {
   const user = useUser();
   const signOffMutation = api.useMutation('delete', '/api/v1/events/{eventPk}/registrations/{id}/');
 
-  const invalidateEventData = useCallback(() => {
+  const invalidateEventData = useCallback(async () => {
     const eventIdNum = Number(id);
     if (isNaN(eventIdNum)) return;
-    queryClient.invalidateQueries(
-      api.queryOptions('get', '/api/v1/events/{id}/', {
-        params: { path: { id: eventIdNum } },
-      })
-    );
-    queryClient.invalidateQueries(
-      api.queryOptions('get', '/api/v1/events/{id}/registration-eligibility/', {
-        params: { path: { id: eventIdNum } },
-      })
-    );
+    await Promise.all([
+      queryClient.invalidateQueries(
+        api.queryOptions('get', '/api/v1/events/{id}/', {
+          params: { path: { id: eventIdNum } },
+        })
+      ),
+      queryClient.invalidateQueries(
+        api.queryOptions('get', '/api/v1/events/{id}/registration-eligibility/', {
+          params: { path: { id: eventIdNum } },
+        })
+      ),
+    ]);
   }, [id, queryClient]);
 
   const pools = event?.pools;
@@ -53,26 +60,66 @@ export const useEventAttendance = ({ id }: { id: string }) => {
     return poolList.flatMap(
       (pool) =>
         (pool.registrations ?? [])
+          .filter(isActiveRegistration)
           .map((registration) => registration.user?.id?.toString())
           .filter(Boolean) as string[]
     );
   }, [pools]);
 
+  const pendingRegistration = useMemo(() => {
+    const raw = (event as any)?.pendingRegistration;
+    if (raw && typeof raw === 'object' && 'id' in raw) {
+      return raw as Registration;
+    }
+    return undefined;
+  }, [event]);
+
   const userId = user?.id;
   const userRegistration = useMemo(() => {
     if (!userId) return undefined;
+
+    if (pendingRegistration?.status === 'PENDING_UNREGISTER') {
+      return undefined;
+    }
+
     const poolList = (pools ?? []) as (components['schemas']['PoolRead'] & {
       registrations?: Registration[];
     })[];
     const poolRegistrations = poolList.flatMap((pool) => pool.registrations ?? []);
     const waitingRegistrations = ((event as any)?.waitingRegistrations ?? []) as Registration[];
     const allRegistrations = [...poolRegistrations, ...waitingRegistrations];
-    return allRegistrations.find(
-      (registration) => registration.user?.id?.toString() === userId.toString()
+    const activeMatch = allRegistrations.find(
+      (registration) =>
+        registration.user?.id?.toString() === userId.toString() &&
+        isActiveRegistration(registration)
     );
-  }, [pools, event, userId]);
+
+    if (activeMatch) {
+      return activeMatch;
+    }
+
+    if (pendingRegistration && isActiveRegistration(pendingRegistration)) {
+      return pendingRegistration;
+    }
+
+    return undefined;
+  }, [pools, event, userId, pendingRegistration]);
 
   const isUserSignedUp = !!userRegistration;
+
+  // Poll until backend Celery worker settles any PENDING_* registration state
+  useEffect(() => {
+    const status = pendingRegistration?.status;
+    if (status !== 'PENDING_REGISTER' && status !== 'PENDING_UNREGISTER') {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      void invalidateEventData();
+    }, 400);
+
+    return () => clearTimeout(timer);
+  }, [pendingRegistration, invalidateEventData]);
 
   // Do workaround because penalties is defined as a string in the openapi schema, but is actually an array of numbers
   let totalCurrentPenalties = 0;
@@ -94,7 +141,7 @@ export const useEventAttendance = ({ id }: { id: string }) => {
           message.type === SocketEventType.UnregistrationSuccess) &&
         messageEventId === targetEventId
       ) {
-        invalidateEventData();
+        void invalidateEventData();
       }
     };
 
@@ -116,25 +163,29 @@ export const useEventAttendance = ({ id }: { id: string }) => {
   }, [event?.id, invalidateEventData]);
 
   const signUp = api.useMutation('post', '/api/v1/events/{eventPk}/registrations/', {
-    onSuccess: () => {
-      invalidateEventData();
+    onSuccess: async () => {
+      await invalidateEventData();
+      setTimeout(() => {
+        void invalidateEventData();
+      }, 500);
     },
   });
 
-  const signOffAsync = () => {
+  const signOffAsync = async () => {
     // Get the user's registration ID for this event
     const registrationId = userRegistration?.id;
     if (!registrationId) {
-      return Promise.reject(new Error('User is not registered for this event'));
+      throw new Error('User is not registered for this event');
     }
 
-    return signOffMutation
-      .mutateAsync({
-        params: { path: { eventPk: id, id: registrationId } },
-      })
-      .then(() => {
-        invalidateEventData();
-      });
+    await signOffMutation.mutateAsync({
+      params: { path: { eventPk: id, id: registrationId } },
+    });
+
+    await invalidateEventData();
+    setTimeout(() => {
+      void invalidateEventData();
+    }, 500);
   };
 
   return {

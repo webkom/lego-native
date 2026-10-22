@@ -4,7 +4,7 @@ import { useHaptic } from '@/hooks/useHaptic';
 import { cn } from '@/lib/cn';
 import { Button, Typography } from 'heroui-native';
 import { MotiView } from 'moti';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ActivityIndicator, LayoutChangeEvent, View } from 'react-native';
 
 type AttendanceButtonProps = {
@@ -29,16 +29,15 @@ export function AttendanceButton({
   const haptics = useHaptic();
   const [containerWidth, setContainerWidth] = useState(0);
   const [small, setSmall] = useState(false);
+
   const handlePress = () => {
     void haptics.trigger('segment-tick'); // segment-tick
     if (isUserSignedUp) {
       onSignOff(eventId);
       return;
     }
-
     setSmall(true);
-
-    onSignUp(eventId)?.then(() => {
+    onSignUp(eventId)?.finally(() => {
       setSmall(false);
     });
   };

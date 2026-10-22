@@ -28,15 +28,17 @@ export function EventCategoryBadge({
   return (
     <View className={cn('flex-row flex-wrap items-center gap-2', className)}>
       {config && (
-        <View
-          style={{ backgroundColor: config.color }}
-          className="flex-row items-center rounded-full px-3 py-1 shadow-sm shadow-black/5">
-          <Text
-            style={{ color: config.textColor }}
-            className="text-xs font-bold uppercase tracking-wider">
-            {config.displayName}
-          </Text>
-        </View>
+        <Chip
+          style={{
+            backgroundColor: config.color,
+          }}>
+          <Chip.Label
+            style={{
+              color: config.textColor,
+            }}>
+            {config.displayName.toLocaleUpperCase()}
+          </Chip.Label>
+        </Chip>
       )}
 
       {isForeignLanguage && (
