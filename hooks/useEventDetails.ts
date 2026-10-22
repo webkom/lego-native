@@ -1,12 +1,13 @@
+import { getWaitingListPosition } from '@/lib/getWaitingListPosition';
 import { useEvent } from '@/lib/hooks/useEvent';
+import { isAfter } from 'date-fns';
 import { useRouter } from 'expo-router';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Alert } from 'react-native';
+import { useTimer } from 'react-timer-hook';
 import { useEventAttendance } from './useEventAttendance';
 import { useUnansweredEventSurveys } from './useEventSurveys';
 import { useRegistrationEligibility } from './useRegistrationEligibility';
-import { getWaitingListPosition } from '@/lib/getWaitingListPosition';
-import { isAfter } from 'date-fns';
 
 /**
  * A wrapper hook that combines event details, attendance, and registration eligibility into a single hook
@@ -17,6 +18,7 @@ import { isAfter } from 'date-fns';
 export const useEventDetails = (eventId: string) => {
   const router = useRouter();
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [timerExpiredForTime, setTimerExpiredForTime] = useState<string | null>(null);
 
   const {
     data: event,
@@ -27,6 +29,34 @@ export const useEventDetails = (eventId: string) => {
 
   const { data: eligibilityData, isLoading: isEligibilityLoading } =
     useRegistrationEligibility(eventId);
+
+  const earliestRegistrationTimeStr = eligibilityData?.earliestRegistrationTime;
+
+  const handleRegistrationOpen = useCallback(() => {
+    if (earliestRegistrationTimeStr) {
+      setTimerExpiredForTime(earliestRegistrationTimeStr);
+    }
+  }, [earliestRegistrationTimeStr]);
+
+  const registrationTimer = useTimer({
+    expiryTimestamp: new Date(earliestRegistrationTimeStr ?? new Date()),
+    onExpire: handleRegistrationOpen,
+    autoStart: false,
+  });
+
+  const { restart } = registrationTimer;
+
+  // Restart timer when eligibility data loads with a future registration time
+  useEffect(() => {
+    if (!earliestRegistrationTimeStr) return;
+
+    const expiry = new Date(earliestRegistrationTimeStr);
+    if (isAfter(new Date(), expiry)) {
+      return;
+    }
+
+    restart(expiry, true);
+  }, [earliestRegistrationTimeStr, restart]);
 
   const { unansweredSurveys, refetch: refetchSurveys } = useUnansweredEventSurveys(eventId);
 
@@ -42,21 +72,25 @@ export const useEventDetails = (eventId: string) => {
     userRegistration,
   } = useEventAttendance({ id: eventId });
 
+  const earliestRegistrationTime = useMemo(() => {
+    return earliestRegistrationTimeStr ? new Date(earliestRegistrationTimeStr) : null;
+  }, [earliestRegistrationTimeStr]);
+
+  const canRegister = useMemo(() => {
+    if (!earliestRegistrationTime) return false;
+    return (
+      isAfter(new Date(), earliestRegistrationTime) ||
+      timerExpiredForTime === earliestRegistrationTimeStr
+    );
+  }, [earliestRegistrationTime, timerExpiredForTime, earliestRegistrationTimeStr]);
+
   const waitingListPositions = useMemo(
     () => getWaitingListPosition(userRegistration, event),
     [userRegistration, event]
   );
 
-  // Computed states
-  const canSignUp = Boolean(
-    eligibilityData?.canRegisterNow && (isUserSignedUp || unansweredSurveys.length === 0)
-  );
   const isAttendanceActionLoading =
     signUp.status === 'pending' || isAttendanceLoading || (!isUserSignedUp && !turnstileToken);
-
-  const registrationOffset = useMemo(() => {
-    return eligibilityData?.delayUntil ? new Date(eligibilityData.delayUntil) : null;
-  }, [eligibilityData]);
 
   const isLoading = (isEventLoading || isAttendanceLoading) && !event;
   const isError = !eventId || isEventError || isAttendanceError;
@@ -112,10 +146,12 @@ export const useEventDetails = (eventId: string) => {
     isRefetchingEvent,
     isError,
     // Attendance & Registration
-    canSignUp,
-    canSignUpLater: eligibilityData?.canRegisterLater,
-    willBeWaitlisted: eligibilityData?.willBeWaitingList ?? false,
-    registrationOffset,
+    canRegister,
+    registrationTimer,
+    regsitrationDisallowed: eligibilityData?.registrationDisallowed,
+    willBeWaitlisted: eligibilityData?.willBeWaitingList,
+    isRegistrationDelayed: eligibilityData?.isRegistrationDelayed,
+    earliestRegistrationTime,
     isEligibilityLoading,
     eligibilityReason: eligibilityData?.reason,
     isUserSignedUp,

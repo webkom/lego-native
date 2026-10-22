@@ -87,9 +87,7 @@ export function EventNotices({
           <Alert.Indicator />
           <Alert.Content>
             <Alert.Title>Påmelding er stengt.</Alert.Title>
-            <Alert.Description className="text-danger">
-              Du kan ikke melde deg på dette arrangementet.
-            </Alert.Description>
+            <Alert.Description>Du kan ikke melde deg på dette arrangementet.</Alert.Description>
           </Alert.Content>
         </Alert>
       )}

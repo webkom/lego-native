@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Share, TouchableOpacity, View } from 'react-native';
 import { Image } from 'expo-image';
 import Icon from '@/components/icon';
@@ -14,6 +14,7 @@ type HeroSectionProps = {
 export function HeroSection({ event, onBack }: HeroSectionProps) {
   const config = event?.eventType ? EventTypeConfig[event.eventType] : undefined;
   const categoryColor = config?.color;
+  const [imageError, setImageError] = useState(false);
 
   const handleShare = async () => {
     if (!event) return;
@@ -32,9 +33,21 @@ export function HeroSection({ event, onBack }: HeroSectionProps) {
       {/* Cover Image or Fallback */}
       {event?.cover ? (
         <Image
-          source={{ uri: event.cover }}
+          source={imageError ? require('@/assets/images/sondray.png') : { uri: event.cover }}
+          onError={() => {
+            if (imageError) return;
+            // If main image fails to load, display a local fallback image
+            setImageError(true);
+          }}
           style={{ width: '100%', height: 220 }}
           contentFit="cover"
+          contentPosition={
+            imageError
+              ? {
+                  top: -100,
+                }
+              : undefined
+          }
           transition={200}
         />
       ) : (

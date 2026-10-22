@@ -29,7 +29,11 @@ export default function EventsPage() {
   const { id } = useLocalSearchParams<{ id?: string | string[] }>();
   const {
     attendeesCount,
-    canSignUp,
+    canRegister,
+    earliestRegistrationTime,
+    handleSignOff,
+    isRegistrationDelayed,
+    regsitrationDisallowed,
     event,
     eventId,
     handleBack,
@@ -48,9 +52,7 @@ export default function EventsPage() {
     waitingListPositions,
     isPastUnregistrationDeadline,
     isPastRegistrationDeadline,
-    registrationOffset,
     willBeWaitlisted,
-    canSignUpLater,
     eligibilityReason,
   } = useEventDetails(id?.toString() ?? '');
 
@@ -113,19 +115,21 @@ export default function EventsPage() {
             <TitleSection event={event} />
 
             {/* Unified Notices (Penalty warning, Registration opening countdown, Unregistration deadline, Unanswered surveys, Waitlist) */}
+            <Typography className="text-default-foreground">
+              {eligibilityReason} {(eligibilityReason ?? '').length}
+            </Typography>
 
-            <Typography>{eligibilityReason}</Typography>
             <EventNotices
               registrationClosed={isPastRegistrationDeadline}
               event={event}
               totalCurrentPenalties={totalCurrentPenalties}
-              canSignUp={Boolean(canSignUp)}
-              penaltyRegistrationDate={registrationOffset}
-              willBeWaitlisted={willBeWaitlisted}
+              canSignUp={canRegister}
+              penaltyRegistrationDate={earliestRegistrationTime}
+              willBeWaitlisted={willBeWaitlisted ?? false}
               isUserSignedUp={isUserSignedUp}
               unansweredSurveys={unansweredSurveys}
               onSurveyClosed={refetchSurveys}
-              canSignUpLater={canSignUpLater ?? undefined}
+              canSignUpLater={!!earliestRegistrationTime}
             />
 
             {/* 2x2 Quick Facts Grid (Tid, Sted/MazeMap, Pris, Kapasitet) */}
@@ -158,7 +162,7 @@ export default function EventsPage() {
             )}
 
             {/* Captcha verification */}
-            {canSignUp && (
+            {canRegister && (
               <Turnstile
                 onTokenReceived={(token: string) => {
                   setTurnstileToken(token);
@@ -170,7 +174,7 @@ export default function EventsPage() {
       </View>
 
       <EventActionBar
-        canSignUp={canSignUp ?? false}
+        canSignUp={canRegister}
         canSignOff={isUserSignedUp && !isPastUnregistrationDeadline}
         turnstileToken={turnstileToken}
         isUserSignedUp={isUserSignedUp ?? waitingListPositions !== undefined}
