@@ -52,6 +52,6 @@ steps:
         - build
 ---
 kind: signature
-hmac: b1550950b83ad9c4d09728b11c0ac31fbcb172e2fc2e54341b27488301451b37
+hmac: 1d1134bced9a0ba21c381b0f0626914e76759d2202922b8abbcf4d4d85cdbd79
 
 ...
