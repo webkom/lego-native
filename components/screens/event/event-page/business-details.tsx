@@ -64,7 +64,7 @@ export function BusinessDetails({ company, className }: BusinessDetailsProps) {
         {/* Header Row: Logo & Company Name */}
         <View className="flex-row items-center gap-3.5">
           {activeImageUri ? (
-            <View className="border-border bg-secondary/30 h-16 w-16 items-center justify-center overflow-hidden rounded-xl border p-2">
+            <View className="border-border bg-accent h-16 w-16 items-center justify-center overflow-hidden rounded-xl border p-2">
               <Image
                 source={{ uri: activeImageUri }}
                 contentFit="contain"
@@ -77,7 +77,7 @@ export function BusinessDetails({ company, className }: BusinessDetailsProps) {
               />
             </View>
           ) : (
-            <View className="border-border bg-secondary h-16 w-16 items-center justify-center rounded-xl border p-2">
+            <View className="border-border bg-accent h-16 w-16 items-center justify-center rounded-xl border p-2">
               <Icon name="Building2" size={28} className="text-default-soft-foreground" />
             </View>
           )}
