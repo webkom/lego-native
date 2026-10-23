@@ -87,7 +87,7 @@ const UnregisterPage = () => {
           className="bg-surface border-border/80 h-10 w-10 items-center justify-center rounded-full border shadow-sm">
           <Icon name="ArrowLeft" size={20} className="text-default-foreground" />
         </TouchableOpacity>
-        <Typography type="body-sm" className="text-muted-foreground font-semibold">
+        <Typography type="body-sm" className="text-accent-foreground font-semibold">
           Avmelding
         </Typography>
         <View className="w-10" />
@@ -109,7 +109,7 @@ const UnregisterPage = () => {
 
             {/* Punchline / commentary */}
             <View className="mt-2 min-h-12 items-center justify-center px-4">
-              <Typography type="body-sm" className="text-muted-foreground text-center italic">
+              <Typography type="body-sm" className="text-accent-foreground text-center italic">
                 Tenk på all moroa du går glipp av... Sofaen er der i morgen også ✨
               </Typography>
             </View>

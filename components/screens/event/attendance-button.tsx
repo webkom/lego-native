@@ -10,16 +10,14 @@ import { ActivityIndicator, LayoutChangeEvent, View } from 'react-native';
 type AttendanceButtonProps = {
   isUserSignedUp: boolean;
   canSignOff: boolean;
-  eventId: string;
   scroll: number;
   isLoading: boolean;
-  onSignUp: (eventId: string) => Promise<void> | undefined;
-  onSignOff: (eventId: string) => void;
+  onSignUp: () => Promise<void> | undefined;
+  onSignOff: () => void;
 };
 
 export function AttendanceButton({
   isUserSignedUp,
-  eventId,
   scroll,
   isLoading,
   onSignUp,
@@ -33,11 +31,11 @@ export function AttendanceButton({
   const handlePress = () => {
     void haptics.trigger('segment-tick'); // segment-tick
     if (isUserSignedUp) {
-      onSignOff(eventId);
+      onSignOff();
       return;
     }
     setSmall(true);
-    onSignUp(eventId)?.finally(() => {
+    onSignUp()?.finally(() => {
       setSmall(false);
     });
   };

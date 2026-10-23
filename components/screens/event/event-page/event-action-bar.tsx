@@ -78,7 +78,6 @@ export function EventActionBar({
         <AttendanceButton
           isUserSignedUp={isUserSignedUp}
           canSignOff={canSignOff}
-          eventId={eventId}
           scroll={scroll}
           isLoading={isLoading}
           onSignUp={() => onSignUp()?.then(() => triggerFeedback())}
