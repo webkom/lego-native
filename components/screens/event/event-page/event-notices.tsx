@@ -1,6 +1,6 @@
 import { UnansweredSurveysCard } from '@/components/events/UnansweredSurveysCard';
 import Icon from '@/components/icon';
-import { format, isAfter } from 'date-fns';
+import { format, isAfter, isBefore } from 'date-fns';
 import { nb } from 'date-fns/locale';
 import { Link } from 'expo-router';
 import { Alert } from 'heroui-native';
@@ -120,7 +120,7 @@ export function EventNotices({
                 <Alert.Description className="text-danger">
                   {willBeWaitlisted && 'Du legges på venteliste ved påmelding.'}
                   {penaltyRegistrationDate &&
-                    isAfter(new Date(), penaltyRegistrationDate) &&
+                    isBefore(new Date(), penaltyRegistrationDate) &&
                     `Du kan ikke melde deg på før ${format(
                       new Date(penaltyRegistrationDate),
                       "EEEE d. MMMM 'kl.' HH:mm",

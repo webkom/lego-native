@@ -14,14 +14,11 @@ export type WaitingListPosition =
     }[];
 
 const isPermittedInPool = (user?: Registration['user'], pool?: Pool) => {
-  console.log(user, pool);
   if (!user || !pool) return false;
   const permissionGroupIds: number[] =
     pool.allPermissionGroupIds ??
     pool.permissionGroups?.map((group) => (typeof group === 'number' ? group : group.id)) ??
     [];
-
-  console.log("Pool's permission groups: ", permissionGroupIds);
 
   const userGroupIds: number[] =
     user.abakusGroups?.map((group: any) => (typeof group === 'number' ? group : group.id)) ?? [];
@@ -92,5 +89,3 @@ export function getWaitingListPosition(
     };
   });
 }
-
-export const getWaitingListPositions = getWaitingListPosition;

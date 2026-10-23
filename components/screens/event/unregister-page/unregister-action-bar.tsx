@@ -21,7 +21,7 @@ export function UnregisterActionBar({
         className="h-14 w-full rounded-2xl shadow-md"
         onPress={onKeepRegistration}>
         <Text className="text-primary-foreground text-center text-base font-bold">
-          Nei, jeg blir med likevel! 🎉
+          Nei, jeg blir med likevel!
         </Text>
       </Button>
 
@@ -34,9 +34,7 @@ export function UnregisterActionBar({
         {isLoading ? (
           <ActivityIndicator size="small" color="#ef4444" />
         ) : (
-          <Text className="text-danger text-center text-sm font-medium">
-            Ja, meld meg av likevel 💔
-          </Text>
+          <Text className="text-danger text-center text-sm font-medium">Meld meg av</Text>
         )}
       </Button>
     </View>
