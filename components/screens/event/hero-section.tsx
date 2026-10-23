@@ -33,21 +33,14 @@ export function HeroSection({ event, onBack }: HeroSectionProps) {
       {/* Cover Image or Fallback */}
       {event?.cover ? (
         <Image
-          source={imageError ? require('@/assets/images/sondray.png') : { uri: event.cover }}
+          source={imageError ? require('@/assets/images/abakus-logo.png') : { uri: event.cover }}
           onError={() => {
             if (imageError) return;
             // If main image fails to load, display a local fallback image
             setImageError(true);
           }}
           style={{ width: '100%', height: 220 }}
-          contentFit="cover"
-          contentPosition={
-            imageError
-              ? {
-                  top: -100,
-                }
-              : undefined
-          }
+          contentFit="contain"
           transition={200}
         />
       ) : (
