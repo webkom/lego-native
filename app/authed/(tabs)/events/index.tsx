@@ -31,15 +31,15 @@ const EventsPage = () => {
     );
   }
 
-  const mapEvents = (eventTypes: EventTypeEnum[]) => {
-    return events.data.results
-      .filter((event) => eventTypes.includes(event.eventType))
-      .slice(0, EVENTS_LIMIT)
-      .map((event) => <EventItem key={event.id} id={event.id} event={event} />);
-  };
+  // const mapEvents = (eventTypes: EventTypeEnum[]) => {
+  //   return events.data.results
+  //     .filter((event) => eventTypes.includes(event.eventType))
+  //     .slice(0, EVENTS_LIMIT)
+  //     .map((event) => <EventItem key={event.id} id={event.id} event={event} />);
+  // };
 
-  const eventPresentations = mapEvents(presentations);
-  const eventOthers = mapEvents(others);
+  // const eventPresentations = mapEvents(presentations);
+  // const eventOthers = mapEvents(others);
 
   return (
     <>
@@ -47,11 +47,11 @@ const EventsPage = () => {
       <Text className="bg-background p-4 text-4xl font-bold">Arrangementer</Text>
       <ScrollView className="bg-background mb-20 h-4/5 w-full flex-1">
         <Text className="pl-4 text-2xl font-semibold">Bedpres og kurs</Text>
-        <View className="mb-5 flex-col items-center gap-2.5 space-y-5 p-4">
+        {/* <View className="mb-5 flex-col items-center gap-2.5 space-y-5 p-4">
           {eventPresentations}
         </View>
         <Text className="pl-4 text-2xl font-semibold">Sosialt</Text>
-        <View className="flex-col items-center gap-2.5 space-y-5 p-4">{eventOthers}</View>
+        <View className="flex-col items-center gap-2.5 space-y-5 p-4">{eventOthers}</View> */}
       </ScrollView>
     </>
   );

@@ -29,8 +29,8 @@ const Layout = () => {
       <ThemeProvider value={theme === 'dark' ? DarkTheme : DefaultTheme}>
         <GestureHandlerRootView className="bg-background flex-1">
           <SafeAreaProvider>
-            <PortalProvider>
-              <HeroUINativeProvider>
+            <HeroUINativeProvider>
+              <PortalProvider>
                 <PushNotificationsProvider isLoggedIn={user?.id !== undefined}>
                   <StatusBar style="auto" />
                   <Stack
@@ -40,8 +40,8 @@ const Layout = () => {
                   />
                   <PortalHost />
                 </PushNotificationsProvider>
-              </HeroUINativeProvider>
-            </PortalProvider>
+              </PortalProvider>
+            </HeroUINativeProvider>
           </SafeAreaProvider>
         </GestureHandlerRootView>
       </ThemeProvider>

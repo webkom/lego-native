@@ -1,11 +1,13 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import type { components } from '../lib/types/schema';
-import { EventTypeConfig } from '../lib/types/eventColors';
-import { Link } from 'expo-router';
 import { format } from 'date-fns';
 import { nb } from 'date-fns/locale';
-import { Button } from './ui/button';
+import { Image as ExpoImage } from 'expo-image';
+import { Link } from 'expo-router';
+import { Card } from 'heroui-native';
+import { useState } from 'react';
+import { TouchableOpacity } from 'react-native';
+import { withUniwind } from 'uniwind';
+import { EventTypeConfig } from '../lib/types/eventColors';
+import type { components } from '../lib/types/schema';
 
 type Event = components['schemas']['EventRead'];
 
@@ -14,7 +16,10 @@ interface EventItemProps {
   event: Event;
 }
 
+const Image = withUniwind(ExpoImage);
+
 export default function EventItem({ id, event }: EventItemProps) {
+  const [imageError, setImageError] = useState(false);
   const eventColor = EventTypeConfig[event.eventType].color;
 
   const isAdmitted = String(event.isAdmitted) === 'true';
@@ -53,28 +58,57 @@ export default function EventItem({ id, event }: EventItemProps) {
 
   return (
     <Link href={`/authed/(stacks)/event/${id}`} asChild>
-      <Button variant={'outline'} className="r-5 h-16 w-full rounded-xl active:bg-neutral-200">
-        <View className="flex-row items-center justify-between">
-          <View className="rounded-lg px-1 py-8" style={{ backgroundColor: eventColor }} />
-          <View className="mx-3 flex-1">
-            <Text className="text-lg font-medium text-gray-900" numberOfLines={1}>
+      <TouchableOpacity className="w-full ">
+        <Card className="flex-row gap-3">
+          {event.cover ? (
+            <Image
+              source={imageError ? require('@/assets/images/sondray.png') : { uri: event.cover }}
+              onError={() => {
+                if (imageError) return;
+                console.log('Image error');
+                setImageError(true);
+              }}
+              className="h-20 w-20 rounded-md"
+              contentFit="cover"
+              transition={200}
+            />
+          ) : null}
+
+          <Card.Body className="flex-1">
+            <Card.Title numberOfLines={1} className="whitespace-break-spaces">
               {event.title}
-            </Text>
-            <Text className="text-sm text-gray-600">{formattedStartTime}</Text>
-          </View>
-          <View className="flex flex-col">
-            <Text>{registrationStatus}</Text>
-            <Text
-              className={
-                event.eventStatusType === 'INFINITE'
-                  ? 'hidden'
-                  : 'rounded-xl bg-gray-200 px-2 py-1 font-semibold'
-              }>
-              {capacity}
-            </Text>
-          </View>
-        </View>
-      </Button>
+            </Card.Title>
+            <Card.Description>{formattedStartTime}</Card.Description>
+          </Card.Body>
+        </Card>
+      </TouchableOpacity>
     </Link>
   );
+
+  // return (
+  //   <Link href={`/authed/(stacks)/event/${id}`} asChild>
+  //     <Button variant={'outline'} className="r-5 h-16 w-full rounded-xl active:bg-neutral-200">
+  //       <View className="flex-row items-center justify-between">
+  //         <View className="rounded-lg px-1 py-8" style={{ backgroundColor: eventColor }} />
+  //         <View className="mx-3 flex-1">
+  //           <Text className="text-lg font-medium text-gray-900" numberOfLines={1}>
+  //             {event.title}
+  //           </Text>
+  //           <Text className="text-sm text-gray-600">{formattedStartTime}</Text>
+  //         </View>
+  //         <View className="flex flex-col">
+  //           <Text>{registrationStatus}</Text>
+  //           <Text
+  //             className={
+  //               event.eventStatusType === 'INFINITE'
+  //                 ? 'hidden'
+  //                 : 'rounded-xl bg-gray-200 px-2 py-1 font-semibold'
+  //             }>
+  //             {capacity}
+  //           </Text>
+  //         </View>
+  //       </View>
+  //     </Button>
+  //   </Link>
+  // );
 }

@@ -24,7 +24,7 @@ const OnboardingPage = () => {
           &gt; Nyttig å vite
         </Text>
         <View className="flex w-full flex-row flex-wrap gap-5">
-          <View className="flex  min-h-[250px] w-full flex-row gap-5">
+          <View className="min-h-62.5  flex w-full flex-row gap-5">
             <Card title={'Bla gjennom arrangementer'} className="bg-primary-container/60 flex-1">
               <Text className="text-xl leading-tight">
                 Meld deg enkelt på arrangementer gjennom appen
@@ -43,8 +43,8 @@ const OnboardingPage = () => {
           </Card>
         </View>
 
-        <Link href="/authed/(tabs)/events" asChild>
-          <Button size="lg" className="w-full max-w-[300px] rounded-full">
+        <Link href="/authed/(tabs)/home" asChild>
+          <Button size="lg" className="max-w-75 w-full rounded-full">
             <MoveRightIcon className="text-on-primary" color={'#FFFFFF'} />
             <Text className="text-on-primary text-lg font-semibold">Til hjemskjermen</Text>
           </Button>
