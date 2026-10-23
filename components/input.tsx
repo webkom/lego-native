@@ -10,25 +10,25 @@ type InputProps = {
 } & ComponentProps<typeof View>;
 const Input = ({ error, label, inputProps, className, ...props }: InputProps) => {
   return (
-    <View className={cn('min-w-[180px]', className)} {...props}>
-      <View className={cn('relative min-w-[180px]')}>
+    <View className={cn('min-w-45', className)} {...props}>
+      <View className={cn('min-w-45 relative')}>
         <View className="absolute flex h-full w-full flex-row rounded-3xl">
           <View
             className={cn(
-              'border-outline h-full w-7 rounded-bl-3xl rounded-tl-3xl border-2 border-r-0',
+              'border-border-secondary h-full w-7 rounded-bl-3xl rounded-tl-3xl border-2 border-r-0',
               error ? 'border-error' : undefined
             )}
           />
           <View
             className={cn(
-              'border-outline h-full flex-col justify-between border-b-2',
+              'border-border-secondary h-full flex-col justify-between border-b-2',
               label === undefined ? 'border-t-2' : undefined,
               error ? 'border-error' : undefined
             )}>
             {label && (
               <Text
                 className={cn(
-                  'text-outline z-20 -translate-y-1/2 px-2.5 font-semibold',
+                  'text-border-secondary z-20 -translate-y-1/2 px-2.5 font-semibold',
                   error ? 'text-error' : undefined
                 )}>
                 {label}
@@ -37,13 +37,13 @@ const Input = ({ error, label, inputProps, className, ...props }: InputProps) =>
           </View>
           <View
             className={cn(
-              'border-outline h-full flex-1 rounded-br-3xl rounded-tr-3xl border-2 border-l-0',
+              'border-border-secondary h-full flex-1 rounded-br-3xl rounded-tr-3xl border-2 border-l-0',
               error ? 'border-error' : undefined
             )}
           />
         </View>
         <TextInput
-          className="text-on-background bg-background/10 h-16 overflow-hidden rounded-3xl px-5"
+          className="text-foreground bg-background/10 h-16 overflow-hidden rounded-3xl px-5"
           selectionColor={'#904a4b'}
           {...inputProps}
         />
