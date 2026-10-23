@@ -120,15 +120,12 @@ export function EventNotices({
                 <Alert.Description className="text-danger">
                   {willBeWaitlisted && 'Du legges på venteliste ved påmelding.'}
                   {penaltyRegistrationDate &&
+                    isAfter(new Date(), penaltyRegistrationDate) &&
                     `Du kan ikke melde deg på før ${format(
                       new Date(penaltyRegistrationDate),
                       "EEEE d. MMMM 'kl.' HH:mm",
                       { locale: nb }
                     )}`}
-
-                  {!willBeWaitlisted &&
-                    !penaltyRegistrationDate &&
-                    'Du kan likevel melde deg på arrangementet.'}
                 </Alert.Description>
               </Alert.Content>
               <Icon name="Link" size={16} className="text-danger" />
