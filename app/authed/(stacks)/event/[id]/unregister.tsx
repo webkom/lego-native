@@ -98,21 +98,10 @@ const UnregisterPage = () => {
         contentContainerStyle={{ flexGrow: 1, paddingBottom: 24 }}
         showsVerticalScrollIndicator={false}>
         <View className="flex-col items-center gap-6 px-6 pt-2">
-          {/* Mascot Section */}
           <View className="items-center">
-            <PlayfulCookieMascot className="scale-120 my-5" />
-
-            {/* Playful Headline */}
             <Typography type="h2" className="mt-4 text-center font-bold">
-              {isWaitlisted ? 'Vil du forlate ventelisten? 🥺' : 'Er du sikker på dette, da?'}
+              {isWaitlisted ? 'Vil du forlate ventelisten?' : 'Vil du melde deg av?'}
             </Typography>
-
-            {/* Punchline / commentary */}
-            <View className="mt-2 min-h-12 items-center justify-center px-4">
-              <Typography type="body-sm" className="text-accent-foreground text-center italic">
-                Tenk på all moroa du går glipp av... Sofaen er der i morgen også ✨
-              </Typography>
-            </View>
           </View>
 
           {/* Event Preview Card */}
