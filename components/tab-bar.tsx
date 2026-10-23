@@ -2,7 +2,7 @@ import { iconWithClassName } from '@/lib/iconWithClassName';
 import { cn } from '@/lib/utils';
 import { Tabs, usePathname, useRouter } from 'expo-router';
 import { Typography } from 'heroui-native';
-import { CalendarIcon, QrCodeIcon, UserIcon } from 'lucide-react-native';
+import { CalendarIcon, HouseIcon, QrCodeIcon, UserIcon } from 'lucide-react-native';
 import { MotiView, useDynamicAnimation } from 'moti';
 import React, { ComponentProps } from 'react';
 import { Pressable, View } from 'react-native';
@@ -10,6 +10,7 @@ import { Pressable, View } from 'react-native';
 const QrCode = iconWithClassName(QrCodeIcon);
 const Calendar = iconWithClassName(CalendarIcon);
 const User = iconWithClassName(UserIcon);
+const House = iconWithClassName(HouseIcon);
 
 // Infer the correct props from one of the lucide icons:
 type IconProps = ComponentProps<typeof UserIcon> & { className?: string };
@@ -29,6 +30,12 @@ const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
           selected={pathName.includes('abaid')}
           label="AbaID"
           onPress={() => router.push('/authed/(tabs)/abaid')}
+        />
+        <TabBarButton
+          Icon={House}
+          selected={pathName.includes('home')}
+          label="Hjem"
+          onPress={() => router.push('/authed/(tabs)/home')}
         />
         <TabBarButton
           Icon={Calendar}
@@ -93,10 +100,7 @@ const TabBarButton = ({
             }}
           />
         </View>
-        <Icon
-          size={22}
-          className={selected ? 'text-primary-foreground' : 'text-primary-foreground'}
-        />
+        <Icon size={22} className={selected ? 'text-primary-foreground' : 'text-foreground'} />
       </View>
       <Typography
         type="body-xs"
