@@ -39,7 +39,10 @@ export function EventNotices({
   );
 
   const showPenaltyWarning = Boolean(
-    totalCurrentPenalties > 0 && !isUserSignedUp && canSignUpLater
+    totalCurrentPenalties > 0 &&
+      !isUserSignedUp &&
+      canSignUpLater &&
+      isBefore(new Date(), penaltyRegistrationDate ?? new Date())
   );
 
   const unregistrationDeadline = event?.unregistrationDeadline
@@ -121,7 +124,7 @@ export function EventNotices({
                   {willBeWaitlisted && 'Du legges på venteliste ved påmelding.'}
                   {penaltyRegistrationDate &&
                     isBefore(new Date(), penaltyRegistrationDate) &&
-                    `Du kan ikke melde deg på før ${format(
+                    `Påmeldingen din er forskjøvet til ${format(
                       new Date(penaltyRegistrationDate),
                       "EEEE d. MMMM 'kl.' HH:mm",
                       { locale: nb }

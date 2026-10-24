@@ -12,9 +12,15 @@ type TitleSectionProps = {
   totalCapacity?: number;
   className?: string;
   isRegistered?: boolean;
+  waitingListPosition?: number;
 };
 
-export function TitleSection({ event, className, isRegistered }: TitleSectionProps) {
+export function TitleSection({
+  event,
+  className,
+  isRegistered,
+  waitingListPosition,
+}: TitleSectionProps) {
   const responsibleGroupName = event?.responsibleGroup?.name;
 
   return (
@@ -28,8 +34,9 @@ export function TitleSection({ event, className, isRegistered }: TitleSectionPro
         />
 
         <AnimatePresence>
-          {isRegistered && (
+          {isRegistered && waitingListPosition === undefined && (
             <MotiView
+              key="registered-chip"
               from={{
                 opacity: 0,
                 top: 10,
@@ -46,6 +53,28 @@ export function TitleSection({ event, className, isRegistered }: TitleSectionPro
               <Chip color="success">
                 <Icon name="Check" size={16} />
                 <Chip.Label>PÅMELDT</Chip.Label>
+              </Chip>
+            </MotiView>
+          )}
+          {waitingListPosition !== undefined && (
+            <MotiView
+              key="waitlisted-chip"
+              from={{
+                opacity: 0,
+                top: 10,
+              }}
+              animate={{
+                opacity: 1,
+                top: 0,
+              }}
+              exit={{
+                opacity: 0,
+                top: 10,
+              }}
+              className="overflow-hidden">
+              <Chip color="warning">
+                <Icon name="ListCheck" size={16} />
+                <Chip.Label>{waitingListPosition}. PLASS PÅ VENTELISTEN</Chip.Label>
               </Chip>
             </MotiView>
           )}

@@ -16,7 +16,6 @@ import { Turnstile } from '@/components/screens/event/turnstile';
 import { useEventDetails } from '@/hooks/useEventDetails';
 import { useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Typography } from 'heroui-native';
 import { useCallback, useState } from 'react';
 import { Image, NativeScrollEvent, NativeSyntheticEvent, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -45,7 +44,6 @@ export default function EventsPage() {
     isError,
     isLoading,
     isRefetchingEvent,
-    eligibilityReason,
     isUserSignedUp,
     isSignedUpOrWaitlisted,
     refetchSurveys,
@@ -54,6 +52,7 @@ export default function EventsPage() {
     unansweredSurveys,
     isPastRegistrationDeadline,
     willBeWaitlisted,
+    bestWaitingListPosition,
   } = useEventDetails(id?.toString() ?? '');
 
   const [scroll, setScroll] = useState(0);
@@ -89,7 +88,11 @@ export default function EventsPage() {
             <HeroSection event={event} onBack={handleBack} />
 
             {/* Event Category Badge, Title & Host Attribution */}
-            <TitleSection event={event} isRegistered={isUserSignedUp} />
+            <TitleSection
+              event={event}
+              isRegistered={isUserSignedUp}
+              waitingListPosition={bestWaitingListPosition}
+            />
 
             {/* Unified Notices (Penalty warning, Registration opening countdown, Unregistration deadline, Unanswered surveys, Waitlist) */}
             <EventNotices

@@ -90,6 +90,19 @@ export const useEventDetails = (eventId: string) => {
     [userRegistration, event]
   );
 
+  const bestWaitingListPosition = useMemo(() => {
+    if (!waitingListPositions) return undefined;
+
+    if (typeof waitingListPositions === 'number') return waitingListPositions;
+
+    if (Array.isArray(waitingListPositions)) {
+      const positions = waitingListPositions.map((pos) => pos.position);
+      return Math.min(...positions);
+    }
+
+    return undefined;
+  }, [waitingListPositions]);
+
   const isAttendanceActionLoading =
     signUp.status === 'pending' || isAttendanceLoading || (!isUserSignedUp && !turnstileToken);
 
@@ -217,5 +230,6 @@ export const useEventDetails = (eventId: string) => {
     waitingListPositions,
     isPastUnregistrationDeadline,
     isPastRegistrationDeadline,
+    bestWaitingListPosition,
   };
 };
