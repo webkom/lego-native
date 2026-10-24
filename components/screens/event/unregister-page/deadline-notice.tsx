@@ -27,9 +27,9 @@ export function UnregisterDeadlineNotice({
           <Alert.Content>
             <Alert.Title>Prikk-alarm! 🚨</Alert.Title>
             <Alert.Description>
-              {`Fristen var ${format(unregistrationDeadline, "d. MMM 'kl.' HH:mm", {
+              {`Fristen for avmelding var ${format(unregistrationDeadline, "d. MMM 'kl.' HH:mm", {
                 locale: nb,
-              })}. Avmelding nå medfører 1 prikk! Er det virkelig verdt det? 😬`}
+              })}. Avmelding nå medfører 1 prikk!`}
             </Alert.Description>
           </Alert.Content>
         </Alert>

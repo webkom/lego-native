@@ -117,6 +117,7 @@ export const useEventDetails = (eventId: string) => {
         )
       )
   );
+
   const isSignedUpOrWaitlisted = Boolean(isUserSignedUp ?? waitingListPositions !== undefined);
   const requiresFeedback = Boolean(event?.feedbackRequired && canSignUpLater && !isUserSignedUp);
   const isAttendanceButtonLoading = isAttendanceActionLoading || isRefetchingEvent;

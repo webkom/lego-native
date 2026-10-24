@@ -148,7 +148,7 @@ export function EventNotices({
       )}
 
       {/* 3. Unregistration Deadline Notice */}
-      {canSignUp && unregistrationDeadline && (
+      {canSignUp && unregistrationDeadline && event?.heedPenalties && (
         <Alert status="danger" className="bg-danger-soft">
           <Alert.Indicator />
           <Alert.Content>
