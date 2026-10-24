@@ -1,11 +1,8 @@
-import React from 'react';
-import { View, Text, ScrollView, ActivityIndicator } from 'react-native';
-import EventItem from '../../../../components/eventItem';
-import { StatusBar } from 'expo-status-bar';
 import Header from '@/components/header';
-import type { components } from '@/lib/types/schema';
 import { useEvents } from '@/lib/hooks/useEvents';
-import { EVENTS_LIMIT, others, presentations } from '@/lib/constants/events';
+import type { components } from '@/lib/types/schema';
+import { StatusBar } from 'expo-status-bar';
+import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 
 type EventTypeEnum = components['schemas']['EventTypeEnum'];
 
