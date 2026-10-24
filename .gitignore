@@ -29,3 +29,5 @@ google-services.json
 
 .agents
 skills-lock.json
+
+.vscode/settings.json
