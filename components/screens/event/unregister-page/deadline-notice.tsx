@@ -29,7 +29,7 @@ export function UnregisterDeadlineNotice({
             <Alert.Description>
               {`Fristen for avmelding var ${format(unregistrationDeadline, "d. MMM 'kl.' HH:mm", {
                 locale: nb,
-              })}. Avmelding nå medfører 1 prikk!`}
+              })}. Avmelding nå medfører 1 prikk.`}
             </Alert.Description>
           </Alert.Content>
         </Alert>
@@ -40,10 +40,10 @@ export function UnregisterDeadlineNotice({
             <Alert.Title>{isWaitlisted ? 'Køplass frigis' : 'Innenfor fristen ✨'}</Alert.Title>
             <Alert.Description>
               {isWaitlisted
-                ? 'Du står på venteliste og får ingen prikk, men gir fra deg køplassen.'
+                ? 'Du gir fra deg plassen på ventelisten.'
                 : `Avmeldingsfrist: ${format(unregistrationDeadline, "EEEE d. MMMM 'kl.' HH:mm", {
                     locale: nb,
-                  })}. Du slipper prikk, og noen i køen jubler!`}
+                  })}.`}
             </Alert.Description>
           </Alert.Content>
         </Alert>
