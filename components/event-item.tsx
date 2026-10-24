@@ -1,11 +1,8 @@
 import { format } from 'date-fns';
 import { nb } from 'date-fns/locale';
-import { Image as ExpoImage } from 'expo-image';
 import { Link } from 'expo-router';
 import { Card } from 'heroui-native';
-import { useState } from 'react';
 import { TouchableOpacity } from 'react-native';
-import { withUniwind } from 'uniwind';
 import { EventTypeConfig } from '../lib/types/eventColors';
 import type { components } from '../lib/types/schema';
 
@@ -16,32 +13,29 @@ interface EventItemProps {
   event: Event;
 }
 
-const Image = withUniwind(ExpoImage);
-
 export default function EventItem({ id, event }: EventItemProps) {
-  const [imageError, setImageError] = useState(false);
   const eventColor = EventTypeConfig[event.eventType].color;
 
-  const isAdmitted = String(event.isAdmitted) === 'true';
+  // const isAdmitted = String(event.isAdmitted) === 'true';
 
-  const getRegistrationStatus = () => {
-    if (event.eventStatusType === 'OPEN' || event.eventStatusType === 'INFINITE') {
-      return 'Åpent for alle';
-    }
-    if (isAdmitted) {
-      return 'Påmeldt';
-    }
-    if (event.userReg && event.eventStatusType === 'NORMAL') {
-      return 'På venteliste';
-    }
-    if (event.activationTime) {
-      if (new Date(event.activationTime) > new Date()) {
-        return 'Snart åpent';
-      }
-      return 'Åpnet';
-    }
-    return 'Kan ikke melde på';
-  };
+  // const getRegistrationStatus = () => {
+  //   if (event.eventStatusType === 'OPEN' || event.eventStatusType === 'INFINITE') {
+  //     return 'Åpent for alle';
+  //   }
+  //   if (isAdmitted) {
+  //     return 'Påmeldt';
+  //   }
+  //   if (event.userReg && event.eventStatusType === 'NORMAL') {
+  //     return 'På venteliste';
+  //   }
+  //   if (event.activationTime) {
+  //     if (new Date(event.activationTime) > new Date()) {
+  //       return 'Snart åpent';
+  //     }
+  //     return 'Åpnet';
+  //   }
+  //   return 'Kan ikke melde på';
+  // };
 
   // const getCapacity = () => {
   //   if (!Number(event.registrationCount)) {
@@ -58,22 +52,12 @@ export default function EventItem({ id, event }: EventItemProps) {
 
   return (
     <Link href={`/authed/(stacks)/event/${id}`} asChild>
-      <TouchableOpacity className="w-full ">
-        <Card className="flex-row gap-3">
-          {event.cover ? (
-            <Image
-              source={imageError ? require('@/assets/images/sondray.png') : { uri: event.cover }}
-              onError={() => {
-                if (imageError) return;
-                console.log('Image error');
-                setImageError(true);
-              }}
-              className="h-13 w-13 rounded-md"
-              contentFit="cover"
-              transition={200}
-            />
-          ) : null}
-
+      <TouchableOpacity className="w-full">
+        <Card
+          className="flex-row gap-3 border-2 py-2"
+          style={{
+            borderColor: eventColor,
+          }}>
           <Card.Body className="flex-1">
             <Card.Title numberOfLines={1} className="whitespace-break-spaces">
               {event.title}

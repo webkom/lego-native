@@ -1,4 +1,4 @@
-import EventItem from '@/components/eventItem';
+import EventItem from '@/components/event-item';
 import { components } from '@/lib/types/schema';
 import { cn, Typography } from 'heroui-native';
 import { ComponentProps } from 'react';
@@ -32,10 +32,10 @@ const EventsDigest = ({
         className="w-full flex-1"
         sections={sections}
         keyExtractor={(item) => item.id.toString()}
-        contentContainerClassName="gap-2.5 pb-4 py-safe-offset-4"
+        contentContainerClassName="gap-1 pb-4"
         stickySectionHeadersEnabled={false}
         refreshControl={<RefreshControl refreshing={isRefetching} onRefresh={onRefetch} />}
-        renderSectionHeader={({ section: { title } }) => <Typography>{title}</Typography>}
+        renderSectionHeader={({ section: { title } }) => <Typography type="h2">{title}</Typography>}
         renderItem={({ item }) => <EventItem id={item.id} event={item} />}
         onEndReached={onEndReached}
         onEndReachedThreshold={0.5}

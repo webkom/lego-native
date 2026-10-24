@@ -1,9 +1,13 @@
 import EventsDigest from '@/components/screens/home/events-digest';
+import Poll from '@/components/screens/home/poll';
 import { useEvents } from '@/lib/hooks/useEvents';
+import { Image as ExpoImage } from 'expo-image';
+import { useTheme } from 'expo-router/react-navigation';
 import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
 import { withUniwind } from 'uniwind';
 
 const SafeAreaView = withUniwind(RNSafeAreaView);
+const Image = withUniwind(ExpoImage);
 
 // const presentations = mapEvents([
 //     EventType.COMPANY_PRESENTATION,
@@ -22,6 +26,7 @@ const SafeAreaView = withUniwind(RNSafeAreaView);
 //   ]);
 
 const HomePage = () => {
+  const theme = useTheme();
   const {
     data: events,
     fetchNextPage,
@@ -56,7 +61,19 @@ const HomePage = () => {
     <>
       <SafeAreaView
         edges={['left', 'right']}
-        className="flex h-full w-full flex-1 items-center justify-center px-4">
+        className="flex h-full w-full flex-1 justify-center gap-5 px-4">
+        {theme.dark ? (
+          <Image
+            source={require('@/assets/images/abakus-logo-light.png')}
+            className="w-50 mt-safe-offset-2 mb-5 h-10"
+          />
+        ) : (
+          <Image
+            source={require('@/assets/images/abakus-logo-dark.png')}
+            className="w-50 mt-safe-offset-2 h-10"
+          />
+        )}
+        <Poll />
         <EventsDigest
           isRefetching={isRefetching}
           onRefetch={refetch}
