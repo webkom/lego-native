@@ -1,4 +1,4 @@
-import { UnansweredSurveysCard } from '@/components/events/UnansweredSurveysCard';
+import { UnansweredSurveysCard } from '@/components/events/unanswered-surveys-card';
 import Icon from '@/components/icon';
 import { format, isAfter, isBefore } from 'date-fns';
 import { nb } from 'date-fns/locale';
@@ -92,7 +92,7 @@ export function EventNotices({
         </Alert>
       )}
 
-      {!canSignUp && !canSignUpLater && !registrationClosed && (
+      {!canSignUp && !canSignUpLater && !registrationClosed && !showSurveyWarning && (
         <Alert status="danger" className="bg-danger-soft">
           <Alert.Indicator />
           <Alert.Content>

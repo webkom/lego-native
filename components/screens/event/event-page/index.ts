@@ -11,4 +11,4 @@ export { EventQuickFacts } from './event-quick-facts';
 export { EventNotices } from './event-notices';
 export { BusinessDetails } from './business-details';
 export { FeedbackForm } from './feedback-form';
-export { UnansweredSurveysCard } from '@/components/events/UnansweredSurveysCard';
+export { UnansweredSurveysCard } from '@/components/events/unanswered-surveys-card';

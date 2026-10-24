@@ -16,6 +16,7 @@ import { Turnstile } from '@/components/screens/event/turnstile';
 import { useEventDetails } from '@/hooks/useEventDetails';
 import { useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { Typography } from 'heroui-native';
 import { useCallback, useState } from 'react';
 import { Image, NativeScrollEvent, NativeSyntheticEvent, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -44,6 +45,7 @@ export default function EventsPage() {
     isError,
     isLoading,
     isRefetchingEvent,
+    eligibilityReason,
     isUserSignedUp,
     isSignedUpOrWaitlisted,
     refetchSurveys,

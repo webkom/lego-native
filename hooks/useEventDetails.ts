@@ -1,6 +1,6 @@
 import { getWaitingListPosition } from '@/lib/getWaitingListPosition';
 import { useEvent } from '@/lib/hooks/useEvent';
-import { isAfter } from 'date-fns';
+import { isAfter, isBefore } from 'date-fns';
 import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Alert } from 'react-native';
@@ -106,8 +106,17 @@ export const useEventDetails = (eventId: string) => {
     return isAfter(new Date(), new Date(event?.registrationCloseTime));
   }, [event?.registrationCloseTime]);
 
+  const eventStartTime = new Date(event?.startTime ?? '');
   const canSignUpLater = Boolean(earliestRegistrationTime);
-  const canSignOff = Boolean(isUserSignedUp && !isPastUnregistrationDeadline);
+  const canSignOff = Boolean(
+    isUserSignedUp &&
+      isBefore(
+        new Date(),
+        eventStartTime.setHours(
+          eventStartTime.getHours() - (event?.unregistrationDeadlineHours ?? 0)
+        )
+      )
+  );
   const isSignedUpOrWaitlisted = Boolean(isUserSignedUp ?? waitingListPositions !== undefined);
   const requiresFeedback = Boolean(event?.feedbackRequired && canSignUpLater && !isUserSignedUp);
   const isAttendanceButtonLoading = isAttendanceActionLoading || isRefetchingEvent;
