@@ -1,6 +1,5 @@
 import Icon from '@/components/icon';
 import {
-  PlayfulCookieMascot,
   UnregisterActionBar,
   UnregisterDeadlineNotice,
   UnregisterEventCard,
