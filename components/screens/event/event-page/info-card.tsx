@@ -8,13 +8,30 @@ type InfoCardProps = {
   title?: string;
   icon?: ComponentProps<typeof Icon>['name'];
   iconComponent?: React.ReactNode;
+  iconClassName?: string;
+  iconContainerClassName?: string;
 } & ComponentProps<typeof Card>;
 
-const InfoCard = ({ children, title, icon, iconComponent, className }: InfoCardProps) => {
+const InfoCard = ({
+  children,
+  title,
+  icon,
+  iconComponent,
+  iconClassName,
+  iconContainerClassName,
+  className,
+  ...props
+}: InfoCardProps) => {
   return (
-    <Card className={cn('flex-1 shrink-0', className)}>
-      <Card.Header>
-        <InfoCard.Title icon={icon} iconComponent={iconComponent} title={title} />
+    <Card className={cn('flex-1', className)} {...props}>
+      <Card.Header className="mb-2">
+        <InfoCard.Title
+          icon={icon}
+          iconComponent={iconComponent}
+          title={title}
+          iconClassName={iconClassName}
+          iconContainerClassName={iconContainerClassName}
+        />
       </Card.Header>
       <Card.Body>{children}</Card.Body>
     </Card>
@@ -25,15 +42,28 @@ type InfoCardTitleProps = {
   title?: string;
   icon?: ComponentProps<typeof Icon>['name'];
   iconComponent?: React.ReactNode;
+  iconClassName?: string;
+  iconContainerClassName?: string;
   className?: string;
 };
 
-InfoCard.Title = ({ icon, iconComponent, title, className }: InfoCardTitleProps) => {
+InfoCard.Title = ({
+  icon,
+  iconComponent,
+  title,
+  iconClassName,
+  iconContainerClassName,
+  className,
+}: InfoCardTitleProps) => {
   return (
-    <View className="flex-row items-center gap-1.5">
+    <View className={cn('flex-row items-center gap-1.5', className)}>
       {(icon || iconComponent) && (
-        <View className="bg-primary/10 h-6 w-6 items-center justify-center rounded-md">
-          {icon && <Icon name={icon} size={14} className="text-primary" />}
+        <View
+          className={cn(
+            'h-6 w-6 items-center justify-center rounded-md',
+            iconContainerClassName ?? 'bg-primary/10'
+          )}>
+          {icon && <Icon name={icon} size={14} className={iconClassName ?? 'text-primary'} />}
           {iconComponent}
         </View>
       )}

@@ -31,7 +31,7 @@ const config: ExpoConfig = {
   ],
   orientation: 'portrait',
   icon: './assets/icon.png',
-  userInterfaceStyle: 'light',
+  userInterfaceStyle: 'automatic',
   assetBundlePatterns: ['**/*'],
   ios: {
     bundleIdentifier: 'no.abakus.app',

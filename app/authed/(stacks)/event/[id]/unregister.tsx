@@ -1,12 +1,18 @@
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
+import Icon from '@/components/icon';
+import {
+  PlayfulCookieMascot,
+  UnregisterActionBar,
+  UnregisterDeadlineNotice,
+  UnregisterEventCard,
+} from '@/components/screens/event/unregister-page';
 import { useEventDetails } from '@/hooks/useEventDetails';
-import { format, isAfter } from 'date-fns';
-import { nb } from 'date-fns/locale';
+import { isAfter } from 'date-fns';
+import { setAudioModeAsync, useAudioPlayer } from 'expo-audio';
 import { router, useLocalSearchParams } from 'expo-router';
-import { CircleAlert, ClockAlert } from 'lucide-react-native';
-import { useState } from 'react';
-import { Alert as SystemAlert, Text, View, ActivityIndicator } from 'react-native';
+import { Typography } from 'heroui-native';
+import { MotiView } from 'moti';
+import { useEffect, useState } from 'react';
+import { ScrollView, Alert as SystemAlert, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
 import { withUniwind } from 'uniwind';
 
@@ -14,8 +20,23 @@ const SafeAreaView = withUniwind(RNSafeAreaView);
 
 const UnregisterPage = () => {
   const { id } = useLocalSearchParams<{ id?: string | string[] }>();
-  const { handleSignOff, event } = useEventDetails(id?.toString() ?? '');
+  const {
+    handleSignOff,
+    event,
+    waitingListPositions,
+    isLoading: eventLoading,
+  } = useEventDetails(id?.toString() ?? '');
   const [isLoading, setIsLoading] = useState(false);
+
+  const soundSource = require('@/assets/audio/confirmation-pop.mp3');
+  const player = useAudioPlayer(soundSource);
+
+  useEffect(() => {
+    setAudioModeAsync({
+      playsInSilentMode: false,
+      interruptionMode: 'mixWithOthers',
+    });
+  }, []);
 
   const unregistrationDeadline = event?.unregistrationDeadline
     ? new Date(event.unregistrationDeadline)
@@ -25,6 +46,18 @@ const UnregisterPage = () => {
       ? isAfter(new Date(), unregistrationDeadline)
       : false;
 
+  const isWaitlisted = waitingListPositions !== undefined;
+
+  const handleKeepRegistration = () => {
+    try {
+      player.seekTo(0);
+      player.play();
+    } catch {
+      // Audio is best effort
+    }
+    router.back();
+  };
+
   const signOff = () => {
     setIsLoading(true);
     handleSignOff()
@@ -32,51 +65,72 @@ const UnregisterPage = () => {
         router.back();
       })
       .catch((error) => {
-        SystemAlert.alert(
-          'Feil',
-          error ?? 'En feil oppstod under avregistrering. Vennligst prøv igjen senere.'
-        );
+        const errorMessage =
+          error instanceof Error
+            ? error.message
+            : typeof error === 'string'
+              ? error
+              : 'En feil oppstod under avregistrering. Vennligst prøv igjen senere.';
+        SystemAlert.alert('Feil', errorMessage);
         router.back();
       })
       .finally(() => setIsLoading(false));
   };
 
   return (
-    <SafeAreaView className="h-full">
-      <View className="flex-1 items-center justify-center">
-        <View className="flex w-full max-w-xl flex-col items-center gap-5 px-10">
-          <Text className="text-lg font-semibold">Er du sikker på at du vil avregistrere?</Text>
-          {isPastUnregisterDeadline && unregistrationDeadline && (
-            <Alert
-              icon={isPastUnregisterDeadline ? CircleAlert : ClockAlert}
-              variant={isPastUnregisterDeadline ? 'destructive' : 'default'}>
-              <AlertTitle>
-                {isPastUnregisterDeadline ? 'Avmelding gir prikk' : 'Avmeldingsfrist'}
-              </AlertTitle>
-              <AlertDescription>
-                {isPastUnregisterDeadline
-                  ? `Fristen var ${format(unregistrationDeadline, "d. MMM 'kl.' HH:mm", {
-                      locale: nb,
-                    })}.`
-                  : `${format(unregistrationDeadline, "EEEE d. MMMM 'kl.' HH:mm", { locale: nb })}`}
-              </AlertDescription>
-            </Alert>
+    <SafeAreaView className="bg-background flex-1">
+      {/* Top Navigation Bar */}
+      <View className="flex-row items-center justify-between px-5 py-3">
+        <TouchableOpacity
+          activeOpacity={0.7}
+          onPress={() => router.back()}
+          className="bg-surface border-border/80 h-10 w-10 items-center justify-center rounded-full border shadow-sm">
+          <Icon name="ArrowLeft" size={20} className="text-default-foreground" />
+        </TouchableOpacity>
+        <Typography type="body-sm" className="text-accent-foreground font-semibold">
+          Avmelding
+        </Typography>
+        <View className="w-10" />
+      </View>
+
+      <ScrollView
+        className="flex-1"
+        contentContainerStyle={{ flexGrow: 1, paddingBottom: 24 }}
+        showsVerticalScrollIndicator={false}>
+        <View className="flex-col items-center gap-6 px-6 pt-2">
+          <View className="items-center">
+            <Typography type="h2" className="mt-4 text-center font-bold">
+              {isWaitlisted ? 'Vil du forlate ventelisten?' : 'Vil du melde deg av?'}
+            </Typography>
+          </View>
+
+          {/* Event Preview Card */}
+
+          {!eventLoading && (
+            <MotiView
+              from={{ opacity: 0, translateY: 20 }}
+              animate={{ opacity: 1, translateY: 0 }}
+              transition={{ type: 'timing', duration: 300 }}
+              className="flex w-full flex-col items-center gap-6">
+              {event && <UnregisterEventCard event={event} isWaitlisted={isWaitlisted} />}
+
+              {/* Deadline / Penalty Notice */}
+              <UnregisterDeadlineNotice
+                unregistrationDeadline={unregistrationDeadline}
+                isPastUnregisterDeadline={isPastUnregisterDeadline}
+                isWaitlisted={isWaitlisted}
+              />
+            </MotiView>
           )}
         </View>
+      </ScrollView>
 
-        <View className="absolute bottom-0 w-full p-4">
-          <Button
-            variant={'destructive'}
-            className="h-16 w-full text-nowrap rounded-full shadow-md"
-            onPress={signOff}>
-            {isLoading ? (
-              <ActivityIndicator className="text-primary-foreground" />
-            ) : (
-              <Text className="text-primary-foreground text-nowrap text-lg font-bold">Jepp</Text>
-            )}
-          </Button>
-        </View>
-      </View>
+      {/* Action Buttons */}
+      <UnregisterActionBar
+        isLoading={isLoading}
+        onKeepRegistration={handleKeepRegistration}
+        onSignOff={signOff}
+      />
     </SafeAreaView>
   );
 };

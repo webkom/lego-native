@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 
 type EventActionBarProps = {
+  canSignOff: boolean;
   canSignUp: boolean;
   turnstileToken: string | null;
   isUserSignedUp: boolean;
@@ -18,6 +19,7 @@ type EventActionBarProps = {
 
 export function EventActionBar({
   canSignUp,
+  canSignOff,
   turnstileToken,
   isUserSignedUp,
   eventId,
@@ -48,16 +50,26 @@ export function EventActionBar({
   return (
     <View className="pb-safe-offset-0 border-border bg-background absolute bottom-0 w-full border-t">
       <AnimatePresence>
-        {!turnstileToken && (
+        {!turnstileToken && !isUserSignedUp && (
           <View className="absolute -top-12 w-full items-center justify-center overflow-hidden">
             <MotiView
               key="verifying-message"
-              className="bg-secondary flex-row items-center gap-2 rounded-full px-5 py-2"
+              className="bg-surface-tertiary rounded-full px-5 py-2"
               from={{ translateY: 100 }}
               animate={{ translateY: 0 }}
               exit={{ translateY: 100 }}>
-              <ActivityIndicator className="text-secondary-foreground" />
-              <Text>Verifiserer at du er et menneske</Text>
+              <MotiView
+                key="verifying-message-content"
+                className=" flex-row items-center gap-2"
+                from={{ translateY: 100 }}
+                animate={{ translateY: 0 }}
+                exit={{ translateY: 100 }}
+                transition={{
+                  delay: 25,
+                }}>
+                <ActivityIndicator colorClassName="accent-primary" />
+                <Text>Sjekker at du er et menneske</Text>
+              </MotiView>
             </MotiView>
           </View>
         )}
@@ -65,7 +77,7 @@ export function EventActionBar({
       <View className="px-5 py-4">
         <AttendanceButton
           isUserSignedUp={isUserSignedUp}
-          eventId={eventId}
+          canSignOff={canSignOff}
           scroll={scroll}
           isLoading={isLoading}
           onSignUp={() => onSignUp()?.then(() => triggerFeedback())}
