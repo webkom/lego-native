@@ -6710,13 +6710,13 @@ export interface components {
          *     * `event_closed` - Event closed
          *     * `no_photo_consents` - No photo consents
          *     * `event_not_ready` - Event not ready
-         *     * `no_available_pools` - No available pools
+         *     * `no_registration` - No registration
          *     * `not_open_yet` - Not open yet
          *     * `too_many_penalties` - Too many penalties
          *     * `penalty_induced_delayed_registration` - Penalty induced delayed registration
          * @enum {string}
          */
-        ReasonEnum: "none" | "no_active_pool" | "no_eligible_pool" | "unanswered_surveys" | "event_closed" | "no_photo_consents" | "event_not_ready" | "no_available_pools" | "not_open_yet" | "too_many_penalties" | "penalty_induced_delayed_registration";
+        ReasonEnum: "none" | "no_active_pool" | "no_eligible_pool" | "unanswered_surveys" | "event_closed" | "no_photo_consents" | "event_not_ready" | "no_registration" | "not_open_yet" | "too_many_penalties" | "penalty_induced_delayed_registration";
         /** @description Serializer used for refreshing JWTs. */
         RefreshAuthToken: {
             token: string;
@@ -6744,13 +6744,12 @@ export interface components {
             paymentStatus?: components["schemas"]["PaymentStatusEnum"];
         };
         RegistrationEligibility: {
-            canRegisterNow: boolean;
             reason?: (components["schemas"]["ReasonEnum"] | components["schemas"]["NullEnum"]) | null;
             isRegistrationDelayed?: boolean | null;
             /** Format: date-time */
-            delayUntil?: string | null;
+            earliestRegistrationTime?: string | null;
             willBeWaitingList?: boolean | null;
-            canRegisterLater?: boolean | null;
+            registrationDisallowed?: boolean | null;
         };
         RegistrationPaymentRead: {
             readonly id: number;

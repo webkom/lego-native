@@ -1,17 +1,15 @@
 import Icon from '@/components/icon';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
 import { components } from '@/lib/types/schema';
 import { cn } from '@/lib/utils';
 import { Image } from 'expo-image';
-import { Surface } from 'heroui-native';
-import React, { ComponentProps, useState } from 'react';
+import { Chip, Surface, Typography } from 'heroui-native';
+import { ComponentProps, useState } from 'react';
 import { Linking, TouchableOpacity, View } from 'react-native';
 import SectionTitle from './section-title';
 
 type BusinessDetailsProps = {
-  company?: components['schemas']['CompanyDetail'] | null;
+  company?: Partial<components['schemas']['CompanyDetail']> | number | null;
   className?: string;
 };
 
@@ -19,7 +17,7 @@ export function BusinessDetails({ company, className }: BusinessDetailsProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [imageLoadError, setImageLoadError] = useState(false);
 
-  if (!company || !company.name) {
+  if (!company || typeof company === 'number' || !company.name) {
     return null;
   }
 
@@ -66,7 +64,7 @@ export function BusinessDetails({ company, className }: BusinessDetailsProps) {
         {/* Header Row: Logo & Company Name */}
         <View className="flex-row items-center gap-3.5">
           {activeImageUri ? (
-            <View className="border-border bg-secondary/30 h-16 w-16 items-center justify-center overflow-hidden rounded-xl border p-2">
+            <View className="border-border bg-accent h-16 w-16 items-center justify-center overflow-hidden rounded-xl border p-2">
               <Image
                 source={{ uri: activeImageUri }}
                 contentFit="contain"
@@ -79,18 +77,20 @@ export function BusinessDetails({ company, className }: BusinessDetailsProps) {
               />
             </View>
           ) : (
-            <View className="border-border bg-secondary h-16 w-16 items-center justify-center rounded-xl border p-2">
-              <Icon name="Building2" size={28} className="text-muted-foreground" />
+            <View className="border-border bg-accent h-16 w-16 items-center justify-center rounded-xl border p-2">
+              <Icon name="Building2" size={28} className="text-default-soft-foreground" />
             </View>
           )}
 
           <View className="flex-1 gap-1">
-            <Text className="text-foreground text-xl font-bold">{company.name}</Text>
+            <Typography type="h3" className="font-bold">
+              {company.name}
+            </Typography>
             <View className="flex flex-row">
               {company.companyType && (
-                <Badge className="w-fit min-w-0">
-                  <Text className="min-w-0 text-center">{company.companyType}</Text>
-                </Badge>
+                <Chip size="sm">
+                  <Chip.Label>{company.companyType}</Chip.Label>
+                </Chip>
               )}
             </View>
           </View>
@@ -100,7 +100,9 @@ export function BusinessDetails({ company, className }: BusinessDetailsProps) {
         {company.description && (
           <TouchableOpacity activeOpacity={0.7} onPress={() => setIsExpanded(!isExpanded)}>
             <View className="gap-2 pt-3">
-              <Text className="text-muted-foreground text-sm leading-6">{displayDescription}</Text>
+              <Typography type="body-sm" className="text-surface-foreground">
+                {displayDescription}
+              </Typography>
               {isLongDescription && (
                 <View className="flex-row items-center gap-1 self-start py-1">
                   <Text className="text-primary text-xs font-semibold">
@@ -174,7 +176,7 @@ BusinessDetails.ContactInfo = ({
           <Icon name={icon} size={16} className="text-primary" />
           <Text className="text-foreground text-xs font-medium">{label}</Text>
         </View>
-        <Icon name="ExternalLink" size={14} className="text-muted-foreground" />
+        <Icon name="ExternalLink" size={14} className="text-default-soft-foreground" />
       </Surface>
     </TouchableOpacity>
   );
