@@ -43,15 +43,15 @@ export default function EventItem({ id, event }: EventItemProps) {
     return 'Kan ikke melde på';
   };
 
-  const getCapacity = () => {
-    if (!Number(event.registrationCount)) {
-      return `${event.totalCapacity} PLASSER`;
-    }
-    return `${event.registrationCount} / ${event.totalCapacity}`;
-  };
+  // const getCapacity = () => {
+  //   if (!Number(event.registrationCount)) {
+  //     return `${event.totalCapacity} PLASSER`;
+  //   }
+  //   return `${event.registrationCount} / ${event.totalCapacity}`;
+  // };
 
-  const registrationStatus = getRegistrationStatus();
-  const capacity = getCapacity();
+  // const registrationStatus = getRegistrationStatus();
+  // const capacity = getCapacity();
   const formattedStartTime = format(new Date(event.startTime), 'eeeeee dd. MMM HH:mm', {
     locale: nb,
   });
@@ -68,7 +68,7 @@ export default function EventItem({ id, event }: EventItemProps) {
                 console.log('Image error');
                 setImageError(true);
               }}
-              className="h-20 w-20 rounded-md"
+              className="h-13 w-13 rounded-md"
               contentFit="cover"
               transition={200}
             />

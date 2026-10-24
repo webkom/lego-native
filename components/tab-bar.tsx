@@ -23,7 +23,7 @@ const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
   const pathName = usePathname();
 
   return (
-    <View className="bottom-safe-offset-2 bg-background px-5">
+    <View className="bottom-safe-offset-2 absolute inset-x-0 px-5">
       <View className="border-border bg-card flex w-full flex-row justify-evenly rounded-full border py-3 shadow-sm">
         <TabBarButton
           Icon={QrCode}
