@@ -1,9 +1,10 @@
-import { ActivityIndicator, View } from 'react-native';
+import { Spinner } from 'heroui-native';
+import { View } from 'react-native';
 
 export function LoadingState() {
   return (
     <View className="bg-background flex-1 items-center justify-center">
-      <ActivityIndicator size="large" className="text-primary" />
+      <Spinner size="lg" />
     </View>
   );
 }
