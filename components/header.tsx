@@ -43,7 +43,7 @@ const Header = ({ className }: HeaderProps) => {
       )}
       <View className="flex flex-row gap-2.5">
         <Button className="rounded-full" variant="ghost">
-          <Icon name="Settings" size={20} className="text-default-soft-hover" />
+          <Icon name="Settings" size={20} className="text-foreground" />
         </Button>
         <Link href={'/authed/(tabs)/notification-feed'} asChild>
           <Button className="rounded-full" variant="secondary">
