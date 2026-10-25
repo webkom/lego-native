@@ -1,17 +1,23 @@
 import Icon from '@/components/icon';
 import { usePoll, usePolls } from '@/lib/hooks/usePolls';
-import { Link } from 'expo-router';
+import { Link, useFocusEffect } from 'expo-router';
 import { Button, Typography } from 'heroui-native';
-import { ComponentProps } from 'react';
+import { ComponentProps, useCallback } from 'react';
 import { View } from 'react-native';
 import Poll from './poll';
 
 const FrontPagePoll = () => {
-  const { data: polls } = usePolls();
+  const { data: polls, refetch: refetchPolls } = usePolls();
   const { data: poll, vote } = usePoll(
     polls?.pages
       .flatMap((page) => page.results)
       .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())[0]?.id
+  );
+
+  useFocusEffect(
+    useCallback(() => {
+      refetchPolls();
+    }, [refetchPolls])
   );
 
   if (!poll) return null;
