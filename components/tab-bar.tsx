@@ -125,7 +125,7 @@ const TabBarButton = ({
       </View>
       <Typography
         type="body-xs"
-        className={cn(selected ? 'text-foreground font-bold' : 'text-muted-foreground')}>
+        className={cn(selected ? 'text-foreground' : 'text-muted-foreground')}>
         {label}
       </Typography>
     </Pressable>
