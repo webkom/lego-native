@@ -54,8 +54,7 @@ export const usePoll = (id?: number) => {
             ...page,
             results: page.results.map((item) =>
               item.id === variables.params.path.id
-                ?
-                  { ...item, hasAnswered: true as unknown as string }
+                ? { ...item, hasAnswered: true as unknown as string }
                 : item
             ),
           })),
