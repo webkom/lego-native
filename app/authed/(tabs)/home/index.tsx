@@ -3,6 +3,8 @@ import EventsDigest from '@/components/screens/home/events-digest';
 import PinnedArticle from '@/components/screens/home/pinned-article';
 import Poll from '@/components/screens/home/poll';
 import { useFrontPageData } from '@/hooks/useFrontPageData';
+import { format } from 'date-fns';
+import { nb } from 'date-fns/locale';
 import { RefreshControl, ScrollView, View } from 'react-native';
 import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
 import { withUniwind } from 'uniwind';
@@ -42,7 +44,12 @@ const HomePage = () => {
         <Header />
         <View className="flex flex-col gap-5 px-4">
           <EventsDigest presentations={presentations} socialEvents={other} />
-          {pinnedArticles?.[0] && <PinnedArticle {...pinnedArticles[0]} />}
+          {pinnedArticles?.[0] && (
+            <PinnedArticle
+              {...pinnedArticles[0]}
+              createdAt={format(pinnedArticles[0].createdAt, 'd. LLL', { locale: nb })}
+            />
+          )}
           <Poll />
         </View>
       </ScrollView>
