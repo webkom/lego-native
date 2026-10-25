@@ -46,7 +46,8 @@ const Poll = ({
   const [hiddenResultsHeight, setHiddenResultsHeight] = useState(0);
   const [showResultsHeight, setShowResultsHeight] = useState(0);
   const [loadedResults, setLoadedResults] = useState<PollResult[] | null>(null);
-  const [lazyLoadingError, setLazyLoadingError] = useState(false);
+  // Do something with the lazy loading error in the future
+  // const [lazyLoadingError, setLazyLoadingError] = useState(false);
 
   const submitPollResponse = useCallback(
     (optionId: number) => {
@@ -74,7 +75,8 @@ const Poll = ({
       const results = await onLoadResults();
       setLoadedResults(results);
     } catch {
-      setLazyLoadingError(true);
+      alert('Kunne ikke laste inn resultater.');
+      // setLazyLoadingError(true);
     }
   }, [onLoadResults]);
 
