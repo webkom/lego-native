@@ -40,7 +40,9 @@ const HomePage = () => {
         className="w-full flex-1"
         showsVerticalScrollIndicator={false}
         contentContainerClassName="flex flex-col justify-start gap-5 pb-safe-offset-30"
-        refreshControl={<RefreshControl refreshing={isRefetching} onRefresh={refetch} />}>
+        refreshControl={
+          <RefreshControl refreshing={isRefetching} onRefresh={refetch} progressViewOffset={50} />
+        }>
         <Header />
         <View className="flex flex-col gap-5 px-4">
           <EventsDigest presentations={presentations} socialEvents={other} />
