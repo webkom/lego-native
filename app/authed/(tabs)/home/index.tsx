@@ -9,22 +9,6 @@ import { withUniwind } from 'uniwind';
 const SafeAreaView = withUniwind(RNSafeAreaView);
 const Image = withUniwind(ExpoImage);
 
-// const presentations = mapEvents([
-//     EventType.COMPANY_PRESENTATION,
-//     EventType.LUNCH_PRESENTATION,
-//     EventType.ALTERNATIVE_PRESENTATION,
-//     EventType.COURSE,
-//     EventType.BREAKFAST_TALK,
-//     EventType.NEXUS_EVENT,
-//   ]);
-//   const other = mapEvents([
-//     EventType.OTHER,
-//     EventType.EVENT,
-//     EventType.SOCIAL,
-//     EventType.PARTY,
-//     EventType.GALA,
-//   ]);
-
 const HomePage = () => {
   const theme = useTheme();
   const {
