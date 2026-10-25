@@ -4,9 +4,11 @@ import { api } from '@/lib/services/api';
 import { useQueryClient } from '@tanstack/react-query';
 import { Button, Spinner } from 'heroui-native';
 import { ComponentProps } from 'react';
-import { View } from 'react-native';
-import { FlatList, RefreshControl } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { FlatList, RefreshControl, View } from 'react-native';
+import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
+import { withUniwind } from 'uniwind';
+
+const SafeAreaView = withUniwind(RNSafeAreaView);
 
 const PollsPage = () => {
   const {
@@ -38,51 +40,49 @@ const PollsPage = () => {
   };
 
   return (
-    <SafeAreaView edges={['left', 'right']}>
-      {!isLoading && (
-        <>
-          <FlatList
-            refreshControl={
-              <RefreshControl
-                refreshing={isRefetching}
-                onRefresh={refetch}
-                progressViewOffset={50}
-              />
-            }
-            contentContainerClassName="gap-2 pt-safe-offset-2"
-            data={polls?.pages.flatMap((p) => p.results)}
-            renderItem={({ item }) => {
-              console.log(item.validUntil);
-              return (
-                <Poll
-                  {...item}
-                  results={item.options as ComponentProps<typeof Poll>['results']}
-                  validUntil={item.validUntil}
-                  hasAnswered={Boolean(item.hasAnswered)}
-                  castVote={(optionId) =>
-                    vote.mutate({ params: { path: { id: item.id } }, body: { optionId } as any })
-                  }
-                  lazyLoadResults={true}
-                  onLoadResults={() => getPollResults(item.id)}
-                />
-              );
-            }}
-          />
-          <Button
-            onPress={() => handleFetchNextPage()}
-            isDisabled={!hasNextPage || isFetchingNextPage}
-            variant="ghost">
-            {isFetchingNextPage ? (
-              <View className="flex h-full w-full items-center justify-center">
-                <Spinner />
-              </View>
-            ) : (
-              'Hent mer'
-            )}
-          </Button>
-        </>
+    <SafeAreaView edges={['left', 'right']} className="flex h-full flex-1 flex-col gap-3">
+      {!isLoading ? (
+        <FlatList
+          refreshControl={
+            <RefreshControl
+              refreshing={isRefetching}
+              onRefresh={refetch}
+              progressViewOffset={50}
+            />
+          }
+          contentContainerClassName="gap-2 px-4 pt-safe-offset-2 pb-safe-offset-10"
+          className="w-full flex-1"
+          data={polls?.pages.flatMap((p) => p.results) ?? []}
+          keyExtractor={(item) => String(item.id)}
+          renderItem={({ item }) => (
+            <Poll
+              {...item}
+              results={item.options as ComponentProps<typeof Poll>['results']}
+              validUntil={item.validUntil}
+              hasAnswered={Boolean(item.hasAnswered)}
+              castVote={(optionId) =>
+                vote.mutate({ params: { path: { id: item.id } }, body: { optionId } as any })
+              }
+              lazyLoadResults={true}
+              onLoadResults={() => getPollResults(item.id)}
+            />
+          )}
+          ListFooterComponent={
+            hasNextPage ? (
+              <Button
+                onPress={handleFetchNextPage}
+                isDisabled={!hasNextPage || isFetchingNextPage}
+                variant="ghost">
+                {isFetchingNextPage ? <Spinner /> : 'Hent mer'}
+              </Button>
+            ) : null
+          }
+        />
+      ) : (
+        <View className="flex-1 items-center justify-center">
+          <Spinner />
+        </View>
       )}
-      {isLoading && <Spinner />}
     </SafeAreaView>
   );
 };
