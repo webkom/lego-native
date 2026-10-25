@@ -24,8 +24,8 @@ const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
   const pathName = usePathname();
 
   return (
-    <View className="pb-safe-offset-0 absolute inset-x-0 bottom-0">
-      <View className="bg-surface flex w-full flex-row justify-evenly py-3">
+    <View className=" absolute inset-x-0 bottom-0">
+      <View className="bg-surface pb-safe-offset-0 flex w-full flex-row justify-evenly py-3">
         <TabBarButton
           Icon={House}
           selected={pathName.includes('home')}
