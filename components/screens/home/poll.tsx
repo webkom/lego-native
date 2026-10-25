@@ -3,12 +3,15 @@ import PollResultItem from '@/components/screens/home/poll-result-item';
 import { usePoll, usePolls } from '@/hooks/usePolls';
 import { Button, Surface, Typography } from 'heroui-native';
 import { MotiView } from 'moti';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 
 const Poll = () => {
   const polls = usePolls();
-  const poll = polls?.data?.pages.flatMap((page) => page.results).find((p) => !p.hasAnswered);
+  const [activePollId, setActivePollId] = useState<number | null>(null);
+  const poll = activePollId
+    ? polls?.data?.pages.flatMap((page) => page.results).find((p) => p.id === activePollId)
+    : polls?.data?.pages.flatMap((page) => page.results).find((p) => !p.hasAnswered);
   const { data: pollResults, vote } = usePoll(poll?.id);
   const [isExpanded, setIsExpanded] = useState(false);
   const [contentHeight, setContentHeight] = useState(0);
@@ -18,6 +21,8 @@ const Poll = () => {
   const submitPollResponse = useCallback(
     (optionId: number) => {
       if (!poll) return;
+
+      setActivePollId(poll.id);
 
       // Need to cast to any because the backend schema is not correct
       vote.mutate({
