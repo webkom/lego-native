@@ -1,5 +1,5 @@
 import Icon from '@/components/icon';
-import { usePoll, usePolls } from '@/lib/hooks/usePolls';
+import { usePoll, usePolls, usePollVote } from '@/lib/hooks/usePolls';
 import { Link, useFocusEffect } from 'expo-router';
 import { Button, Typography } from 'heroui-native';
 import { ComponentProps, useCallback } from 'react';
@@ -8,7 +8,8 @@ import Poll from './poll';
 
 const FrontPagePoll = () => {
   const { data: polls, refetch: refetchPolls } = usePolls();
-  const { data: poll, vote } = usePoll(
+  const { vote } = usePollVote();
+  const { data: poll } = usePoll(
     polls?.pages
       .flatMap((page) => page.results)
       .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())[0]?.id

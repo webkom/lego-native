@@ -25,26 +25,16 @@ type PollData = {
   options: { readonly id: number; name: string; votes: number }[];
 };
 
-export const usePoll = (id?: number) => {
+export const usePollVote = () => {
   const queryClient = useQueryClient();
-  const { queryKey: pollQueryKey } = api.queryOptions('get', '/api/v1/polls/{id}/', {
-    params: { path: { id: id! } },
-  });
-
-  const poll = api.useQuery(
-    'get',
-    '/api/v1/polls/{id}/',
-    { params: { path: { id: id! } } },
-    { enabled: id !== undefined }
-  );
-
   const vote = api.useMutation('post', '/api/v1/polls/{id}/vote/', {
     onMutate: async (variables) => {
+      const queryKey = api.queryOptions('get', '/api/v1/polls/{id}/', {
+        params: { path: { id: variables.params.path.id } },
+      }).queryKey;
       await queryClient.cancelQueries({ queryKey: POLLS_KEY });
-      await queryClient.cancelQueries({ queryKey: pollQueryKey });
-
       const previousPolls = queryClient.getQueriesData<PollsData>({ queryKey: POLLS_KEY });
-      const previousPoll = queryClient.getQueryData<PollData>(pollQueryKey);
+      const previousPoll = queryClient.getQueryData<PollData>(queryKey);
 
       queryClient.setQueriesData<PollsData>({ queryKey: POLLS_KEY }, (old) => {
         if (!old) return old;
@@ -62,30 +52,88 @@ export const usePoll = (id?: number) => {
       });
 
       // Optimistically add the user's vote to the poll detail
-      queryClient.setQueryData<PollData>(pollQueryKey, (old) => {
+      queryClient.setQueriesData<PollsData>({ queryKey: POLLS_KEY }, (old) => {
         if (!old) return old;
-        const { optionId } = variables.body as unknown as { optionId: number };
         return {
           ...old,
-          totalVotes: old.totalVotes + 1,
-          options: old.options.map((item) =>
-            item.id === optionId ? { ...item, votes: item.votes + 1 } : item
-          ),
+          pages: old.pages.map((page) => ({
+            ...page,
+            results: page.results.map((item) =>
+              item.id === variables.params.path.id
+                ? { ...item, hasAnswered: true as unknown as string }
+                : item
+            ),
+          })),
         };
       });
 
       return { previousPolls, previousPoll };
     },
-    onError: (err, _variables, context) => {
-      console.warn('Vote failed', err);
-      context?.previousPolls.forEach(([key, data]) => queryClient.setQueryData(key, data));
-      if (context?.previousPoll) queryClient.setQueryData(pollQueryKey, context.previousPoll);
-    },
-    onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: POLLS_KEY });
-      queryClient.invalidateQueries({ queryKey: pollQueryKey });
-    },
   });
+  return { vote };
+};
 
-  return { ...poll, vote };
+export const usePoll = (id?: number) => {
+  // const queryClient = useQueryClient();
+  // const { queryKey: pollQueryKey } = api.queryOptions('get', '/api/v1/polls/{id}/', {
+  //   params: { path: { id: id! } },
+  // });
+
+  const poll = api.useQuery(
+    'get',
+    '/api/v1/polls/{id}/',
+    { params: { path: { id: id! } } },
+    { enabled: id !== undefined }
+  );
+
+  // const vote = api.useMutation('post', '/api/v1/polls/{id}/vote/', {
+  //   onMutate: async (variables) => {
+  //     await queryClient.cancelQueries({ queryKey: POLLS_KEY });
+  //     await queryClient.cancelQueries({ queryKey: pollQueryKey });
+
+  //     const previousPolls = queryClient.getQueriesData<PollsData>({ queryKey: POLLS_KEY });
+  //     const previousPoll = queryClient.getQueryData<PollData>(pollQueryKey);
+
+  //     queryClient.setQueriesData<PollsData>({ queryKey: POLLS_KEY }, (old) => {
+  //       if (!old) return old;
+  //       return {
+  //         ...old,
+  //         pages: old.pages.map((page) => ({
+  //           ...page,
+  //           results: page.results.map((item) =>
+  //             item.id === variables.params.path.id
+  //               ? { ...item, hasAnswered: true as unknown as string }
+  //               : item
+  //           ),
+  //         })),
+  //       };
+  //     });
+
+  //     // Optimistically add the user's vote to the poll detail
+  //     queryClient.setQueryData<PollData>(pollQueryKey, (old) => {
+  //       if (!old) return old;
+  //       const { optionId } = variables.body as unknown as { optionId: number };
+  //       return {
+  //         ...old,
+  //         totalVotes: old.totalVotes + 1,
+  //         options: old.options.map((item) =>
+  //           item.id === optionId ? { ...item, votes: item.votes + 1 } : item
+  //         ),
+  //       };
+  //     });
+
+  //     return { previousPolls, previousPoll };
+  //   },
+  //   onError: (err, _variables, context) => {
+  //     console.warn('Vote failed', err);
+  //     context?.previousPolls.forEach(([key, data]) => queryClient.setQueryData(key, data));
+  //     if (context?.previousPoll) queryClient.setQueryData(pollQueryKey, context.previousPoll);
+  //   },
+  //   onSettled: () => {
+  //     queryClient.invalidateQueries({ queryKey: POLLS_KEY });
+  //     queryClient.invalidateQueries({ queryKey: pollQueryKey });
+  //   },
+  // });
+
+  return { ...poll };
 };
