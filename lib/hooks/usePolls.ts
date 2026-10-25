@@ -2,6 +2,8 @@ import { api } from '@/lib/services/api';
 import { extractCursor } from '@/lib/utils';
 import { useQueryClient } from '@tanstack/react-query';
 
+const POLLS_KEY = ['get', '/api/v1/polls/'];
+
 export const usePolls = (cursor?: string) => {
   return api.useInfiniteQuery(
     'get',
@@ -18,13 +20,13 @@ export const usePolls = (cursor?: string) => {
 };
 
 type PollsData = ReturnType<typeof usePolls>['data'];
-type PollData = Omit<NonNullable<ReturnType<typeof usePoll>['data']>, 'options'> & {
+type PollData = {
+  totalVotes: number;
   options: { readonly id: number; name: string; votes: number }[];
 };
 
 export const usePoll = (id?: number) => {
   const queryClient = useQueryClient();
-  const { queryKey: pollsQueryKey } = api.queryOptions('get', '/api/v1/polls/');
   const { queryKey: pollQueryKey } = api.queryOptions('get', '/api/v1/polls/{id}/', {
     params: { path: { id: id! } },
   });
@@ -32,68 +34,59 @@ export const usePoll = (id?: number) => {
   const poll = api.useQuery(
     'get',
     '/api/v1/polls/{id}/',
-    {
-      params: { path: { id: id! } },
-    },
-    {
-      enabled: id !== undefined,
-    }
+    { params: { path: { id: id! } } },
+    { enabled: id !== undefined }
   );
 
   const vote = api.useMutation('post', '/api/v1/polls/{id}/vote/', {
     onMutate: async (variables) => {
-      await queryClient.cancelQueries({ queryKey: pollsQueryKey });
-      const previousPolls = queryClient.getQueryData<PollsData>(pollsQueryKey);
+      await queryClient.cancelQueries({ queryKey: POLLS_KEY });
+      await queryClient.cancelQueries({ queryKey: pollQueryKey });
 
-      queryClient.setQueryData<PollsData>(pollsQueryKey, (old) => {
+      const previousPolls = queryClient.getQueriesData<PollsData>({ queryKey: POLLS_KEY });
+      const previousPoll = queryClient.getQueryData<PollData>(pollQueryKey);
+
+      queryClient.setQueriesData<PollsData>({ queryKey: POLLS_KEY }, (old) => {
         if (!old) return old;
         return {
           ...old,
-          results: old.pages
-            .flatMap((page) => page.results)
-            .map((item) =>
+          pages: old.pages.map((page) => ({
+            ...page,
+            results: page.results.map((item) =>
               item.id === variables.params.path.id
-                ? { ...item, hasAnswered: true as unknown as string }
+                ?
+                  { ...item, hasAnswered: true as unknown as string }
                 : item
             ),
+          })),
         };
       });
 
-      // Optimistically cast the user's vote on the poll to avoid waiting for the backend response
+      // Optimistically add the user's vote to the poll detail
       queryClient.setQueryData<PollData>(pollQueryKey, (old) => {
         if (!old) return old;
-
         const { optionId } = variables.body as unknown as { optionId: number };
-
         return {
           ...old,
           totalVotes: old.totalVotes + 1,
-          options: old.options.map((item) => {
-            if (item.id === optionId) {
-              return { ...item, votes: item.votes + 1 };
-            }
-            return item;
-          }),
+          options: old.options.map((item) =>
+            item.id === optionId ? { ...item, votes: item.votes + 1 } : item
+          ),
         };
       });
 
-      return { previousPolls };
+      return { previousPolls, previousPoll };
     },
-    onError: (_err, _variables, context) => {
-      if (context?.previousPolls) {
-        queryClient.setQueryData(pollsQueryKey, context.previousPolls);
-      }
+    onError: (err, _variables, context) => {
+      console.warn('Vote failed', err);
+      context?.previousPolls.forEach(([key, data]) => queryClient.setQueryData(key, data));
+      if (context?.previousPoll) queryClient.setQueryData(pollQueryKey, context.previousPoll);
     },
     onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: pollsQueryKey });
-      if (id !== undefined) {
-        queryClient.invalidateQueries({ queryKey: pollQueryKey });
-      }
+      queryClient.invalidateQueries({ queryKey: POLLS_KEY });
+      queryClient.invalidateQueries({ queryKey: pollQueryKey });
     },
   });
 
-  return {
-    ...poll,
-    vote,
-  };
+  return { ...poll, vote };
 };

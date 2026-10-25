@@ -1,6 +1,7 @@
 import Icon from '@/components/icon';
 import PollResultItem from '@/components/screens/home/poll-result-item';
 import { usePoll, usePolls } from '@/lib/hooks/usePolls';
+import { useFocusEffect } from 'expo-router';
 import { Button, Surface, Typography } from 'heroui-native';
 import { MotiView } from 'moti';
 import { useCallback, useState } from 'react';
@@ -8,10 +9,17 @@ import { TouchableOpacity, View } from 'react-native';
 
 const Poll = () => {
   const polls = usePolls();
-  const [activePollId, setActivePollId] = useState<number | null>(null);
-  const poll = activePollId
-    ? polls?.data?.pages.flatMap((page) => page.results).find((p) => p.id === activePollId)
-    : polls?.data?.pages.flatMap((page) => page.results).find((p) => !p.hasAnswered);
+
+  useFocusEffect(
+    useCallback(() => {
+      polls.refetch();
+    }, [])
+  );
+
+  const poll = polls.data?.pages
+    .flatMap((page) => page.results)
+    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())[0];
+
   const { data: pollResults, vote } = usePoll(poll?.id);
   const [isExpanded, setIsExpanded] = useState(false);
   const [contentHeight, setContentHeight] = useState(0);
@@ -21,10 +29,6 @@ const Poll = () => {
   const submitPollResponse = useCallback(
     (optionId: number) => {
       if (!poll) return;
-
-      // We need to persist the poll we are voting on, if not the user will see the results for
-      // the next poll in the list they haven't voted for.
-      setActivePollId(poll.id);
 
       // Need to cast to any because the backend schema is not correct
       vote.mutate({
@@ -37,15 +41,17 @@ const Poll = () => {
     [poll, vote]
   );
 
-  if (polls?.isLoading || polls?.isError || !poll) return null;
+  if (polls.isLoading || polls.isError || !poll) return null;
 
+  const isOpen = !poll.validUntil || new Date(poll.validUntil) > new Date();
   const isSubmittingVote = vote.isPending;
-  const hasVoted = Boolean(vote.isSuccess || poll?.hasAnswered);
-  const showResults = hasVoted && !isSubmittingVote && !poll?.resultsHidden;
+  const hasVoted = Boolean(vote.isSuccess || poll.hasAnswered);
+  const canVote = isOpen && !hasVoted;
 
-  const hideOptions = isSubmittingVote || hasVoted;
-  const showVotedText = hasVoted && !isSubmittingVote && poll?.resultsHidden;
-  const expandedHeight = showVotedText
+  const hideOptions = isSubmittingVote || !canVote;
+  const showResults = !canVote && !isSubmittingVote && !poll.resultsHidden && Boolean(pollResults);
+  const showHiddenState = !canVote && !isSubmittingVote && Boolean(poll.resultsHidden);
+  const expandedHeight = showHiddenState
     ? hiddenResultsHeight
     : showResults
       ? showResultsHeight
@@ -96,7 +102,7 @@ const Poll = () => {
                 </MotiView>
                 <MotiView
                   pointerEvents="none"
-                  animate={{ opacity: showVotedText ? 1 : 0, right: showVotedText ? 0 : -50 }}>
+                  animate={{ opacity: showHiddenState ? 1 : 0, right: showHiddenState ? 0 : -50 }}>
                   <View
                     onLayout={(e) => setHiddenResultsHeight(e.nativeEvent.layout.height)}
                     className="absolute left-0 right-0 top-0 flex w-full flex-row items-center justify-start gap-3">
@@ -104,7 +110,7 @@ const Poll = () => {
                       <Icon name="Check" className="text-danger" />
                     </View>
                     <Typography className="text-danger-foreground font-bold" type="h5">
-                      Du har stemt
+                      {hasVoted ? 'Du har stemt' : 'Avstemningen er avsluttet'}
                     </Typography>
                   </View>
                 </MotiView>
