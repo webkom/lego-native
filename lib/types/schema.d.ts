@@ -1863,7 +1863,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        get: operations["frontpageRetrieve"];
+        get: operations["frontpageList"];
         put?: never;
         post?: never;
         delete?: never;
@@ -4507,6 +4507,26 @@ export interface components {
             thanks: components["schemas"]["PublicUser"][];
         };
         /**
+         * @description Any serializer with write support and tags should implement this serializer to support automatic
+         *     creation of new tags.
+         */
+        DetailedPoll: {
+            readonly id: number;
+            /** Format: date-time */
+            readonly createdAt: string;
+            /** Format: date-time */
+            validUntil?: string;
+            title: string;
+            description?: string;
+            options: components["schemas"]["Option"][];
+            resultsHidden?: boolean;
+            readonly totalVotes: number;
+            /** @default [] */
+            tags: components["schemas"]["Tag"][];
+            readonly hasAnswered: string;
+            pinned?: boolean;
+        };
+        /**
          * @description * `pie_chart` - pie_chart
          *     * `bar_chart` - bar_chart
          * @enum {string}
@@ -4861,6 +4881,35 @@ export interface components {
          * @enum {integer}
          */
         FromYearEnum: 1 | 2 | 3 | 4 | 5;
+        Frontpage: {
+            articles: components["schemas"]["PublicArticle"][];
+            events: components["schemas"]["FrontpageEvent"][];
+            poll: components["schemas"]["DetailedPoll"] | null;
+        };
+        FrontpageEvent: {
+            readonly id: number;
+            title: string;
+            slug?: string | null;
+            description?: string | null;
+            cover?: string;
+            coverPlaceholder?: string;
+            text: string;
+            eventType: components["schemas"]["EventTypeEnum"];
+            eventStatusType?: components["schemas"]["EventStatusTypeEnum"];
+            location: string;
+            /** Format: date-time */
+            startTime: string;
+            thumbnail?: string;
+            /** Format: date-time */
+            endTime: string;
+            totalCapacity: string;
+            company?: number | null;
+            registrationCount: string;
+            tags?: string[];
+            activationTime: string;
+            isAdmitted: string;
+            pinned?: boolean;
+        };
         GCMDevice: {
             id?: number;
             name?: string | null;
@@ -10911,7 +10960,7 @@ export interface operations {
             };
         };
     };
-    frontpageRetrieve: {
+    frontpageList: {
         parameters: {
             query?: never;
             header?: never;
@@ -10920,12 +10969,13 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
-            /** @description No response body */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
-                content?: never;
+                content: {
+                    "application/json": components["schemas"]["Frontpage"];
+                };
             };
         };
     };

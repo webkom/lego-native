@@ -1,12 +1,12 @@
 import EventItem from '@/components/event-item';
-import { components } from '@/lib/types/schema';
 import { cn, Typography } from 'heroui-native';
 import { ComponentProps } from 'react';
 import { View } from 'react-native';
+import { EventDigestItem } from '../event/types';
 
 type EventsDigestProps = {
-  socialEvents?: components['schemas']['EventRead'][];
-  presentations?: components['schemas']['EventRead'][];
+  socialEvents?: EventDigestItem[];
+  presentations?: EventDigestItem[];
 } & ComponentProps<typeof View>;
 
 const EventsDigest = ({
@@ -26,7 +26,7 @@ const EventsDigest = ({
         <View key={title} className="flex flex-col gap-1">
           <Typography type="h2">{title}</Typography>
           {data.map((item) => (
-            <EventItem key={item.id.toString()} id={item.id} event={item} />
+            <EventItem key={item.id.toString()} {...item} />
           ))}
         </View>
       ))}
