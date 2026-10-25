@@ -3,7 +3,7 @@ import PollResultItem from '@/components/screens/home/poll-result-item';
 import { usePoll, usePolls } from '@/hooks/usePolls';
 import { Button, Surface, Typography } from 'heroui-native';
 import { MotiView } from 'moti';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 
 const Poll = () => {
@@ -22,6 +22,8 @@ const Poll = () => {
     (optionId: number) => {
       if (!poll) return;
 
+      // We need to persist the poll we are voting on, if not the user will see the results for
+      // the next poll in the list they haven't voted for.
       setActivePollId(poll.id);
 
       // Need to cast to any because the backend schema is not correct

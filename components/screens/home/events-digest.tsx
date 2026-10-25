@@ -2,23 +2,17 @@ import EventItem from '@/components/event-item';
 import { components } from '@/lib/types/schema';
 import { cn, Typography } from 'heroui-native';
 import { ComponentProps } from 'react';
-import { SectionList, View } from 'react-native';
-import { RefreshControl } from 'react-native-gesture-handler';
+import { View } from 'react-native';
 
 type EventsDigestProps = {
   socialEvents?: components['schemas']['EventRead'][];
   presentations?: components['schemas']['EventRead'][];
-  onEndReached?: () => void;
-  isRefetching?: boolean;
-  onRefetch?: () => void;
 } & ComponentProps<typeof View>;
+
 const EventsDigest = ({
   socialEvents = [],
   presentations = [],
   className,
-  onEndReached,
-  isRefetching = false,
-  onRefetch,
   ...props
 }: EventsDigestProps) => {
   const sections = [
@@ -27,19 +21,15 @@ const EventsDigest = ({
   ];
 
   return (
-    <View className={cn('flex h-full w-full flex-1 flex-col', className)} {...props}>
-      <SectionList
-        className="w-full flex-1"
-        sections={sections}
-        keyExtractor={(item) => item.id.toString()}
-        contentContainerClassName="gap-1 pb-4"
-        stickySectionHeadersEnabled={false}
-        refreshControl={<RefreshControl refreshing={isRefetching} onRefresh={onRefetch} />}
-        renderSectionHeader={({ section: { title } }) => <Typography type="h2">{title}</Typography>}
-        renderItem={({ item }) => <EventItem id={item.id} event={item} />}
-        onEndReached={onEndReached}
-        onEndReachedThreshold={0.5}
-      />
+    <View className={cn('flex w-full flex-col gap-4', className)} {...props}>
+      {sections.map(({ title, data }) => (
+        <View key={title} className="flex flex-col gap-1">
+          <Typography type="h2">{title}</Typography>
+          {data.map((item) => (
+            <EventItem key={item.id.toString()} id={item.id} event={item} />
+          ))}
+        </View>
+      ))}
     </View>
   );
 };

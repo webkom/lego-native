@@ -12,7 +12,7 @@ export const getWebSocketUrl = (token: string | null) => {
 
   // For local development, backend Django Channels WS runs on port 8001
   if (wsUrl.includes('localhost:8000') || wsUrl.includes('127.0.0.1:8000')) {
-    // wsUrl = wsUrl.replace(':8000', ':8001');
+    wsUrl = wsUrl.replace(':8000', ':8001');
   }
 
   const query = token ? `?jwt=${encodeURIComponent(token)}` : '';

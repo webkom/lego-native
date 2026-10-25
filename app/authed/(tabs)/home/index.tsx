@@ -3,6 +3,7 @@ import Poll from '@/components/screens/home/poll';
 import { useEvents } from '@/lib/hooks/useEvents';
 import { Image as ExpoImage } from 'expo-image';
 import { useTheme } from 'expo-router/react-navigation';
+import { RefreshControl, ScrollView } from 'react-native';
 import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
 import { withUniwind } from 'uniwind';
 
@@ -11,14 +12,7 @@ const Image = withUniwind(ExpoImage);
 
 const HomePage = () => {
   const theme = useTheme();
-  const {
-    data: events,
-    fetchNextPage,
-    isFetchingNextPage,
-    hasNextPage,
-    refetch,
-    isRefetching,
-  } = useEvents();
+  const { data: events, refetch, isRefetching } = useEvents();
   const allEvents = events?.pages.flatMap((page) => page.results) ?? [];
   const presentations = allEvents
     .filter((e) => {
@@ -42,10 +36,11 @@ const HomePage = () => {
     .slice(0, 3);
 
   return (
-    <>
-      <SafeAreaView
-        edges={['left', 'right']}
-        className="flex h-full w-full flex-1 justify-center gap-5 px-4">
+    <SafeAreaView edges={['left', 'right']} className="h-full w-full flex-1">
+      <ScrollView
+        className="w-full flex-1"
+        contentContainerClassName="flex flex-col justify-start gap-5 px-4 pb-28"
+        refreshControl={<RefreshControl refreshing={isRefetching} onRefresh={refetch} />}>
         {theme.dark ? (
           <Image
             source={require('@/assets/images/abakus-logo-light.png')}
@@ -57,20 +52,12 @@ const HomePage = () => {
             className="w-50 mt-safe-offset-2 h-10"
           />
         )}
+
+        <EventsDigest presentations={presentations} socialEvents={other} />
+
         <Poll />
-        <EventsDigest
-          isRefetching={isRefetching}
-          onRefetch={refetch}
-          presentations={presentations}
-          socialEvents={other}
-          onEndReached={() => {
-            if (hasNextPage && !isFetchingNextPage) {
-              fetchNextPage();
-            }
-          }}
-        />
-      </SafeAreaView>
-    </>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
