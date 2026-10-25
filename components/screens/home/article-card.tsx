@@ -23,7 +23,7 @@ const ArticleCard = ({ cover, tags, title, onPress, date }: ArticleCardProps) =>
     <TouchableOpacity onPress={onPress}>
       <Card className="relative overflow-visible">
         <View className="bg-accent-hover rotate-35 absolute -right-2 -top-2 z-10 flex items-center justify-center rounded-full p-2 shadow-lg">
-          <Icon name="MessageSquareText" className="text-accent-foreground" />
+          <Icon name="BookOpenText" className="text-accent-foreground" />
         </View>
         <Card.Body className="flex flex-row items-start gap-3">
           <Image

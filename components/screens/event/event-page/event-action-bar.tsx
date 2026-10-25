@@ -87,7 +87,7 @@ export function EventActionBar({
         tint={theme.dark ? 'dark' : 'light'}
         blurTarget={blurTarget}
         blurMethod="dimezisBlurView"
-        className="pb-safe-offset-0 border-border bg-surface/40 w-full border-t px-5 py-4">
+        className="pb-safe-offset-0 border-border bg-background/70 w-full border-t px-5 py-4">
         <AttendanceButton
           isUserSignedUp={isUserSignedUp}
           canSignOff={canSignOff}
