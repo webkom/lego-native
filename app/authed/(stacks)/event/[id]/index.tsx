@@ -14,15 +14,17 @@ import {
 import { HeroSection } from '@/components/screens/event/hero-section';
 import { Turnstile } from '@/components/screens/event/turnstile';
 import { useEventDetails } from '@/hooks/useEventDetails';
+import { BlurTargetView } from 'expo-blur';
 import { useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { Image, NativeScrollEvent, NativeSyntheticEvent, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 const RedGradient = require('@/assets/images/top-blur-red.png');
 
 export default function EventsPage() {
   const insets = useSafeAreaInsets();
+  const blurTargetRef = useRef<View>(null);
 
   // Get event details from route params
   const { id } = useLocalSearchParams<{ id?: string | string[] }>();
@@ -73,7 +75,7 @@ export default function EventsPage() {
     <View className="bg-background flex-1">
       <StatusBar style="auto" />
 
-      <View className="flex-1 overflow-hidden">
+      <BlurTargetView ref={blurTargetRef} style={{ flex: 1, overflow: 'hidden' }}>
         <RefreshingBanner visible={isRefetchingEvent} />
 
         <ScrollView
@@ -143,7 +145,7 @@ export default function EventsPage() {
             <Turnstile visible={canRegister} onTokenReceived={setTurnstileToken} />
           </View>
         </ScrollView>
-      </View>
+      </BlurTargetView>
 
       <EventActionBar
         canSignUp={canRegister}
@@ -153,6 +155,7 @@ export default function EventsPage() {
         eventId={event.id.toString()}
         scroll={scroll}
         isLoading={isAttendanceButtonLoading}
+        blurTarget={blurTargetRef}
         onSignUp={handleSignUp}
         onSignOff={handleNavigateToUnregister}
       />
