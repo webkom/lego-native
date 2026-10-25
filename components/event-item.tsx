@@ -2,9 +2,10 @@ import { format } from 'date-fns';
 import { nb } from 'date-fns/locale';
 import { Link } from 'expo-router';
 import { Card } from 'heroui-native';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import { EventTypeConfig } from '../lib/types/eventColors';
 import type { components } from '../lib/types/schema';
+import { LinearGradient } from 'expo-linear-gradient';
 
 type Event = components['schemas']['EventRead'];
 
@@ -53,16 +54,32 @@ export default function EventItem({ id, event }: EventItemProps) {
   return (
     <Link href={`/authed/(stacks)/event/${id}`} asChild>
       <TouchableOpacity className="w-full">
-        <Card
-          className="flex-row gap-3 border-2 py-2"
-          style={{
-            borderColor: eventColor,
-          }}>
-          <Card.Body className="flex-1">
-            <Card.Title numberOfLines={1} className="whitespace-break-spaces">
-              {event.title}
-            </Card.Title>
-            <Card.Description>{formattedStartTime}</Card.Description>
+        <Card className="flex-row gap-3 border-2 py-0">
+          <LinearGradient
+            className="absolute left-0 top-0 h-full w-4/5 opacity-30"
+            colors={[eventColor, `${eventColor}00`]}
+            dither
+            end={{ x: 1, y: 0 }}
+          />
+          <Card.Body className="relative flex-1 flex-row gap-3 py-2">
+            {/* <View
+              className="absolute left-0 top-0 h-full w-1/2"
+              style={{
+                experimental_backgroundImage: `linear-gradient(to right, ${eventColor}, ${eventColor}00)`,
+              }}
+            /> */}
+            <View
+              className="h-full w-2 rounded-full"
+              style={{
+                backgroundColor: eventColor,
+              }}
+            />
+            <View className="flex flex-col">
+              <Card.Title numberOfLines={1} className="whitespace-break-spaces">
+                {event.title}
+              </Card.Title>
+              <Card.Description className="text-foreground">{formattedStartTime}</Card.Description>
+            </View>
           </Card.Body>
         </Card>
       </TouchableOpacity>

@@ -2,7 +2,7 @@ import { iconWithClassName } from '@/lib/iconWithClassName';
 import { cn } from '@/lib/utils';
 import { Tabs, usePathname, useRouter } from 'expo-router';
 import { Typography } from 'heroui-native';
-import { CalendarIcon, HouseIcon, QrCodeIcon, UserIcon } from 'lucide-react-native';
+import { BellIcon, CalendarIcon, HouseIcon, QrCodeIcon, UserIcon } from 'lucide-react-native';
 import { MotiView, useDynamicAnimation } from 'moti';
 import React, { ComponentProps } from 'react';
 import { Pressable, View } from 'react-native';
@@ -11,6 +11,7 @@ const QrCode = iconWithClassName(QrCodeIcon);
 const Calendar = iconWithClassName(CalendarIcon);
 const User = iconWithClassName(UserIcon);
 const House = iconWithClassName(HouseIcon);
+const Bell = iconWithClassName(BellIcon);
 
 // Infer the correct props from one of the lucide icons:
 type IconProps = ComponentProps<typeof UserIcon> & { className?: string };
@@ -23,14 +24,8 @@ const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
   const pathName = usePathname();
 
   return (
-    <View className="bottom-safe-offset-2 absolute inset-x-0 px-5">
-      <View className="border-border bg-card flex w-full flex-row justify-evenly rounded-full border py-3 shadow-sm">
-        <TabBarButton
-          Icon={QrCode}
-          selected={pathName.includes('abaid')}
-          label="AbaID"
-          onPress={() => router.push('/authed/(tabs)/abaid')}
-        />
+    <View className="bottom-safe-offset-2 absolute inset-x-0 px-2">
+      <View className="border-border bg-card flex w-full flex-row justify-evenly rounded-full border px-3 py-3 shadow-sm">
         <TabBarButton
           Icon={House}
           selected={pathName.includes('home')}
@@ -42,6 +37,19 @@ const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
           selected={pathName.includes('events')}
           label="Arrangementer"
           onPress={() => router.push('/authed/(tabs)/events')}
+        />
+        <TabBarButton
+          Icon={QrCode}
+          selected={pathName.includes('abaid')}
+          label="AbaID"
+          onPress={() => router.push('/authed/(tabs)/abaid')}
+        />
+
+        <TabBarButton
+          Icon={Bell}
+          selected={pathName.includes('notification-feed')}
+          label="Varsler"
+          onPress={() => router.push('/authed/(tabs)/notification-feed')}
         />
 
         <TabBarButton
