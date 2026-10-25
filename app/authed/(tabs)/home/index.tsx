@@ -2,7 +2,7 @@ import Header from '@/components/header';
 import EventsDigest from '@/components/screens/home/events-digest';
 import PinnedArticle from '@/components/screens/home/pinned-article';
 import Poll from '@/components/screens/home/poll';
-import { useFrontPageData } from '@/hooks/useFrontPageData';
+import { useFrontPageData } from '@/lib/hooks/useFrontPageData';
 import { format } from 'date-fns';
 import { nb } from 'date-fns/locale';
 import { RefreshControl, ScrollView, View } from 'react-native';

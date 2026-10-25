@@ -1,6 +1,6 @@
 import Icon from '@/components/icon';
 import PollResultItem from '@/components/screens/home/poll-result-item';
-import { usePoll, usePolls } from '@/hooks/usePolls';
+import { usePoll, usePolls } from '@/lib/hooks/usePolls';
 import { Button, Surface, Typography } from 'heroui-native';
 import { MotiView } from 'moti';
 import { useCallback, useState } from 'react';

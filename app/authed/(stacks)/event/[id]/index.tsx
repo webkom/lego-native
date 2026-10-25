@@ -13,7 +13,7 @@ import {
 } from '@/components/screens/event/event-page';
 import { HeroSection } from '@/components/screens/event/hero-section';
 import { Turnstile } from '@/components/screens/event/turnstile';
-import { useEventDetails } from '@/hooks/useEventDetails';
+import { useEventDetails } from '@/lib/hooks/useEventDetails';
 import { BlurTargetView } from 'expo-blur';
 import { useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';

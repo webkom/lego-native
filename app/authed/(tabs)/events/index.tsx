@@ -4,8 +4,6 @@ import type { components } from '@/lib/types/schema';
 import { StatusBar } from 'expo-status-bar';
 import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 
-type EventTypeEnum = components['schemas']['EventTypeEnum'];
-
 const EventsPage = () => {
   const events = useEvents();
 
