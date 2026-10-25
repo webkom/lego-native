@@ -1,21 +1,16 @@
 import { format } from 'date-fns';
 import { nb } from 'date-fns/locale';
+import { LinearGradient } from 'expo-linear-gradient';
 import { Link } from 'expo-router';
 import { Card } from 'heroui-native';
 import { TouchableOpacity, View } from 'react-native';
 import { EventTypeConfig } from '../lib/types/eventColors';
-import type { components } from '../lib/types/schema';
-import { LinearGradient } from 'expo-linear-gradient';
+import { EventDigestItem } from './screens/event/types';
 
-type Event = components['schemas']['EventRead'];
+type EventItemProps = {} & EventDigestItem;
 
-interface EventItemProps {
-  id: number;
-  event: Event;
-}
-
-export default function EventItem({ id, event }: EventItemProps) {
-  const eventColor = EventTypeConfig[event.eventType].color;
+export default function EventItem({ id, eventType, startTime, title }: EventItemProps) {
+  const eventColor = EventTypeConfig[eventType].color;
 
   // const isAdmitted = String(event.isAdmitted) === 'true';
 
@@ -47,7 +42,7 @@ export default function EventItem({ id, event }: EventItemProps) {
 
   // const registrationStatus = getRegistrationStatus();
   // const capacity = getCapacity();
-  const formattedStartTime = format(new Date(event.startTime), 'eeeeee dd. MMM HH:mm', {
+  const formattedStartTime = format(new Date(startTime), 'eeeeee dd. MMM HH:mm', {
     locale: nb,
   });
 
@@ -70,7 +65,7 @@ export default function EventItem({ id, event }: EventItemProps) {
             />
             <View className="flex flex-col">
               <Card.Title numberOfLines={1} className="whitespace-break-spaces">
-                {event.title}
+                {title}
               </Card.Title>
               <Card.Description className="text-foreground">{formattedStartTime}</Card.Description>
             </View>

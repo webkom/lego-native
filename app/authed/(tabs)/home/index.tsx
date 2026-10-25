@@ -1,9 +1,8 @@
 import Header from '@/components/header';
 import EventsDigest from '@/components/screens/home/events-digest';
+import PinnedArticle from '@/components/screens/home/pinned-article';
 import Poll from '@/components/screens/home/poll';
-import { useEvents } from '@/lib/hooks/useEvents';
-import { Image as ExpoImage } from 'expo-image';
-import { useTheme } from 'expo-router/react-navigation';
+import { useFrontPageData } from '@/hooks/useFrontPageData';
 import { RefreshControl, ScrollView, View } from 'react-native';
 import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
 import { withUniwind } from 'uniwind';
@@ -11,10 +10,8 @@ import { withUniwind } from 'uniwind';
 const SafeAreaView = withUniwind(RNSafeAreaView);
 
 const HomePage = () => {
-  const theme = useTheme();
-  const { data: events, refetch, isRefetching } = useEvents();
-  const allEvents = events?.pages.flatMap((page) => page.results) ?? [];
-  const presentations = allEvents
+  const { events, pinnedArticles, isRefetching, refetch } = useFrontPageData();
+  const presentations = events
     .filter((e) => {
       const t = e.eventType;
       return (
@@ -28,7 +25,7 @@ const HomePage = () => {
     })
     .slice(0, 3);
 
-  const other = allEvents
+  const other = events
     .filter((e) => {
       const t = e.eventType;
       return t === 'other' || t === 'event' || t === 'social' || t === 'party' || t === 'gala';
@@ -43,20 +40,9 @@ const HomePage = () => {
         contentContainerClassName="flex flex-col justify-start gap-5 pb-safe-offset-30"
         refreshControl={<RefreshControl refreshing={isRefetching} onRefresh={refetch} />}>
         <Header />
-        {/* {theme.dark ? (
-          <Image
-            source={require('@/assets/images/abakus-logo-light.png')}
-            className="w-50 mt-safe-offset-2 mb-5 h-10"
-          />
-        ) : (
-          <Image
-            source={require('@/assets/images/abakus-logo-dark.png')}
-            className="w-50 mt-safe-offset-2 h-10"
-          />
-        )} */}
         <View className="flex flex-col gap-5 px-4">
           <EventsDigest presentations={presentations} socialEvents={other} />
-
+          {pinnedArticles?.[0] && <PinnedArticle {...pinnedArticles[0]} />}
           <Poll />
         </View>
       </ScrollView>
