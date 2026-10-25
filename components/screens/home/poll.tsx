@@ -1,14 +1,15 @@
 import Icon from '@/components/icon';
+import PollResultItem from '@/components/screens/home/poll-result-item';
 import { usePoll, usePolls } from '@/hooks/usePolls';
-import { Button, Spinner, Surface, Typography } from 'heroui-native';
+import { Button, Surface, Typography } from 'heroui-native';
 import { MotiView } from 'moti';
 import { useCallback, useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 
 const Poll = () => {
-  const { polls, vote } = usePolls();
-  const poll = polls?.data?.results[0];
-  const { data: pollResults } = usePoll(poll?.id);
+  const polls = usePolls();
+  const poll = polls?.data?.pages.flatMap((page) => page.results).find((p) => !p.hasAnswered);
+  const { data: pollResults, vote } = usePoll(poll?.id);
   const [isExpanded, setIsExpanded] = useState(false);
   const [contentHeight, setContentHeight] = useState(0);
   const [hiddenResultsHeight, setHiddenResultsHeight] = useState(0);
@@ -62,13 +63,16 @@ const Poll = () => {
               </MotiView>
 
               <MotiView
+                pointerEvents={isExpanded ? 'auto' : 'none'}
                 key="polls"
                 animate={{
                   height: isExpanded ? expandedHeight : 0,
                   opacity: isExpanded ? 1 : 0,
                 }}
                 style={{ width: '100%', overflow: 'hidden' }}>
-                <MotiView animate={{ opacity: hideOptions ? 0 : 1, left: hideOptions ? -50 : 0 }}>
+                <MotiView
+                  pointerEvents={hideOptions ? 'none' : 'auto'}
+                  animate={{ opacity: hideOptions ? 0 : 1, left: hideOptions ? -50 : 0 }}>
                   <View
                     onLayout={(e) => setContentHeight(e.nativeEvent.layout.height)}
                     className="absolute left-0 right-0 top-0 flex flex-col gap-1">
@@ -84,15 +88,7 @@ const Poll = () => {
                   </View>
                 </MotiView>
                 <MotiView
-                  animate={{
-                    opacity: isSubmittingVote ? 1 : 0,
-                    right: isSubmittingVote ? 0 : -50,
-                  }}>
-                  <View className="absolute right-0 top-0">
-                    <Spinner size="lg" />
-                  </View>
-                </MotiView>
-                <MotiView
+                  pointerEvents="none"
                   animate={{ opacity: showVotedText ? 1 : 0, right: showVotedText ? 0 : -50 }}>
                   <View
                     onLayout={(e) => setHiddenResultsHeight(e.nativeEvent.layout.height)}
@@ -105,7 +101,9 @@ const Poll = () => {
                     </Typography>
                   </View>
                 </MotiView>
-                <MotiView animate={{ opacity: showResults ? 1 : 0, right: showResults ? 0 : -50 }}>
+                <MotiView
+                  pointerEvents="none"
+                  animate={{ opacity: showResults ? 1 : 0, right: showResults ? 0 : -50 }}>
                   <View
                     onLayout={(e) => setShowResultsHeight(e.nativeEvent.layout.height)}
                     className="absolute left-0 right-0 top-0 flex w-full flex-col items-center justify-start gap-1">
@@ -117,26 +115,20 @@ const Poll = () => {
                       };
 
                       return (
-                        <Surface
+                        <PollResultItem
                           key={option.id + 'result'}
-                          className="relative flex w-full flex-row items-center justify-between bg-black/20 px-0 py-0">
-                          <View
-                            className="bg-danger-foreground absolute left-0 top-0 h-full"
-                            style={{
-                              width: `${(optionData.votes / pollResults.totalVotes) * 100}%`,
-                            }}
-                          />
-                          <Typography className="py-2 pl-4">
-                            {optionData.name} {optionData.votes}
-                          </Typography>
-                          <Typography className="pr-4">
-                            {pollResults.totalVotes > 0
-                              ? `${Math.round((optionData.votes / pollResults.totalVotes) * 100)}%`
-                              : '0%'}
-                          </Typography>
-                        </Surface>
+                          name={optionData.name}
+                          votes={optionData.votes}
+                          totalVotes={pollResults.totalVotes}
+                        />
                       );
                     })}
+                    <View className="flex w-full flex-row items-center justify-end gap-1 pr-2">
+                      <Icon name="Info" size={16} className="text-danger-foreground/70" />
+                      <Typography className="text-danger-foreground/70">
+                        {poll.totalVotes} stemme{poll.totalVotes !== 1 ? 'r' : ''}
+                      </Typography>
+                    </View>
                   </View>
                 </MotiView>
               </MotiView>
