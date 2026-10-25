@@ -4,7 +4,7 @@ import {
   UnregisterDeadlineNotice,
   UnregisterEventCard,
 } from '@/components/screens/event/unregister-page';
-import { useEventDetails } from '@/hooks/useEventDetails';
+import { useEventDetails } from '@/lib/hooks/useEventDetails';
 import { isAfter } from 'date-fns';
 import { setAudioModeAsync, useAudioPlayer } from 'expo-audio';
 import { router, useLocalSearchParams } from 'expo-router';
