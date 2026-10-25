@@ -39,6 +39,7 @@ const HomePage = () => {
     <SafeAreaView edges={['left', 'right']} className="h-full w-full flex-1">
       <ScrollView
         className="w-full flex-1"
+        showsVerticalScrollIndicator={false}
         contentContainerClassName="flex flex-col justify-start gap-5 pb-safe-offset-30"
         refreshControl={<RefreshControl refreshing={isRefetching} onRefresh={refetch} />}>
         <Header />
