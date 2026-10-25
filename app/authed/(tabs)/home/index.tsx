@@ -1,14 +1,14 @@
+import Header from '@/components/header';
 import EventsDigest from '@/components/screens/home/events-digest';
 import Poll from '@/components/screens/home/poll';
 import { useEvents } from '@/lib/hooks/useEvents';
 import { Image as ExpoImage } from 'expo-image';
 import { useTheme } from 'expo-router/react-navigation';
-import { RefreshControl, ScrollView } from 'react-native';
+import { RefreshControl, ScrollView, View } from 'react-native';
 import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
 import { withUniwind } from 'uniwind';
 
 const SafeAreaView = withUniwind(RNSafeAreaView);
-const Image = withUniwind(ExpoImage);
 
 const HomePage = () => {
   const theme = useTheme();
@@ -39,9 +39,10 @@ const HomePage = () => {
     <SafeAreaView edges={['left', 'right']} className="h-full w-full flex-1">
       <ScrollView
         className="w-full flex-1"
-        contentContainerClassName="flex flex-col justify-start gap-5 px-4 pb-28"
+        contentContainerClassName="flex flex-col justify-start gap-5 pb-safe-offset-30"
         refreshControl={<RefreshControl refreshing={isRefetching} onRefresh={refetch} />}>
-        {theme.dark ? (
+        <Header />
+        {/* {theme.dark ? (
           <Image
             source={require('@/assets/images/abakus-logo-light.png')}
             className="w-50 mt-safe-offset-2 mb-5 h-10"
@@ -51,11 +52,12 @@ const HomePage = () => {
             source={require('@/assets/images/abakus-logo-dark.png')}
             className="w-50 mt-safe-offset-2 h-10"
           />
-        )}
+        )} */}
+        <View className="flex flex-col gap-5 px-4">
+          <EventsDigest presentations={presentations} socialEvents={other} />
 
-        <EventsDigest presentations={presentations} socialEvents={other} />
-
-        <Poll />
+          <Poll />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
