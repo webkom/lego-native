@@ -1,36 +1,42 @@
 import TabBar from '@/components/tab-bar';
+import { BlurTargetView } from 'expo-blur';
 import { Tabs } from 'expo-router';
-
-import React from 'react';
+import React, { useRef } from 'react';
+import { View } from 'react-native';
 
 const TabLayout = () => {
+  const blurTargetRef = useRef<View>(null);
+
   return (
-    <>
-      <Tabs
-        screenOptions={{
-          headerShown: false,
-        }}
-        tabBar={(props) => <TabBar {...props} />}>
-        <Tabs.Screen
-          name="profile/index"
-          options={{
-            title: 'Hjem',
+    <View className="flex-1">
+      <BlurTargetView ref={blurTargetRef} style={{ flex: 1 }}>
+        <Tabs
+          screenOptions={{
+            headerShown: false,
           }}
-        />
-        <Tabs.Screen
-          name="events/index"
-          options={{
-            title: 'Arrangementer',
-          }}
-        />
-        <Tabs.Screen
-          name="abaid/index"
-          options={{
-            title: 'AbaID',
-          }}
-        />
-      </Tabs>
-    </>
+          tabBar={() => null}>
+          <Tabs.Screen
+            name="profile/index"
+            options={{
+              title: 'Hjem',
+            }}
+          />
+          <Tabs.Screen
+            name="events/index"
+            options={{
+              title: 'Arrangementer',
+            }}
+          />
+          <Tabs.Screen
+            name="abaid/index"
+            options={{
+              title: 'AbaID',
+            }}
+          />
+        </Tabs>
+      </BlurTargetView>
+      <TabBar blurTarget={blurTargetRef} />
+    </View>
   );
 };
 

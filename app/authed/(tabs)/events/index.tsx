@@ -42,7 +42,9 @@ const EventsPage = () => {
     <>
       <Header className="bg-background" />
       <Text className="bg-background p-4 text-4xl font-bold">Arrangementer</Text>
-      <ScrollView className="bg-background mb-20 h-4/5 w-full flex-1">
+      <ScrollView
+        className="bg-background h-4/5 w-full flex-1"
+        contentContainerClassName="pb-safe-offset-30">
         <Text className="pl-4 text-2xl font-semibold">Bedpres og kurs</Text>
         {/* <View className="mb-5 flex-col items-center gap-2.5 space-y-5 p-4">
           {eventPresentations}

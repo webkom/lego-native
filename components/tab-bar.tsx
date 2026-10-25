@@ -1,11 +1,16 @@
 import { iconWithClassName } from '@/lib/iconWithClassName';
 import { cn } from '@/lib/utils';
+import { BlurView as ExpoBlurView } from 'expo-blur';
 import { Tabs, usePathname, useRouter } from 'expo-router';
+import { useTheme } from 'expo-router/react-navigation';
 import { Typography } from 'heroui-native';
 import { BellIcon, CalendarIcon, HouseIcon, QrCodeIcon, UserIcon } from 'lucide-react-native';
 import { MotiView, useDynamicAnimation } from 'moti';
-import React, { ComponentProps } from 'react';
+import React, { ComponentProps, RefObject } from 'react';
 import { Pressable, View } from 'react-native';
+import { withUniwind } from 'uniwind';
+
+const BlurView = withUniwind(ExpoBlurView);
 
 const QrCode = iconWithClassName(QrCodeIcon);
 const Calendar = iconWithClassName(CalendarIcon);
@@ -17,15 +22,23 @@ const Bell = iconWithClassName(BellIcon);
 type IconProps = ComponentProps<typeof UserIcon> & { className?: string };
 type IconType = React.ComponentType<IconProps>;
 
-type TabBarProps = Parameters<NonNullable<ComponentProps<typeof Tabs>['tabBar']>>[0];
+type TabBarProps = Partial<Parameters<NonNullable<ComponentProps<typeof Tabs>['tabBar']>>[0]> & {
+  blurTarget?: RefObject<View | null>;
+};
 
-const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
+const TabBar = ({ blurTarget }: TabBarProps) => {
   const router = useRouter();
   const pathName = usePathname();
+  const theme = useTheme();
 
   return (
-    <View className=" absolute inset-x-0 bottom-0">
-      <View className="bg-surface pb-safe-offset-0 flex w-full flex-row justify-evenly py-3">
+    <View className="absolute inset-x-0 bottom-0">
+      <BlurView
+        intensity={80}
+        tint={theme.dark ? 'dark' : 'light'}
+        blurTarget={blurTarget}
+        blurMethod="dimezisBlurView"
+        className="bg-surface/40 pb-safe-offset-3 flex w-full flex-row justify-evenly pt-3">
         <TabBarButton
           Icon={House}
           selected={pathName.includes('home')}
@@ -58,7 +71,7 @@ const TabBar = ({ navigation, state, descriptors, insets }: TabBarProps) => {
           label="Profil"
           onPress={() => router.push('/authed/(tabs)/profile')}
         />
-      </View>
+      </BlurView>
     </View>
   );
 };

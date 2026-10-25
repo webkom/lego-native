@@ -64,6 +64,7 @@ const Feed = () => {
       <Header className="bg-background" />
       <FlatList
         data={data.results ?? []}
+        contentContainerClassName="pb-safe-offset-30"
         keyExtractor={(item) => String(item.id)}
         renderItem={({ item }) => {
           const activityRenderer = activityRenderers[item.verb];
