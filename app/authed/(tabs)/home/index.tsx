@@ -1,7 +1,7 @@
 import Header from '@/components/header';
 import EventsDigest from '@/components/screens/home/events-digest';
 import PinnedArticle from '@/components/screens/home/pinned-article/pinned-article';
-import Poll from '@/components/screens/home/poll';
+import Poll from '@/components/screens/home/poll/poll';
 import { useFrontPageData } from '@/lib/hooks/useFrontPageData';
 import { format } from 'date-fns';
 import { nb } from 'date-fns/locale';

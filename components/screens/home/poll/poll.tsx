@@ -1,5 +1,4 @@
 import Icon from '@/components/icon';
-import PollResultItem from '@/components/screens/home/poll-result-item';
 import { useFrontPageData } from '@/lib/hooks/useFrontPageData';
 import { usePoll } from '@/lib/hooks/usePolls';
 import { Link } from 'expo-router';
@@ -8,6 +7,7 @@ import { MotiView } from 'moti';
 import { useCallback, useEffect, useState } from 'react';
 import { Pressable, TouchableOpacity, View } from 'react-native';
 import env from 'env';
+import PollResultItem from './poll-result-item';
 
 type PollProps = {
   poll: ReturnType<typeof useFrontPageData>['poll'];
