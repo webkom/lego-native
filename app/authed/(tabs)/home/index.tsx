@@ -1,7 +1,7 @@
 import Header from '@/components/header';
 import EventsDigest from '@/components/screens/home/events-digest';
-import FrontPagePoll from '@/components/screens/home/frontpage-poll';
 import PinnedArticle from '@/components/screens/home/pinned-article';
+import Poll from '@/components/screens/home/poll';
 import { useFrontPageData } from '@/lib/hooks/useFrontPageData';
 import { format } from 'date-fns';
 import { nb } from 'date-fns/locale';
@@ -12,7 +12,8 @@ import { withUniwind } from 'uniwind';
 const SafeAreaView = withUniwind(RNSafeAreaView);
 
 const HomePage = () => {
-  const { events, pinnedArticles, isRefetching, refetch } = useFrontPageData();
+  const { events, pinnedArticles, poll, isRefetching, refetch } = useFrontPageData();
+
   const presentations = events
     .filter((e) => {
       const t = e.eventType;
@@ -52,10 +53,7 @@ const HomePage = () => {
               createdAt={format(pinnedArticles[0].createdAt, 'd. LLL', { locale: nb })}
             />
           )}
-          <View className="flex flex-col gap-1">
-            {/* <Poll /> */}
-            <FrontPagePoll />
-          </View>
+          <Poll poll={poll} />
         </View>
       </ScrollView>
     </SafeAreaView>
