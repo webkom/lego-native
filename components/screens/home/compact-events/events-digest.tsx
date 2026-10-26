@@ -2,7 +2,7 @@ import EventItem from '@/components/event-item';
 import { cn, Typography } from 'heroui-native';
 import { ComponentProps } from 'react';
 import { View } from 'react-native';
-import { EventDigestItem } from '../event/types';
+import { EventDigestItem } from '../../event/types';
 
 type EventsDigestProps = {
   socialEvents?: EventDigestItem[];
