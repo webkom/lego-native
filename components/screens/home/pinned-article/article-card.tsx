@@ -6,11 +6,6 @@ import { withUniwind } from 'uniwind';
 
 const Image = withUniwind(ExpoImage);
 
-function capitalize(text: string): string {
-  if (!text) return '';
-  return text[0]?.toUpperCase() + text.slice(1);
-}
-
 type ArticleCardProps = {
   title: string;
   cover: string;
@@ -33,13 +28,13 @@ const ArticleCard = ({ cover, tags, title, onPress, date }: ArticleCardProps) =>
           />
           <View className="flex flex-1 flex-col gap-3">
             <View className="flex w-full flex-col gap-0">
-              <Card.Title className="leading-tight">{title}</Card.Title>
+              <Card.Title className=" leading-tight">{title}</Card.Title>
               <Card.Description>{date}</Card.Description>
             </View>
             <View className="flex flex-row flex-wrap items-center gap-1">
               {tags.map((t, i) => (
                 <Chip key={t + 'article-tag' + i} variant="secondary" size="sm">
-                  <Chip.Label>{capitalize(t)}</Chip.Label>
+                  <Chip.Label>{t}</Chip.Label>
                 </Chip>
               ))}
             </View>

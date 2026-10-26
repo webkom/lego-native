@@ -1,14 +1,12 @@
 import env from '@/env';
-import { components } from '@/lib/types/schema';
 import { Linking, View } from 'react-native';
 import ArticleCard from './article-card';
 import { Typography } from 'heroui-native';
-type PinnedArticleItem = Pick<
-  components['schemas']['PublicArticle'],
-  'id' | 'slug' | 'cover' | 'description' | 'tags' | 'createdAt'
->;
-type PinnedArticleProps = {} & PinnedArticleItem;
-const PinnedArticle = ({ id, tags, cover, description, slug, createdAt }: PinnedArticleProps) => {
+import { components } from '@/lib/types/schema';
+
+type PublicArticleItem = components['schemas']['PublicArticle'];
+
+const PinnedArticle = ({ title, slug, cover, tags, createdAt }: PublicArticleItem) => {
   const handlePress = () => {
     Linking.openURL(`${env.EXPO_PUBLIC_FRONTEND_URL}/articles/${slug}`);
   };
@@ -18,7 +16,7 @@ const PinnedArticle = ({ id, tags, cover, description, slug, createdAt }: Pinned
       <Typography type="h4">Festet oppslag</Typography>
       <ArticleCard
         cover={cover ?? ''}
-        title={description ?? ''}
+        title={title}
         tags={(tags as unknown as string[]) ?? []}
         onPress={handlePress}
         date={createdAt}
