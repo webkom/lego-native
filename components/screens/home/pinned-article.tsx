@@ -1,7 +1,8 @@
 import env from '@/env';
 import { components } from '@/lib/types/schema';
-import { Linking } from 'react-native';
+import { Linking, View } from 'react-native';
 import ArticleCard from './article-card';
+import { Typography } from 'heroui-native';
 type PinnedArticleItem = Pick<
   components['schemas']['PublicArticle'],
   'id' | 'slug' | 'cover' | 'description' | 'tags' | 'createdAt'
@@ -9,18 +10,20 @@ type PinnedArticleItem = Pick<
 type PinnedArticleProps = {} & PinnedArticleItem;
 const PinnedArticle = ({ id, tags, cover, description, slug, createdAt }: PinnedArticleProps) => {
   const handlePress = () => {
-    Linking.openURL(`${env.EXPO_PUBLIC_FRONTEND_URL}/articles/${id}-${slug}`);
+    Linking.openURL(`${env.EXPO_PUBLIC_FRONTEND_URL}/articles/${slug}`);
   };
 
   return (
-    // Gotta cast the tags to string[] because the schema is incorrect.
-    <ArticleCard
-      cover={cover ?? ''}
-      title={description ?? ''}
-      tags={(tags as unknown as string[]) ?? []}
-      onPress={handlePress}
-      date={createdAt}
-    />
+    <View className="gap-1">
+      <Typography type="h4">Festet oppslag</Typography>
+      <ArticleCard
+        cover={cover ?? ''}
+        title={description ?? ''}
+        tags={(tags as unknown as string[]) ?? []}
+        onPress={handlePress}
+        date={createdAt}
+      />
+    </View>
   );
 };
 

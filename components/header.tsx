@@ -19,13 +19,13 @@ const Header = ({ className }: HeaderProps) => {
       {theme.dark ? (
         <Image
           source={require('@/assets/images/abakus-logo-light.png')}
-          className="w-28 h-7"
+          className="h-7 w-28"
           contentFit="contain"
         />
       ) : (
         <Image
           source={require('@/assets/images/abakus-logo-dark.png')}
-          className="w-28 h-7"
+          className="h-7 w-28"
           contentFit="contain"
         />
       )}

@@ -26,7 +26,7 @@ const Poll = ({ poll }: PollProps) => {
 
   useEffect(() => {
     vote.reset();
-  }, [poll?.id]);
+  }, [vote, poll?.id]);
 
   useEffect(() => {
     if (!showAnonymousNote) return;
