@@ -24,7 +24,7 @@ const EventsDigest = ({
     <View className={cn('flex w-full flex-col gap-4', className)} {...props}>
       {sections.map(({ title, data }) => (
         <View key={title} className="flex flex-col gap-1">
-          <Typography type="h2">{title}</Typography>
+          <Typography type="h4">{title}</Typography>
           {data.map((item) => (
             <EventItem key={item.id.toString()} {...item} />
           ))}
