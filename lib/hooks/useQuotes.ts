@@ -19,5 +19,5 @@ export const useRandomQuote = () => {
   const randomIndex = Math.floor(Math.random() * allQuotes.length);
   const randomQuote = allQuotes[randomIndex];
 
-  return { data: randomQuote, ...rest };
+  return { data: allQuotes[10], ...rest };
 };
