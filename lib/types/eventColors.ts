@@ -21,7 +21,7 @@ export const EventTypeConfig: Record<EventTypeEnum, ConfigProperties> = {
   },
   party: {
     displayName: 'Fest',
-    color: '#eac922ff',
+    color: '#eac922',
     textColor: '#000',
   },
   social: {
