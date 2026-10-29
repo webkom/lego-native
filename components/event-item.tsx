@@ -46,6 +46,8 @@ export default function EventItem({ id, eventType, startTime, title }: EventItem
     locale: nb,
   });
 
+  console.log('Event color: ' + eventColor);
+
   return (
     <Link href={`/authed/(stacks)/event/${id}`} asChild>
       <TouchableOpacity className="w-full">
@@ -74,31 +76,4 @@ export default function EventItem({ id, eventType, startTime, title }: EventItem
       </TouchableOpacity>
     </Link>
   );
-
-  // return (
-  //   <Link href={`/authed/(stacks)/event/${id}`} asChild>
-  //     <Button variant={'outline'} className="r-5 h-16 w-full rounded-xl active:bg-neutral-200">
-  //       <View className="flex-row items-center justify-between">
-  //         <View className="rounded-lg px-1 py-8" style={{ backgroundColor: eventColor }} />
-  //         <View className="mx-3 flex-1">
-  //           <Text className="text-lg font-medium text-gray-900" numberOfLines={1}>
-  //             {event.title}
-  //           </Text>
-  //           <Text className="text-sm text-gray-600">{formattedStartTime}</Text>
-  //         </View>
-  //         <View className="flex flex-col">
-  //           <Text>{registrationStatus}</Text>
-  //           <Text
-  //             className={
-  //               event.eventStatusType === 'INFINITE'
-  //                 ? 'hidden'
-  //                 : 'rounded-xl bg-gray-200 px-2 py-1 font-semibold'
-  //             }>
-  //             {capacity}
-  //           </Text>
-  //         </View>
-  //       </View>
-  //     </Button>
-  //   </Link>
-  // );
 }
