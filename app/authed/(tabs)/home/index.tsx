@@ -1,5 +1,7 @@
 import Header from '@/components/header';
 import EventsDigest from '@/components/screens/home/compact-events/events-digest';
+import FrontpageQuote from '@/components/screens/home/overheard/frontepage-quotes';
+import QuoteCard from '@/components/screens/home/overheard/quote';
 import PinnedArticle from '@/components/screens/home/pinned-article/pinned-article';
 import Poll from '@/components/screens/home/poll/poll';
 import { useFrontPageData } from '@/lib/hooks/useFrontPageData';
@@ -54,6 +56,7 @@ const HomePage = () => {
             />
           )}
           <Poll poll={poll} />
+          <FrontpageQuote />
         </View>
       </ScrollView>
     </SafeAreaView>
