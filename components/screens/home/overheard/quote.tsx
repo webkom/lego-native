@@ -1,7 +1,7 @@
 import Icon from '@/components/icon';
 import { GroupedEmojis, Reaction } from '@/lib/types/reactions';
 import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
-import { BottomSheet, Card, Surface, Typography } from 'heroui-native';
+import { BottomSheet, Card, cn, Surface, Typography } from 'heroui-native';
 import { ComponentProps, memo, useCallback, useMemo, useState } from 'react';
 import { Pressable, Text, TouchableOpacity, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
@@ -58,12 +58,17 @@ const categoryNameToReadableName: Record<IconCategory, string> = {
   flags: 'Flagg',
 };
 
+type SelectedEmoji = {
+  shortCode: string;
+  unicodeString: string;
+};
+
 type OverheardProps = {
   quote: string;
   quotee: string;
   reactions: Reaction[];
   emojis?: GroupedEmojis;
-  onReactionSelect?: (emojiUnicode: string) => void;
+  onReactionSelect?: (emoji: SelectedEmoji) => void;
 };
 
 const QuoteCard = ({ quote, quotee, reactions, emojis, onReactionSelect }: OverheardProps) => {
@@ -75,8 +80,8 @@ const QuoteCard = ({ quote, quotee, reactions, emojis, onReactionSelect }: Overh
         <Reactions
           reactions={reactions}
           emojis={emojis}
-          onReactionSelect={(code) => {
-            onReactionSelect?.(code);
+          onReactionSelect={(emoji) => {
+            onReactionSelect?.(emoji);
           }}
         />
       </Card.Body>
@@ -87,15 +92,22 @@ const QuoteCard = ({ quote, quotee, reactions, emojis, onReactionSelect }: Overh
 type ReactionsProps = {
   reactions: Reaction[];
   emojis?: GroupedEmojis;
-  onReactionSelect?: (emojiUnicode: string) => void;
+  onReactionSelect?: (emoji: SelectedEmoji) => void;
 };
 const Reactions = ({ reactions, emojis, onReactionSelect }: ReactionsProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   return (
-    <View className="flex flex-row gap-2">
+    <View className="flex flex-row flex-wrap gap-2">
       {reactions.map((reaction, index) => (
-        <TouchableOpacity key={`${reaction.reactionId}${index}`} onPress={() => alert('Reacting')}>
-          <ReactionSurface>
+        <TouchableOpacity
+          key={`${reaction.reactionId ?? reaction.emoji}${index}`}
+          onPress={() =>
+            onReactionSelect?.({
+              shortCode: reaction.emoji,
+              unicodeString: reaction.unicodeString,
+            })
+          }>
+          <ReactionSurface hasReacted={reaction.hasReacted}>
             <Typography className="text-sm leading-none">{reaction.unicodeString}</Typography>
             <Typography className="text-sm leading-none">{reaction.count}</Typography>
           </ReactionSurface>
@@ -103,13 +115,13 @@ const Reactions = ({ reactions, emojis, onReactionSelect }: ReactionsProps) => {
       ))}
       <ReactionPicker
         emojis={emojis}
-        onReactionSelect={(code) => {
-          onReactionSelect?.(code);
+        onReactionSelect={(emoji) => {
+          onReactionSelect?.(emoji);
           setModalOpen(false);
         }}
         open={modalOpen}
         onOpenChange={setModalOpen}>
-        <ReactionSurface>
+        <ReactionSurface hasReacted={false}>
           <Icon name="SmilePlus" size={16} className="text-surface-secondary-foreground/70" />
         </ReactionSurface>
       </ReactionPicker>
@@ -118,17 +130,11 @@ const Reactions = ({ reactions, emojis, onReactionSelect }: ReactionsProps) => {
 };
 
 const EmojiCell = memo(
-  ({
-    unicodeString,
-    onSelect,
-  }: {
-    unicodeString: string;
-    onSelect?: (unicodeString: string) => void;
-  }) => (
+  ({ emoji, onSelect }: { emoji: SelectedEmoji; onSelect?: (emoji: SelectedEmoji) => void }) => (
     <Pressable
       className="h-11 w-11 items-center justify-center active:opacity-50"
-      onPress={() => onSelect?.(unicodeString)}>
-      <Text className="text-3xl">{unicodeString}</Text>
+      onPress={() => onSelect?.(emoji)}>
+      <Text className="text-3xl">{emoji.unicodeString}</Text>
     </Pressable>
   )
 );
@@ -165,7 +171,7 @@ const ReactionPicker = ({
 }: {
   children?: React.ReactNode;
   emojis?: GroupedEmojis;
-  onReactionSelect?: (emojiUnicode: string) => void;
+  onReactionSelect?: (emoji: SelectedEmoji) => void;
   onOpenChange?: (open: boolean) => void;
   open?: boolean;
 }) => {
@@ -189,9 +195,7 @@ const ReactionPicker = ({
   );
 
   const renderEmojiItem = useCallback(
-    ({ item }: { item: { unicodeString: string; shortCode: string } }) => (
-      <EmojiCell unicodeString={item.unicodeString} onSelect={onReactionSelect} />
-    ),
+    ({ item }: { item: SelectedEmoji }) => <EmojiCell emoji={item} onSelect={onReactionSelect} />,
     [onReactionSelect]
   );
 
@@ -254,9 +258,17 @@ const ReactionPicker = ({
   );
 };
 
-const ReactionSurface = ({ ...props }: ComponentProps<typeof Surface>) => {
+type ReactionSurfaceProps = { hasReacted?: boolean } & ComponentProps<typeof Surface>;
+const ReactionSurface = ({ hasReacted, ...props }: ReactionSurfaceProps) => {
   return (
-    <Surface className="flex flex-row items-center gap-1 py-3" variant="secondary" {...props} />
+    <Surface
+      className={cn(
+        'flex flex-row items-center gap-1 py-3',
+        hasReacted ? 'border-primary bg-primary/10' : ''
+      )}
+      variant="secondary"
+      {...props}
+    />
   );
 };
 
