@@ -9,3 +9,8 @@ export type Reaction = {
 };
 
 export type GroupedEmojis = Record<string, components['schemas']['Emoji'][]>;
+
+export type SelectedEmoji = {
+  shortCode: string;
+  unicodeString: string;
+};

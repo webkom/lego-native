@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import { api } from '../services/api';
 import { components } from '../types/schema';
-import { useQueryClient } from '@tanstack/react-query';
 
 export const useEmojis = () => {
   const { data, ...rest } = api.useQuery('get', '/api/v1/emojis/');
