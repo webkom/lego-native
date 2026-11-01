@@ -2,14 +2,12 @@ import Button from '@/components/button';
 import Input from '@/components/input';
 import { useSignIn } from '@/lib/hooks/useAuth';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter } from 'expo-router';
+import { useRouter, useTheme } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { ActivityIndicator, Image, Text, View } from 'react-native';
 import { z } from 'zod';
 
-const AbakusLogo = require('@/assets/images/abakus-logo.png');
 const BlurBackground = require('@/assets/images/blur-background.png');
 
 const formSchema = z.object({
@@ -18,6 +16,7 @@ const formSchema = z.object({
 });
 
 const SignInPage = () => {
+  const theme = useTheme();
   const auth = useSignIn();
   const router = useRouter();
 
@@ -46,7 +45,11 @@ const SignInPage = () => {
 
       <View className="z-30 flex h-full w-full flex-col items-center justify-center gap-5 px-10">
         <Image
-          source={AbakusLogo}
+          source={
+            theme.dark
+              ? require('@/assets/images/abakus-logo-dark.png')
+              : require('@/assets/images/abakus-logo-light.png')
+          }
           className="top-safe-offset-20 absolute h-32 w-72 max-w-full"
           resizeMode="contain"
         />
