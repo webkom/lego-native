@@ -26,14 +26,19 @@ const FrontpageQuote = () => {
   // Function for deciding what to do when the user reacts to a quote
   const handleReactionSelect = (emoji: SelectedEmoji) => {
     const quoteReactions = quote.reactionsGrouped as unknown as Reaction[];
-    const hasReacted = quoteReactions.some(
+    const existingReaction = quoteReactions.find(
       (r) => r.emoji === emoji.shortCode || r.unicodeString === emoji.unicodeString
     );
-
-    alert('Has reacted: ' + hasReacted);
+    const hasReacted = Boolean(existingReaction?.hasReacted);
 
     // Create reaction if not reacted with emoji
     if (!hasReacted) {
+      console.log(
+        'Creating reaction for quote',
+        quote.contentTarget,
+        'with emoji',
+        emoji.shortCode
+      );
       return reactions.postReaction.mutate({
         body: {
           contentTarget: quote.contentTarget,
@@ -43,10 +48,6 @@ const FrontpageQuote = () => {
     }
 
     // Delete reaction if already reacted with emoji
-    const existingReaction = (quote.reactionsGrouped as unknown as Reaction[]).find(
-      (r) => r.emoji === emoji.shortCode || r.unicodeString === emoji.unicodeString
-    );
-
     if (!existingReaction || existingReaction.reactionId === null) return;
 
     return reactions.deleteReaction.mutate({
