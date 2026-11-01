@@ -61,7 +61,7 @@ const categoryNameToReadableName: Record<IconCategory, string> = {
 const EmojiCell = memo(
   ({ emoji, onSelect }: { emoji: SelectedEmoji; onSelect?: (emoji: SelectedEmoji) => void }) => (
     <Pressable
-      className="h-11 w-11 items-center justify-center active:opacity-50"
+      className="h-11 w-1/6 items-center justify-center active:opacity-50"
       onPress={() => onSelect?.(emoji)}>
       <Text className="text-3xl">{emoji.unicodeString}</Text>
     </Pressable>
@@ -179,8 +179,7 @@ export const ReactionPicker = ({
                   data={emojis[activeCategory]}
                   numColumns={6}
                   className="flex-1"
-                  columnWrapperClassName="justify-between"
-                  contentContainerClassName="gap-2 pb-6"
+                  contentContainerClassName="pb-6 gap-2"
                   keyExtractor={(i) => i.shortCode}
                   renderItem={renderEmojiItem}
                   getItemLayout={getEmojiItemLayout}
