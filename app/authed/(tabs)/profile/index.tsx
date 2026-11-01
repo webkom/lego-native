@@ -3,7 +3,7 @@ import Icon from '@/components/icon';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { useAuth } from '@/lib/hooks/useAuth';
 import { useUser } from '@/lib/hooks/useUser';
-import { Link, useRouter } from 'expo-router';
+import { Link } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { Button, Typography } from 'heroui-native';
 import { useState } from 'react';
