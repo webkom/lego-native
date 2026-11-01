@@ -18,7 +18,7 @@ const FrontpageQuote = () => {
   });
 
   const reactions = useReaction({
-    optimisticUpdateFn: handleOptimisticReaction(reactionQueryKey, reactionQueryKey, emojis),
+    optimisticUpdateFn: handleOptimisticReaction(reactionQueryKey, emojis),
   });
 
   if (!quote) return null;
@@ -33,12 +33,6 @@ const FrontpageQuote = () => {
 
     // Create reaction if not reacted with emoji
     if (!hasReacted) {
-      console.log(
-        'Creating reaction for quote',
-        quote.contentTarget,
-        'with emoji',
-        emoji.shortCode
-      );
       return reactions.postReaction.mutate({
         body: {
           contentTarget: quote.contentTarget,
