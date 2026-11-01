@@ -19,11 +19,6 @@ const ProfilePage = () => {
   const [show, setShow] = useState(false);
   const { signOut } = useAuth();
 
-  // const handleSignOut = () => {
-  //   auth.signOut();
-  //   router.replace('/non-authed/sign-in');
-  // };
-
   const user = useUser();
   return (
     <View className="pt-safe-offset-5 relative h-screen w-screen">
@@ -87,13 +82,6 @@ const ProfilePage = () => {
           Er du sikker på at du vil logge ut?
         </Typography>
         <View className="w-full flex-col gap-2.5">
-          {/* <Button
-            className="flex-1 rounded-full"
-            size="lg"
-            variant="secondary"
-            onPress={() => setShow(false)}>
-            <Text className="text-xl text-on-primary">Avbryt</Text>
-          </Button> */}
           <Button className="flex-1 rounded-full" size="lg" onPress={() => signOut()}>
             <Text className="text-on-error text-xl">Logg ut</Text>
           </Button>

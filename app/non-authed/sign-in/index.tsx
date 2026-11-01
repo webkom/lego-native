@@ -22,12 +22,6 @@ const SignInPage = () => {
     }
   }, [router, user]);
 
-  // const handleSubmit = (data: z.infer<typeof formSchema>) => {
-  //   void auth.signInAsync({ ...data }).then(() => {
-  //     router.push('non-authed/onboarding');
-  //   });
-  // };
-
   const handleSignIn = () => {
     authenticate();
   };
@@ -53,11 +47,7 @@ const SignInPage = () => {
             resizeMode="contain"
           />
         </View>
-        {/* <View className="bottom-safe-offset-10 absolute flex w-full flex-col items-center gap-5">
-          <Text className="text-on-background mt-10 w-full text-center text-lg font-semibold">
-            Laget med 🌚 av Webkom
-          </Text>
-        </View> */}
+
         <KeyboardAvoidingView className="w-full">
           <Surface className="rounded-t-4xl pb-safe-offset-5 flex h-fit w-full flex-col items-center gap-5 pt-10">
             <View className="flex flex-col items-center gap-2">
@@ -69,13 +59,6 @@ const SignInPage = () => {
                 </Link>
               </Typography>
             </View>
-            {/* <Text
-            style={{
-              fontFamily: 'PixelifySans_400Regular',
-            }}
-            className="text-primary text-5xl">
-            &gt; Velkommen
-          </Text> */}
 
             <Button
               size="lg"
@@ -85,13 +68,7 @@ const SignInPage = () => {
                 handleSignIn();
               }}>
               Logg inn
-              {/* <Text className="text-on-primary text-xl font-semibold">
-              {auth.isPending && <ActivityIndicator color="#FFFFFF" size="large" />}
-              {!auth.isPending && 'Logg inn'}
-            </Text> */}
             </Button>
-
-            {/* <Text>{auth.isError && 'Noe gikk galt under innlogging'}</Text> */}
           </Surface>
         </KeyboardAvoidingView>
       </View>
