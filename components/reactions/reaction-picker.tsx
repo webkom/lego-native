@@ -2,7 +2,7 @@ import Icon from '@/components/icon';
 import { GroupedEmojis, SelectedEmoji } from '@/lib/types/reactions';
 import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
 import { BottomSheet, Surface, Typography } from 'heroui-native';
-import { ComponentProps, memo, useCallback, useMemo, useRef, useState } from 'react';
+import { ComponentProps, memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, Text, TouchableOpacity } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
@@ -126,7 +126,9 @@ export const ReactionPicker = ({
   );
 
   const onReactionSelectRef = useRef(onReactionSelect);
-  onReactionSelectRef.current = onReactionSelect;
+  useEffect(() => {
+    onReactionSelectRef.current = onReactionSelect;
+  }, [onReactionSelect]);
 
   const handleEmojiSelect = useCallback((emoji: SelectedEmoji) => {
     onReactionSelectRef.current?.(emoji);
