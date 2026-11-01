@@ -1,11 +1,10 @@
-import Button from '@/components/button';
-import Input from '@/components/input';
 import { useSignIn } from '@/lib/hooks/useAuth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter, useTheme } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { Button, Input, Label, Surface, TextField } from 'heroui-native';
 import { Controller, useForm } from 'react-hook-form';
-import { ActivityIndicator, Image, Text, View } from 'react-native';
+import { ActivityIndicator, Image, KeyboardAvoidingView, Text, View } from 'react-native';
 import { z } from 'zod';
 
 const BlurBackground = require('@/assets/images/blur-background.png');
@@ -43,82 +42,94 @@ const SignInPage = () => {
         resizeMode="cover"
       />
 
-      <View className="z-30 flex h-full w-full flex-col items-center justify-center gap-5 px-10">
-        <Image
-          source={
-            theme.dark
-              ? require('@/assets/images/abakus-logo-dark.png')
-              : require('@/assets/images/abakus-logo-light.png')
-          }
-          className="top-safe-offset-20 absolute h-32 w-72 max-w-full"
-          resizeMode="contain"
-        />
-        <View className="bottom-safe-offset-10 absolute flex w-full flex-col items-center gap-5">
-          {/* This is just temporary, for easy debugging and stuff */}
+      <View className="pt-safe-offset-2 z-30 flex h-full w-full flex-col items-center justify-center gap-5">
+        <View className="flex-1 flex-col items-center justify-center">
+          <Image
+            source={
+              theme.dark
+                ? require('@/assets/images/abakus-logo-light.png')
+                : require('@/assets/images/abakus-logo-dark.png')
+            }
+            className="h-32 w-72 max-w-full"
+            resizeMode="contain"
+          />
+        </View>
+        {/* <View className="bottom-safe-offset-10 absolute flex w-full flex-col items-center gap-5">
           <Text className="text-on-background mt-10 w-full text-center text-lg font-semibold">
             Laget med 🌚 av Webkom
           </Text>
-        </View>
-        <Text
-          style={{
-            fontFamily: 'PixelifySans_400Regular',
-          }}
-          className="text-primary text-5xl">
-          &gt; Velkommen
-        </Text>
+        </View> */}
+        <KeyboardAvoidingView className="w-full">
+          <Surface className="rounded-t-4xl flex h-fit w-full flex-col items-center gap-3 pt-10">
+            {/* <Text
+            style={{
+              fontFamily: 'PixelifySans_400Regular',
+            }}
+            className="text-primary text-5xl">
+            &gt; Velkommen
+          </Text> */}
 
-        <Controller
-          control={form.control}
-          name={'username'}
-          render={({ field, fieldState }) => (
-            <Input
-              className="mt-5 w-full"
-              label="Brukernavn"
-              error={fieldState.error?.message}
-              inputProps={{
-                value: field.value,
-                onBlur: field.onBlur,
-                onChangeText: field.onChange,
-                autoCapitalize: 'none',
-                autoComplete: 'username',
-              }}
+            <Controller
+              control={form.control}
+              name={'username'}
+              render={({ field, fieldState }) => (
+                <TextField className="w-full">
+                  <Label>Brukernavn</Label>
+                  <Input
+                    variant="secondary"
+                    // error={fieldState.error?.message}
+                    // inputProps={{
+                    //   value: field.value,
+                    //   onBlur: field.onBlur,
+                    //   onChangeText: field.onChange,
+                    //   autoCapitalize: 'none',
+                    //   autoComplete: 'username',
+                    // }}
+                  />
+                </TextField>
+              )}
             />
-          )}
-        />
 
-        <Controller
-          control={form.control}
-          name="password"
-          render={({ field, fieldState }) => (
-            <Input
-              className="w-full"
-              label="Passord"
-              inputProps={{
-                ...field,
-                secureTextEntry: true,
-                value: field.value,
-                onBlur: field.onBlur,
-                onChangeText: field.onChange,
-                autoComplete: 'password',
-              }}
-              error={fieldState.error?.message}
+            <Controller
+              control={form.control}
+              name="password"
+              render={({ field, fieldState }) => (
+                <TextField className="w-full">
+                  <Label>Passord</Label>
+                  <Input
+                    className="w-full"
+                    // label="Passord"
+                    // inputProps={{
+                    //   ...field,
+                    //   secureTextEntry: true,
+                    //   value: field.value,
+                    //   onBlur: field.onBlur,
+                    //   onChangeText: field.onChange,
+                    //   autoComplete: 'password',
+                    // }}
+                    // error={fieldState.error?.message}
+                  />
+                </TextField>
+              )}
             />
-          )}
-        />
 
-        <Button
-          size="lg"
-          className="mt-5 w-full max-w-[300px] rounded-full"
-          onPress={() => {
-            form.handleSubmit(handleSubmit)();
-          }}>
-          <Text className="text-on-primary text-xl font-semibold">
-            {auth.isPending && <ActivityIndicator color="#FFFFFF" size="large" />}
-            {!auth.isPending && 'Logg inn'}
-          </Text>
-        </Button>
+            <Button
+              size="lg"
+              variant="danger"
+              className="mt-10 w-full"
+              onPress={() => {
+                form.handleSubmit(handleSubmit)();
+              }}>
+              Logg inn
+              {/* <Text className="text-on-primary text-xl font-semibold">
+              {auth.isPending && <ActivityIndicator color="#FFFFFF" size="large" />}
+              {!auth.isPending && 'Logg inn'}
+            </Text> */}
+            </Button>
 
-        <Text>{auth.isError && 'Noe gikk galt under innlogging'}</Text>
+            <Text>{auth.isError && 'Noe gikk galt under innlogging'}</Text>
+          </Surface>
+        </KeyboardAvoidingView>
       </View>
     </View>
   );
