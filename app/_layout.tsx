@@ -4,7 +4,7 @@ import { PixelifySans_400Regular, useFonts } from '@expo-google-fonts/pixelify-s
 import { PortalProvider } from '@gorhom/portal';
 import { PortalHost } from '@rn-primitives/portal';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { DarkTheme, DefaultTheme, Stack, ThemeProvider, useRouter } from 'expo-router';
+import { DarkTheme, DefaultTheme, Stack, ThemeProvider, usePathname, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { HeroUINativeProvider } from 'heroui-native';
 import { useAtomValue } from 'jotai/react';
@@ -25,13 +25,16 @@ const Layout = () => {
   const user = useAtomValue(userAtom);
   const { theme } = useUniwind();
   const router = useRouter();
+  const pathName = usePathname();
 
   useEffect(() => {
     if (!router) return;
+    if (pathName?.includes('/non-authed')) return;
+
     if (!user) {
       router.replace('/non-authed/sign-in');
     }
-  }, [router, user]);
+  }, [router, user, pathName]);
 
   return (
     <QueryClientProvider client={queryClient}>
