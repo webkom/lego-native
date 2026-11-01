@@ -1,36 +1,35 @@
-import { useSignIn } from '@/lib/hooks/useAuth';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter, useTheme } from 'expo-router';
+import { userAtom } from '@/lib/atoms/user-atom';
+import { useAuth } from '@/lib/hooks/useAuth';
+import { Link, useRouter, useTheme } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Button, Input, Label, Surface, TextField } from 'heroui-native';
-import { Controller, useForm } from 'react-hook-form';
-import { ActivityIndicator, Image, KeyboardAvoidingView, Text, View } from 'react-native';
-import { z } from 'zod';
+import { Button, Surface, Typography } from 'heroui-native';
+import { useAtomValue } from 'jotai';
+import { useEffect } from 'react';
+import { Image, KeyboardAvoidingView, View } from 'react-native';
 
 const BlurBackground = require('@/assets/images/blur-background.png');
 
-const formSchema = z.object({
-  username: z.string().min(1, 'Brukernavn er påkrevd'),
-  password: z.string().min(1, 'Passord er påkrevd'),
-});
-
 const SignInPage = () => {
   const theme = useTheme();
-  const auth = useSignIn();
+  const user = useAtomValue(userAtom);
   const router = useRouter();
+  const { authenticate } = useAuth();
+  useEffect(() => {
+    if (!router) return;
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    defaultValues: {
-      password: '',
-      username: '',
-    },
-    resolver: zodResolver(formSchema),
-  });
+    if (user) {
+      router.replace('/authed/(tabs)/events');
+    }
+  }, [router, user]);
 
-  const handleSubmit = (data: z.infer<typeof formSchema>) => {
-    void auth.signInAsync({ ...data }).then(() => {
-      router.push('non-authed/onboarding');
-    });
+  // const handleSubmit = (data: z.infer<typeof formSchema>) => {
+  //   void auth.signInAsync({ ...data }).then(() => {
+  //     router.push('non-authed/onboarding');
+  //   });
+  // };
+
+  const handleSignIn = () => {
+    authenticate();
   };
 
   return (
@@ -60,7 +59,16 @@ const SignInPage = () => {
           </Text>
         </View> */}
         <KeyboardAvoidingView className="w-full">
-          <Surface className="rounded-t-4xl flex h-fit w-full flex-col items-center gap-3 pt-10">
+          <Surface className="rounded-t-4xl pb-safe-offset-5 flex h-fit w-full flex-col items-center gap-5 pt-10">
+            <View className="flex flex-col items-center gap-2">
+              <Typography type="h1">Logg inn</Typography>
+              <Typography type="body-sm">
+                Har du ikke en bruker? Registrer deg gjennom{' '}
+                <Link href="https://abakus.no/" className="text-primary">
+                  abakus.no
+                </Link>
+              </Typography>
+            </View>
             {/* <Text
             style={{
               fontFamily: 'PixelifySans_400Regular',
@@ -69,56 +77,12 @@ const SignInPage = () => {
             &gt; Velkommen
           </Text> */}
 
-            <Controller
-              control={form.control}
-              name={'username'}
-              render={({ field, fieldState }) => (
-                <TextField className="w-full">
-                  <Label>Brukernavn</Label>
-                  <Input
-                    variant="secondary"
-                    // error={fieldState.error?.message}
-                    // inputProps={{
-                    //   value: field.value,
-                    //   onBlur: field.onBlur,
-                    //   onChangeText: field.onChange,
-                    //   autoCapitalize: 'none',
-                    //   autoComplete: 'username',
-                    // }}
-                  />
-                </TextField>
-              )}
-            />
-
-            <Controller
-              control={form.control}
-              name="password"
-              render={({ field, fieldState }) => (
-                <TextField className="w-full">
-                  <Label>Passord</Label>
-                  <Input
-                    className="w-full"
-                    // label="Passord"
-                    // inputProps={{
-                    //   ...field,
-                    //   secureTextEntry: true,
-                    //   value: field.value,
-                    //   onBlur: field.onBlur,
-                    //   onChangeText: field.onChange,
-                    //   autoComplete: 'password',
-                    // }}
-                    // error={fieldState.error?.message}
-                  />
-                </TextField>
-              )}
-            />
-
             <Button
               size="lg"
               variant="danger"
-              className="mt-10 w-full"
+              className="mt-5 w-full"
               onPress={() => {
-                form.handleSubmit(handleSubmit)();
+                handleSignIn();
               }}>
               Logg inn
               {/* <Text className="text-on-primary text-xl font-semibold">
@@ -127,7 +91,7 @@ const SignInPage = () => {
             </Text> */}
             </Button>
 
-            <Text>{auth.isError && 'Noe gikk galt under innlogging'}</Text>
+            {/* <Text>{auth.isError && 'Noe gikk galt under innlogging'}</Text> */}
           </Surface>
         </KeyboardAvoidingView>
       </View>

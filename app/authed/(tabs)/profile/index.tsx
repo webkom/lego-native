@@ -1,12 +1,12 @@
 import Dialog from '@/components/dialog';
 import Icon from '@/components/icon';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
-import { useSignIn } from '@/lib/hooks/useAuth';
+import { useAuth } from '@/lib/hooks/useAuth';
 import { useUser } from '@/lib/hooks/useUser';
 import { Link, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { Button, Typography } from 'heroui-native';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
 import { withUniwind } from 'uniwind';
@@ -16,15 +16,13 @@ const SafeAreaView = withUniwind(RNSafeAreaView);
 const RedGradient = require('@/assets/images/top-blur-red.png');
 
 const ProfilePage = () => {
-  const auth = useSignIn();
-
   const [show, setShow] = useState(false);
-  const router = useRouter();
+  const { signOut } = useAuth();
 
-  const handleSignOut = () => {
-    auth.signOut();
-    router.replace('/non-authed/sign-in');
-  };
+  // const handleSignOut = () => {
+  //   auth.signOut();
+  //   router.replace('/non-authed/sign-in');
+  // };
 
   const user = useUser();
   return (
@@ -96,7 +94,7 @@ const ProfilePage = () => {
             onPress={() => setShow(false)}>
             <Text className="text-xl text-on-primary">Avbryt</Text>
           </Button> */}
-          <Button className="flex-1 rounded-full" size="lg" onPress={handleSignOut}>
+          <Button className="flex-1 rounded-full" size="lg" onPress={() => signOut()}>
             <Text className="text-on-error text-xl">Logg ut</Text>
           </Button>
         </View>
