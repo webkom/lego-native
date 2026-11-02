@@ -17,6 +17,8 @@ const Poll = ({ poll }: PollProps) => {
   const baseUrl = env.EXPO_PUBLIC_FRONTEND_URL;
 
   const { data: pollResults, vote } = usePoll(poll?.id);
+  // `vote` is a new object on every render, so only depend on its stable methods
+  const { reset: resetVote, mutate: mutateVote } = vote;
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [contentHeight, setContentHeight] = useState(0);
@@ -25,8 +27,8 @@ const Poll = ({ poll }: PollProps) => {
   const [showAnonymousNote, setShowAnonymousNote] = useState(false);
 
   useEffect(() => {
-    vote.reset();
-  }, [vote, poll?.id]);
+    resetVote();
+  }, [resetVote, poll?.id]);
 
   useEffect(() => {
     if (!showAnonymousNote) return;
@@ -39,14 +41,14 @@ const Poll = ({ poll }: PollProps) => {
       if (!poll) return;
 
       // Need to cast to any because the backend schema is not correct
-      vote.mutate({
+      mutateVote({
         params: { path: { id: poll.id } },
         body: {
           optionId,
         } as any,
       });
     },
-    [poll, vote]
+    [poll, mutateVote]
   );
 
   if (!poll) return null;
