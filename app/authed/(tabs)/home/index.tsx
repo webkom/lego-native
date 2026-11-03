@@ -1,4 +1,5 @@
 import Header from '@/components/header';
+import ArticlesCarousel from '@/components/screens/home/articles/articles-carousel';
 import EventsDigest from '@/components/screens/home/compact-events/events-digest';
 import PinnedArticle from '@/components/screens/home/pinned-article/pinned-article';
 import Poll from '@/components/screens/home/poll/poll';
@@ -14,7 +15,7 @@ import { withUniwind } from 'uniwind';
 const SafeAreaView = withUniwind(RNSafeAreaView);
 
 const HomePage = () => {
-  const { events, pinnedArticles, poll, isRefetching, refetch } = useFrontPageData();
+  const { events, pinnedArticles, articles, poll, isRefetching, refetch } = useFrontPageData();
   const insets = useSafeAreaInsets();
   const { getNewQuote } = useRandomQuote();
 
@@ -66,6 +67,7 @@ const HomePage = () => {
               createdAt={format(pinnedArticles[0].createdAt, 'd. LLL', { locale: nb })}
             />
           )}
+          <ArticlesCarousel articles={articles} />
           <Poll poll={poll} />
           <FrontpageQuote />
         </View>
