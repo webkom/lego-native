@@ -61,7 +61,7 @@ export const EventTypeConfig: Record<EventTypeEnum, ConfigProperties> = {
   },
   other: {
     displayName: 'Annet',
-    color: '#000',
+    color: '#000000',
     textColor: '#FFF',
   },
   // TODO: Interest events not implemented yet

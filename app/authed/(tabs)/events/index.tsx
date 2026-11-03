@@ -1,6 +1,5 @@
 import Header from '@/components/header';
 import { useEvents } from '@/lib/hooks/useEvents';
-import type { components } from '@/lib/types/schema';
 import { StatusBar } from 'expo-status-bar';
 import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 

@@ -2,17 +2,26 @@ import Header from '@/components/header';
 import EventsDigest from '@/components/screens/home/compact-events/events-digest';
 import PinnedArticle from '@/components/screens/home/pinned-article/pinned-article';
 import Poll from '@/components/screens/home/poll/poll';
+import FrontpageQuote from '@/components/screens/home/quotes/frontpage-quotes';
 import { useFrontPageData } from '@/lib/hooks/useFrontPageData';
+import { useRandomQuote } from '@/lib/hooks/useQuotes';
 import { format } from 'date-fns';
 import { nb } from 'date-fns/locale';
 import { RefreshControl, ScrollView, View } from 'react-native';
-import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView as RNSafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { withUniwind } from 'uniwind';
 
 const SafeAreaView = withUniwind(RNSafeAreaView);
 
 const HomePage = () => {
   const { events, pinnedArticles, poll, isRefetching, refetch } = useFrontPageData();
+  const insets = useSafeAreaInsets();
+  const { getNewQuote } = useRandomQuote();
+
+  const refetchHomePageData = () => {
+    refetch();
+    getNewQuote();
+  };
 
   const presentations = events
     .filter((e) => {
@@ -42,7 +51,11 @@ const HomePage = () => {
         showsVerticalScrollIndicator={false}
         contentContainerClassName="flex flex-col justify-start gap-5 pb-safe-offset-30"
         refreshControl={
-          <RefreshControl refreshing={isRefetching} onRefresh={refetch} progressViewOffset={50} />
+          <RefreshControl
+            refreshing={isRefetching}
+            onRefresh={refetchHomePageData}
+            progressViewOffset={insets.top + 10}
+          />
         }>
         <Header />
         <View className="flex flex-col gap-5 px-4">
@@ -54,6 +67,7 @@ const HomePage = () => {
             />
           )}
           <Poll poll={poll} />
+          <FrontpageQuote />
         </View>
       </ScrollView>
     </SafeAreaView>

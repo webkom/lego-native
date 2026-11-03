@@ -46,8 +46,6 @@ export default function EventItem({ id, eventType, startTime, title }: EventItem
     locale: nb,
   });
 
-  console.log('Event color: ' + eventColor);
-
   return (
     <Link href={`/authed/(stacks)/event/${id}`} asChild>
       <TouchableOpacity className="w-full">

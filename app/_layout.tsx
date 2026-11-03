@@ -15,7 +15,11 @@ import { useUniwind } from 'uniwind';
 import '../global.css';
 import { useEffect } from 'react';
 
-const queryClient = new QueryClient();
+const globalForQueryClient = globalThis as unknown as {
+  queryClient?: QueryClient;
+};
+
+const queryClient = (globalForQueryClient.queryClient ??= new QueryClient());
 
 const Layout = () => {
   useFonts({
