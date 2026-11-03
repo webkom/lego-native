@@ -134,6 +134,11 @@ export const handleOptimisticReaction =
       }
     };
 
+    const onSettled = () => {
+      console.log('Invalidating query after reaction mutation settled');
+      queryClient.invalidateQueries({ queryKey });
+    };
+
     if (action === 'post') {
       const isTargetQuote = (q: Quote) => q.contentTarget === target.contentTarget;
 
@@ -144,6 +149,7 @@ export const handleOptimisticReaction =
       return {
         previousQuotes,
         rollback,
+        onSettled,
         onSuccess: (createdReaction) => {
           const reactionId =
             createdReaction.id ??
@@ -165,5 +171,5 @@ export const handleOptimisticReaction =
       (reactions) => removeOptimisticReaction(reactions, target)
     );
 
-    return { previousQuotes, rollback };
+    return { previousQuotes, rollback, onSettled };
   };
