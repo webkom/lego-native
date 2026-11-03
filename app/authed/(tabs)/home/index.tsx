@@ -4,6 +4,7 @@ import PinnedArticle from '@/components/screens/home/pinned-article/pinned-artic
 import Poll from '@/components/screens/home/poll/poll';
 import FrontpageQuote from '@/components/screens/home/quotes/frontpage-quotes';
 import { useFrontPageData } from '@/lib/hooks/useFrontPageData';
+import { useRandomQuote } from '@/lib/hooks/useQuotes';
 import { format } from 'date-fns';
 import { nb } from 'date-fns/locale';
 import { RefreshControl, ScrollView, View } from 'react-native';
@@ -15,6 +16,12 @@ const SafeAreaView = withUniwind(RNSafeAreaView);
 const HomePage = () => {
   const { events, pinnedArticles, poll, isRefetching, refetch } = useFrontPageData();
   const insets = useSafeAreaInsets();
+  const { getNewQuote } = useRandomQuote();
+
+  const refetchHomePageData = () => {
+    refetch();
+    getNewQuote();
+  };
 
   const presentations = events
     .filter((e) => {
@@ -46,7 +53,7 @@ const HomePage = () => {
         refreshControl={
           <RefreshControl
             refreshing={isRefetching}
-            onRefresh={refetch}
+            onRefresh={refetchHomePageData}
             progressViewOffset={insets.top + 10}
           />
         }>
