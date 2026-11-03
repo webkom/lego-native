@@ -2,7 +2,7 @@ import Icon from '@/components/icon';
 import { GroupedEmojis, SelectedEmoji } from '@/lib/types/reactions';
 import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
 import { BottomSheet, Surface, Typography } from 'heroui-native';
-import { ComponentProps, memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { ComponentProps, memo, useCallback, useMemo, useState } from 'react';
 import { Pressable, Text, TouchableOpacity } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
@@ -125,18 +125,9 @@ export const ReactionPicker = ({
     [activeCategory]
   );
 
-  const onReactionSelectRef = useRef(onReactionSelect);
-  useEffect(() => {
-    onReactionSelectRef.current = onReactionSelect;
-  }, [onReactionSelect]);
-
-  const handleEmojiSelect = useCallback((emoji: SelectedEmoji) => {
-    onReactionSelectRef.current?.(emoji);
-  }, []);
-
   const renderEmojiItem = useCallback(
-    ({ item }: { item: SelectedEmoji }) => <EmojiCell emoji={item} onSelect={handleEmojiSelect} />,
-    [handleEmojiSelect]
+    ({ item }: { item: SelectedEmoji }) => <EmojiCell emoji={item} onSelect={onReactionSelect} />,
+    [onReactionSelect]
   );
 
   const getEmojiItemLayout = useCallback(
@@ -177,6 +168,7 @@ export const ReactionPicker = ({
               {activeCategory && (
                 <BottomSheetFlatList
                   data={emojis[activeCategory]}
+                  extraData={onReactionSelect}
                   numColumns={6}
                   className="flex-1"
                   contentContainerClassName="pb-6 gap-2"
@@ -186,7 +178,6 @@ export const ReactionPicker = ({
                   initialNumToRender={6}
                   maxToRenderPerBatch={6}
                   windowSize={5}
-                  removeClippedSubviews
                 />
               )}
             </>

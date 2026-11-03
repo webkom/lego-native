@@ -135,7 +135,6 @@ export const handleOptimisticReaction =
     };
 
     const onSettled = () => {
-      console.log('Invalidating query after reaction mutation settled');
       queryClient.invalidateQueries({ queryKey });
     };
 
