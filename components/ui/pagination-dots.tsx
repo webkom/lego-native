@@ -1,5 +1,8 @@
-import { MotiView } from 'moti';
 import { View } from 'react-native';
+import Animated from 'react-native-reanimated';
+import { withUniwind } from 'uniwind';
+
+const AnimatedView = withUniwind(Animated.View);
 
 type PaginationDotsProps = {
   count: number;
@@ -14,11 +17,15 @@ const PaginationDots = ({ count, activeIndex }: PaginationDotsProps) => {
       {Array.from({ length: count }).map((_, i) => {
         const active = i === activeIndex;
         return (
-          <MotiView
-            key={'dot-' + i}
-            animate={{ width: active ? 20 : 8, opacity: active ? 1 : 0.4 }}
-            transition={{ type: 'timing', duration: 200 }}
+          <AnimatedView
+            key={i}
             className={active ? 'bg-accent h-2 rounded-full' : 'bg-muted h-2 rounded-full'}
+            style={{
+              width: active ? 20 : 8,
+              opacity: active ? 1 : 0.4,
+              transitionProperty: ['width', 'opacity'],
+              transitionDuration: 200,
+            }}
           />
         );
       })}
