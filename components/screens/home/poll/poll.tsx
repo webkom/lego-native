@@ -3,11 +3,19 @@ import { useFrontPageData } from '@/lib/hooks/useFrontPageData';
 import { usePoll } from '@/lib/hooks/usePolls';
 import { Link } from 'expo-router';
 import { Button, Surface, Typography } from 'heroui-native';
-import { MotiView } from 'moti';
 import { useCallback, useEffect, useState } from 'react';
 import { Pressable, TouchableOpacity, View } from 'react-native';
+import Animated, { FadeIn } from 'react-native-reanimated';
+import { withUniwind } from 'uniwind';
 import env from 'env';
 import PollResultItem from './poll-result-item';
+
+const AnimatedView = withUniwind(Animated.View);
+
+const transition = {
+  transitionDuration: 300,
+  transitionTimingFunction: 'ease-in-out',
+} as const;
 
 type PollProps = {
   poll: ReturnType<typeof useFrontPageData>['poll'];
@@ -70,7 +78,7 @@ const Poll = ({ poll }: PollProps) => {
   return (
     <View className="gap-1">
       <Typography type="h4">Avstemninger</Typography>
-      <MotiView from={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <AnimatedView entering={FadeIn}>
         <TouchableOpacity onPress={() => setIsExpanded((current) => !current)}>
           <Surface className="bg-danger flex flex-col overflow-hidden p-0">
             <View
@@ -80,23 +88,36 @@ const Poll = ({ poll }: PollProps) => {
             </View>
 
             <View className="w-full px-4 py-4">
-              <MotiView animate={{ marginBottom: isExpanded ? 24 : 0 }}>
+              <AnimatedView
+                style={{
+                  marginBottom: isExpanded ? 24 : 0,
+                  transitionProperty: 'marginBottom',
+                  ...transition,
+                }}>
                 <Typography className="text-danger-foreground text-center font-medium leading-snug">
                   {poll.title}
                 </Typography>
-              </MotiView>
+              </AnimatedView>
 
-              <MotiView
+              <AnimatedView
                 pointerEvents={isExpanded ? 'auto' : 'none'}
                 key="polls"
-                animate={{
+                style={{
+                  width: '100%',
+                  overflow: 'hidden',
                   height: isExpanded ? expandedHeight : 0,
                   opacity: isExpanded ? 1 : 0,
-                }}
-                style={{ width: '100%', overflow: 'hidden' }}>
-                <MotiView
+                  transitionProperty: ['height', 'opacity'],
+                  ...transition,
+                }}>
+                <AnimatedView
                   pointerEvents={hideOptions ? 'none' : 'auto'}
-                  animate={{ opacity: hideOptions ? 0 : 1, left: hideOptions ? -50 : 0 }}>
+                  style={{
+                    opacity: hideOptions ? 0 : 1,
+                    left: hideOptions ? -50 : 0,
+                    transitionProperty: ['opacity', 'left'],
+                    ...transition,
+                  }}>
                   <View
                     onLayout={(e) => setContentHeight(e.nativeEvent.layout.height)}
                     className="absolute left-0 right-0 top-0 flex flex-col gap-1">
@@ -110,11 +131,16 @@ const Poll = ({ poll }: PollProps) => {
                       </Button>
                     ))}
                   </View>
-                </MotiView>
+                </AnimatedView>
 
-                <MotiView
+                <AnimatedView
                   pointerEvents="none"
-                  animate={{ opacity: showHiddenState ? 1 : 0, right: showHiddenState ? 0 : -50 }}>
+                  style={{
+                    opacity: showHiddenState ? 1 : 0,
+                    right: showHiddenState ? 0 : -50,
+                    transitionProperty: ['opacity', 'right'],
+                    ...transition,
+                  }}>
                   <View
                     onLayout={(e) => setHiddenResultsHeight(e.nativeEvent.layout.height)}
                     className="absolute left-0 right-0 top-0 flex w-full flex-row items-center justify-start gap-3">
@@ -125,11 +151,16 @@ const Poll = ({ poll }: PollProps) => {
                       {hasVoted ? 'Du har stemt' : 'Avstemningen er avsluttet'}
                     </Typography>
                   </View>
-                </MotiView>
+                </AnimatedView>
 
-                <MotiView
+                <AnimatedView
                   pointerEvents={showResults ? 'auto' : 'none'}
-                  animate={{ opacity: showResults ? 1 : 0, right: showResults ? 0 : -50 }}>
+                  style={{
+                    opacity: showResults ? 1 : 0,
+                    right: showResults ? 0 : -50,
+                    transitionProperty: ['opacity', 'right'],
+                    ...transition,
+                  }}>
                   <View
                     onLayout={(e) => setShowResultsHeight(e.nativeEvent.layout.height)}
                     className="absolute left-0 right-0 top-0 flex w-full flex-col items-stretch gap-1">
@@ -164,8 +195,8 @@ const Poll = ({ poll }: PollProps) => {
                       </Pressable>
                     </View>
                   </View>
-                </MotiView>
-              </MotiView>
+                </AnimatedView>
+              </AnimatedView>
             </View>
 
             <Link href={`${baseUrl}/polls`} asChild>
@@ -178,7 +209,7 @@ const Poll = ({ poll }: PollProps) => {
             </Link>
           </Surface>
         </TouchableOpacity>
-      </MotiView>
+      </AnimatedView>
     </View>
   );
 };
