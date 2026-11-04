@@ -54,7 +54,7 @@ const ArticlesCarousel = ({ articles }: ArticlesCarouselProps) => {
       <View className="flex flex-row items-center justify-between">
         <Typography type="h4">Artikler</Typography>
         <Pressable
-          onPress={() => handlePress(`${env.EXPO_PUBLIC_FRONTEND_URL}/articles`)}
+          onPress={() => handlePress('')}
           className="flex flex-row items-center gap-1 py-1 active:opacity-70">
           <Typography className="text-foreground text-sm">Se flere artikler</Typography>
           <Icon name="SquareArrowOutUpRight" size={14} className="text-foreground" />
