@@ -2,7 +2,7 @@ import Icon from '@/components/icon';
 import env from '@/env';
 import { components } from '@/lib/types/schema';
 import { Typography } from 'heroui-native';
-import { useState } from 'react';
+import { ComponentProps, useState } from 'react';
 import {
   LayoutChangeEvent,
   Linking,
@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import PaginationDots from '@/components/ui/pagination-dots';
 import ArticleCard from './article-card';
+import { cn } from '@/lib/utils';
 
 type PublicArticleItem = components['schemas']['PublicArticle'];
 
@@ -22,9 +23,9 @@ const CARD_GAP = 12;
 
 type ArticlesCarouselProps = {
   articles: PublicArticleItem[];
-};
+} & ComponentProps<typeof View>;
 
-const ArticlesCarousel = ({ articles }: ArticlesCarouselProps) => {
+const ArticlesCarousel = ({ articles, className, ...props }: ArticlesCarouselProps) => {
   const [width, setWidth] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -50,7 +51,7 @@ const ArticlesCarousel = ({ articles }: ArticlesCarouselProps) => {
   };
 
   return (
-    <View className="gap-2">
+    <View className={cn('gap-2', className)} {...props}>
       <View className="flex flex-row items-center justify-between">
         <Typography type="h4">Artikler</Typography>
         <Pressable

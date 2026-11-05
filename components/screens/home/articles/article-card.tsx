@@ -1,5 +1,6 @@
 import { Image as ExpoImage } from 'expo-image';
 import { Card, Chip } from 'heroui-native';
+import { ComponentProps } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { withUniwind } from 'uniwind';
 
@@ -12,8 +13,7 @@ type ArticleCardProps = {
   coverPlaceholder?: string;
   tags: string[];
   width: number;
-  onPress?: () => void;
-};
+} & ComponentProps<typeof TouchableOpacity>;
 
 const ArticleCard = ({
   title,
@@ -22,10 +22,11 @@ const ArticleCard = ({
   coverPlaceholder,
   tags,
   width,
-  onPress,
+  style,
+  ...props
 }: ArticleCardProps) => {
   return (
-    <TouchableOpacity onPress={onPress} style={{ width }}>
+    <TouchableOpacity style={[style, { width }]} {...props}>
       <Card className="overflow-hidden p-0">
         <Image
           source={cover}

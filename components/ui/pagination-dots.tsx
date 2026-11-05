@@ -1,3 +1,5 @@
+import { cn } from '@/lib/utils';
+import { ComponentProps } from 'react';
 import { View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { withUniwind } from 'uniwind';
@@ -7,13 +9,13 @@ const AnimatedView = withUniwind(Animated.View);
 type PaginationDotsProps = {
   count: number;
   activeIndex: number;
-};
+} & ComponentProps<typeof View>;
 
-const PaginationDots = ({ count, activeIndex }: PaginationDotsProps) => {
+const PaginationDots = ({ count, activeIndex, className, ...props }: PaginationDotsProps) => {
   if (count <= 1) return null;
 
   return (
-    <View className="flex flex-row items-center justify-center gap-1.5">
+    <View className={cn('flex flex-row items-center justify-center gap-1.5')} {...props}>
       {Array.from({ length: count }).map((_, i) => {
         const active = i === activeIndex;
         return (
