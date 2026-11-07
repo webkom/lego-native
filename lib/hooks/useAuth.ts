@@ -13,6 +13,7 @@ import { RESET } from 'jotai/utils';
 import { useEffect, useState } from 'react';
 import { userAtom } from '../atoms/user-atom';
 import { me } from '../services/auth';
+import { api, fetchClient } from '../services/api';
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -59,6 +60,11 @@ export const signOut = async () => {
   const store = getDefaultStore();
   await store.set(userAtom, RESET);
   await AsyncStorage.multiRemove(['session-token', 'refresh-token', 'expires-at']);
+  try {
+    await fetchClient.DELETE('/api/v1/device-expo/unregister/');
+  } catch (error) {
+    console.warn('Failed to unregister push token: ', error);
+  }
 };
 
 export const checkSessionToken = async () => {
