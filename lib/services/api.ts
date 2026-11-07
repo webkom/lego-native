@@ -1,7 +1,8 @@
-import createFetchClient from 'openapi-fetch';
-import createClient from 'openapi-react-query';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import env from 'env';
+import createFetchClient from 'openapi-fetch';
+import createClient from 'openapi-react-query';
+import { updateSessionToken } from '../hooks/useAuth';
 import type { paths } from '../types/schema';
 
 const fetchClient = createFetchClient<paths>({
@@ -10,6 +11,8 @@ const fetchClient = createFetchClient<paths>({
 
 fetchClient.use({
   async onRequest({ request }) {
+    await updateSessionToken();
+
     const token = await AsyncStorage.getItem('session-token');
     if (token) {
       request.headers.set('Authorization', `Bearer ${token}`);
