@@ -2,7 +2,7 @@ import Icon from '@/components/icon';
 import { useFrontPageData } from '@/lib/hooks/useFrontPageData';
 import { usePoll } from '@/lib/hooks/usePolls';
 import { Link } from 'expo-router';
-import { Button, Surface, Typography } from 'heroui-native';
+import { Button, Skeleton, Surface, Typography } from 'heroui-native';
 import { useCallback, useEffect, useState } from 'react';
 import { Pressable, TouchableOpacity, View } from 'react-native';
 import Animated, { FadeIn } from 'react-native-reanimated';
@@ -18,7 +18,7 @@ const transition = {
 } as const;
 
 type PollProps = {
-  poll: ReturnType<typeof useFrontPageData>['poll'];
+  poll?: ReturnType<typeof useFrontPageData>['poll'];
 };
 
 const Poll = ({ poll }: PollProps) => {
@@ -59,6 +59,7 @@ const Poll = ({ poll }: PollProps) => {
     [poll, mutateVote]
   );
 
+  if (poll === undefined) return <Skeleton className="h-30 w-full rounded-2xl" />;
   if (!poll) return null;
 
   const isOpen = !poll.validUntil || new Date(poll.validUntil) > new Date();

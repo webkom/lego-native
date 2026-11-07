@@ -25,7 +25,7 @@ const HomePage = () => {
   };
 
   const presentations = events
-    .filter((e) => {
+    ?.filter((e) => {
       const t = e.eventType;
       return (
         t === 'company_presentation' ||
@@ -39,7 +39,7 @@ const HomePage = () => {
     .slice(0, 3);
 
   const other = events
-    .filter((e) => {
+    ?.filter((e) => {
       const t = e.eventType;
       return t === 'other' || t === 'event' || t === 'social' || t === 'party' || t === 'gala';
     })

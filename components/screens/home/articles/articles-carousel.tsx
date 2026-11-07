@@ -1,7 +1,7 @@
 import Icon from '@/components/icon';
 import env from '@/env';
 import { components } from '@/lib/types/schema';
-import { Typography } from 'heroui-native';
+import { Skeleton, Typography } from 'heroui-native';
 import { ComponentProps, useState } from 'react';
 import {
   LayoutChangeEvent,
@@ -22,16 +22,17 @@ const MAX_ARTICLES = 3;
 const CARD_GAP = 12;
 
 type ArticlesCarouselProps = {
-  articles: PublicArticleItem[];
+  articles?: PublicArticleItem[];
 } & ComponentProps<typeof View>;
 
 const ArticlesCarousel = ({ articles, className, ...props }: ArticlesCarouselProps) => {
   const [width, setWidth] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const items = articles.filter((a) => !a.pinned).slice(0, MAX_ARTICLES);
+  const items = articles?.filter((a) => !a.pinned).slice(0, MAX_ARTICLES);
 
-  if (items.length === 0) return null;
+  if (items === undefined) return <Skeleton className="h-40 w-full rounded-2xl" />;
+  if (items?.length === 0) return null;
 
   const snapInterval = width + CARD_GAP;
 

@@ -2,7 +2,7 @@ import { userAtom } from '@/lib/atoms/user-atom';
 import { useAuth } from '@/lib/hooks/useAuth';
 import { Link, useRouter, useTheme } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Button, Surface, Typography } from 'heroui-native';
+import { Button, Chip, Surface, Typography } from 'heroui-native';
 import { useAtomValue } from 'jotai';
 import { useEffect } from 'react';
 import { Image, KeyboardAvoidingView, View } from 'react-native';
@@ -36,7 +36,7 @@ const SignInPage = () => {
       />
 
       <View className="pt-safe-offset-2 z-30 flex h-full w-full flex-col items-center justify-center gap-5">
-        <View className="flex-1 flex-col items-center justify-center">
+        <View className="flex flex-1 flex-col items-center justify-center">
           <Image
             source={
               theme.dark
@@ -46,6 +46,11 @@ const SignInPage = () => {
             className="h-32 w-72 max-w-full"
             resizeMode="contain"
           />
+          <View className="flex w-full items-center">
+            <Chip className="-mt-5">
+              <Chip.Label>Forhåndsvisning</Chip.Label>
+            </Chip>
+          </View>
         </View>
 
         <KeyboardAvoidingView className="w-full">
